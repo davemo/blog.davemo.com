@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2008/09/positive-dissatisfaction-and-scrum.html)  
-[Index](../../../index-5.html)   [Next](../../../posts/2008/08/work-bliss.html)
-
-### On Work, Macs, Python, Google App Engine and Django
-
-August 27 2008, 4:30 PM  by David Mosher
-
 **On Work**
 
 ****I've been at VendAsta for a week now and I'm happy to say that my [initial
@@ -137,18 +126,3 @@ kinds of knowledge everywhere in between. Just one more thing that makes me
 really feel like I've finally found a job that fits with my never ending thirst
 to work in both worlds. Did I mention, [we're
 hiring?](http://vendasta.com/careers/)
-
-#### Tags
-
-appengine, django, mac, python
-
-#### 7239 views and 1 response
-
--   Jun 30 2009, 10:17 PM
-    ZK@Web Marketing Blog responded:
-    I have just launched a website for a friend in Nepal, who runs a trekking
-    business (he comes highly recommended if you ever want to go hiking in that
-    region). Basically, I decided to try and load test the Django instances on
-    the site, to see how much traffic it could handle... i downloaded and
-    installed siege.. which (as the name suggests) lays siege to your web
-    server.

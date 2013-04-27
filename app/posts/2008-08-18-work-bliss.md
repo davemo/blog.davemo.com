@@ -1,7 +1,3 @@
-### Work Bliss?
-
-August 18 2008, 10:40 PM  by David Mosher
-
 Normally I think most people would associate work with emotions other than
 bliss. It's not often in life you can find yourself working in a job with people
 who are on the same page as you. It's also not too often in life you can find
@@ -39,6 +35,3 @@ take everything I'm saying at face value. Time will tell how things pan out, but
 after the first day I can definitely say that my first day @ VendAsta has been
 far more enlightening and empowering than a couple of years working for other
 companies :)
-
-#### 4863 views and 0 responses
-

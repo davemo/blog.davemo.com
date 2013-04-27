@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/03/yui-uploader-and-ie7-flash-bugs.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2008/12/application-usage-trends.html)
-
-### JavaScript Dependency Management and YUI Loader Quirks
-
-March 13 2009, 11:55 PM  by David Mosher
-
 [Brett](http://bzabos.wordpress.com/) and I recently began refactoring a
 significant amount of the JavaScript that is currently in
 [MyFrontSteps](http://www.myfrontsteps.com) and
@@ -142,7 +130,7 @@ template. Here's a simple example:
 >     {# A CHILD TEMPLATE #}
 >     {% block global.script %}
 >         #include the parent templates global.script contents
->         {{ block.super }} 
+>         {{ block.super }}
 >
 >         // Load our required features
 >         MFSLoader.require( 'MFS.DataGrid', 'uploader', 'MFS.Uploader' );
@@ -171,6 +159,3 @@ is just so much more liberating than having to manually keep track of where
 scripts are getting executed. Because we're also migrating all of our code to
 external library files it makes things that much easier to debug in Firebug as
 well. :)
-
-#### 17788 views and 0 responses
-

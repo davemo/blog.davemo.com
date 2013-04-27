@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post
-
-[Index](../../../index-5.html)  
-[Next](../../../posts/2008/08/on-work-macs-python-google-app-engine-and-dja.html)
-
-### Positive Dissatisfaction and Scrum
-
-September 11 2008, 4:23 PM  by David Mosher
-
 There are some interesting things that happen when a job comes to you as opposed
 to the alternative (read: job hunting trying to find a company that fits you).
 When *you* fit the company things click. Perhaps I'm being a bit presumptuous
@@ -49,10 +38,3 @@ myself in a continual state of Positive Dissatisfaction (have I said that enough
 yet?) so that I'm attempting to contribute with a 110% effort.
 
 When you fit the company, it really makes you want to contribute that way :)
-
-#### Tags
-
-development, scrum
-
-#### 6236 views and 0 responses
-
