@@ -6,12 +6,12 @@
 #
 
 siteConfig =
-  author: "FirstName LastName"
-  title: "my lineman blog"
-  description: "where I post all my brilliant ideas"
-  url: "http://www.mylinemanblog.com"
+  author: "David Mosher"
+  title: "david mosher"
+  description: "personal and semi-professional opinions of a web designer and developer living in saskatoon, sk, canada"
+  url: "http://blog.davemo.com"
   rssCount: 10 #<-- remove, comment, or set to zero to disable RSS generation
-  #disqus: "my_disqus_name" #<-- uncomment and set your disqus account name to enable disqus support
+  disqus: "davidmosher" #<-- uncomment and set your disqus account name to enable disqus support
 
 
 _ = require("underscore")
