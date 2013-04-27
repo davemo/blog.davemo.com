@@ -1,8 +1,20 @@
-<h1>archives</h1>
-<ul>
-<% _(site.posts).chain().reverse().each(function(post){ %>
-  <li>
-    <a href="/<%= post.htmlPath() %>"><%= post.title() %></a>
-  </li>
-<% }) %>
-</ul>
+<article class="post clearfix">
+  <header>
+    <section id="navigation"></section>
+    <h1>archives</h1>
+  </header>
+  <section class="body">
+    <div class="inner">
+      <ul>
+      <% _(site.posts).chain().reverse().each(function(post){ %>
+        <li>
+          <a href="/<%= post.htmlPath() %>"><%= post.title() %></a>
+        </li>
+      <% }) %>
+      </ul>
+    </div>
+  </section>
+</article>
+
+
+

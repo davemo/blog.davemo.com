@@ -12,9 +12,6 @@
           <a href="/"><%= site.title %></a>
         </h1>
         <h2><%= site.description %></h2>
-        <nav>
-          <a href="/">home</a> | <a href="/archive.html">archives</a>
-        </nav>
       </header>
 
       <aside id="sidebar">
@@ -27,6 +24,9 @@
           <p>Programmer, Designer, UX'er, Hacker, Musician, ... wearer of many hats</p>
           <a href="http://github.com/davemo">@davemo on github&nbsp;»</a>
         </section>
+        <nav>
+          <a href="/">home</a> | <a href="/archive.html">archives</a>
+        </nav>
       </aside>
 
       <%= yield %>

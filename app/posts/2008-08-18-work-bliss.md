@@ -1,11 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2008/08/on-work-macs-python-google-app-engine-and-dja.html)
-  [Index](../../../index-5.html)  
-[Next](../../../posts/2009/06/using-the-cloud-as-a-blog.html)
-
 ### Work Bliss?
 
 August 18 2008, 10:40 PM  by David Mosher
