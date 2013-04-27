@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/07/usability-failures-in-the-wild-lego-and-petro.html)
-  [Index](../../../index-4.html)  
-[Next](../../../posts/2009/06/aea-09-themes-and-perspective.html)
-
-### Static design processes lead to usability failures
-
-July 6 2009, 1:34 PM  by David Mosher
-
 Since my excursion to [AEA](http://www.aneventapart.com) '09 in Boston I've been
 doing a lot of thinking about all of this "User Experience" stuff. Much of what
 Andy Clarke said in his [Walls Come Tumbling Down
@@ -88,41 +76,3 @@ These problems are all solvable, they just involve a lot of open communication
 and respect between developers and designers and the willingness to abandon
 processes that are based on static models. The web is dynamic and we should be
 in our design/development methods as well.
-
-#### Tags
-
-design, development, usability, ux
-
-#### 35391 views and 3 responses
-
--   Jul 7 2009, 6:00 AM
-    ryan responded:
-    It was refreshing to read this article. I am in the middle of that exact
-    process now. A designer is laying out a design which I will have to
-    implement. I am using Drupal with a particular theme which naturally comes
-    with some limitations. Even though I gave him the theme, I don't think he is
-    using it to guide his design decisions.
--   Jul 7 2009, 8:29 AM
-
-    David Mosher responded:
-
-    @ryan,
-
-    Most likely your designer will be using a static application like fireworks
-    or photoshop to produce the mockup. I didn't touch on the solution to that
-    as I'm working on another post, but if you read through the slides on Andy
-    Clarke's presentation you can see he advocates doing design right in the
-    browser using CSS and XHTML. Some might consider it a fairly controversial
-    point but I recently used the technique and the amount of cruft I was able
-    to eliminate from my process was astonishing. You end up saving so much time
-    because you don't have that static layer of prototyping that needs to be
-    translated to the web layer.
-
-    See if you can get your designer to read through some of these things like
-    Andy Clarke's presentation. I know it isn't as impacting reading a
-    transcript of a presentation, but the core message is still pretty important
-    :)
-
--   Jul 8 2009, 7:45 PM
-    krystiano responded:
-    Very nice post Dave. I enjoyed it a lot.

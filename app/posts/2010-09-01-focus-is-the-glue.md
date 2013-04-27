@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2010/09/27990294.html)   [Index](../../../index.html)
-  [Next](../../../posts/2010/07/yes-man.html)
-
-### Focus is the Glue
-
-September 1 2010, 8:40 PM  by David Mosher
-
 ![](../../../image/2010/09/14471799-basketball.jpg)
 
 (image courtesy [StuSeeger](http://www.flickr.com/photos/stuseeger/136715887/),
@@ -104,10 +93,4 @@ do. 
 
 All I know is that it feels good to play ball again. It feels good to **focus**
 :)
-
-#### Tags
-
-focus, personal, process
-
-#### 49622 views and 0 responses
 

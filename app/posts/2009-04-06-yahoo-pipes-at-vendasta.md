@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/06/useful-bash-scripting.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2009/03/yui-uploader-and-ie7-flash-bugs.html)
-
-### Yahoo Pipes at VendAsta
-
-April 6 2009, 10:03 PM  by David Mosher
-
 [ **Note**: this post was originally started in September/November, 2008. It's
 been sitting in my drafts for quite a while and I decided it was time to finish
 it up. ]
@@ -126,14 +114,3 @@ VendAsta website: the [Projects](http://www.vendasta.com/projects/) page.
 
 ![The blogroll pipe as
 input](http://davemo.wordpress.com/files/2009/04/picture-6.png "The blogroll pipe as input")
-
-#### Tags
-
-pipes, rss, yahoo
-
-#### 46854 views and 1 response
-
--   Aug 17 2009, 10:19 AM
-    software development uk responded:
-    Humm... interesting,\
-    Thanks for writing, most people don't bother.

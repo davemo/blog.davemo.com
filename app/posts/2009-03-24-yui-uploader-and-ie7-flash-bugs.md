@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/04/yahoo-pipes-at-vendasta.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2009/03/javascript-dependency-management-and-yui-load.html)
-
-### YUI Uploader and IE7 Flash Bugs
-
-March 24 2009, 12:03 PM  by David Mosher
-
 We covered a lot of ground on the [MyFrontSteps](http://www.myfrontsteps.com)
 project this week. We managed to migrate our Photo Management / Uploading
 solution on Homebook from [SWFUpload](http://swfupload.org/) and a lot of hacked
@@ -83,10 +71,4 @@ triggered show/hide of the 'li' element with the 'a' inside:
 
 This way the flash element never gets hidden, and IE7 doesn't do anything funky
 to it so the uploader remains operational.
-
-#### Tags
-
-bugs, flash, ie7, yui
-
-#### 35223 views and 0 responses
 

@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/07/the-most-important-view-in-a-band.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2009/07/static-design-processes-lead-to-usability-fai.html)
-
-### Usability failures in the wild: Lego and Petro Canada
-
-July 8 2009, 10:11 AM  by David Mosher
-
 I've been doing a lot of reading about usability. It's made me think a lot about
 the user experience when I'm designing and developing. It's also made me think a
 lot about the user experience when I'm *NOT* doing anything computer related.
@@ -52,37 +40,3 @@ Posterous won't even let me select a single image to display underneath my
 headings. It wraps them all up into this slideshow. Hey Posterous, if you're
 listening, how about an interface that allows me to select and insert single
 images that were uploaded as part of a bundle?)
-
-#### Tags
-
-lego, usability, ux
-
-#### 34449 views and 3 responses
-
--   Jul 8 2009, 11:12 AM
-    Matt Ventre responded:
-    Gas pump interfaces vary so wildly from station to station and their
-    usability fluctuates accordingly. I've yet to see a visual contradiction
-    like the one you posted, but I'm not at all surprised. How did the
-    fuel-grade selection interface work on this particular pump? That's
-    something that I've observed tripping people up very frequently. Cameron
-    Moll wrote about this last year, interestingly enough, in a piece arguing
-    the benefits of attending conferences
-    ([http://is.gd/1riO6)](http://is.gd/1riO6))
--   Jul 8 2009, 12:07 PM
-
-    David Mosher responded:
-
-    Similar to the images Cameron Moll posted, there are 3 buttons below that
-    have both the grade and price displayed. The usability of the pump overall
-    wasn't something I considered and I should have taken a picture of the whole
-    thing for future reference. It just struck me in a couple ways: 1) that
-    since reading all this UX material I've noticed things like this and 2) it
-    was such a stark contrast because the icon was a complete mirror image.
-
-    I wonder had I not been as aware of usability problems due to my reading
-    would I have even noticed it ;)
-
--   Aug 14 2012, 7:54 AM
-    Gurwinder Singh responded:
-    [I](www.infozguide.com) really liked this post!!

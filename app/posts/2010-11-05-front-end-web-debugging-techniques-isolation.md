@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2011/03/spacey-acoustic-groove.html)  
-[Index](../../../index.html)   [Next](../../../posts/2010/09/27990294.html)
-
-### Front End Web Debugging Techniques : Isolation
-
-November 5 2010, 11:00 PM  by David Mosher
-
 I must be getting older. My idea of "fun" on a Friday night is to go downstairs
 and write a blog post with some of the ideas that have been percolating in my
 brain for the last few months. I am disappoint. Oh well, my impending senility
@@ -117,13 +106,3 @@ but that's a topic for another blog post ;)
 
 I hope this was helpful to you and I wish you luck on improving your front end
 debugging process and reducing the amount of frustration experienced.
-
-#### Tags
-
-css, debugging, engineering, f2e, frontend, html, javascript, webdev
-
-#### 36273 views and 1 response
-
--   Aug 14 2012, 7:52 AM
-    Gurwinder Singh responded:
-    Nice Post!!

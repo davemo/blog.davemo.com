@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/08/vendasta-a-year-in-review.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2009/07/the-most-important-view-in-a-band.html)
-
-### The new Twitter Homepage: Now with 114% more Blue!
-
-July 31 2009, 10:32 AM  by David Mosher
-
 Everyone has been submitting reviews of the new
 [Twitter](http://www.twitter.com) homepage. Most of them focus on usability or
 how the brand will be affected with search being front and center. I'd like to
@@ -28,6 +16,3 @@ things on the page more? What do you think?
 
 ![](../../../image/2009/07/1158376-Picture%2014.png)
 ![](../../../image/2009/07/1158377-Picture%2015.png)
-
-#### 24292 views and 0 responses
-

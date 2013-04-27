@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2011/05/not-afraid.html)  
-[Index](../../../index.html)  
-[Next](../../../posts/2011/03/sad-country-rock-jam.html)
-
-### Immersed in Agile
-
-May 27 2011, 10:07 AM  by David Mosher
-
 I started working as an independent contractor for [Pillar
 Technology](http://www.pillartechnology.com/) over 6 months ago (Nov 1, 2010).
 At the time, I had no idea what was in store for me; looking back now I think
@@ -124,14 +112,3 @@ involves integrity, accountability and a fundamental paradigm shift in your way
 of thinking. Continue to look for ways you can shift your thinking. Be
 open-minded. Teaching is a powerful exercise in self examination and growth; try
 to spend time teaching those around you, it's worth the investment.
-
- 
-
-#### Tags
-
-agile, bdd, craftsmanship, frontend, jasmine, reflection, tdd
-
-#### 971 views and 1 response
-
--   Apr 19 2012, 3:02 PM
-    theronj liked this post.

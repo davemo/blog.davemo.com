@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2008/08/work-bliss.html)  
-[Index](../../../index-5.html)
-
-### Using the cloud as a blog
-
-June 17 2009, 4:55 PM  by David Mosher
-
 I saw Posterous through the [TweetDeck](http://www.tweetdeck.com) update and was
 pleasantly intrigued by the interface. Couldn't have a simpler concept for
 publishing personal stuff if you ask me, so I decided to give it a try and see
@@ -24,10 +13,4 @@ site in a matter of minutes. Yay :)
 Facebook connect integration, auto embedding of media including images, video,
 music and the ability to post via so many methods. This just makes blogging as
 easy as sending email.
-
-#### Tags
-
-cloud, posterous
-
-#### 40043 views and 0 responses
 

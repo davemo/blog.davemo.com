@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/07/static-design-processes-lead-to-usability-fai.html)
-  [Index](../../../index-4.html)  
-[Next](../../../posts/2009/06/useful-bash-scripting.html)
-
-### AEA 09, Themes and Perspective
-
-June 24 2009, 2:34 PM  by David Mosher
-
 I'm sitting in Boston's Logan International Airport because my flight was
 delayed. Normally I'd be tired and cranky but I'm just tired;  the rest of me is
 so encouraged due to the emotional and motivational high I'm on after
@@ -119,34 +107,4 @@ is right when he says that we're in a transition time in the web development
 world. I tweeted the other day that I couldn't remember how I managed to develop
 before Firebug; I think it will be the same way 5 years from now except we'll be
 asking how we ever managed without making UX a priority ;)
-
-#### Tags
-
-aea, aea09, aeaboston, design, ia, ixd, usability, ux
-
-#### 39861 views and 2 responses
-
--   Jun 24 2009, 10:12 PM
-
-    bzabos (Twitter) responded:
-
-    I second everything dmo has mentioned here, the amount of energy moving
-    towards standards and content driven design was incredible.
-
-    The approaches taken to design were far from anything I had seen before. The
-    difference between cracking open photoshop for a first pass vs. performng
-    all types of analysis and research into what answer were trying to solve in
-    the first place!
-
-    It just makes so much sense to figure out the question "what is the
-    problem?" before attempting solve "how do we solve that problem?".
-
--   Jun 25 2009, 3:49 AM
-
-    tmo responded:
-
-    sounds like you had a great time and filled your brain with oodles of ideas
-    and direction for the future!
-
-    also i'd like to ad that i understood 98% of the content in this post ;)
 

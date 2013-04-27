@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/09/preparations-for-pirate-day.html)  
-[Index](../../../index-4.html)  
-[Next](../../../posts/2009/07/the-new-twitter-homepage-now-with-114-more-bl.html)
-
-### VendAsta, A Year in Review
-
-August 6 2009, 4:19 PM  by David Mosher
-
 It was almost a year ago that I
 [posted](http://davemo.wordpress.com/2008/08/18/work-bliss/) on my experiences
 as a new employee at [VendAsta](http://www.vendasta.com) Technologies, one of
@@ -171,17 +159,3 @@ has given me a new appreciation for the work I'm able to do here and the things
 I've been able to accomplish. I think VendAsta will succeed as long as we keep
 hiring exceptional people that strive to improve themselves on a daily basis.
 I'm trying to continue to do that myself ;)
-
-#### Tags
-
-development, reflection, vendasta
-
-#### 23683 views and 2 responses
-
--   Aug 6 2009, 11:45 PM
-    littlemrsmosher responded:
-    congrats on year 1 of many to come!
--   Aug 7 2009, 7:56 AM
-    Tony Arkles responded:
-    I really felt myself nodding along and agreeing with your experiences so
-    far.

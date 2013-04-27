@@ -1,16 +1,4 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/11/the-lego-shelf.html)  
-[Index](../../../index-3.html)  
-[Next](../../../posts/2009/11/deck-completed-bbq-installed-yay-for-grilling.html)
-
-### 3 Things I learned at Barcamp Saskatoon, 2009
-
-November 28 2009, 9:53 PM  by David Mosher
-
-[](/)I attended Bar Camp Saskatoon today and while I wasn't able to stay for the
+I attended Bar Camp Saskatoon today and while I wasn't able to stay for the
 entire series of presentations what I did manage to see was great. I presented
 on [SASS](http://www.sass-lang.com), [Compass](http://www.compass-style.org) and
 CSS Frameworks. My presentation didn't go exactly as I'd planned but I learned
@@ -73,39 +61,4 @@ part of the involvement of Bar Camp Saskatoon) and companies like
 I'm stoked to connect more with people in the tech-community within Saskatoon
 and continue to learn from interesting people. Can't wait until Bar Camp
 Saskatoon 2010 :D
-
-#### Tags
-
-barcamp, barcampstoon, compass, cssframework, sass, vendasta
-
-#### 2615 views and 2 responses
-
--   Nov 29 2009, 8:54 AM
-
-    dezguy (Twitter) responded:
-
-    Dave,
-
-    Nice takeaways from Barcamp. I totally agree that it's awesome to see such a
-    large and thriving tech community.
-
-    I was once an active new media developer / graphic designer (I'm not so
-    hands on anymore)...and what I learned yesterday is how fast tech is
-    changing and how sophisticated the development process is now. Very cool.
-
-    Cheers,\
-    Mike
-
--   Nov 29 2009, 12:20 PM
-
-    David Mosher responded:
-
-    Mike,
-
-    Absolutely agree that the tech changes and it's sometimes even a challenge
-    to stay on top of things. Twitter has helped me with this to some degree as
-    I find people to follow who are closer to those on the bleeding edge of
-    these web technologies.
-
-    Exciting time to be a web developer :)
 

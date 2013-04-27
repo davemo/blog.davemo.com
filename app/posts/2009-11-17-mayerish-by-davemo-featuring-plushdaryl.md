@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2009/11/building-a-deck-in-november-i-love-this-weath.html)
-  [Index](../../../index-3.html)  
-[Next](../../../posts/2009/11/the-sky-in-saskatoon-tonight-is-amazing-like.html)
-
-### "Mayerish" by davemo, featuring plushdaryl
-
-November 17 2009, 10:26 PM  by David Mosher
-
 mayerish\_featuring\_plushdaryl.mp3 [Listen to
 this](../../../audio/2009/11/101670-mayerish_featuring_plushdaryl.mp3)
 
@@ -31,10 +19,3 @@ think it will lead to more experimentation.
 
 I called it "mayerish" cause it reminded me of something John Mayer might write
 on guitar :P
-
-#### 537 views and 1 response
-
--   Nov 18 2009, 4:23 AM
-    Glenda responded:
-    Pretty cool stuff, Davemo. You should do more of this. I think I'd like to
-    paint to music like this.

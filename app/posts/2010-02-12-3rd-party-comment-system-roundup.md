@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2010/02/Wrapping%20up%20sprint%20planning%20on%20the%20@steprep%20team.%20Now%20with%20more%20taskboard%20lanes!%20%23scrum%20%23agile%20-11801345.html)
-  [Index](../../../index-2.html)  
-[Next](../../../posts/2010/02/A%20mini%20low%20res%20blast%20from%20the%20past-11555059.html)
-
-### 3rd Party Comment System Roundup
-
-February 12 2010, 1:58 PM  by David Mosher
-
 We've all seen it. The classic tutorial on [insert popular web framework here]
 that has us building a blogging system in twenty minutes or less. It's actually
 getting kind of old and I'm growing sick of seeing what I'm able to create with
@@ -137,42 +125,3 @@ commenting system and don't want to write it yourself. I hope you learned
 something reading this (I sure did writing it). I made sure to research all the
 facts as best I could before writing but in case I missed anything please feel
 free to let me know in the .... commenting system Posterous has built in :]
-
-#### Tags
-
-comment, framework, javascript, thirdparty, vendasta
-
-#### 6805 views and 3 responses
-
--   Feb 20 2010, 1:31 PM
-
-    Jani Hartikainen responded:
-
-    My main concern with 3rd party systems like these is that they use
-    JavaScript. I've occasionally had glitches with them on desktop browsers,
-    and nowadays when I read more blogs on my phone (like right now), I'm
-    worried the JS trickery may not always work very well on mobile browsers due
-    to their differences.
-
-    Much of their features are possible to include for example in WordPress via
-    plugins (mail on reply etc.)
-
--   Feb 20 2010, 1:43 PM
-
-    David Mosher responded:
-
-    I definitely agree that for mobile devices it might not be the best to rely
-    so heavily on javascript, however if you look at the newer mobile browsers
-    coming out they seem to work fine with most of it.
-
-    Your point about wordpress is true, but even they have support for some of
-    these commenting systems with a plugin. I was mainly considering programmers
-    who want to piece together a blog system and need to know what's available
-    for 3rd party systems :)
-
-    Thanks for your comments Jani :)
-
--   Jul 10 2010, 3:02 PM
-    Car Games responded:
-    I've been Googling all day and I still don't know which system is better for
-    my site; Disqus or Echo? or even maybe Intense Debate.

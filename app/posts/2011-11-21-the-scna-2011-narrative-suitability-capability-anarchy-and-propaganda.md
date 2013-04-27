@@ -1,14 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2012/01/emojii.html)   [Index](../../../index.html)  
-[Next](../../../posts/2011/05/not-afraid.html)
-
-### The SCNA 2011 Narrative : Suitability, Capability, Anarchy and Propaganda
-
-November 21 2011, 1:27 PM  by David Mosher
-
 I attended [Software Crafstmanship North
 America](http://scna.softwarecraftsmanship.org/) in Chicago this weekend and
 came away feeling much differently than I thought I would. I [tweeted a
@@ -199,33 +188,3 @@ To me, the most important narrative of SCNA 2011, and the thoughts behind my
     terms of *suitability and capability*. 
 -   Let go of suitability solutions if they don't give you any value. 
 -   Embrace capability solutions because you might be surprised by their value.
-
-#### Tags
-
-capability, craftsmanship, scna, software, suitability
-
-#### 1005 views and 4 responses
-
--   Nov 21 2011, 2:45 PM
-
-    jboesch (Twitter) responded:
-
-    Awesome write-up dmo!
-
-    While I like a lot of things about Agile, it drives me nuts when someone
-    thinks to resolve any problem, you simply need to turn to Section III:
-    passage 14, verse 18 of the Agile bible. Then kneel and say 10
-    hail-scrum-marry's.
-
-    Education \> Indoctrination for sure.
-
--   Nov 21 2011, 2:54 PM
-    David Mosher responded:
-    You hit the nail on the head. I like your "10 hail-scrum-mary's". Can I use
-    that? ;)
--   Nov 17 2012, 1:39 PM
-    Inderjit Singh responded:
-    Nice Post!!
--   Nov 17 2012, 1:40 PM
-    Inderjit Singh responded:
-    Nice Post!!

@@ -1,15 +1,3 @@
-# david mosher
-
-## This is an archived post This is an archived post
-
-[Previous](../../../posts/2012/09/understanding-view-zombie-events-in-backbonej.html)
-  [Index](../../../index.html)  
-[Next](../../../posts/2012/04/sunday-blues-jam.html)
-
-### The Benefits of Interactive Prototyping
-
-August 22 2012, 7:53 PM  by David Mosher
-
 I had a small epiphany today while working on a new prototype for a client:
 "different stages of prototyping yield different levels of information". I know
 I know, not much of a brainwave there, right? I was never one for writing
@@ -167,10 +155,4 @@ interfaces that are much more usable.
 If you aren't already prototyping interactivity in the browser I would encourage
 you to start as soon as possible, the earlier you start the earlier you'll find
 out how to fix your interface! :)
-
-#### Tags
-
-backbone, bootstrap, ixd, prototyping, ux
-
-#### 515 views and 0 responses
 
