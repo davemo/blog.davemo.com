@@ -11,9 +11,5 @@
     "lineman": "~0.4.10",
     "grunt-markdown-blog": ">= 0.0.6",
     "underscore": "~>1.4.4"
-  },
-  "engines": {
-    "node": "~>0.8.20",
-    "npm": "~>1.2.11"
   }
 }
