@@ -1,7 +1,7 @@
 **On Work**
 
-****I've been at VendAsta for a week now and I'm happy to say that my [initial
-impressions](http://davemo.wordpress.com/2008/08/18/work-bliss/) haven't changed
+****I've been at VendAsta for a week now and I'm happy to say that my initial
+impressions haven't changed
 all that much. It's really fulfilling to go in every day and feel totally
 engaged and encouraged by both the work you're doing and the people you're
 working with. I've heard some people say negative things about VendAsta; things
