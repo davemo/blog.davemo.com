@@ -43,7 +43,8 @@ Open a new html file in Textmate or your favorite code editor and create a brand
 new HTML page. I like to keep a skeleton page so I can do this quickly. This
 page should have no stylesheets or scripts loaded.
 
-[https://gist.github.com/665184](https://gist.github.com/665184)
+
+<script src="https://gist.github.com/davemo/665184.js"></script>
 
 **2. Replicate the Environment**
 
@@ -51,7 +52,7 @@ Bring the HTML in question into your sample page as it appears in your
 production code. Also bring only the CSS that applies to those elements and put
 them in a style block in the head of your sample page.
 
-[https://gist.github.com/665183](https://gist.github.com/665183)
+<script src="https://gist.github.com/davemo/665183.js"></script>
 
 **3. Verify**
 
@@ -61,8 +62,8 @@ to test in and see what kind of results you get. The goal here is to eliminate
 the thousands of lines of other CSS and JavaScript that might be altering the
 way your markup is displayed.
 
-![](../../../image/2010/11/17120048-Screen_shot_2010-11-05_at_10.13.57_PM.png)
-![](../../../image/2010/11/17120050-Screen_shot_2010-11-05_at_10.14.39_PM.png)
+![](/img/17120048-Screen_shot_2010-11-05_at_10.13.57_PM.png)
+![](/img/17120050-Screen_shot_2010-11-05_at_10.14.39_PM.png)
 
 **4. Refactor**
 

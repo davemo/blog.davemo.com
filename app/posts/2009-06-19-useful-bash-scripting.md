@@ -1,4 +1,4 @@
-![](../../../image/2009/06/697960-Picture%2014.png)
+![Useful Bash Scripting](/img/697960-Picture%2014.png)
 
 Kevin Pierce showed me some handy scripting when I was updating some svn stuff.
 

@@ -18,14 +18,13 @@ able to re-enter the form information. Grrr..
 form](http://shop.lego.com/TermsPolicies/request_catalog.asp), so you don't have
 to hunt for it] :)
 
-![](../../../image/2009/07/890217-Picture%208.png)
-![](../../../image/2009/07/890218-Picture%209.png)
-![](../../../image/2009/07/890219-Picture%2010.png)
-![](../../../image/2009/07/890220-Picture%2011.png)
-![](../../../image/2009/07/890221-Picture%2012.png)
-![](../../../image/2009/07/890222-Picture%2013.png)
-![](../../../image/2009/07/890223-Picture%2014.png)
-![](../../../image/2009/07/890224-Picture%2015.png)
+![](/img/890217-Picture%208.png)
+![](/img/890218-Picture%209.png)
+![](/img/890219-Picture%2010.png)
+![](/img/890220-Picture%2011.png)
+![](/img/890221-Picture%2012.png)
+![](/img/890222-Picture%2013.png)
+![](/img/890223-Picture%2014.png)
 
 ### Petro Canada Usability Failure
 

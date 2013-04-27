@@ -12,7 +12,7 @@ brief look at three of the most popular systems to see what each offers us.
 
 ****
 
-![](../../../image/2010/02/6538176-media_httpfarm3static_zwrDw.png)
+![](/img/6538176-media_httpfarm3static_zwrDw.png)
 
 [www.intensedebate.com](http://www.intensedebate.com)
 
@@ -37,9 +37,9 @@ comments to.
 
 #### Sample Code
 
-![](../../../image/2010/02/6538431-media_httpfarm5static_keJjk.png)
+![](/img/6538431-media_httpfarm5static_keJjk.png)
 
-![](../../../image/2010/02/6538432-media_httpfarm3static_EDxfH.png)
+![](/img/6538432-media_httpfarm3static_EDxfH.png)
 
 How about the user experience when commenting on a site? This is where I really
 appreciate the power of third party commenting systems, with the value added by
@@ -59,7 +59,7 @@ team. Did I mention it's free?
 
 ****
 
-![](../../../image/2010/02/6538178-media_httpfarm3static_rBiqF.png)
+![](/img/6538178-media_httpfarm3static_rBiqF.png)
 
 [www.js-kit.com](http://www.js-kit.com)
 
@@ -82,7 +82,7 @@ The code seems easy enough to understand:
 
 #### Sample Code
 
-![](../../../image/2010/02/6538433-media_httpfarm5static_huuwm.png)
+![](/img/6538433-media_httpfarm5static_huuwm.png)
 
 JS-Kit is ok but Intense Debate being free and providing essentially the same
 core features without all the "bells and whistles" appeals to me much more. YMMV
@@ -94,7 +94,7 @@ core features without all the "bells and whistles" appeals to me much more. YMMV
 
 ****
 
-![](../../../image/2010/02/6538177-media_httpfarm3static_vHgyp.png)
+![](/img/6538177-media_httpfarm3static_vHgyp.png)
 
 [www.disqus.com](http://www.disqus.com)
 
@@ -110,7 +110,7 @@ very easy to inject into any page, static or dynamic.
 
 #### Sample Code
 
-![](../../../image/2010/02/6538434-media_httpfarm5static_jiFnk.png)
+![](/img/6538434-media_httpfarm5static_jiFnk.png)
 
 Disqus also gives you the power to control the look and feel of the commenting
 interface right inside their control panel. This is a pretty nice feature for

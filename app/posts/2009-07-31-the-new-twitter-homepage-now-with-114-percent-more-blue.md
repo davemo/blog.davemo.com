@@ -14,5 +14,5 @@ things on the page more? What do you think?
 
 (Old site: 7 blues that I could count, New site: 16 blues!)
 
-![](../../../image/2009/07/1158376-Picture%2014.png)
-![](../../../image/2009/07/1158377-Picture%2015.png)
+![](/img/1158376-Picture%2014.png)
+![](/img/1158377-Picture%2015.png)

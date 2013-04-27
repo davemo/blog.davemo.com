@@ -1,4 +1,4 @@
-![](../../../image/2010/09/14471799-basketball.jpg)
+![](/img/14471799-basketball.jpg)
 
 (image courtesy [StuSeeger](http://www.flickr.com/photos/stuseeger/136715887/),
 Flickr).
