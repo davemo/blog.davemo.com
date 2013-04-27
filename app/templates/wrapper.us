@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="wrap">
-      <header id="root">
+      <header class="root">
         <h1>
           <a href="http://blog.davemo.com"><%= site.title %></a>
         </h1>
@@ -19,7 +19,7 @@
 
       <%= yield %>
 
-      <footer>
+      <footer class="root">
         Copyright <%= site.author %>, <%= new Date().getFullYear() %>.
       </footer>
     </div>
