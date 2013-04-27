@@ -9,13 +9,30 @@
     <div id="wrap">
       <header class="root">
         <h1>
-          <a href="http://blog.davemo.com"><%= site.title %></a>
+          <a href="/"><%= site.title %></a>
         </h1>
         <h2><%= site.description %></h2>
         <nav>
           <a href="/">home</a> | <a href="/archive.html">archives</a>
         </nav>
       </header>
+
+      <aside id="sidebar">
+        <section id="profile">
+          <h1>
+            <a href="http://github.com/davemo" title="David Mosher's Github">
+              <img class="profile_image" src="/img/davatar.jpg" alt="David Mosher">
+            </a>
+          </h1>
+          <p>Programmer, Designer, UX'er, Hacker, Musician, ... wearer of many hats</p>
+<!--           <div class="external">
+            <a href="http://twitter.com/dmosher" rel="me">Twitter</a>
+            <a href="http://www.facebook.com/davidmosher" rel="me">Facebook</a>
+            <a href="http://github.com/davemo" rel="me">Github</a>
+          </div> -->
+          <a href="http://github.com/davemo">@davemo on github&nbsp;»</a>
+        </section>
+      </aside>
 
       <%= yield %>
 
