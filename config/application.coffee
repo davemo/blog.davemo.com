@@ -13,7 +13,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend "application
     options:
       author: "David Mosher"
       title: "david mosher"
-      description: "personal and semi-professional opinions of a web designer and developer living in saskatoon, sk, canada"
+      description: "personal and semi-professional opinions of a web designer and developer living in ottawa, canada"
       url: "http://blog.davemo.com"
       rssCount: 10
       dateFormat: 'MMMM Do, YYYY'
