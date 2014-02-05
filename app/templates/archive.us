@@ -6,7 +6,7 @@
   <section class="body">
     <div class="inner">
       <ul>
-      <% _(site.posts).chain().reverse().each(function(post){ %>
+      <% site.posts.slice().reverse().forEach(function(post){ %>
         <li>
           <a href="/<%= post.htmlPath() %>"><%= post.title() %></a>
         </li>
