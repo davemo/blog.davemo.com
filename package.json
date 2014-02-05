@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "lineman": "0.21.3",
-    "grunt-markdown-blog": "0.2.3",
+    "grunt-markdown-blog": "0.2.4",
     "underscore": "1.5.2"
   }
 }
