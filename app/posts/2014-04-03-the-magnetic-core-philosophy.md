@@ -1,6 +1,6 @@
 Do software companies succeed because of the technology they use or is it due to the discipline and talent of their engineering and design teams? Is it the right combination of vision and direction from leadership that leads to success or just simply being in the right place at the right time? All of these things are potential contributing factors to the success of a software company but none of them stand alone as reasons for success.
 
-The companies that succeed are the ones who solve their customers business problems with excellence, regardless of technology, leadership, or team composition. To attribute success to any one dimension, such as technology choice, is at best naïve and at worst renders that dimension untouchable.
+The companies that succeed are the ones who solve their customers business problems with excellence, regardless of technology, leadership, or team composition. To attribute success to any one dimension, such as technology choice, is at best naive and at worst renders that dimension untouchable.
 
 ## alignment challenges
 
