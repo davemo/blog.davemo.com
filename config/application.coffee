@@ -7,7 +7,11 @@
 
 module.exports = require(process.env['LINEMAN_MAIN']).config.extend "application",
 
-  loadNpmTasks: ["grunt-markdown-blog", "grunt-contrib-copy"]
+  loadNpmTasks: [
+    "grunt-markdown-blog",
+    "grunt-contrib-copy",
+    "grunt-contrib-less"
+  ]
 
   markdown:
     options:
