@@ -1,3 +1,7 @@
+language: node_js
+node_js:
+- 0.10
+script: "lineman build"
 deploy:
   provider: heroku
   buildpack: http://github.com/testdouble/heroku-buildpack-lineman.git
