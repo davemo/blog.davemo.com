@@ -1,5 +1,6 @@
 deploy:
   provider: heroku
+  buildpack: http://github.com/testdouble/heroku-buildpack-lineman.git
   api_key:
     secure: S75QHTHoFAD5aC7qPVxwoNNAkHlA/X6HqN7hg6mzsxmIN9jSHbgMyNbjFvBHeH2YcNM+qs/L3InZQACiKVUm67H2lQ7ua838/msKxYaiJhat4tnsCg3ooHagMtxa+q8fqNOkYX6ilZxCVx5pIZGMkq8H3WjY7ItLDbk1okYsa+8=
   app: blog-davemo
