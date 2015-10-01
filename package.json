@@ -7,10 +7,15 @@
     "name": "John Doe",
     "company": "ACME, Inc."
   },
-  "dependencies": {
-    "lineman": "0.28.2",
-    "lineman-blog": "~0.0.3",
-    "grunt-contrib-copy": "~0.4.1",
+  "devDependencies": {
+    "lineman": "0.36.6",
+    "lineman-blog": "0.0.3",
+    "grunt-contrib-copy": "0.4.1",
     "lineman-less": "0.0.1"
+  },
+  "scripts": {
+    "start": "lineman run",
+    "postinstall": "lineman build",
+    "test": "lineman spec"
   }
 }
