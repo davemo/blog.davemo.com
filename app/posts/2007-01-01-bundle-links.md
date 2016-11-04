@@ -8,3 +8,4 @@ Links for various talks, screencasts I've given:
 * [Books - 7 Habits of Highly Effective People](https://www.stephencovey.com/7habits/7habits.php)
 * [Crucial Conversations Book - VitalSmarts](https://www.vitalsmarts.com/crucialconversations/)
 
+

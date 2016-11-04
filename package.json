@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "lineman run",
-    "postinstall": "lineman build --force",
+    "postinstall": "lineman build",
     "test": "lineman spec"
   }
 }

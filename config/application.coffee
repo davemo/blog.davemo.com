@@ -45,28 +45,5 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend "application
         js: "/js/app.js"
         css: "/css/app.css"
 
-  # hidden files
-
-  copy:
-    dev:
-      files: [expand: true, src: '.well-known/*', dest: 'generated']
-    dist:
-      files: [expand: true, src: '.well-known/*', dest: 'dist']
-
-  # Use grunt-markdown-blog in lieu of Lineman's built-in homepage task
-  appendTasks:
-    common: "copy:dev"
-    dist: "copy:dist"
-
-  prependTasks:
-    dev: "markdown:dev"
-    dist: "markdown:dist"
-
   removeTasks:
-    common: ["homepage:dev", "jshint"]
-    dist: "homepage:dist"
-
-  watch:
-    markdown:
-      files: ["app/posts/*.md", "app/templates/*.us"]
-      tasks: ["markdown:dev"]
+    common: "jshint"
