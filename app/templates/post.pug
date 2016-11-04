@@ -18,10 +18,11 @@ article.post.clearfix
   footer
     .responses
       if site.disqus
+        #disqus_thread
         script(type='text/javascript').
           window.disqus_identifier="";
           window.disqus_url="#{site.url}/#{post.htmlPath()}";
           window.disqus_title="#{post.title()}";
         script(type='text/javascript' src=`http://disqus.com/forums/${site.disqus}/embed.js`)
         noscript.
-          a(href=`http://${site.disqus}.disqus.com/?url=ref`)
+          a(href="http://#{site.disqus}.disqus.com/?url=ref")
