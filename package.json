@@ -17,5 +17,8 @@
     "start": "lineman run",
     "postinstall": "lineman build",
     "test": "lineman spec"
+  },
+  "engines": {
+    "node": "7.0.0"
   }
 }
