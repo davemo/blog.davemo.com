@@ -1,0 +1,27 @@
+article.post.clearfix
+  header
+    section#navigation
+      time#pub-date(datetime='')
+        a(href=`${post.htmlPath()}`) #{post.date()}
+      .older-newer
+        if site.newerPost(post)
+          .newer
+            a(href=`/${site.newerPost(post).htmlPath()}`) &#8672;&nbsp;newer
+        if site.olderPost(post)
+          .older
+            a(href=`/${site.olderPost(post).htmlPath()}`) older&nbsp;&#8674;
+    h1.post-title
+      a(href=`/${post.htmlPath()}`)
+  section.body
+    .inner
+      | !{post.content()}
+  footer
+    .responses
+      if site.disqus
+        script(type='text/javascript').
+          window.disqus_identifier="";
+          window.disqus_url="#{site.url}/#{post.htmlPath()}";
+          window.disqus_title="#{post.title()}";
+        script(type='text/javascript' src=`http://disqus.com/forums/${site.disqus}/embed.js`)
+        noscript.
+          a(href=`http://${site.disqus}.disqus.com/?url=ref`)

@@ -1,0 +1,11 @@
+article.post.clearfix
+  header
+    section#navigation
+    h1 archives
+  section.body
+    .inner
+      ul
+        - _(site.posts).chain().clone().reverse().each(function(post){
+          li
+            a(href=`/${post.htmlPath()}`) #{post.title()}
+        - })

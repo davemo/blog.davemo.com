@@ -1,4 +1,4 @@
-Links for various talks, screencasts I've given:
+Link Bundles for various talks and screencasts I've given:
 
 # <a name="empathy-equation">The Empathy Equation</a>
 
