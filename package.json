@@ -8,13 +8,14 @@
     "company": "ACME, Inc."
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
     "lineman": "0.36.6",
     "lineman-blog": "~0.0.3",
     "lineman-less": "0.1.0"
   },
   "scripts": {
     "start": "lineman run",
-    "postinstall": "lineman build",
+    "postinstall": "lineman build --force",
     "test": "lineman spec"
   }
 }

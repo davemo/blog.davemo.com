@@ -63,7 +63,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend "application
     dist: "markdown:dist"
 
   removeTasks:
-    common: "homepage:dev"
+    common: ["homepage:dev", "jshint"]
     dist: "homepage:dist"
 
   watch:
