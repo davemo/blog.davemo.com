@@ -14,8 +14,12 @@ module.exports = (lineman) ->
       files: [ expand: true, cwd: 'static', src: '**', dest: 'dist' ]
 
   appendTasks:
-    common: lineman.config.application.appendTasks.common.concat("copy:dev")
-    dist: lineman.config.application.appendTasks.common.concat("copy:dist")
+    common: "copy:dev"
+    dist: "copy:dist"
+
+   prependTasks:
+     dev: "markdown:dev"
+     dist: "markdown:dist"
 
   removeTasks:
     common: lineman.config.application.removeTasks.common.concat(
