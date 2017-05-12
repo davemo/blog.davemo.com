@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/dmosher
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.davemo.com
+  * I am dmosher (https://keybase.io/dmosher) on keybase.
+  * I have a public key ASAjl7nZA81gfQd-iomz3uGBjmQfBlYnEOEnehGNxILLGgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101637afe7749d75600747414d684277a73ae345c45ed32f85fa98f885cad783cbc0a",
+            "host": "keybase.io",
+            "kid": "01202397b9d903cd607d077e8a89b3dee1818e641f06562710e1277a118dc482cb1a0a",
+            "uid": "75fc8f9b985ffc6fe92647d19f966200",
+            "username": "dmosher"
+        },
+        "service": {
+            "hostname": "www.davemo.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.22"
+    },
+    "ctime": 1494559874,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1494559825,
+        "hash": "dbbc1a948a724ad3826bb3cb4be4c6bc6292fd459efcd9dbf7d2c9b687e783b1518d0eda7a517cb544a62f78f9e26040a6c3d0bea2c2755626208bdfef4f617d",
+        "seqno": 1069739
+    },
+    "prev": "de68ad6cd4bdc8df66bd039461bfb799f7690fb6b5b1f50579ad70b9a2b75a81",
+    "seqno": 16,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgI5e52QPNYH0HfoqJs97hgY5kHwZWJxDhJ3oRjcSCyxoKp3BheWxvYWTFAvZ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNjM3YWZlNzc0OWQ3NTYwMDc0NzQxNGQ2ODQyNzdhNzNhZTM0NWM0NWVkMzJmODVmYTk4Zjg4NWNhZDc4M2NiYzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMjM5N2I5ZDkwM2NkNjA3ZDA3N2U4YTg5YjNkZWUxODE4ZTY0MWYwNjU2MjcxMGUxMjc3YTExOGRjNDgyY2IxYTBhIiwidWlkIjoiNzVmYzhmOWI5ODVmZmM2ZmU5MjY0N2QxOWY5NjYyMDAiLCJ1c2VybmFtZSI6ImRtb3NoZXIifSwic2VydmljZSI6eyJob3N0bmFtZSI6Ind3dy5kYXZlbW8uY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yMiJ9LCJjdGltZSI6MTQ5NDU1OTg3NCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDk0NTU5ODI1LCJoYXNoIjoiZGJiYzFhOTQ4YTcyNGFkMzgyNmJiM2NiNGJlNGM2YmM2MjkyZmQ0NTllZmNkOWRiZjdkMmM5YjY4N2U3ODNiMTUxOGQwZWRhN2E1MTdjYjU0NGE2MmY3OGY5ZTI2MDQwYTZjM2QwYmVhMmMyNzU1NjI2MjA4YmRmZWY0ZjYxN2QiLCJzZXFubyI6MTA2OTczOX0sInByZXYiOiJkZTY4YWQ2Y2Q0YmRjOGRmNjZiZDAzOTQ2MWJmYjc5OWY3NjkwZmI2YjViMWY1MDU3OWFkNzBiOWEyYjc1YTgxIiwic2Vxbm8iOjE2LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQFD42jQ7Ax/CS+2EUOg093FiP8HyPUxfK/YjXMHgV2LYMFC2szJCqdNbfxOcWVkyz56gj6x4v9LcfmXQQ6Sn3wuoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCChfYd/vKyfXWhkPw/d7ynbm/Ue+RR5zIVeU2AOS2YlTKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dmosher
+
+==================================================================
