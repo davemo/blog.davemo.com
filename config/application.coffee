@@ -7,12 +7,6 @@
 
 module.exports = (lineman) ->
 
-  copy:
-    dev:
-      files: [ expand: true, cwd: 'static', src: '**', dest: 'generated' ]
-    dist:
-      files: [ expand: true, cwd: 'static', src: '**', dest: 'dist' ]
-
   appendTasks:
     common: "copy:dev"
     dist: "copy:dist"

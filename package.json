@@ -10,7 +10,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "lineman": "^0.36.6",
-    "lineman-blog": "^1.0.0",
+    "lineman-blog": "^1.1.0",
     "lineman-less": "0.1.0",
     "lineman-pug": "^0.2.0"
   },
