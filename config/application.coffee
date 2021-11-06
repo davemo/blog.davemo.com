@@ -23,5 +23,5 @@ module.exports = (lineman) ->
       author: "David A. Mosher"
       title: "blog: david mosher"
       description: "personal opinions from a software developer living in ottawa, canada"
-      url: "http://blog.davemo.com"
+      url: "https://blog.davemo.com"
       dateFormat: 'MMMM Do, YYYY'

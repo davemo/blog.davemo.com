@@ -1,6 +1,6 @@
 It was almost a year ago that I
-[posted](http://davemo.wordpress.com/2008/08/18/work-bliss/) on my experiences
-as a new employee at [VendAsta](http://www.vendasta.com) Technologies, one of
+[posted](https://davemo.wordpress.com/2008/08/18/work-bliss/) on my experiences
+as a new employee at [VendAsta](https://www.vendasta.com) Technologies, one of
 the newest technology companies in Saskatoon. I think it's a good idea to have a
 blog to look back on, it's a really good indication of the accomplishments
 you've made and gives you the ability to reflect on what your mindset was and
@@ -96,13 +96,13 @@ disciplines from my previous experience. Looking back at what I've accomplished
 in the last year I think it's safe to say that my toolbox has grown
 considerably. I didn't have much in the way of experience writing unit tests,
 which is a core philosophy at VendAsta. Writing tests and examining [Test Driven
-Development](http://en.wikipedia.org/wiki/Test_driven_development) has given me
+Development](https://en.wikipedia.org/wiki/Test_driven_development) has given me
 a new appreciation for efficient ways to tackle development. The "Red. Green.
 Refactor" mantra is something I've taken to heart, not just when writing unit
 tests but when writing my actual code as well. I've learned about things like
-[Dependency Injection](http://en.wikipedia.org/wiki/Dependency_injection), how
-to [refactor](http://en.wikipedia.org/wiki/Refactor) efficiently, and how
-[abstraction](http://en.wikipedia.org/wiki/Abstraction_(computer_science)) can
+[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection), how
+to [refactor](https://en.wikipedia.org/wiki/Refactor) efficiently, and how
+[abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science)) can
 help achieve reusability. I've taken my knowledge of CSS and HTML to a new
 level, something I thought starting out last year that I had mastered. I've also
 learned that I haven't really mastered anything as a software developer/designer
@@ -111,11 +111,11 @@ and I probably never will, but that's ok :)
 I've written more JavaScript in the last year than I did in the previous 6 years
 combined. Being able to understand the language at it's lower levels has given
 me an appreciation for the abstractions available in current libraries like
-[jQuery](http://www.jquery.com) and [YUI](http://developer.yahoo.com/yui/).
-Reading and learning from [Douglas Crockford](http://crockford.com/) and the YUI
+[jQuery](https://www.jquery.com) and [YUI](https://developer.yahoo.com/yui/).
+Reading and learning from [Douglas Crockford](https://crockford.com/) and the YUI
 Theatre have proved to be an invaluable tool in my JavaScript toolbox. Closures,
 Prototypal Inheritance, and [Dependency
-Management](http://davemo.wordpress.com/2009/03/13/javascript-dependency-management-and-yui-loader-quirks/)
+Management](https://davemo.wordpress.com/2009/03/13/javascript-dependency-management-and-yui-loader-quirks/)
 are all things I've learned to deal with effectively. As much as I've learned
 about JS in the last year I still feel I've only touched the tip of the ice berg
 in terms of what's capable. JavaScript is truly an expressive and powerful
@@ -123,13 +123,13 @@ language and I think many people in the software development community
 underestimate it as something that is the language of web hackers and script
 kiddies; they couldn't be more wrong.
 
-I had dabbled with [Django](http://www.djangoproject.com) and
-[Python](http://python.org/) at the beginning of last year, running through the
+I had dabbled with [Django](https://www.djangoproject.com) and
+[Python](https://python.org/) at the beginning of last year, running through the
 most basic tutorials and building a basic blog with Django. When I started at
 VendAsta that experience proved to be valuable as we used the experience of
 building our corporate website in Django as a stepping stone to understanding
-what we'd need to do when building [StepRep](http://steprep.myfrontsteps.com)
-and [MyFrontSteps](http://www.myfrontsteps.com). I participated in the
+what we'd need to do when building [StepRep](https://steprep.myfrontsteps.com)
+and [MyFrontSteps](https://www.myfrontsteps.com). I participated in the
 development of both of our core products from the stages of infancy up to where
 they are today and I'm very proud of what we've accomplished in less than a
 year. I almost forgot to mention Google AppEngine which we use to host MFS and
@@ -138,17 +138,17 @@ areas of development that I wouldn't have imagined. It's foundation is in Python
 and we run Django on it. Our applications are tied very tightly to JavaScript
 (almost to a fault) which has enabled me to learn so much about that language.
 I've learned how to create a project from scratch on AppEngine using alternate
-frameworks like [WebPy](http://webpy.org/), [CherryPy](http://www.cherrypy.org/)
-and [Google WebApp](http://code.google.com/appengine/docs/python/tools/webapp/).
+frameworks like [WebPy](https://webpy.org/), [CherryPy](https://www.cherrypy.org/)
+and [Google WebApp](https://code.google.com/appengine/docs/python/tools/webapp/).
 I've deployed several websites on AppEngine [for
-work](http://take5billiards.appspot.com) and on [my
-own](http://first.draftmovies.com) as side projects to explore further uses of
+work](https://take5billiards.appspot.com) and on [my
+own](https://first.draftmovies.com) as side projects to explore further uses of
 the platform when coupled with social network platforms like Twitter. In
 developing MFS I was able to learn how to build a social application on both
 Facebook and MySpace concurrently as well as supporting a standalone platform
-(not an easy task). [Jeff Read](http://www.ifisgeek.com) and I customized an
+(not an easy task). [Jeff Read](https://www.ifisgeek.com) and I customized an
 open source upload utility, the [YUI
-Uploader](http://developer.yahoo.com/yui/uploader/), to do client side resizing
+Uploader](https://developer.yahoo.com/yui/uploader/), to do client side resizing
 of photos using the open source version of the Flex SDK.
 
 **The Future**

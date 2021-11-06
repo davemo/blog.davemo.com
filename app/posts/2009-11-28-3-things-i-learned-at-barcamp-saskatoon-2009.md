@@ -1,12 +1,12 @@
 I attended Bar Camp Saskatoon today and while I wasn't able to stay for the
 entire series of presentations what I did manage to see was great. I presented
-on [SASS](http://www.sass-lang.com), [Compass](http://www.compass-style.org) and
+on [SASS](https://www.sass-lang.com), [Compass](https://www.compass-style.org) and
 CSS Frameworks. My presentation didn't go exactly as I'd planned but I learned
 things from that experience and from other peoples presentations.
 
 **1. Your presentation doesn't have to be long to be effective.**
 
-[Nate Heagy's](http://twitter.com/nheagy) presentation on JavaScript was
+[Nate Heagy's](https://twitter.com/nheagy) presentation on JavaScript was
 perfect, IMHO. It was about 15 minutes of airtime that offered about another 10
 to 15 minutes of discussion. The time slot allotment is just about an hour
 (including time for questions) but I felt like given the open format of Bar Camp
@@ -37,7 +37,7 @@ I made a few flubs and things didn't work out exactly how I thought, but the
 experience of presenting in front of a large group of people is very valuable
 and the more I do it the more I learn what works and what doesn't. (If you're
 interested in the very disorganized collection of assets I produced for the talk
-they are available [here](http://bit.ly/6PsWqr)). If I could retool it I think
+they are available [here](https://bit.ly/6PsWqr)). If I could retool it I think
 I'd go back and stick to my script more (I generated a series of notes that I
 kind of "forgot" to use during the presentation -- nerves and all that),
 condense it significantly and offer more time for discussion.
@@ -50,13 +50,13 @@ I don't think I've ever been as excited about living somewhere as I am right now
 people here with similar interests and it's great to see technology enthusiasts
 out at these events. It promotes the development of Saskatoon as even more of a
 western tech-mecca than people already perceive. It's great that people like
-[Ginger Koolick](http://twitter.com/gingerk) and [Ryan
-Lejbak](http://twitter.com/ryanlejbak) have taken the initiative to develop this
+[Ginger Koolick](https://twitter.com/gingerk) and [Ryan
+Lejbak](https://twitter.com/ryanlejbak) have taken the initiative to develop this
 sort of community (and my apologies if I missed your name and you were a key
 part of the involvement of Bar Camp Saskatoon) and companies like
-[zu](http://www.zu.com), [Point2](http://www.point2.com), [YasTech](http://www.yastech.ca)
+[zu](https://www.zu.com), [Point2](https://www.point2.com), [YasTech](https://www.yastech.ca)
 (and more) are willing to spend time and effort sponsoring the events. (Wanted:
-[VendAsta](http://www.vendasta.com) as a sponsor for next year!)
+[VendAsta](https://www.vendasta.com) as a sponsor for next year!)
 
 I'm stoked to connect more with people in the tech-community within Saskatoon
 and continue to learn from interesting people. Can't wait until Bar Camp

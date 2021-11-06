@@ -50,7 +50,7 @@ In Make semantics, _goals_ are targets that `make` should strive to update. The 
 
 > By default, the goal is the first target in the makefile (not counting targets that start with a period). Therefore, makefiles are usually written so that the first target is for compiling the entire program or programs they describe. If the first rule in the makefile has several targets, only the first target in the rule becomes the default goal, not the whole list. You can manage the selection of the default goal from within your makefile using the .DEFAULT_GOAL variable (see [Other Special Variables](https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables)).
 
-Even though the docs give us some informal conventions about the first target in our Makefile I think it _makes_ (heh) for a better experience if we add some sort of help target that spits out some information to the terminal. Make doesn't have any facility to display help messages like some [other build automation tools](http://rake.rubyforge.org/Rake/Application.html), but it won't be too hard to add one. First, let's add a default goal of help:
+Even though the docs give us some informal conventions about the first target in our Makefile I think it _makes_ (heh) for a better experience if we add some sort of help target that spits out some information to the terminal. Make doesn't have any facility to display help messages like some [other build automation tools](https://rake.rubyforge.org/Rake/Application.html), but it won't be too hard to add one. First, let's add a default goal of help:
 
 ```Makefile
 .DEFAULT_GOAL := help

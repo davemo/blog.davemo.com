@@ -39,4 +39,4 @@ As a consultant, building trust should be our number one goal, but we have to re
 * [How to Win Friends & Influence People](https://www.amazon.com/How-Win-Friends-Influence-People/dp/0671027034)
 * [Spin Selling](https://www.amazon.ca/SPIN-Selling-Neil-Rackham/dp/0070511136)
 
-Also, if you're looking for a great opportunity to develop your consulting skills, they are hiring at Test Double, you should [apply](http://testdouble.com/join/). :)
+Also, if you're looking for a great opportunity to develop your consulting skills, they are hiring at Test Double, you should [apply](https://testdouble.com/join/). :)

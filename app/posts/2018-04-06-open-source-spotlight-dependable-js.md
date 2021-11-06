@@ -60,7 +60,7 @@ In addition, we added first-class support for isolation testing via `container.g
 
 # Closing Thoughts & Recommended Reading
 
-At Test Double we are proud of our commitment to open source and we take pride in trying to be thoughtful in the way we approach open source stewardship. If you share these values and are interested in joining us you should [reach out](http://testdouble.com/join/), we're hiring!
+At Test Double we are proud of our commitment to open source and we take pride in trying to be thoughtful in the way we approach open source stewardship. If you share these values and are interested in joining us you should [reach out](https://testdouble.com/join/), we're hiring!
 
 If you aren't familiar with the concept or benefits of Dependency Injection these are some great followup resources to get you thinking:
 

@@ -10,8 +10,8 @@ Those familiar with it will know there are some basic ways to prototype that
 progress upwards in terms of fidelity. At the lowest end of the fidelity
 spectrum people often start by drawing lots of boxes and arrows on paper. Next
 comes some of the static mockup tools that are popular today, like
-[Balsamiq](http://www.balsamiq.com/), [Hot Gloo](http://www.hotgloo.com/),
-[Fireworks](http://www.adobe.com/products/fireworks.html) (and many more).
+[Balsamiq](https://www.balsamiq.com/), [Hot Gloo](https://www.hotgloo.com/),
+[Fireworks](https://www.adobe.com/products/fireworks.html) (and many more).
 Further up the fidelity chain comes prototyping in the Browser which has some
 interesting advantages over static prototypes; what struck me today was how much
 more I could learn from prototyping in the browser when I moved from static
@@ -66,7 +66,7 @@ until I made the leap from static to interactive.
 * * * * *
 
 ![Static Prototype
-1](http://f.cl.ly/items/3D1t0k1K073g2o3h3L3a/static.prototype.1.png)
+1](https://f.cl.ly/items/3D1t0k1K073g2o3h3L3a/static.prototype.1.png)
 
 In my first pass at the prototype with static content and no interaction this is
 what I came up with. The interaction theory was that users would fill in basic
@@ -81,7 +81,7 @@ following iteration.
 * * * * *
 
 ![Static Prototype
-2](http://f.cl.ly/items/1W1T340A0W0V3c2T1Y2f/static.prototype.2.png)
+2](https://f.cl.ly/items/1W1T340A0W0V3c2T1Y2f/static.prototype.2.png)
 
 In this iteration the idea for a "live updating" summary was the driver for the
 layout change. We thought that if users could see the results of their
@@ -91,17 +91,17 @@ affecting the output (challenge creation).
 * * * * *
 
 ![iOS Static Prototype
-1](http://f.cl.ly/items/0E41451o0B1f1V1J2w2W/iOS.prototype.1.png)
+1](https://f.cl.ly/items/0E41451o0B1f1V1J2w2W/iOS.prototype.1.png)
 
 ![iOS Static Prototype
-2](http://f.cl.ly/items/1F3r351R0G2Q1D3Q3p0E/iOS.prototype.2.png)
+2](https://f.cl.ly/items/1F3r351R0G2Q1D3Q3p0E/iOS.prototype.2.png)
 
 ![iOS Static Prototype
-3](http://f.cl.ly/items/2a0C3T3b1q1m293m0g1y/iOS.prototype.3.png)
+3](https://f.cl.ly/items/2a0C3T3b1q1m293m0g1y/iOS.prototype.3.png)
 
 Because one of our design constraints was to attempt to make this page work for
 both desktop and mobile we implemented the [twitter bootstrap responsive
-stylesheet](http://twitter.github.com/bootstrap/scaffolding.html#responsive) so
+stylesheet](https://twitter.github.com/bootstrap/scaffolding.html#responsive) so
 we could play with the layout and see how it felt. This is one of the biggest
 benefits of designing in a browser first and previewing the design in the iOS
 simulator really helped to further shape the layout. Up to this point we were
@@ -112,22 +112,22 @@ to start wiring up user interactions to see what else was revealed.
 * * * * *
 
 ![Dynamic Prototype
-1](http://f.cl.ly/items/0V4742133R030g453t1D/dynamic.prototype.1.png)
+1](https://f.cl.ly/items/0V4742133R030g453t1D/dynamic.prototype.1.png)
 
-I've been using [Backbone.JS](http://documentcloud.github.com/backbone/) for the
+I've been using [Backbone.JS](https://documentcloud.github.com/backbone/) for the
 last 18 months and it's a wonderful tool for building prototypes with. We
 decided to add some simple collection backed views and flesh out the user
 interaction of adding Activities and having them update live in the preview.
 What this yielded first was a realization that our design didn't account for all
 that many rules due to our fixed position summary preview. (note: the new [affix
-plugin](http://twitter.github.com/bootstrap/javascript.html#affix) in [bootstrap
-2.1](http://twitter.github.com/bootstrap/) is \_great\_ for this, but you should
+plugin](https://twitter.github.com/bootstrap/javascript.html#affix) in [bootstrap
+2.1](https://twitter.github.com/bootstrap/) is \_great\_ for this, but you should
 be aware of how tall your content could potentially be!)
 
 * * * * *
 
 ![Dynamic Prototype
-2](http://f.cl.ly/items/2T2h3a1y232u2a1a3619/dynamic.prototype.2.png)
+2](https://f.cl.ly/items/2T2h3a1y232u2a1a3619/dynamic.prototype.2.png)
 
 Oops. You could say I should have encountered that in the static stage of in
 browser testing by adding more static data to test the layout, but I didn't and

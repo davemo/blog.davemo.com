@@ -1,10 +1,10 @@
-We covered a lot of ground on the [MyFrontSteps](http://www.myfrontsteps.com)
+We covered a lot of ground on the [MyFrontSteps](https://www.myfrontsteps.com)
 project this week. We managed to migrate our Photo Management / Uploading
-solution on Homebook from [SWFUpload](http://swfupload.org/) and a lot of hacked
-together [jQuery](http://www.jquery.com) to a more elegant solution (albeit one
+solution on Homebook from [SWFUpload](https://swfupload.org/) and a lot of hacked
+together [jQuery](https://www.jquery.com) to a more elegant solution (albeit one
 that could still use some refactoring - but what code can't use refactoring
 really). We decided to use the "still-in-beta" [YUI
-Uploader](http://developer.yahoo.com/yui/uploader/) coupled with some custom
+Uploader](https://developer.yahoo.com/yui/uploader/) coupled with some custom
 jQuery. The implementation seems much more cohesive than our previous solution
 but there were a few gotchas we rant into when trying to get things working
 properly in IE7.
@@ -20,14 +20,14 @@ piece of software is perfect and we ran into a pretty frustrating bug
 implementing the YUI Uploader in a specific area of the application.
 
  ![A flyover context menu with an embedded YUI
-Uploader.](http://davemo.wordpress.com/files/2009/03/picture-24.png "Flyover Context Menu")
+Uploader.](https://davemo.wordpress.com/files/2009/03/picture-24.png "Flyover Context Menu")
 
 We have a number of context menus in Homebook that appear to the user on
 mouseover. This particular thumbnail represents the default image for a users
 Home, and clicking it prompts the user with a file dialog to select a new photo
 which is then uploaded via the YUI Uploader. When instantiated, the uploader
 inserts a transparent Flash object using the
-[SWFObject](http://blog.deconcept.com/swfobject/) plugin into the markup in the
+[SWFObject](https://blog.deconcept.com/swfobject/) plugin into the markup in the
 container specified. In our case we had the following markup:
 
 >     ul class='mfs-context-menu invisible' id='default-image-menu'

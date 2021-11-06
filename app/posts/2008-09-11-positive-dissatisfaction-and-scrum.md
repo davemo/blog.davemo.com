@@ -7,7 +7,7 @@ dissatisfaction in my mind and how it can be a huge benefit to people in any
 field of work, but even more so to those in the world of software development.
 
 Our small development team for the MFS ([My Front
-Steps](http://www.myfrontsteps.com)) project is nearly completed now and I'm
+Steps](https://www.myfrontsteps.com)) project is nearly completed now and I'm
 amazed at how well things are coming together. We have a very well rounded team
 of developers who all seem to be on the same page about things. Our experiences
 are varied and cover a broad spectrum of disciplines which gives great depth to

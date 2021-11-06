@@ -2,12 +2,12 @@ Yehuda Katz recently gave a talk entitled ["The Future of the Client-Side
 Web"](https://www.youtube.com/watch?v=EcyxXPILO8E) in which he detailed the
 current challenges that web standards bodies face when trying to design APIs
 for web developers to use. In this talk, Yehuda also highlighted Google's
-recently announced [Polymer Project](http://www.polymer-project.org/) as a good
+recently announced [Polymer Project](https://www.polymer-project.org/) as a good
 example of the right way to push the web platform forward.
 
 Polymer provides a "low enough" level API that gives web developers the power
 to redefine the way they write markup using the power of newer features coming
-to JavaScript in [ES6](http://tc39wiki.calculist.org/es6/). The specifics of
+to JavaScript in [ES6](https://tc39wiki.calculist.org/es6/). The specifics of
 the implementation aren't relevant to what I want to say here, but Yehuda does
 a great job covering the details at a high level in the video; I suggest you
 watch it if they interest you.
@@ -29,12 +29,12 @@ libraries.
 
 # The Backbone Lesson
 
-Since its release, [Backbone](http://documentcloud.github.io/backbone/) has
+Since its release, [Backbone](https://documentcloud.github.io/backbone/) has
 exploded in popularity and many [other](https://github.com/chaplinjs/chaplin)
 [frameworks](https://github.com/marionettejs/backbone.marionette) have since
 been built on top of the low-level components it provides. [Jeremy
-Ashkenas](http://www.twitter.com/jashkenas) and the team at [Document
-Cloud](http://www.documentcloud.org) did an amazing job of releasing a set of
+Ashkenas](https://www.twitter.com/jashkenas) and the team at [Document
+Cloud](https://www.documentcloud.org) did an amazing job of releasing a set of
 components that can be adapted to fit almost any scenario when building a web
 application&mdash;from simple uses of Backbone.View inside an existing legacy
 application all the way up to writing a self-contained application that runs in
@@ -50,9 +50,9 @@ important guiding principle: get your data out of the DOM.
 
 # The Ember Conundrum
 
-A recent blog post comparing [Ember](http://emberjs.com/) and
+A recent blog post comparing [Ember](https://emberjs.com/) and
 Angular&mdash;originally entitled ["AngularJS vs Ember, It's not even
-close"](http://eviltrout.com/2013/06/15/ember-vs-angular-its-not-even-close.html)&mdash;highlights
+close"](https://eviltrout.com/2013/06/15/ember-vs-angular-its-not-even-close.html)&mdash;highlights
 some perceived shortcomings of Angular, chief among them being there are too
 many pitfalls in the simplistic features Angular provides and the Angular team
 should strive to provide higher-level conventions/components that developers
@@ -69,27 +69,27 @@ following these design goals; spending more time observing how web developers
 use their low-level APIs when crafting solutions and less time trying to get a
 high-level rich-web application framework right the first time. Perhaps this is
 why the path to Ember's 1.0 release has been so full of frequent, [backwards
-compatibility breaking](http://meta.stackoverflow.com/a/163861) API changes.
+compatibility breaking](https://meta.stackoverflow.com/a/163861) API changes.
 
 # The Angular Approach
 
 Initially I was skeptical about the power of
-[Angular](http://www.angularjs.org), having spent a good 18 months of my life
+[Angular](https://www.angularjs.org), having spent a good 18 months of my life
 invested in writing applications with Backbone I wasn't eager to make a jump to
 another framework. Thankfully my skepticism was quickly swept aside as I
 discovered the beauty in the simplicity of the Angular API. With Angular, I
 don't have to extend framework built-in objects or methods; I can just use
 POJSO's (Plain Old JavaScript Objects) and functions. I also don't have to
 spend a lot of time thinking about how to structure my application thanks to
-[`angular.module`](http://docs.angularjs.org/guide/module) and built-in
-[dependency injection](http://docs.angularjs.org/guide/di). Angular _really_
+[`angular.module`](https://docs.angularjs.org/guide/module) and built-in
+[dependency injection](https://docs.angularjs.org/guide/di). Angular _really_
 hits the sweet spot between low-level components and _tightly scoped_
 high-level abstractions. It provides high-level features that each have a
 singular focus as well as low-level components that I can craft into
 domain-specific solutions within my applications.
 
 The ability to craft custom markup through
-[`angular.directive`](http://docs.angularjs.org/guide/directive) is an
+[`angular.directive`](https://docs.angularjs.org/guide/directive) is an
 interesting high-level piece in that it has the power to create custom
 components that are as coarse or granular as you need them to be. Angular is
 _just_ opinionated enough that it allows developers to work with the low-level
@@ -115,7 +115,7 @@ is an incredibly powerful idea.
 
 One of the most exciting changes to the Web Platform in the last five years is
 the upcoming [Web
-Components](http://www.w3.org/TR/2013/WD-components-intro-20130606/) spec.
+Components](https://www.w3.org/TR/2013/WD-components-intro-20130606/) spec.
 [Eric
 Bidelman](https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CC0QFjAA&url=https%3A%2F%2Ftwitter.com%2Febidel&ei=_EDLUbuIK8iHywGUuYHoDg&usg=AFQjCNHgffvpgL9vHcpCK96uvkRqTmUkzg&bvm=bv.48340889,d.aWc)
 gave a [great overview](https://www.youtube.com/watch?v=fqULJBBEVQE) of it

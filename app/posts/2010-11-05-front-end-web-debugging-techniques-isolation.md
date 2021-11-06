@@ -18,8 +18,8 @@ You've just fired up your browser and checked out an existing application from
 your repository of choice. You get the app running and go to take a look at the
 state of the front end because you have a bug to fix. A nice shiny red bug
 sitting there in front of you. Eager to dig in you open
-[Firebug](http://www.getfirebug.com) / [Webkit
-Inspector](http://webkit.org/blog/1091/more-web-inspector-updates/) and find
+[Firebug](https://www.getfirebug.com) / [Webkit
+Inspector](https://webkit.org/blog/1091/more-web-inspector-updates/) and find
 yourself looking at no less than 50 separate CSS files and 40 javascript files.
 YIKES!
 
@@ -78,7 +78,7 @@ the time to isolate this problem you may as well do some cleanup.
 You've made changes, run your test page through the browsers you are testing for
 again. Repeat step 4 and 5 until you've got a good baseline to work with. It's
 also good to remember the answer to
-[http://dowebsitesneedtolookexactlythesameineverybrowser.com](http://dowebsitesneedtolookexactlythesameineverybrowser.com) at
+[https://dowebsitesneedtolookexactlythesameineverybrowser.com](https://dowebsitesneedtolookexactlythesameineverybrowser.com) at
 this point. :)
 
 **6. Integrate**
@@ -101,8 +101,8 @@ significant amount of frustration by isolating the problem and proving out your
 assumptions about how the markup and css will behave in other browsers. Of
 course you could avoid a significant amount of this cross browser
 troubleshooting by using something like
-[Compass](http://compass-style.org/docs/) and
-[SASS](http://brandonmathis.com/blog/2010/09/21/fast-color-theming-with-compass-and-sass/),
+[Compass](https://compass-style.org/docs/) and
+[SASS](https://brandonmathis.com/blog/2010/09/21/fast-color-theming-with-compass-and-sass/),
 but that's a topic for another blog post ;)
 
 I hope this was helpful to you and I wish you luck on improving your front end

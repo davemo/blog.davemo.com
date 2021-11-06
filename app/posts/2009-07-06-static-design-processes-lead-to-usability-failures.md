@@ -1,12 +1,12 @@
-Since my excursion to [AEA](http://www.aneventapart.com) '09 in Boston I've been
+Since my excursion to [AEA](https://www.aneventapart.com) '09 in Boston I've been
 doing a lot of thinking about all of this "User Experience" stuff. Much of what
 Andy Clarke said in his [Walls Come Tumbling Down
-presentation](http://www.forabeautifulweb.com/blog/about/walls_come_tumbling_down_presentation_slides_and_transcript/)
+presentation](https://www.forabeautifulweb.com/blog/about/walls_come_tumbling_down_presentation_slides_and_transcript/)
 has been ringing around in my head, resonating with so much of my experiences
 over the last few years. Without diving into the entire presentations coverage
 of the current economic situation being a stimulator for workflow process
 change, I want to focus on a few thoughts from 1
-[slide](http://www.stuffandnonsense.co.uk/content/img/2009-06-26-020.jpg) in
+[slide](https://www.stuffandnonsense.co.uk/content/img/2009-06-26-020.jpg) in
 Andy's presentation.
 
 > **"Designers work on static look and feel visuals"**
@@ -51,7 +51,7 @@ design and development can co-exist with unburdened communication in the early
 stages of a project things will be in much better shape. Part of this has to do
 with breaking down the traditional barriers that seem to exist between these two
 disciplines, but I believe Kent Beck covers this
-[subject](http://www.threeriversinstitute.org/blog/?p=205) in much more elegance
+[subject](https://www.threeriversinstitute.org/blog/?p=205) in much more elegance
 than I would.
 
 > **"Testing, by users and for browsers and accessibility comes last"**

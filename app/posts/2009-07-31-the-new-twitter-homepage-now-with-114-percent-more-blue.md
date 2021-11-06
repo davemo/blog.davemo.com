@@ -1,5 +1,5 @@
 Everyone has been submitting reviews of the new
-[Twitter](http://www.twitter.com) homepage. Most of them focus on usability or
+[Twitter](https://www.twitter.com) homepage. Most of them focus on usability or
 how the brand will be affected with search being front and center. I'd like to
 forget all that for a moment and strictly focus on the most significant change
 of all: the addition of over 114% more blue on the new homepage. Yes, that's

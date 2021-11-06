@@ -1,5 +1,5 @@
 I attended [Software Crafstmanship North
-America](http://scna.softwarecraftsmanship.org/) in Chicago this weekend and
+America](https://scna.softwarecraftsmanship.org/) in Chicago this weekend and
 came away feeling much differently than I thought I would. I [tweeted a
 summary](https://twitter.com/dmosher/status/138476620896931840) of my thoughts
 last night:
@@ -14,7 +14,7 @@ powerful narrative in my mind.
 
 ## Suitability vs Capability
 
-[Gary Bernhardt](http://twitter.com/#!/garybernhardt) gave a wonderful talk
+[Gary Bernhardt](https://twitter.com/#!/garybernhardt) gave a wonderful talk
 entitled "Expansion & Contraction". I think he should have titled it
 "Suitability vs Capability" but it was a brilliant talk and the one I considered
 the best of the conference. Here's my best attempt at paraphrasing it:
@@ -45,9 +45,9 @@ Agile best practices are often framed as things we "must do" in order to be
 successful but I think it would behoove us to frame them in terms of suitability
 and capability.
 
-[Fred George](http://twitter.com/#!/fgeorge52) gave a talk in the breakout room
+[Fred George](https://twitter.com/#!/fgeorge52) gave a talk in the breakout room
 on Day 2 entitled "[Programmer
-Anarchy](http://forwardtechnology.co.uk/videos/32447325)". His ideas might seem
+Anarchy](https://forwardtechnology.co.uk/videos/32447325)". His ideas might seem
 radical to some but I think they are an appropriate response based on an
 evaluation of suitability/capability for his *specific situation*. It's
 important to understand that the following decisions derive from a company that
@@ -124,7 +124,7 @@ whether they are suitability solutions or capability solutions for a given
 project/team.
 
 It was probably surprising to people in the software craftsmanship movement that
-[Zed Shaw](http://twitter.com/zedshaw) was invited to speak, but his talk on
+[Zed Shaw](https://twitter.com/zedshaw) was invited to speak, but his talk on
 "Propaganda, Indoctrination, Fanbois, and Education" was the most thought
 provoking talk at SCNA 2011. Here's my translation:
 
@@ -151,7 +151,7 @@ While he's abrasive and rubs a lot of people the wrong way, Zed Shaw has done a
 lot of good for the software craftsmanship movement. He's trying to put the
 focus back on learning programming instead of "Super XP Double Pairing Kanban
 Scrum Sauce" and all the rest of the "Agile" marketing spin. His ["Learn Code
-the Hard Way"](http://learncodethehardway.org/) series is wildly successful and
+the Hard Way"](https://learncodethehardway.org/) series is wildly successful and
 is actually teaching people how to program. Somebody at the conference asked
 him:
 

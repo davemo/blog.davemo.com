@@ -14,13 +14,13 @@ brief look at three of the most popular systems to see what each offers us.
 
 ![](/img/6538176-media_httpfarm3static_zwrDw.png)
 
-[www.intensedebate.com](http://www.intensedebate.com)
+[www.intensedebate.com](https://www.intensedebate.com)
 
-[@photomatt](http://twitter.com/photomatt)
+[@photomatt](https://twitter.com/photomatt)
 
 I first experienced using intense debate when reading a couple blog posts on
-John W. Longs [wise heart design](http://www.wiseheartdesign.com). Created by
-[automattic](http://twitter.com/automattic) of wordpress fame, Intense Debate
+John W. Longs [wise heart design](https://www.wiseheartdesign.com). Created by
+[automattic](https://twitter.com/automattic) of wordpress fame, Intense Debate
 (ID) is a hosted commenting system that utilizes some sexy javascript and social
 network integration to allow you to add comments to pretty much any page on the
 Internet. My experience with the sign up process for intense debate was actually
@@ -51,7 +51,7 @@ integration with popular blogging platforms like wordpress, blogger (hint hint
 Posterous, it would be nice if you added this!). 
 
 I was also pleasantly surprised that a
-[tweet](http://twitter.com/dmosher/status/8168838760) about a bug in the email
+[tweet](https://twitter.com/dmosher/status/8168838760) about a bug in the email
 notification system yielded a really fast response from their technical support
 team. Did I mention it's free?
 
@@ -61,12 +61,12 @@ team. Did I mention it's free?
 
 ![](/img/6538178-media_httpfarm3static_rBiqF.png)
 
-[www.js-kit.com](http://www.js-kit.com)
+[www.js-kit.com](https://www.js-kit.com)
 
-[@echoenabled](http://twitter.com/echoenabled)
+[@echoenabled](https://twitter.com/echoenabled)
 
 I haven't used JS-Kit (JSK) on any live blogs but my good buddy [Nathan
-Heagy](http://www.twitter.com/nheagy) let me know of it's existence a few months
+Heagy](https://www.twitter.com/nheagy) let me know of it's existence a few months
 ago and I was intrigued to see what it might offer. Some differences from other
 systems is that JSK allows you to publish comments from a larger variety of
 places and broadcast those comments out to more than just the web page the
@@ -75,7 +75,7 @@ in addition to the regular social networks). JS-Kit also has image uploading,
 YouTube video embedding, a basic comment formatting interface and lots more.
 These features are nice, but I don't think they add as much value and here's the
 kicker: JS-Kit isn't free. They have a 30 day free trial available but after
-that [pricing](http://js-kit.com/pricing/) starts at \$12/year but is based on
+that [pricing](https://js-kit.com/pricing/) starts at \$12/year but is based on
 the amount of traffic your site gets.
 
 The code seems easy enough to understand:
@@ -96,9 +96,9 @@ core features without all the "bells and whistles" appeals to me much more. YMMV
 
 ![](/img/6538177-media_httpfarm3static_vHgyp.png)
 
-[www.disqus.com](http://www.disqus.com)
+[www.disqus.com](https://www.disqus.com)
 
-[@disqus](http://twitter.com/disqus)
+[@disqus](https://twitter.com/disqus)
 
 The veteran in hosted commenting systems, Disqus has been around for a lot
 longer than either Intense Debate or JS-Kit and it shows. Disqus offers the most

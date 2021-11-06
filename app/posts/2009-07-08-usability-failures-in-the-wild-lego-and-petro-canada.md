@@ -15,7 +15,7 @@ correct age, it wouldn't let me! It cookied me and I had to clear my cache to be
 able to re-enter the form information. Grrr..
 
 [Here's the [catalog request
-form](http://shop.lego.com/TermsPolicies/request_catalog.asp), so you don't have
+form](https://shop.lego.com/TermsPolicies/request_catalog.asp), so you don't have
 to hunt for it] :)
 
 ![](/img/890217-Picture%208.png)
@@ -32,7 +32,7 @@ I went to fill up my car the other day, and wanted to pay at the pump. There
 were 2 icons to display the "right" way to insert my debit card... which one was
 the right one?
 
-![](http://posterous.com/getfile/files.posterous.com/davemo/lI80mo89riaJ4pjbDODWzwyMF59Lo4wTwCWiHoQ7pDxaewtGBlwa6MYbAbE5/Picture_15.png.scaled.500.jpg)
+![](https://posterous.com/getfile/files.posterous.com/davemo/lI80mo89riaJ4pjbDODWzwyMF59Lo4wTwCWiHoQ7pDxaewtGBlwa6MYbAbE5/Picture_15.png.scaled.500.jpg)
 
 (As an aside, I realize the irony in posting about usability failures when
 Posterous won't even let me select a single image to display underneath my

@@ -1,7 +1,7 @@
-[Brett](http://bzabos.wordpress.com/) and I recently began refactoring a
+[Brett](https://bzabos.wordpress.com/) and I recently began refactoring a
 significant amount of the JavaScript that is currently in
-[MyFrontSteps](http://www.myfrontsteps.com) and
-[Homebook](http://www.myfrontsteps.com/myfrontsteps/home/). One of the areas we
+[MyFrontSteps](https://www.myfrontsteps.com) and
+[Homebook](https://www.myfrontsteps.com/myfrontsteps/home/). One of the areas we
 identified as needing improvement was controlling when scripts get loaded in the
 page; it's a challenging subject especially when utilizing Django templates
 which can extend and include bits of HTML that are both static and dynamic.
@@ -12,19 +12,19 @@ loading without having script tags all over the place.
 ### Manual Dependency Management is Hard
 
 Not too long ago, Yahoo put out a list of
-[guidelines](http://developer.yahoo.com/performance/rules.html) that web
+[guidelines](https://developer.yahoo.com/performance/rules.html) that web
 developers can use to enhance the performance of their websites. I won't get
 into it in this post but there is a Firefox plugin called
-[YSlow](http://developer.yahoo.com/yslow/) available that can automate some of
+[YSlow](https://developer.yahoo.com/yslow/) available that can automate some of
 the performance checking. The recommendation I'm going to focus on here is the
 one regarding moving scripts as close to the bottom of the page as possible.
 I'll just quote the [Yahoo
-doc](http://developer.yahoo.com/performance/rules.html) as they explain it very
+doc](https://developer.yahoo.com/performance/rules.html) as they explain it very
 clearly:
 
 > The problem caused by scripts is that they block parallel downloads. The
 > [HTTP/1.1
-> specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4)
+> specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4)
 > suggests that browsers download no more than two components in parallel per
 > hostname. If you serve your images from multiple hostnames, you can get more
 > than two downloads to occur in parallel. While a script is downloading,
@@ -43,7 +43,7 @@ the position of the dependent scripts in the page that was fed to the browser
 after a variable number of layers of templates and includes. We decided to
 research a better way to manage all these scripts and since we had been using
 the YUI library for many other parts of the website we settled on the [YUI
-loader](http://developer.yahoo.com/yui/yuiloader/).
+loader](https://developer.yahoo.com/yui/yuiloader/).
 
 ### YUI Loader Makes Dependency Management Easy
 

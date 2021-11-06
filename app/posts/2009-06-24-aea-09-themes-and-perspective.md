@@ -2,7 +2,7 @@ I'm sitting in Boston's Logan International Airport because my flight was
 delayed. Normally I'd be tired and cranky but I'm just tired;  the rest of me is
 so encouraged due to the emotional and motivational high I'm on after
 participating in [An Event Apart: Boston,
-2009](http://www.aneventapart.com/2009/boston/).
+2009](https://www.aneventapart.com/2009/boston/).
 
 Having not attended before, I arrived not knowing what to expect and was fairly
 intimidated by the number of people in attendance. My fear quickly dissipated
@@ -16,9 +16,9 @@ cards, conversations and ideas that connected with each other to form a common
 framework for the event. The most important type of connection I participated in
 was personal interaction and meeting new people. At the opening night party I
 had the privilege to speak with some of the presenters including [Jeremy
-Keith](http://www.adactio.com) (@adactio), [Joshua
-Porter](http://www.bokardo.com) (@bokardo) and [Whitney
-Hess](http://www.whitneyhess.com) (@whitneyhess). All of them had really
+Keith](https://www.adactio.com) (@adactio), [Joshua
+Porter](https://www.bokardo.com) (@bokardo) and [Whitney
+Hess](https://www.whitneyhess.com) (@whitneyhess). All of them had really
 interesting things to say but what struck me was the common thread amongst them
 all: passion for the content, the standards, and the users. Even amongst
 non-presenters this seemed to be a common theme.
@@ -40,10 +40,10 @@ websites across so many different browsers is insane. This theme was definitely
 apparent throughout AEA09 as multiple presenters hammered this point across.
 It's almost like they wanted to really drill it into the attendees so that we
 can go back to our clients and continue to communicate the point. [Dan
-Cederholm](http://www.simplebits.com), Jeremy Keith and [Andy
-Clarke](http://www.stuffandnonsense.co.uk/) all provided audience participation
+Cederholm](https://www.simplebits.com), Jeremy Keith and [Andy
+Clarke](https://www.stuffandnonsense.co.uk/) all provided audience participation
 moments where they would yell "[Do websites have to look the same in every
-browser?](http://dowebsitesneedtolookexactlythesameineverybrowser.com/)" to
+browser?](https://dowebsitesneedtolookexactlythesameineverybrowser.com/)" to
 which the crowd would emphatically (and sometimes, not so emphatically) respond
 "NO!"
 
@@ -61,7 +61,7 @@ without worrying if IE looks good. Safari4, Firefox3.5 support border-radius,
 text-shadow, box-shadow and rgba; Internet Explorer doesn't. That's ok, IE can
 live without those flourishes because ultimately it's all about the content
 anyways, right? ;) In fact, Andy Clarke has gone as far as creating a [style
-sheet](http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/)
+sheet](https://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/)
 that can be fed to IE6 that strips away all substance except the text and
 positioning. 
 
@@ -93,7 +93,7 @@ unusable is a surefire way to limit revenue, but aside from the business
 concerns I feel that at the heart of UX there is a method to connect people with
 technology in ways that aren't limiting. I can't take full credit for that
 initial thought however, as a great conversation with [Matt
-Ventre](http://www.matthewventre.com/) is what really prompted me to see the
+Ventre](https://www.matthewventre.com/) is what really prompted me to see the
 true nature of UX. If anything, we should be producing web interfaces that focus
 on providing great content that is portable and formatted in a standards
 compliant way, housed in an interface that makes the entire experience seamless.

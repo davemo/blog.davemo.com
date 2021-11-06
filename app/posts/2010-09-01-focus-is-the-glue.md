@@ -1,6 +1,6 @@
 ![](/img/14471799-basketball.jpg)
 
-(image courtesy [StuSeeger](http://www.flickr.com/photos/stuseeger/136715887/),
+(image courtesy [StuSeeger](https://www.flickr.com/photos/stuseeger/136715887/),
 Flickr).
 
 I've been playing a lot of basketball at work these days on lunch and coffee
@@ -50,7 +50,7 @@ because historically that's where I hit a higher percentage of my shots"
 
 "Good leg extension, I need to followthrough with my hand and point to the rim.
 [Don't forget to reach for the
-cookies](http://www.wikihow.com/Be-a-Good-Basketball-Shooter)".
+cookies](https://www.wikihow.com/Be-a-Good-Basketball-Shooter)".
 
 "The **ball is going to go in**, I aimed for the back of the rim."
 
