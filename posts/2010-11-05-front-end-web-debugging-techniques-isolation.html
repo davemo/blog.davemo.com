@@ -1,86 +1,33 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | front end web debugging techniques isolation</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>Programmer, Designer, UX&apos;er, Hacker, Musician, Artist ... wearer of many hats 🤓</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2010-11-05-front-end-web-debugging-techniques-isolation.html">November 5th, 2010</a></time><div class="older-newer"><div class="newer"><a href="/posts/2011-05-27-immersed-in-agile.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2010-09-01-focus-is-the-glue.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2010-11-05-front-end-web-debugging-techniques-isolation.html">front end web debugging techniques isolation</a></h1></header><section class="body"><div class="inner"><p>I must be getting older. My idea of &quot;fun&quot; on a Friday night is to go downstairs
-and write a blog post with some of the ideas that have been percolating in my
-brain for the last few months. I am disappoint. Oh well, my impending senility
-is your benefit! That is of course if you&#39;re into front end web development at
-all.</p>
-<p>So, I&#39;ve been talking with a few friends lately about this idea of &quot;good habits&quot;
-with regards to front end web development and I started stewing on a bunch of
-ideas on how I could write about something like that in an effective way. Sorry
-to say that this blog post will not be about good habits relating to code but
-rather as they relate to debugging front end code. I think the latter is
-valuable and you&#39;ll still get a decent idea of some good habits to work with
-going forward. Enough rambling, onward!</p>
-<p><strong>Isolation, Your First Stop</strong></p>
-<p>You&#39;ve just fired up your browser and checked out an existing application from
-your repository of choice. You get the app running and go to take a look at the
-state of the front end because you have a bug to fix. A nice shiny red bug
-sitting there in front of you. Eager to dig in you open
-<a href="https://www.getfirebug.com">Firebug</a> / <a href="https://webkit.org/blog/1091/more-web-inspector-updates/">Webkit
-Inspector</a> and find
-yourself looking at no less than 50 separate CSS files and 40 javascript files.
-YIKES!</p>
-<p>The bug card you have says some buttons aren&#39;t appearing properly in IE7 and the
-latest Chrome. So you dive in with your front end tweaker and start disabling
-styles dynamically hoping you can affect some change in the cascade that will
-fix the bug live in the browser right there in front of you. Bam! Looks good in
-Firefox/Chrome and then you open IE and things go to hell. Sound familiar?</p>
-<p>It&#39;s at this point that you should really stop what you&#39;re doing and try to
-isolate the problem. I&#39;ve spent more than enough time hacking in this way to
-know that it&#39;s a lost cause and infinitely frustrating to boot. The best way to
-fix a rendering issue in a case like this is to isolate your problem so you can
-control the number of variables you are testing.</p>
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | Frontend Web Debugging Techniques : Isolation</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2010-11-05-front-end-web-debugging-techniques-isolation.html">November 5th, 2010</a></time><div class="older-newer"><div class="newer"><a href="/posts/2011-05-27-immersed-in-agile.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2010-09-01-focus-is-the-glue.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2010-11-05-front-end-web-debugging-techniques-isolation.html">Frontend Web Debugging Techniques : Isolation</a></h1></header><section class="body"><div class="inner"><blockquote>
+<p>I must be getting older. My idea of &quot;fun&quot; on a Friday night is to go downstairs and write a blog post with some of the ideas that have been percolating in my brain for the last few months. I am disappoint. Oh well, my impending senility is your benefit! That is of course if you&#39;re into front end web development at all.</p>
+</blockquote>
+<p>So, I&#39;ve been talking with a few friends lately about this idea of &quot;good habits&quot; with regards to front end web development and I started stewing on a bunch of ideas on how I could write about something like that in an effective way. Sorry to say that this blog post will not be about good habits relating to code but rather as they relate to debugging front end code. I think the latter is valuable and you&#39;ll still get a decent idea of some good habits to work with going forward. Enough rambling, onward!</p>
+<h2 id="isolation-your-first-stop">Isolation, Your First Stop</h2>
+<p>You&#39;ve just fired up your browser and checked out an existing application from your repository of choice. You get the app running and go to take a look at the state of the front end because you have a bug to fix. A nice shiny red bug sitting there in front of you. Eager to dig in you open <a href="https://www.getfirebug.com">Firebug</a> / <a href="https://webkit.org/blog/1091/more-web-inspector-updates/">Webkit Inspector</a> and find yourself looking at no less than 50 separate CSS files and 40 javascript files. YIKES!</p>
+<p>The bug card you have says some buttons aren&#39;t appearing properly in IE7 and the latest Chrome. So you dive in with your front end tweaker and start disabling styles dynamically hoping you can affect some change in the cascade that will fix the bug live in the browser right there in front of you. Bam! Looks good in Firefox/Chrome and then you open IE and things go to hell. Sound familiar?</p>
+<p>It&#39;s at this point that you should really stop what you&#39;re doing and try to isolate the problem. I&#39;ve spent more than enough time hacking in this way to know that it&#39;s a lost cause and infinitely frustrating to boot. The best way to fix a rendering issue in a case like this is to isolate your problem so you can control the number of variables you are testing.</p>
 <p>Here&#39;s how I like to break down my isolation debugging process:</p>
-<p><strong>1. Create a Test Case</strong></p>
-<p>Open a new html file in Textmate or your favorite code editor and create a brand
-new HTML page. I like to keep a skeleton page so I can do this quickly. This
-page should have no stylesheets or scripts loaded.</p>
+<h2 id="1-create-a-test-case">1. Create a Test Case</h2>
+<p>Open a new html file in Textmate or your favorite code editor and create a brand new HTML page. I like to keep a skeleton page so I can do this quickly. This page should have no stylesheets or scripts loaded.</p>
 <script src="https://gist.github.com/davemo/665184.js"></script>
 
-<p><strong>2. Replicate the Environment</strong></p>
-<p>Bring the HTML in question into your sample page as it appears in your
-production code. Also bring only the CSS that applies to those elements and put
-them in a style block in the head of your sample page.</p>
+<h2 id="2-replicate-the-environment">2. Replicate the Environment</h2>
+<p>Bring the HTML in question into your sample page as it appears in your production code. Also bring only the CSS that applies to those elements and put them in a style block in the head of your sample page.</p>
 <script src="https://gist.github.com/davemo/665183.js"></script>
 
-<p><strong>3. Verify</strong></p>
-<p>You probably have some assumptions about what you think the problem is, this is
-the step where you verify that. Open your sample page in the browsers you want
-to test in and see what kind of results you get. The goal here is to eliminate
-the thousands of lines of other CSS and JavaScript that might be altering the
-way your markup is displayed.</p>
+<h2 id="3-verify">3. Verify</h2>
+<p>You probably have some assumptions about what you think the problem is, this is the step where you verify that. Open your sample page in the browsers you want to test in and see what kind of results you get. The goal here is to eliminate the thousands of lines of other CSS and JavaScript that might be altering the way your markup is displayed.</p>
 <p><img src="/img/17120048-Screen_shot_2010-11-05_at_10.13.57_PM.png" alt="">
 <img src="/img/17120050-Screen_shot_2010-11-05_at_10.14.39_PM.png" alt=""></p>
-<p><strong>4. Refactor</strong></p>
-<p>Once you&#39;ve verified things are behaving the way you want you should probably
-refactor that HTML and CSS to contain less presentation in your markup. Often
-markup from legacy applications has been touched by many different people with
-varying interpretations about how to write HTML; that&#39;s ok but given you spent
-the time to isolate this problem you may as well do some cleanup.</p>
-<p><strong>5. Verify ... Again</strong></p>
-<p>You&#39;ve made changes, run your test page through the browsers you are testing for
-again. Repeat step 4 and 5 until you&#39;ve got a good baseline to work with. It&#39;s
-also good to remember the answer to
-<a href="https://dowebsitesneedtolookexactlythesameineverybrowser.com">https://dowebsitesneedtolookexactlythesameineverybrowser.com</a> at
-this point. :)</p>
-<p><strong>6. Integrate</strong></p>
-<p>You were able to eliminate a bunch of redundant CSS selectors and redundant
-markup. Great! Now it&#39;s time to inject your newly refactored code back into the
-mess of 50 CSS and 40 javascript files. This can be challenging based on how
-many dependencies you touched in your refactoring but at least you have a
-baseline of what to expect now.</p>
-<p>Integration is going to result in some more rendering anomalies but now you have
-a core set of solid CSS/HTML that you know will work. What you do now is go
-through Firebug/Webkit Inspector and start disabling styles in the cascade that
-also affect your elements until you get the result you are looking for.</p>
-<p><strong>Conclusions</strong></p>
-<p>You will probably still have to fiddle but at least you will have eliminated a
-significant amount of frustration by isolating the problem and proving out your
-assumptions about how the markup and css will behave in other browsers. Of
-course you could avoid a significant amount of this cross browser
-troubleshooting by using something like
-<a href="https://compass-style.org/docs/">Compass</a> and
-<a href="https://brandonmathis.com/blog/2010/09/21/fast-color-theming-with-compass-and-sass/">SASS</a>,
+<h2 id="4-refactor">4. Refactor</h2>
+<p>Once you&#39;ve verified things are behaving the way you want you should probably refactor that HTML and CSS to contain less presentation in your markup. Often markup from legacy applications has been touched by many different people with varying interpretations about how to write HTML; that&#39;s ok but given you spent the time to isolate this problem you may as well do some cleanup.</p>
+<h2 id="5-verify-again">5. Verify ... Again</h2>
+<p>You&#39;ve made changes, run your test page through the browsers you are testing for again. Repeat step 4 and 5 until you&#39;ve got a good baseline to work with. It&#39;s also good to remember the answer to <a href="https://dowebsitesneedtolookexactlythesameineverybrowser.com">https://dowebsitesneedtolookexactlythesameineverybrowser.com</a> at this point.</p>
+<h2 id="6-integrate">6. Integrate</h2>
+<p>You were able to eliminate a bunch of redundant CSS selectors and redundant markup. Great! Now it&#39;s time to inject your newly refactored code back into the mess of 50 CSS and 40 javascript files. This can be challenging based on how many dependencies you touched in your refactoring but at least you have a baseline of what to expect now.</p>
+<p>Integration is going to result in some more rendering anomalies but now you have a core set of solid CSS/HTML that you know will work. What you do now is go through Firebug/Webkit Inspector and start disabling styles in the cascade that also affect your elements until you get the result you are looking for.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>You will probably still have to fiddle but at least you will have eliminated a significant amount of frustration by isolating the problem and proving out your assumptions about how the markup and css will behave in other browsers. Of course you could avoid a significant amount of this cross browser troubleshooting by using something like <a href="https://compass-style.org/docs/">Compass</a> and <a href="https://brandonmathis.com/blog/2010/09/21/fast-color-theming-with-compass-and-sass/">SASS</a>,
 but that&#39;s a topic for another blog post ;)</p>
-<p>I hope this was helpful to you and I wish you luck on improving your front end
-debugging process and reducing the amount of frustration experienced.</p>
+<p>I hope this was helpful to you and I wish you luck on improving your frontend debugging process and reducing the amount of frustration experienced.</p>
 </div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
