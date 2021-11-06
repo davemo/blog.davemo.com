@@ -2,7 +2,7 @@ article.post.clearfix
   header
     section#navigation
       time#pub-date(datetime='')
-        a(href=`${post.htmlPath()}`) #{post.date()}
+        a(href=`/${post.htmlPath()}`) #{post.date()}
       .older-newer
         if site.newerPost(post)
           .newer
