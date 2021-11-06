@@ -187,5 +187,3 @@ Using the Aggregation pipeline had yielded an order of magnitude less memory and
 # Conclusions
 
 If you find yourself in a similar situation evaluating the performance of some legacy code I would encourage you to think about asking questions around what the missing fundamental(s) are. Walking through **investigate**, **profile**, **identify** (rinse. repeat.) has been useful for me, and I hope it is for you!
-
-If you're interested in this type of work, you should reach out and [say hi](mailto:hi@testdouble.com); they're always looking to hire expert software engineers. :)
