@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="david mosher" href="/index.xml"><title>david mosher | yahoo pipes at vendasta</title></head><body><div id="wrap"><header class="root"><h1><a href="/">david mosher</a></h1><h2>personal and semi-professional opinions of a web designer and developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><h1><a href="http://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davatar.jpg" alt="David Mosher"></a></h1><p>Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats</p><a href="http://github.com/davemo">@davemo on github</a></section><nav><a href="/">home&nbsp;</a><a href="/archive.html">archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2009-04-06-yahoo-pipes-at-vendasta.html">April 6th, 2009</a></time><div class="older-newer"><div class="newer"><a href="/posts/2009-06-17-using-the-cloud-as-a-blog.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2009-03-24-yui-uploader-and-ie7-flash-bugs.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2009-04-06-yahoo-pipes-at-vendasta.html">yahoo pipes at vendasta</a></h1></header><section class="body"><div class="inner"><p>[ <strong>Note</strong>: this post was originally started in September/November, 2008. It&#39;s
+been sitting in my drafts for quite a while and I decided it was time to finish
+it up. ]</p>
+<p>We finished off a short 1 week development sprint last Friday [edit: sometime in
+Sep/Nov 2008] which culminated in the current live version of the
+<a href="http://www.vendasta.com">VendAsta</a> website. Despite such a short dev-cycle, I
+feel we were able to accomplish most of our research goals.</p>
+<p>One of the tools we used that I didn&#39;t have much experience with prior was
+<a href="http://pipes.yahoo.com">Yahoo Pipes</a>. We had somewhat of a unique problem to
+solve; we wanted to be able to draw from a variety of Feed sources that would
+filter through to different sections of the site. Before I dove into using Pipes
+my gut feeling was just to use some sort of feed parsing library in Python that
+was compatible with AppEngine. One of the requirements for implementing the feed
+sources was that it be very easy to update should a feed need to be changed. If
+we stuck with the Python library implementation and statically coded some feed
+sources, changes would take significantly more overhead to implement.</p>
+<p>We started investigating Pipes as a platform to aggregate all of the content we
+wanted to re-publish and were impressed by what we found. It turns out that the
+Pipes interface is much better at providing an easy-to-update set of feed
+sources for non-programmers. If you haven&#39;t looked at the Pipes interface I
+highly recommend you do so. I think Pipes offers so much advanced filtering and
+splicing functionality in a really tight package, so I&#39;ll attempt to break down
+some of the modules we used specifically for the VendAsta website.</p>
+<p> <img src="http://davemo.wordpress.com/files/2008/09/v-blogroll.png" alt="" title="v-blogroll"></p>
+<p>The image above is a shot of the Pipes interface, and more specifically the Pipe
+that we use to aggregate all of the feed-based content on the VendAsta website.
+I should clarify, by feed-based content I&#39;m referring to all of the official
+employee, product, and corporate blogs. Yes you read that right, employee blog
+posts (when tagged appropriately) end up on our corporate website. But let&#39;s set
+aside the trust/ethical issues related to that and focus on the technology we&#39;re
+using. There are a few components to the root pipe we use to collect all this
+content, and the Pipes documentation isn&#39;t always entirely clear on the best way
+to use things, so I will attempt to decompose it and discuss each module in
+detail.</p>
+<h2 id="feed-auto-discovery">Feed Auto-Discovery</h2>
+<p><img src="http://davemo.wordpress.com/files/2008/09/feed-auto-discovery.png" alt="" title="feed-auto-discovery"></p>
+<p>We have a URL mounted on VendAsta.com that provides only 1 function: spitting
+out a list of link tags in the following format:</p>
+<pre><code>&lt;link <span class="hljs-attribute">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attribute">type</span>=<span class="hljs-string">"application/rss+xml"</span> <span class="hljs-attribute">title</span>=<span class="hljs-string">"Allan Wolinski"</span> <span class="hljs-attribute">href</span>=<span class="hljs-string">"http://www.orthodrome.ca"</span>&gt;
+</code></pre><p>Internally, we store a list of all employees with some meta information like
+blogURL, linkedinURL etc. This url is what we provide to the auto-discovery
+module so it can do it&#39;s magic and go out to all of the rss+xml links and gather
+a list of feeds from the blogs. Here&#39;s a sample of the output you get from this
+URL in the Pipes debug console.</p>
+<p><img src="http://davemo.wordpress.com/files/2008/09/feed-auto-discovery-output.png" alt="" title="feed-auto-discovery-output"></p>
+<p>Once we have this list of blogs and the links to them, we can pass the output
+from the auto-discovery module on to the Loop + Fetch Site Feed modules.</p>
+<h2 id="loop-fetch-site-feed">Loop + Fetch Site Feed</h2>
+<p>The loop module is pretty self explanatory, you use it when you want to iterate
+over a group of results and operate on them somehow. It&#39;s kind of similar to
+providing an AJAX onSuccess callback; you send out a request for the content
+(the iteration) and you define a &#39;callback&#39; by dragging a supporting pipes
+function into the available box to process each item. In our case, we&#39;re using
+the Fetch Site Feed module from the toolbox to snag a feed from each site in our
+blogroll. We configure the module to emit all results to our next module, the
+Filter, which does most of the magic in determining which content ends up on the
+corporate website.</p>
+<p><img src="http://davemo.wordpress.com/files/2009/04/picture-3.png" alt="Pipes Loop + Fetch Site Feed
+Modules" title="Pipes Loop + Fetch Site Feed Modules"></p>
+<h2 id="filter">Filter</h2>
+<p>The filter module works really well for grabbing a set of elements based on a
+certain set of criteria; in our case we use the Regexp option to explicitly
+allow any content with the tag/category &#39;VendAsta&#39;. </p>
+<p><img src="http://davemo.wordpress.com/files/2009/04/picture-4.png" alt="The Filter
+Module" title="The Filter Module"></p>
+<h2 id="union-sort-rename-pipe-output">Union, Sort, Rename + Pipe Output</h2>
+<p>The final layer of our pipe involves combining results from some other static
+sources independent of filters (VendAsta blog and the StepRep blog), sorting
+them based on the date published descending, renaming a specific RSS feed field
+(item.dc:creator) to &#39;author&#39; to fix a problem in the feed reading library we&#39;re
+using server side (feedparser.py) and finally the output of all these
+operations: &#39;Pipe Output&#39; module. All these modules are really easy to string
+together with the Pipes interface and are clickable at any point during the
+creation which will toggle the debug output to stop at the currently selected
+module. This is very useful for seeing what the modules you are using do at each
+step of the process.</p>
+<p><img src="http://davemo.wordpress.com/files/2009/04/picture-51.png" alt="Union Sort Rename and Pipe Output
+Modules" title="Union Sort Rename and Pipe Output Modules"></p>
+<h2 id="pipes-as-abstract-components-ties-it-all-together">Pipes as abstract components ties it all together</h2>
+<p>So now that we have a completed Pipes module, we can do a number of things with
+it. We can get the output in RSS or JSON format, define a custom url for the
+pipe, and even give it a name and make it public so other people can use it in
+their mashups. However, the coolest feature IMHO is that you can use any created
+pipes module as an abstracted pipes component on it&#39;s own which can be part of
+another pipes component that you can then perform further operations on. We
+chose to separate a few of the layers in our feed hierarchy this way for
+simplicity sake and to keep it loosely coupled if we wanted to make changes to
+what feeds appear on certain pages. Here&#39;s an example of our previous Blogroll
+pipe being used as input for further filtering and display on 1 section of the
+VendAsta website: the <a href="http://www.vendasta.com/projects/">Projects</a> page.</p>
+<p><img src="http://davemo.wordpress.com/files/2009/04/picture-6.png" alt="The blogroll pipe as
+input" title="The blogroll pipe as input"></p>
+</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

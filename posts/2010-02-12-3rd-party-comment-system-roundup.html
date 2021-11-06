@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="david mosher" href="/index.xml"><title>david mosher | 3rd party comment system roundup</title></head><body><div id="wrap"><header class="root"><h1><a href="/">david mosher</a></h1><h2>personal and semi-professional opinions of a web designer and developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><h1><a href="http://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davatar.jpg" alt="David Mosher"></a></h1><p>Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats</p><a href="http://github.com/davemo">@davemo on github</a></section><nav><a href="/">home&nbsp;</a><a href="/archive.html">archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2010-02-12-3rd-party-comment-system-roundup.html">February 12th, 2010</a></time><div class="older-newer"><div class="newer"><a href="/posts/2010-07-01-yes-man.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2010-01-12-3-characteristics-of-good-programmers.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2010-02-12-3rd-party-comment-system-roundup.html">3rd party comment system roundup</a></h1></header><section class="body"><div class="inner"><p>We&#39;ve all seen it. The classic tutorial on [insert popular web framework here]
+that has us building a blogging system in twenty minutes or less. It&#39;s actually
+getting kind of old and I&#39;m growing sick of seeing what I&#39;m able to create with
+only platform x,y and z. I&#39;m more interested in how I can use a web framework
+that doesn&#39;t hold my hand by providing a bunch of &quot;one size fits all&quot; defaults.
+I like flexibility and choice. I like it when the web framework I&#39;m using allows
+me to mix and match third party systems easily. One third party web framework
+component that is becoming more popular is commenting systems. Let&#39;s take a
+brief look at three of the most popular systems to see what each offers us.</p>
+<h3 id="intense-debate">Intense Debate</h3>
+<hr>
+<p><img src="/img/6538176-media_httpfarm3static_zwrDw.png" alt=""></p>
+<p><a href="http://www.intensedebate.com">www.intensedebate.com</a></p>
+<p><a href="http://twitter.com/photomatt">@photomatt</a></p>
+<p>I first experienced using intense debate when reading a couple blog posts on
+John W. Longs <a href="http://www.wiseheartdesign.com">wise heart design</a>. Created by
+<a href="http://twitter.com/automattic">automattic</a> of wordpress fame, Intense Debate
+(ID) is a hosted commenting system that utilizes some sexy javascript and social
+network integration to allow you to add comments to pretty much any page on the
+Internet. My experience with the sign up process for intense debate was actually
+pretty frustrating as the log in system didn&#39;t seem to recognize my OpenID and
+you can&#39;t create an account for the purposes of installation with anything
+except OpenID or their hand rolled registration.</p>
+<p>I was expecting to be able to sign up using any of the social networks they
+allow you to sign into their commenting system with. Room for improvement for
+sure but at least it doesn&#39;t affect the actual commenting sign system sign in.
+On the plus side, once you do get an account created setup is pretty painless
+and involves pasting some simple javascript into the page that you want to add
+comments to.</p>
+<h4 id="sample-code">Sample Code</h4>
+<p><img src="/img/6538431-media_httpfarm5static_keJjk.png" alt=""></p>
+<p><img src="/img/6538432-media_httpfarm3static_EDxfH.png" alt=""></p>
+<p>How about the user experience when commenting on a site? This is where I really
+appreciate the power of third party commenting systems, with the value added by
+extra features I didn&#39;t have to code. Things like email notifications when
+someone replies to a thread, sign in using any of the social networks I&#39;m a part
+of (ID supports Facebook, Twitter, and Open ID at the time of writing),
+automated threading, profile linking, upvote/downvote, comment history, and
+integration with popular blogging platforms like wordpress, blogger (hint hint
+Posterous, it would be nice if you added this!). </p>
+<p>I was also pleasantly surprised that a
+<a href="http://twitter.com/dmosher/status/8168838760">tweet</a> about a bug in the email
+notification system yielded a really fast response from their technical support
+team. Did I mention it&#39;s free?</p>
+<h3 id="js-kit-echo">JS-Kit Echo</h3>
+<hr>
+<p><img src="/img/6538178-media_httpfarm3static_rBiqF.png" alt=""></p>
+<p><a href="http://www.js-kit.com">www.js-kit.com</a></p>
+<p><a href="http://twitter.com/echoenabled">@echoenabled</a></p>
+<p>I haven&#39;t used JS-Kit (JSK) on any live blogs but my good buddy <a href="http://www.twitter.com/nheagy">Nathan
+Heagy</a> let me know of it&#39;s existence a few months
+ago and I was intrigued to see what it might offer. Some differences from other
+systems is that JSK allows you to publish comments from a larger variety of
+places and broadcast those comments out to more than just the web page the
+comment thread is embedded on (ie: google friend, yahoo friends and FriendFeed
+in addition to the regular social networks). JS-Kit also has image uploading,
+YouTube video embedding, a basic comment formatting interface and lots more.
+These features are nice, but I don&#39;t think they add as much value and here&#39;s the
+kicker: JS-Kit isn&#39;t free. They have a 30 day free trial available but after
+that <a href="http://js-kit.com/pricing/">pricing</a> starts at \$12/year but is based on
+the amount of traffic your site gets.</p>
+<p>The code seems easy enough to understand:</p>
+<h4 id="sample-code">Sample Code</h4>
+<p><img src="/img/6538433-media_httpfarm5static_huuwm.png" alt=""></p>
+<p>JS-Kit is ok but Intense Debate being free and providing essentially the same
+core features without all the &quot;bells and whistles&quot; appeals to me much more. YMMV
+;)</p>
+<h3 id="disqus">Disqus</h3>
+<hr>
+<hr>
+<p><img src="/img/6538177-media_httpfarm3static_vHgyp.png" alt=""></p>
+<p><a href="http://www.disqus.com">www.disqus.com</a></p>
+<p><a href="http://twitter.com/disqus">@disqus</a></p>
+<p>The veteran in hosted commenting systems, Disqus has been around for a lot
+longer than either Intense Debate or JS-Kit and it shows. Disqus offers the most
+in terms of supported platforms for connecting to and rebroadcasting to as well
+as the media features that JSK offers (video and image publishing). Setup is
+slightly more involved; if you want to add things like Facebook Connect and
+Akismet (for spam protection) you need to provide API keys. Again the code is
+very easy to inject into any page, static or dynamic.</p>
+<h4 id="sample-code">Sample Code</h4>
+<p><img src="/img/6538434-media_httpfarm5static_jiFnk.png" alt=""></p>
+<p>Disqus also gives you the power to control the look and feel of the commenting
+interface right inside their control panel. This is a pretty nice feature for
+people who aren&#39;t so technical that they want to hack away at the CSS manually.
+The fact that right out of the gate Disqus is free and offers just as much power
+as JS-Kit and Intense Debate makes it a pretty attractive option.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>These are just a few of the options out there if you want to implement a
+commenting system and don&#39;t want to write it yourself. I hope you learned
+something reading this (I sure did writing it). I made sure to research all the
+facts as best I could before writing but in case I missed anything please feel
+free to let me know in the .... commenting system Posterous has built in :]</p>
+</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

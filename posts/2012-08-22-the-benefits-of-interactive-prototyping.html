@@ -1,0 +1,141 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="david mosher" href="/index.xml"><title>david mosher | the benefits of interactive prototyping</title></head><body><div id="wrap"><header class="root"><h1><a href="/">david mosher</a></h1><h2>personal and semi-professional opinions of a web designer and developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><h1><a href="http://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davatar.jpg" alt="David Mosher"></a></h1><p>Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats</p><a href="http://github.com/davemo">@davemo on github</a></section><nav><a href="/">home&nbsp;</a><a href="/archive.html">archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2012-08-22-the-benefits-of-interactive-prototyping.html">August 22nd, 2012</a></time><div class="older-newer"><div class="newer"><a href="/posts/2012-09-28-understanding-view-zombie-events-in-backbone-js.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2011-11-21-the-scna-2011-narrative-suitability-capability-anarchy-and-propaganda.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2012-08-22-the-benefits-of-interactive-prototyping.html">the benefits of interactive prototyping</a></h1></header><section class="body"><div class="inner"><p>I had a small epiphany today while working on a new prototype for a client:
+&quot;different stages of prototyping yield different levels of information&quot;. I know
+I know, not much of a brainwave there, right? I was never one for writing
+headlines and there&#39;s a lot of knowledge packed into that statement, so stick
+with me as I attempt to unpack it for you :)</p>
+<h2 id="the-gist">The Gist</h2>
+<p>Those familiar with it will know there are some basic ways to prototype that
+progress upwards in terms of fidelity. At the lowest end of the fidelity
+spectrum people often start by drawing lots of boxes and arrows on paper. Next
+comes some of the static mockup tools that are popular today, like
+<a href="http://www.balsamiq.com/">Balsamiq</a>, <a href="http://www.hotgloo.com/">Hot Gloo</a>,
+<a href="http://www.adobe.com/products/fireworks.html">Fireworks</a> (and many more).
+Further up the fidelity chain comes prototyping in the Browser which has some
+interesting advantages over static prototypes; what struck me today was how much
+more I could learn from prototyping in the browser when I moved from static
+markup into interactivity. Each level of fidelity provides different things we
+can learn; at a high level this is how I think it breaks down:</p>
+<ul>
+<li><p>Paper Prototyping</p>
+<ul>
+<li>What I think the information architecture hierarchy should be.</li>
+</ul>
+</li>
+<li><p>Static Prototyping</p>
+<ul>
+<li>How I think the information architecture hierarchy will flow from one
+area to another.</li>
+</ul>
+</li>
+<li><p>Browser Prototyping (Static)</p>
+<ul>
+<li>How the information hierarchy actually flows from one area to another at
+different screen resolutions.</li>
+<li>How changes in typography, size, and placement affect the usability of
+my information architecture.</li>
+</ul>
+</li>
+<li><p>Browser Prototyping (Interactive)</p>
+<ul>
+<li>How robust the information architecture and design are when considering
+user interaction.</li>
+<li>What things I should do first to improve my information architecture and
+design.</li>
+</ul>
+</li>
+</ul>
+<p>As I read through the list above I notice a few interesting things. Firstly, the
+value of the information I receive increases as I move to a higher fidelity
+prototype. In Paper and Static prototyping the information I get isn&#39;t really
+all that useful; for the most part it is hypothetical. I can show it to others
+to get more feedback but it is still subjective; based on perception and varied
+interpretation. It isn&#39;t until I move into prototyping with the Browser that I
+can actually play with the information, architecture, and layout and start to
+get concrete information that will help me approach what I need to change in my
+next iteration.</p>
+<h2 id="in-practice">In Practice</h2>
+<p>The interface and interaction I have been prototyping the last two days is for a
+user creating a fitness challenge comprised of multiple activities for multiple
+participants. As I was working to take my browser prototype from static to
+interactive I discovered that even though I had a good idea of how the system I
+was implementing worked I found I didn&#39;t have a great way to express the system
+thinking in a user interface that made sense to humans.</p>
+<p>So often engineers have a great grasp on what the system requirements are for
+the interface they are building that they end up building the interface as if it
+reads like machine language. In the last two days I feel it was very valuable to
+repeatedly try to express the system constraints in &quot;plain old english&quot; as if I
+were a user trying to interact with them, but I didn&#39;t come to that realization
+until I made the leap from static to interactive.</p>
+<hr>
+<p><img src="http://f.cl.ly/items/3D1t0k1K073g2o3h3L3a/static.prototype.1.png" alt="Static Prototype
+1"></p>
+<p>In my first pass at the prototype with static content and no interaction this is
+what I came up with. The interaction theory was that users would fill in basic
+details about the fitness challenge and be able to see a preview summary of what
+the challenge would look like before submitting to the server(you can see the
+summary at the bottom of the screen). During this iteration I came to the
+realization that that positioning the summary at the bottom of the screen does
+nothing to help users understand what it is they are doing; we ended up deciding
+on a new layout that positions the summary to be always in the users view in the
+following iteration.</p>
+<hr>
+<p><img src="http://f.cl.ly/items/1W1T340A0W0V3c2T1Y2f/static.prototype.2.png" alt="Static Prototype
+2"></p>
+<p>In this iteration the idea for a &quot;live updating&quot; summary was the driver for the
+layout change. We thought that if users could see the results of their
+interaction taking shape live it would help to reinforce how the interface was
+affecting the output (challenge creation).</p>
+<hr>
+<p><img src="http://f.cl.ly/items/0E41451o0B1f1V1J2w2W/iOS.prototype.1.png" alt="iOS Static Prototype
+1"></p>
+<p><img src="http://f.cl.ly/items/1F3r351R0G2Q1D3Q3p0E/iOS.prototype.2.png" alt="iOS Static Prototype
+2"></p>
+<p><img src="http://f.cl.ly/items/2a0C3T3b1q1m293m0g1y/iOS.prototype.3.png" alt="iOS Static Prototype
+3"></p>
+<p>Because one of our design constraints was to attempt to make this page work for
+both desktop and mobile we implemented the <a href="http://twitter.github.com/bootstrap/scaffolding.html#responsive">twitter bootstrap responsive
+stylesheet</a> so
+we could play with the layout and see how it felt. This is one of the biggest
+benefits of designing in a browser first and previewing the design in the iOS
+simulator really helped to further shape the layout. Up to this point we were
+still iterating with static markup and felt like we were making good progress
+with the information we had received from in browser testing. The next step was
+to start wiring up user interactions to see what else was revealed.</p>
+<hr>
+<p><img src="http://f.cl.ly/items/0V4742133R030g453t1D/dynamic.prototype.1.png" alt="Dynamic Prototype
+1"></p>
+<p>I&#39;ve been using <a href="http://documentcloud.github.com/backbone/">Backbone.JS</a> for the
+last 18 months and it&#39;s a wonderful tool for building prototypes with. We
+decided to add some simple collection backed views and flesh out the user
+interaction of adding Activities and having them update live in the preview.
+What this yielded first was a realization that our design didn&#39;t account for all
+that many rules due to our fixed position summary preview. (note: the new <a href="http://twitter.github.com/bootstrap/javascript.html#affix">affix
+plugin</a> in <a href="http://twitter.github.com/bootstrap/">bootstrap
+2.1</a> is _great_ for this, but you should
+be aware of how tall your content could potentially be!)</p>
+<hr>
+<p><img src="http://f.cl.ly/items/2T2h3a1y232u2a1a3619/dynamic.prototype.2.png" alt="Dynamic Prototype
+2"></p>
+<p>Oops. You could say I should have encountered that in the static stage of in
+browser testing by adding more static data to test the layout, but I didn&#39;t and
+I find that this is often the case with static prototypes. Adding interactivity
+to a prototype helps to uncover places your design breaks down. It was at this
+point I had a discussion with a teammate to demo what had been built so far and
+we both came to the realization that the tabular display under the activities UI
+was not user friendly. The interface for adding Activities seems to read like
+english (we arrived at that after a number of iterations) but the display of the
+data isn&#39;t helpful to users at all and really mirrors how the underlying system
+stores the data.</p>
+<hr>
+<h2 id="moving-forward">Moving Forward</h2>
+<p>Our next step will be to prototype a layout where the summary preview _is_ the
+interface to eliminate the &quot;system language&quot; from the interface altogether. In
+conclusion, I don&#39;t think we would have been able to iterate and refine our
+approach as effectively if we had not started in the browser and added
+interactivity to the prototype soon after prototyping with static markup. The
+things we can learn from interactive prototypes can really help crank out
+interfaces that are much more usable.</p>
+<p>If you aren&#39;t already prototyping interactivity in the browser I would encourage
+you to start as soon as possible, the earlier you start the earlier you&#39;ll find
+out how to fix your interface! :)</p>
+</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

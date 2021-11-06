@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="david mosher" href="/index.xml"><title>david mosher | makefile usability tips</title></head><body><div id="wrap"><header class="root"><h1><a href="/">david mosher</a></h1><h2>personal and semi-professional opinions of a web designer and developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><h1><a href="http://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davatar.jpg" alt="David Mosher"></a></h1><p>Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats</p><a href="http://github.com/davemo">@davemo on github</a></section><nav><a href="/">home&nbsp;</a><a href="/archive.html">archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2017-04-17-makefile-usability-tips.html">April 17th, 2017</a></time><div class="older-newer"><div class="newer"><a href="/posts/2017-11-07-react-performance-analysis.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2017-04-17-makefile-usability-tips.html">makefile usability tips</a></h1></header><section class="body"><div class="inner"><p>It has been but a <a href="/build-automation-holy-war.png">few short years</a> since <em>web developers</em> chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of <a href="https://en.wikipedia.org/wiki/Editor_war">many</a> <a href="https://en.wikipedia.org/wiki/Browser_wars">wars</a> that have been fought <a href="https://en.wikipedia.org/wiki/Indent_style">countless times</a> since the dawn of computing. In the grim darkness of the far future, there is only war.</p>
+<p>...</p>
+<p>Meh. War is tiresome and I have had enough of war. This post is about some small usability improvements you can add to your Makefiles if you are using Make. Let&#39;s dig in!</p>
+<h1 id="the-makefile">The Makefile</h1>
+<p>Make has been around for a <a href="https://en.wikipedia.org/wiki/Make_(software)">long time</a>. It has some neat features but it&#39;s not always the friendliest to neophytes. Imagine you have a new developer joining your team, and your project has a Makefile that looks something like this:</p>
+<pre><code class="lang-Makefile">VERSION ?= <span class="hljs-variable">$(<span class="hljs-built_in">shell</span> cat VERSION)</span>
+
+<span class="hljs-meta"><span class="hljs-meta-keyword">.PHONY</span>: version clean bump release</span>
+
+<span class="hljs-section">build:</span>
+  @echo <span class="hljs-string">"building..."</span>
+  <span class="hljs-comment"># build the app here</span>
+
+<span class="hljs-section">clean:</span>
+  <span class="hljs-comment"># rm -rf build</span>
+
+<span class="hljs-section">release:</span>
+  <span class="hljs-comment"># bump</span>
+  <span class="hljs-comment"># make push -e VERSION=$(shell cat VERSION)</span>
+
+<span class="hljs-section">push:</span>
+  <span class="hljs-comment"># push the build artifact at a given version somewhere</span>
+
+<span class="hljs-section">version:</span>
+  <span class="hljs-comment"># cat VERSION</span>
+
+<span class="hljs-section">bump:</span>
+  <span class="hljs-comment"># using semver, bump the version by a major, minor or patch increment</span>
+</code></pre>
+<p>At first glance this Makefile isn&#39;t all that complicated but chances are your build automation process is composed of many more lines of code or even split into multiple places. The wise aged veteran developer on your team tells the new member &quot;to build this project just clone this repo and run <code>make</code>&quot; after which the new developer sees:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+building...
+</code></pre>
+<p>Now, assuming new dev didn&#39;t encounter any snags with project setup and installing dependencies (hah! unlikely) this still doesn&#39;t present a great picture of how the project is assembled or the bits of the lifecycle that are involved at first glance. Let&#39;s see if we can improve this initial Makefile developer experience.</p>
+<h2 id="step-1-add-a-default_goal">Step 1: Add a DEFAULT_GOAL</h2>
+<p>In Make semantics, <em>goals</em> are targets that <code>make</code> should strive to update. The docs give us a nice <a href="https://www.gnu.org/software/make/manual/html_node/Goals.html">explanation of goals</a> as well as some hints about how we can manage which goal is run first:</p>
+<blockquote>
+<p>By default, the goal is the first target in the makefile (not counting targets that start with a period). Therefore, makefiles are usually written so that the first target is for compiling the entire program or programs they describe. If the first rule in the makefile has several targets, only the first target in the rule becomes the default goal, not the whole list. You can manage the selection of the default goal from within your makefile using the .DEFAULT_GOAL variable (see <a href="https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables">Other Special Variables</a>).</p>
+</blockquote>
+<p>Even though the docs give us some informal conventions about the first target in our Makefile I think it <em>makes</em> (heh) for a better experience if we add some sort of help target that spits out some information to the terminal. Make doesn&#39;t have any facility to display help messages like some <a href="http://rake.rubyforge.org/Rake/Application.html">other build automation tools</a>, but it won&#39;t be too hard to add one. First, let&#39;s add a default goal of help:</p>
+<pre><code class="lang-Makefile"><span class="hljs-string">.DEFAULT_GOAL</span> := <span class="hljs-keyword">help</span>
+
+<span class="hljs-keyword">help</span>:
+  @<span class="hljs-keyword">echo</span> <span class="hljs-string">"Welcome to the Project!"</span>
+</code></pre>
+<caption>
+  <strong>Tip:</strong> prefixing a line in your make target with <code>@</code> suppresses output of that line to stdout.
+</caption>
+
+<p><br />With this in place our new developer sees the following:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+Welcome to the Project!
+</code></pre>
+<p>Ok, this is a little more friendly but still not very useful. We can do better!</p>
+<h2 id="step-2-annotate-makefile-targets">Step 2: Annotate Makefile Targets</h2>
+<p>Let&#39;s update our Makefile to add helpful annotations to <em>some</em> of our targets using comment blocks prefixed with <code>##</code>:</p>
+<pre><code class="lang-Makefile"><span class="hljs-keyword">build: </span><span class="hljs-comment">## builds the application</span>
+  @echo <span class="hljs-string">"building..."</span>
+<span class="hljs-symbol">
+clean:</span> <span class="hljs-comment">## gets you back to a clean working state</span>
+  <span class="hljs-comment"># rm -rf build</span>
+<span class="hljs-symbol">
+release:</span> <span class="hljs-keyword">bump </span><span class="hljs-comment">## bump the VERSION file, git tags, and push to github</span>
+  <span class="hljs-comment"># make push -e VERSION=$(shell cat VERSION)</span>
+</code></pre>
+<p>This annotation scheme works pretty well but doesn&#39;t buy us anything on its own, to make this truly useful we need to parse the Makefile, look for lines prefixed with <code>##</code> and format them in a pretty way and write them to <code>stdout</code></p>
+<h2 id="step-3-parse-annotations">Step 3: Parse Annotations</h2>
+<p>Make includes a handy <a href="https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables">list of special variables</a> that can be used for all sorts of handy things. In this case we can use the <code>MAKEFILE_LIST</code> variable along with <code>grep</code>, <code>sort</code> and <code>awk</code> to get a list of annotated targets and display them on <code>stdout</code> in a user-friendly way:</p>
+<pre><code class="lang-Makefile"><span class="hljs-keyword">help</span>:
+  @grep -E <span class="hljs-string">'^[a-zA-Z_-]+:.*?## .*$$'</span> $(MAKEFILE_LIST) | <span class="hljs-keyword">sort</span> | awk <span class="hljs-string">'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'</span>
+</code></pre>
+<caption>
+  <strong>Tip: </strong>Wondering what the <code>help</code> target is doing? See this <a href="https://explainshell.com/explain?cmd=grep+-E+%27%5E%5Ba-zA-Z_-%5D%2B%3A.*%3F%23%23+.*%24%24%27+%24%28MAKEFILE_LIST%29+%7C+sort+%7C+awk+%27BEGIN+%7BFS+%3D+%22%3A.*%3F%23%23+%22%7D%3B+%7Bprintf+%22%5C033%5B36m%25-30s%5C033%5B0m+%25s%5Cn%22%2C+%24%241%2C+%24%242%7D%27">explain shell</a>.
+</caption>
+
+<p><br />With that in place our new developer would run <code>make</code> from the command-line and see:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+build                          builds the application
+clean                          gets you back to a clean working state
+release                        bump the VERSION file, git tags, <span class="hljs-keyword">and</span> push to github
+</code></pre>
+<p>Yay! This is a much nicer developer-experience than what we started with. To take it even further I might suggest annotating only a subset of tasks that are most commonly used.</p>
+<h1 id="acknowledgements-links">Acknowledgements / Links</h1>
+<p>There are a few sources that come up when you google for &quot;self-documenting makefile&quot; along with a few different ways of solving this problem. I drew inspiration for this post mostly from <a href="https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html">this marmelab entry</a>, but felt like there were enough interesting points and general make tips added that it was worth another post.</p>
+<p>Other links you may find useful:</p>
+<ul>
+<li><a href="https://gist.github.com/davemo/c0462e8196289e0fb0210ee63ff02962">Full Makefile as Gist</a></li>
+<li><a href="https://gist.github.com/davemo/88de90577a57698dd72d722bcfc44964">VERSION bump script as Gist</a></li>
+<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li><a href="https://www.cmcrossroads.com/print/article/self-documenting-makefiles">Self Documenting Makefiles</a></li>
+<li><a href="https://explainshell.com">Explain Shell</a></li>
+</ul>
+</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[david mosher]]></title><description><![CDATA[personal and semi-professional opinions of a web designer and developer living in ottawa, canada]]></description><link>http://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Sat, 06 Nov 2021 15:19:35 GMT</lastBuildDate><atom:link href="http://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David A. Mosher]]></author><item><title><![CDATA[the missing fundamental]]></title><description><![CDATA[<p>Music composition and production is a large part of my life outside of software development, so much so that I often find myself thinking of ways to draw parallels between the two. One such parallel that has stuck with me over the past 6 months or so is the concept of <a href="https://en.wikipedia.org/wiki/Missing_fundamental">the missing fundamental</a>.</p>
+<blockquote>
+<p>A harmonic sound is said to have a <strong>missing fundamental</strong>, <strong>suppressed fundamental</strong>, or <strong>phantom fundamental</strong> when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself.</p>
+</blockquote>
+<p>When I first learned about this concept, I couldn&#39;t help but think of how it applied to the work we do as software engineers. In the same way that skilled audio engineers can leverage the concept of the missing fundamental to improve the characteristics of sound, skilled software engineers can use a similar set of skills to improve the performance of applications.</p>
+<blockquote>
+<p>This very concept of &quot;missing fundamental&quot; being reproduced based on the overtones in the tone has been used to create the illusion of bass in sound systems that are not capable of such bass. In mid-1999, Meir Shashoua of Tel Aviv, co-founder of Waves Audio, patented an algorithm to create the sense of the missing fundamental by synthesizing higher harmonics. Waves Audio released the MaxxBass plug-in to allow computer users to apply the synthesized harmonics to their audio files.</p>
+</blockquote>
+<h1 id="the-fundamentals-of-software-performance">The Fundamentals of Software Performance</h1>
+<p><a href="https://blog.testdouble.com/authors/ali-ibrahim/">Ali</a> and I were recently tasked with improving the performance of a legacy codebase that was deployed on Heroku using Node.js, MongoDB, and Angular 1. One of our first steps in evaluating the performance of code is to do an audit of dependencies and configuration; this is a great starting point because it can often lead to simple fixes for performance issues, like updating a database ORM adapter that can query things more efficiently.</p>
+<p>In this case an audit of dependencies didn&#39;t yield much and we had to dive further into configuration on Heroku to really make sense of the performance challenge. Significant discovery number one was that the application was configured using Performance L <a href="https://www.heroku.com/dynos">dynos</a> on Heroku (the most expensive <em>and</em> highest tier available). This seemed strange since it did not appear commensurate with the surface area of the application; its purpose was to sync data using Heroku scheduler to pull from SalesForce into MongoDB.</p>
+<p>One of our first steps was to reduce the dyno size and monitor logs to see if the Performance L size was warranted.</p>
+<h2 id="fundamental-1-investigate">Fundamental #1: Investigate</h2>
+<p>Heroku makes it pretty easy to peek at logs for your app, which is what we started with: <code>heroku logs --tail -a td-client-slow-app</code>. This yielded the following trace:</p>
+<pre><code class="lang-shell">app[web<span class="hljs-number">.1</span>]:
+app[web<span class="hljs-number">.1</span>]: &lt;--- Last few GCs ---&gt;
+app[web<span class="hljs-number">.1</span>]:
+app[web<span class="hljs-number">.1</span>]: &lt;--- JS stacktrace ---&gt;
+app[web<span class="hljs-number">.1</span>]:
+app[web<span class="hljs-number">.1</span>]: ==== JS stack trace ==========
+app[web<span class="hljs-number">.1</span>]:
+app[web<span class="hljs-number">.1</span>]: <span class="hljs-number">0</span>: ExitFrame [pc: <span class="hljs-number">0x1374fd9</span>]
+app[web<span class="hljs-number">.1</span>]: Security context: <span class="hljs-number">0x01f9540008a1</span> &lt;JSObject&gt;
+app[web<span class="hljs-number">.1</span>]: <span class="hljs-number">1</span>: getOwnPropertyNames [<span class="hljs-number">0x1f954001251</span>](truncated...)
+app[web<span class="hljs-number">.1</span>]: <span class="hljs-number">2</span>: getOwnPropertyDescriptors [<span class="hljs-number">0x3dffde9f7229</span>]
+[/app/node_modules/mongoose/lib/helpers/document/compile.js:<span class="hljs-number">159</span>]
+app[web<span class="hljs-number">.1</span>]:
+app[web<span class="hljs-number">.1</span>]: FATAL ERROR: Ineffective mark-compacts
+app[web<span class="hljs-number">.1</span>]: near heap limit Allocation failed -
+app[web<span class="hljs-number">.1</span>]: JavaScript heap <span class="hljs-keyword">out</span> of memory
+</code></pre>
+<p>(Note: The <a href="https://devcenter.heroku.com/articles/slug-compiler">slug</a> for this application was ~74mb, which didn&#39;t seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to 512mb of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.)</p>
+<h2 id="fundamental-2-profile">Fundamental #2: Profile</h2>
+<p>Node.js has some pretty decent profiling tools for engineers who want to dive into performance profiling. TD-resident DevOps pro <a href="https://blog.testdouble.com/authors/micah-adams/">Micah</a> showed me that you can add some flags to the <code>node</code> process on startup to influence how V8 manages garbage collection. This is useful if you aren&#39;t getting consistency in your crashes and want to place constraints on the application runtime in order to suss out the source of the memory leak.</p>
+<p><code>node --optimize_for_size --max_old_space_size=460 app.js</code></p>
+<p>Artifically lowering the max heap size below what Heroku provisions for Standard dynos yielded the source of the leak was a method called <code>getUsers</code> which was responsible for querying a list of users and their permissions from MongoDB. Here&#39;s a sample of what that code looked like as we first found it:</p>
+<pre><code class="lang-javascript">getUsers: function(req, res) {
+  User.find({}, function(err, users) {
+    var allUsers = users<span class="hljs-comment">;</span>
+    var adminUsers = []<span class="hljs-comment">;</span>
+    var corpUsers = []<span class="hljs-comment">;</span>
+    var techUsers = []<span class="hljs-comment">;</span>
+    var formalUsers = []<span class="hljs-comment">;</span>
+    var searchUsers = []<span class="hljs-comment">;</span>
+    users.forEach(function(<span class="hljs-literal">user</span>) {
+      if(<span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span> &amp;&amp;
+         (<span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span>.corpUsers ||
+          <span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span>.techUsers ||
+          <span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span>.formalUsers ||
+          <span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span>.searchUsers ||
+          <span class="hljs-literal">user</span>.permissions.<span class="hljs-literal">admin</span>.superAdmin)) {
+        adminUsers.push(<span class="hljs-literal">user</span>)<span class="hljs-comment">;</span>
+      }
+      if(<span class="hljs-literal">user</span>.permissions.general.corpUsers) {
+        corpUsers.push(<span class="hljs-literal">user</span>)<span class="hljs-comment">;</span>
+      }
+      if(<span class="hljs-literal">user</span>.permissions.general.formalUsers) {
+        formalUsers.push(<span class="hljs-literal">user</span>)<span class="hljs-comment">;</span>
+      }
+      if(<span class="hljs-literal">user</span>.permissions.general.search) {
+        searchUsers.push(<span class="hljs-literal">user</span>)<span class="hljs-comment">;</span>
+      }
+      // this continued <span class="hljs-literal">on</span> for another <span class="hljs-number">40</span> lines or so...
+    })
+  })
+}
+</code></pre>
+<p>Node.js has <a href="https://nodejs.org/api/perf_hooks.html">performance tooling</a> built-in that allows you to gain insight around memory and CPU usage, which is what we used next:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> { PerformanceObserver, performance } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'perf_hooks'</span>)
+<span class="hljs-keyword">const</span> o = <span class="hljs-keyword">new</span> PerformanceObserver(<span class="hljs-function">(<span class="hljs-params">items</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(items.getEntries()[<span class="hljs-number">0</span>]);
+  performance.clearMarks();
+})
+o.observe({ <span class="hljs-attr">entryTypes</span>: [<span class="hljs-string">'measure'</span>]})
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">// to get the approx mem usage you can add this log line:</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`
+  The script uses ~
+  <span class="hljs-subst">${process.memoryUsage().heapUsed <span class="hljs-regexp">/ 1024 /</span> <span class="hljs-number">1024</span>}</span>
+  MB
+`</span>)
+</code></pre>
+<pre><code class="lang-shell"><span class="hljs-comment"># Output</span>
+PerformanceEntry {
+  name: <span class="hljs-string">'getUsers to res.status(200)'</span>,
+  entryType: <span class="hljs-string">'measure'</span>,
+  startTime: 5486.524808,
+  duration: 6559.275542
+}
+The<span class="hljs-built_in"> script </span>uses ~ 456.143798828125 MB
+</code></pre>
+<p>Looking at this code I couldn&#39;t help but wonder if there was a more efficient way to query and aggregate this information.</p>
+<h2 id="fundamental-3-identify-the-missing-fundamental">Fundamental #3: Identify the <em>Missing</em> Fundamental</h2>
+<p>Returning to the idea of the missing fundamental, as audio engineers must ask themselves &quot;what can I change about the frequencies in this mix in order to bring things into harmony?&quot; the relevant question for software engineers is very similar: &quot;what does this system need in order to bring harmony to its operation?&quot;. In our case it was also helpful to consider that question in a historical context as &quot;what fundamental were the original developers missing when they built this?&quot;</p>
+<p>In both cases, the answer for this application was <strong>how to query things more efficiently</strong>!</p>
+<p>The <code>getUsers</code> method above was doing two things wrong; querying inefficiently for <em>all</em> the users in the system and then allocating large arrays to partition the data based on permissions. Once we understood the missing fundamental we had a path forward to try and optimize this poorly performing code: we should see if we can query things more efficiently. This is what we came up with using <code>async/await</code> and the MongoDB <a href="https://docs.mongodb.com/manual/aggregation/">aggregation pipeline</a>:</p>
+<pre><code class="lang-javascript">getUsers: async <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> </span>{
+  <span class="hljs-keyword">const</span> adminUsers = await User.aggregate([
+    {
+      $match: {
+        $or: [
+          { <span class="hljs-string">"permissions.admin.corpUsers"</span> : { $eq: <span class="hljs-keyword">true</span> }},
+          { <span class="hljs-string">"permissions.admin.techUsers"</span> : { $eq: <span class="hljs-keyword">true</span> }},
+          { <span class="hljs-string">"permissions.admin.formalUsers"</span> : { $eq: <span class="hljs-keyword">true</span> }},
+          { <span class="hljs-string">"permissions.admin.searchUser"</span> : { $eq: <span class="hljs-keyword">true</span> }},
+          { <span class="hljs-string">"permissions.admin.superAdmin"</span> : { $eq: <span class="hljs-keyword">true</span> }},
+        ]
+      }
+    }
+  ])
+
+  <span class="hljs-keyword">const</span> corpUsers = await User.aggregate([
+    {
+      $match: {
+        <span class="hljs-string">"permissions.general.corpUsers"</span> : { $eq: <span class="hljs-keyword">true</span> }
+      }
+    }
+  ])
+
+  <span class="hljs-comment">// ... etc...</span>
+
+  res.status(<span class="hljs-number">200</span>).json({
+    data: {
+      adminUsers,
+      corpUsers,
+      ...
+    }
+  })
+}
+</code></pre>
+<p>Once we had re-written and tested the query to make sure the output was the same, we re-ran our performance profiling to see what the difference was.</p>
+<pre><code class="lang-shell">PerformanceEntry {
+  name: <span class="hljs-string">'getUsers to res.status(200)'</span>,
+  entryType: <span class="hljs-string">'measure'</span>,
+  startTime: 496079.094306,
+  duration: 270.1256
+}
+The<span class="hljs-built_in"> script </span>uses ~ 44.550048828125 MB
+</code></pre>
+<p>Using the Aggregation pipeline had yielded an order of magnitude less memory and CPU usage! Here&#39;s a couple of screenshots from the Heroku dashboard for this app that show the before/after comparisons as well.</p>
+<h3 id="before-request-timeouts-and-large-amounts-of-memory-consumption-">Before - request timeouts, and large amounts of memory consumption.</h3>
+<p><img src="/img/the-missing-fundamental/before-30s-timeouts-large-ram-usage.png" alt="Before"></p>
+<h3 id="after-no-timeouts-memory-consumption-reduced-by-a-factor-of-10-">After - no timeouts, memory consumption reduced by a factor of 10.</h3>
+<p><img src="/img/the-missing-fundamental/after-2s-no-timeouts-50mb-ram-usage.png" alt="After"></p>
+<h1 id="conclusions">Conclusions</h1>
+<p>If you find yourself in a similar situation evaluating the performance of some legacy code I would encourage you to think about asking questions around what the missing fundamental(s) are. Walking through <strong>investigate</strong>, <strong>profile</strong>, <strong>identify</strong> (rinse. repeat.) has been useful for me, and I hope it is for you!</p>
+<p>If you&#39;re interested in this type of work, you should reach out and <a href="mailto:hi@testdouble.com">say hi</a>; they&#39;re always looking to hire expert software engineers. :)</p>
+]]></description><link>http://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 10 Mar 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[css the visual state machine]]></title><description><![CDATA[<p>Thinking of web applications in terms of <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machines</a> is <a href="https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/">not a new idea</a>; in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks. Whether you use <a href="https://redux.js.org/">Redux</a>, <a href="https://mobx.js.org">MobX</a>, or even perhaps something framework-agnostic like <a href="https://xstate.js.org">xState</a>, it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I&#39;ve found there is still an area that is often overlooked when it comes to managing state in web applications: the visual or presentation layer.</p>
+<p>CSS is incredibly powerful yet frequently misunderstood by most developers, which often leads to derision of the language. I think this is mostly due to a fundamental error in the way web developers manage presentation, often focusing their efforts on conditional logic in templates instead of a more flexible application of state-specific CSS selectors to HTML elements.</p>
+<h2 id="a-simple-example">A Simple Example</h2>
+<p>Let us examine a simple example of a multi-selectable list for a user interface (UI) that a designer may have provided in mockup form for us as web developers to decompose into working code.</p>
+<p><img src="/img/css-the-visual-state-machine/css-mockup.gif" alt="An animation of a multi-selectable list of users in tabular form. Each row has an icon which changes to indicate the selection state, defaulting to a snowman, empty checkbox on hover, and finally checked checkbox when selected."></p>
+<p>We can see there are a number of interactions at play, and at first glance these might seem simple enough that we would be tempted to solve the problem without putting much upfront thought into it. However, I think despite the simplicity of the example, there are enough complex states to enumerate that we should spend some time thinking about them before we dive into creating this UI.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Trigger</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Selected</em></td>
+<td>Click</td>
+<td>Icon changes to a checkbox</td>
+</tr>
+<tr>
+<td><em>Unselected</em></td>
+<td>Click</td>
+<td>Icon changes to an empty box</td>
+</tr>
+<tr>
+<td><em>Hovering, No Selections</em></td>
+<td>Hover</td>
+<td>The snowman icon for the hovered row changes to an empty checkbox to indicate potential for selection</td>
+</tr>
+<tr>
+<td><em>Hovering, 1 or More Selections</em></td>
+<td>Hover</td>
+<td>All unselected row icons remain as empty checkboxes, and a yellow highlight appears on the hovered row</td>
+</tr>
+<tr>
+<td><em>1 or more Selections Active</em></td>
+<td>No User Interaction</td>
+<td>All icons change to empty checkboxes to indicate the ability to select multiple rows</td>
+</tr>
+</tbody>
+</table>
+<p>Putting aside <a href="https://en.wikipedia.org/wiki/Interaction_design">interaction design</a> (IxD) and <a href="https://en.wikipedia.org/wiki/Web_accessibility">accessibility</a> (a11y) concerns for the time being, after enumerating the states that we see here there is a lot to consider when building this UI! How should we manage the states? Should the logic live in our template or in our stylesheets? Let&#39;s take a brief look at the first approach, using an implementation in <a href="https://svelte.dev">Svelte</a>.</p>
+<p>Svelte is a compiler that takes as input one or more <code>.svelte</code> files with <em>regions</em> of functionality based on JavaScript, HTML, and CSS; with that input it produces the minimal amount of DOM API output in JavaScript to achieve the desired result. It&#39;s a different take than something like React, Angular, or Ember, which ship substantial runtimes to the browser that execute application code. If you are interested in learning more I highly recommend watching this excellent talk called <em><a href="https://www.youtube.com/watch?v=AdNJ3fydeao">Rethinking Reactivity</a></em> from Rich Harris introducing some of the core ideas. The code in the following examples is intended to be simple enough that you should be able to port the ideas represented to any other framework with minimal effort.</p>
+<h2 id="implementation-templates">Implementation: Templates</h2>
+<p>One of the first places a web developer might start is by crafting the template that represents the UI mockup we received from our designer friend above. This seems like a logical place to start, given we need some way to represent the data in a web browser. Let&#39;s build a template using svelte-infused HTML and see how it looks.</p>
+<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  </span><span class="hljs-template-tag">{#<span class="hljs-name">each</span> users as user}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
+      </span><span class="hljs-template-tag">{#<span class="hljs-name">if</span> user.selected &amp;&amp; hasSelection}</span><span class="xml">
+        </span><span class="hljs-template-variable">{checkedBox}</span><span class="xml">
+      </span><span class="hljs-template-variable">{:else <span class="hljs-keyword">if</span> !user.selected &amp;&amp; hasSelection}</span><span class="xml">
+        </span><span class="hljs-template-variable">{uncheckedBox}</span><span class="xml">
+      </span><span class="hljs-template-variable">{:else}</span><span class="xml">
+        </span><span class="hljs-template-variable">{snowman}</span><span class="xml">
+      </span><span class="hljs-template-tag">{/<span class="hljs-name">if</span>}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-variable">{user.name}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-variable">{user.email}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  </span><span class="hljs-template-tag">{/<span class="hljs-name">each</span>}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span>
+</code></pre>
+<p>Aside from the svelte-specific things like the <code>{#each}</code> and <code>{#if}</code> blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We&#39;ve taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state &quot;1 or more Selections Active&quot;; to do this we defined a local variable in our JavaScript region called <code>hasSelection</code> which is defined using Sveltes <a href="https://svelte.dev/tutorial/reactive-declarations">reactive declarations</a> as <code>$: hasSelection = users.some(u =&gt; u.selected)</code>.</p>
+<p>Although the code above satisfies <em>most</em> of the user experience (UX) as detailed in the mockup, there are two problems that shake out of an implementation like this that focuses on conditional logic in templates:</p>
+<ol>
+<li>We didn&#39;t capture <em>all</em> of the states enumerated, as we cannot effectively translate a user&#39;s <code>hover</code> action in templates alone unless we get really creative and complex</li>
+<li>This paradigm scales <em>very poorly</em> as our templates grow, mixing concerns of <code>presentation</code> and <code>data</code> in a template, resulting in code that is much harder to read and maintain over the life of a project</li>
+</ol>
+<p>The scalability concern is the more worrisome of the two, yet is a common byproduct of developers using conditional logic in templates. Increasingly thorny conditionals can lead to missed acceptance criteria, which in turn can lead to stress and tension on a team. Rather than throw blame around, it&#39;s worth focusing on whether that approach is healthy for a long-term project.</p>
+<p>I think we can do better if we shift our focus from conditional logic in templates to thinking more in terms of leveraging CSS as the language we use to define the states in our presentational state machine and using JavaScript to manage when to apply those states. Let&#39;s see what that looks like as we refactor the above example.</p>
+<h2 id="implementation-stylesheets">Implementation: Stylesheets</h2>
+<p>One of the first considerations we&#39;ll need to make is how to address both the concerns raised in the previous section. We need to handle the <code>hover</code> state properly, and we also should strive for a solution that encodes data in the template and presentation in the stylesheets. Let&#39;s start by refactoring the template to eliminate the conditional logic:</p>
+<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class:hasSelection</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{hasSelection}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"selectable"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{#<span class="hljs-name">each</span> users as user}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class:selected</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{user.selected}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-variable">{user.name}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-variable">{user.email}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  </span><span class="hljs-template-tag">{/<span class="hljs-name">each</span>}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span>
+</code></pre>
+<p>The first thing you might notice is that we removed the conditional blocks replaced them with <a href="https://svelte.dev/docs#class_name">svelte&#39;s class element directive</a>. This is an elegant way to control toggling of a CSS class on an element via a boolean value, which we previously defined as <code>{user.selected}</code> and <code>{hasSelection}</code>. We also added a <code>class=selectable</code> to the root table element in order to allow us to better manage the complexity of the conditional logic for states in CSS. Let&#39;s defer looking at the JavaScript that defines those values and instead look at what the definition of each state in our presentational state machine looks like when we encode it with CSS:</p>
+<pre><code class="lang-css"><span class="hljs-comment">/*
+  CSS variables in conjunction with escaped unicode or html
+  entities are a great way to represent things like icons
+*/</span>
+<span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--unchecked-box</span>: <span class="hljs-string">"\02610"</span>;
+  <span class="hljs-attribute">--checked-box</span>: <span class="hljs-string">"\02611"</span>;
+  <span class="hljs-attribute">--snowman</span>: <span class="hljs-string">"\02603"</span>;
+}
+
+<span class="hljs-comment">/*
+  Managing the hover states to show a yellow background
+*/</span>
+<span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">background-color</span>: yellow;
+}
+
+<span class="hljs-comment">/*
+  Our first state, every icon should default to the snowman
+*/</span>
+<span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--snowman);
+}
+
+<span class="hljs-comment">/*
+  A complex state, if the table has a selection,
+  then every selected items icon should be the checked box
+*/</span>
+<span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.selected</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--checked-box);
+}
+
+<span class="hljs-comment">/*
+  A combined selector to handle the alternative complex states:
+  - for a table without a selection, when the user hovers, show the unchecked box
+  - for a table with selections, swap the icon from the snowman to the unchecked box
+*/</span>
+<span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not(.hasSelection)</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
+<span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--unchecked-box);
+}
+</code></pre>
+<p>With the combination of CSS and svelte-infused HTML we&#39;ve achieved the result our designer was hoping for when they handed us the initial mockup, with an appropriate separation between the definition of our states (CSS) and the application of those states (HTML, and JavaScript).</p>
+<p>For completeness, here is the entirety of the example as included in <code>Application.svelte</code> from the <a href="https://github.com/davemo/svelte-casts">code on github</a>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">let</span> users = [
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Danika Dywtgowm'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'danika.dywtgowm@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Erica Bule'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'erica.bule@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Jim Snales'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'jim.snales@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Daria Thorobox'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'daria.thorobox@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Mendikant Hargrove'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'mendikant.hargrove@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Ephraim Lischok'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'ephraim.lischok@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Lera Nedialkova'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'lera.nedialkova@email.com'</span>},
+  ]
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">selectUser</span>(<span class="hljs-params">user</span>) </span>{
+    users[users.findIndex(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.name === user.name)] = {
+      ...user,
+      <span class="hljs-attr">selected</span>: !user.selected
+    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${user.name}</span> was <span class="hljs-subst">${user.selected ? <span class="hljs-string">'de-selected'</span> : <span class="hljs-string">'selected'</span>}</span>`</span>);
+  }
+
+  <span class="hljs-attr">$</span>: hasSelection = users.some(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.selected)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--unchecked-box</span>: <span class="hljs-string">'\02610'</span>;
+    <span class="hljs-attribute">--checked-box</span>: <span class="hljs-string">'\02611'</span>;
+    <span class="hljs-attribute">--snowman</span>: <span class="hljs-string">'\02603'</span>;
+  }
+
+  <span class="hljs-selector-tag">td</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;
+  }
+
+  <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span>, <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-tag">td</span> {
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">background-color</span>: yellow;
+  }
+
+  <span class="hljs-selector-class">.icon</span>, <span class="hljs-selector-class">.template-icon</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">justify-content</span>: center;
+  }
+
+  <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+    <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--snowman);
+  }
+
+  <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.selected</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+    <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--checked-box);
+  }
+
+  <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not(.hasSelection)</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
+  <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
+    <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--unchecked-box);
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Complex Multi-Select<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">class:hasSelection</span>=<span class="hljs-string">{hasSelection}</span> <span class="hljs-attr">class</span>=<span class="hljs-string">selectable</span>&gt;</span>
+  {#each users as user}
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class:selected</span>=<span class="hljs-string">{user.selected}</span> <span class="hljs-attr">on:click</span>=<span class="hljs-string">{()</span> =&gt;</span> selectUser(user)}&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">icon</span> <span class="hljs-attr">height</span>=<span class="hljs-string">20</span> <span class="hljs-attr">width</span>=<span class="hljs-string">20</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      {user.name}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
+      {user.email}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  {/each}
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<h1 id="closing-thoughts">Closing Thoughts</h1>
+<p>This is how I have tended to manage the working relationship between HTML and CSS for the last 20 years, and I think the power of thinking in this way leads to cleaner code and easier to refactor web interfaces.</p>
+<p>If this looks completely foreign to you and you found yourself considering that the template-based conditional-logic approach made more sense, I&#39;d recommend learning more about the capabilities of CSS features like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">pseudo-selectors :not</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">variables</a>, and the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">generated content: property</a>.</p>
+<p>I&#39;ve found that teams who up their level of knowledge in CSS and tend to try to split concerns like we&#39;ve done here will have web applications that are easier to change over the long term.</p>
+<p>If you are interested in learning more about this approach and seeing a live coded version of this blog post, please check out the <a href="https://www.youtube.com/watch?v=xpnmtkjCNng">screencast</a> posted to my YouTube channel; it walks through all the examples and touches on a few more svelte-specific things to consider.</p>
+<h1 id="learning-resources">Learning Resources</h1>
+<ul>
+<li><a href="https://svelte.dev/tutorial/basics">Svelte Tutorial</a></li>
+<li><a href="https://github.com/davemo/svelte-casts">Complex-Multi-Select Code on Github</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">CSS Variables</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not">CSS :not pseudo-selector</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">CSS Generated Content</a></li>
+<li><a href="https://www.toptal.com/designers/htmlarrows/symbols/">HTML Entity Symbols</a></li>
+</ul>
+]]></description><link>http://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 27 Aug 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[open source spotlight dependable js]]></title><description><![CDATA[<p>Recently, <a href="https://twitter.com/Schoonology">Michael Schoonmaker</a>, <a href="https://twitter.com/primarilysnark">Joshua Starkey</a>, and <a href="https://twitter.com/dmosher">myself</a> got together to brainstorm some improvements we wanted to make to an open source library called Dependable that we had used on a client project.</p>
+<p><a href="https://github.com/testdouble/dependable">Dependable</a> is billed as &quot;A minimalist dependency injection framework for node.js&quot;, but I feel like it only took on the &quot;minimalist&quot; moniker after we shipped version 2.0 just a few weeks ago. As we sat down to discuss what we wanted to do there were a number of questions that shook out that I feel need to be asked by any team working on an open source project:</p>
+<ul>
+<li>How can we make this smaller?</li>
+<li>What features are core and what can we prune?</li>
+<li>How can we write the test-suite in a way that demonstrates real-world examples?</li>
+<li>What should the README communicate?</li>
+<li>How are we going to maintain this going forward?</li>
+</ul>
+<p>As we worked towards the backlog of features, we built up a list of <em>nice-to-haves</em> and <em>must-haves</em>, choosing to defer the former and focus our efforts on the latter. <a href="https://github.com/testdouble/dependable/projects/1">Github Projects</a> actually worked pretty well for a lightweight project management tool.</p>
+<p><img src="/img/open-source-spotlight-dependable-js/github-projects-dependable.png" alt="Github Projects"></p>
+<h1 id="limiting-api-surface-area">Limiting API Surface Area</h1>
+<p>One of our stated goals was to reduce the surface area of dependable in order to eliminate complexity in the codebase. The 1.0 release of dependable included a public API with 6 methods on the dependency inversion <code>container</code> and our rewrite whittled this down to 4. Choosing to have this discussion early allowed us to focus on what the most valuable parts of the API were, using our experience of real-world use within consulting projects to help guide us.</p>
+<table>
+<thead>
+<tr>
+<th>1.0 Public API</th>
+<th>2.0 Public API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>container.register(name, func)</code></td>
+<td><code>container.factory(name, func)</code></td>
+</tr>
+<tr>
+<td><code>container.register(hash)</code></td>
+<td><code>container.constant(name, object)</code></td>
+</tr>
+<tr>
+<td><code>container.load(fileOrFolder)</code></td>
+<td>removed</td>
+</tr>
+<tr>
+<td><code>container.get(name, overrides = {})</code></td>
+<td><code>container.get(name, overrides = {})</code></td>
+</tr>
+<tr>
+<td><code>container.resolve(overrides={}, cb)</code></td>
+<td>removed</td>
+</tr>
+<tr>
+<td><code>container.list()</code></td>
+<td>removed</td>
+</tr>
+<tr>
+<td>non-existent</td>
+<td><code>container.getSandboxed(name, overrides={})</code></td>
+</tr>
+</tbody>
+</table>
+<p>With the API sufficiently whittled down, we also set ourselves to renaming the methods in the public API in order to better reveal the intent for each method and avoid violating <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">SRP</a> (which some of the 1.0 API methods had done via overloading). <code>container.register(hash)</code> became <code>container.constant(name, object)</code>, and <code>container.register</code> was renamed simply to <code>container.factory</code>. We deliberated for a while over naming but felt that <code>.factory</code> and <code>.constant</code> were terms that were familiar enough in the context of dependency injection and more descriptive than their 1.0 counterparts.</p>
+<h1 id="rewriting-source-and-test">Rewriting Source and Test</h1>
+<p>Dependable 1.0 was written in CoffeeScript which we felt would limit options for potential future contributors. We chose to rewrite the library in ES6 and use <a href="https://standardjs.com/">standard</a> to manage formatting the code for us. It becomes much easier for future contributors to submit patches when the tooling in an open source project handles formatting of the code.</p>
+<table>
+<thead>
+<tr>
+<th>1.0 LOC (index.coffee)</th>
+<th>2.0 LOC (index.js)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>134</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>The test-suite took slightly longer to rewrite due to the removal of <code>container.load(fileOrFolder)</code>. We felt that this method complected the 1.0 codebase and was syntactic sugar for what could be accomplished by a user via loading one or many files externally using <code>require</code> or <code>import</code> and then invoking <code>container.factory(name, func)</code> within the context of a call to <code>.map</code>. In addition to translating the <code>.coffee</code> test sources to <code>.js</code>, we also reorganized the test examples themselves to better communicate the intended use of dependable.</p>
+<table>
+<thead>
+<tr>
+<th>1.0 Test LOC (multiple .coffee files)</th>
+<th>2.0 Test LOC (test.js)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~380</td>
+<td>259</td>
+</tr>
+</tbody>
+</table>
+<p>A consistent use of objects from a real world scenario involving a <code>Logger</code>, <code>Router</code>, and <code>Formatter</code> in the context of an <code>App</code> was used throughout the test-suite. I&#39;ve found that I&#39;m much more likely to contribute to open source projects that have a well architected test suite with meaningful examples.</p>
+<pre><code class="lang-javascript">it(<span class="hljs-string">'should register a factory with a single dependency'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span> {
+  subject.factory(<span class="hljs-string">'logger'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'message'</span>
+  })
+  subject.factory(<span class="hljs-string">'app'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(logger)</span></span> {
+    <span class="hljs-keyword">return</span> logger
+  })
+  <span class="hljs-built_in">assert</span>.equal(subject.get(<span class="hljs-string">'app'</span>), <span class="hljs-string">'message'</span>)
+})
+</code></pre>
+<p>In addition, we added first-class support for isolation testing via <code>container.getSandboxed</code> which should be used during testing to ensure that a module under test has been completely isolated.</p>
+<h1 id="closing-thoughts-recommended-reading">Closing Thoughts &amp; Recommended Reading</h1>
+<p>At Test Double we are proud of our commitment to open source and we take pride in trying to be thoughtful in the way we approach open source stewardship. If you share these values and are interested in joining us you should <a href="http://testdouble.com/join/">reach out</a>, we&#39;re hiring!</p>
+<p>If you aren&#39;t familiar with the concept or benefits of Dependency Injection these are some great followup resources to get you thinking:</p>
+<ul>
+<li><a href="https://martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern</a></li>
+<li><a href="https://www.youtube.com/watch?v=mU1JcPikdMs">Inversion of Control, The UI Thread and Backbone.JS Views</a></li>
+</ul>
+]]></description><link>http://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 06 Apr 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[the consultants code]]></title><description><![CDATA[<blockquote>
+<p>I wish we could have built it right the first time but we were learning along the way.</p>
+<p>Ugh, we got handed this mess and now we have to figure out what to do with it.</p>
+<p>What do you think we should do?</p>
+</blockquote>
+<p>Sound familiar? If any of these statements resonates with you then you&#39;ve most likely been in the shoes of the person making the statement _or_ as a consultant engaged with a client in a similar predicament. The phrase &quot;Software Consulting&quot; generally evokes feelings of <strong>praise</strong> or <strong>disdain</strong>, or perhaps both depending on the circumstances. As consultants, we are often positioned as experts and typically engaged during times of crisis or uncertainty; so it should come as no surprise that our ability to deliver in the midst of that environment is the primary measure of our effectiveness.</p>
+<p>Expectations about what we are hired to deliver generally set the scale by which we are judged; frequently that involves analysis, reporting, recommendations but also training, mentoring, and code. The world is a big enough place that it&#39;s plausible to think of a scenario where the opening statements above were made by someone dealing with the aftermath of a poor experience with a previous software consultancy, typically measured by the state or quality of &quot;the code&quot;.</p>
+<p>While it would be interesting to attempt an objective look at what typifies &quot;quality&quot; as it relates to &quot;code&quot;, I think there is a <em>more</em> interesting vector to approach the quality valuation that also pertains to &quot;code&quot; of a different kind; call it the code of conduct, or the way we interact with our clients as consultants, or perhaps even our ability to relate and help them rise out of the midst of chaos and uncertainty&mdash;this type of consultant&#39;s code is less frequently explored, which is a shame, because I firmly believe it has a more direct impact on the physical code we write than our technical expertise.</p>
+<h2 id="hostile-takeover">Hostile Takeover</h2>
+<p>Consultants in any industry are often vilified from the start of an engagement due to a perceived &quot;us vs them&quot; mentality. Depending on the how the engagement was initiated, trust was likely extended from key decision makers but generally does <em>not</em> extend from the rank and file employees of the company. This puts an immediate burden of responsibility on the consultant to become adept at earning that trust inclusively and at discerning barriers which would prevent that from happening.</p>
+<p>The key to building this trust starts with establishing relationships with <em>everyone</em> on the team. It might be easy to think of ourselves as only accountable to the primary stakeholders, but unless we earn the trust of our peers and treat them as equals, it will be challenging to avoid the perception of a hostile takeover. In essence we should think of ourselves as partners, invested in the success of the company and each member of the team. Finding opportunities to mentor team members and attribute wins to others is a great way foster a positive consulting environment.</p>
+<h2 id="cooperation-commiseration">Cooperation &amp; Commiseration</h2>
+<p>At some point any consulting engagement will involve hearing about the technical failures, company problems, personnel issues, and every other negative thing under the sun; people like to complain. Good consultants know how to view these conversations as opportunities to build trust without becoming embroiled in corporate politics. It is a balancing act to be able to participate in just enough commiseration to demonstrate understanding without fostering a negative cycle. I believe a critical component to developing this skill is the ability to hone one&#39;s capacity for <a href="https://en.wikipedia.org/wiki/Active_listening">active listening</a>.</p>
+<p>There is a fine line between commiserating and ruminating, and good consultants know how to empathize and then steer the conversation towards solutions instead of ruminating on past failures.</p>
+<h2 id="technical-overdrive">Technical Overdrive</h2>
+<p>Depending on the nature of the team and the consulting engagement, it may prove more effective to lead by example and jump into what I like to call &quot;technical overdrive&quot;. I&#39;ve seen many teams become derailed in endless technical round-table discussions and talk themselves into a corner before ever trying to code up a prototype or draft solution. In these scenarios I have found it best to move forward with quick prototypes of solutions proposed by the team, enabling them to have more concrete discussion points and base decisions on actual implementations. Working code and a good demo can unblock many teams.</p>
+<p>Like every piece of advice, when to jump into technical overdrive is highly context-sensitive; sometimes it is more appropriate to employ the opposite strategy and slow things down. Some teams have a bad habit of shipping their prototypes to production, and it is in this scenario where good consultants will try and introduce better habits around technical design, architecture discussions and how to effectively prototype. In some ways the slow-things-down scenario also involves technical overdrive, as it might mean taking the lead on demonstrating what these good habits look like for the team.</p>
+<h1 id="closing-thoughts-recommended-reading">Closing Thoughts &amp; Recommended Reading</h1>
+<p>As a consultant, building trust should be our number one goal, but we have to remember that it takes time and is a skill that needs to be cultivated over the course of many engagements. If you are interested in spending time honing your skills and improving your &quot;consultant&#39;s code&quot; I would recommend investing in the following resources:</p>
+<ul>
+<li><a href="https://www.amazon.ca/Secrets-Consulting-Giving-Getting-Successfully/dp/0932633013">The Secrets of Consulting: A Guide to Giving and Getting Advice Successfully</a></li>
+<li><a href="https://www.amazon.com/More-Secrets-Consulting-Consultants-Tool-ebook/dp/B004J35LH6">More Secrets of Consulting: The Consultant&#39;s Tool Kit</a></li>
+<li><a href="https://www.amazon.ca/Crucial-Conversations-Talking-Stakes-Second/dp/0071771328">Crucial Conversations: Tools for Talking When Stakes Are High</a></li>
+<li><a href="https://www.amazon.com/Influencer-Science-Leading-Change-Second/dp/0071808868">Influencer: The New Science of Leading Change</a></li>
+<li><a href="https://www.amazon.com/How-Win-Friends-Influence-People/dp/0671027034">How to Win Friends &amp; Influence People</a></li>
+<li><a href="https://www.amazon.ca/SPIN-Selling-Neil-Rackham/dp/0070511136">Spin Selling</a></li>
+</ul>
+<p>Also, if you&#39;re looking for a great opportunity to develop your consulting skills, they are hiring at Test Double, you should <a href="http://testdouble.com/join/">apply</a>. :)</p>
+]]></description><link>http://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[react performance analysis]]></title><description><![CDATA[<iframe src="http://www.youtube.com/embed/sVDnCMIkmTM?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+
+<p>With the proliferation of React applications in the wild, I thought it would be a good idea to examine some techniques for evaluating the performance of React Components.</p>
+<p>React is frequently touted as being performant due to the optimizations of its Virtual DOM technique, yet all to often this is used by developers as a crutch to avoid thinking about the performance of their code <em>at all</em>. This generally leads to performance problems in React apps of any significant scale.</p>
+<p>This screencast covers a number of techniques for constructing components, but also shows how to evaluate performance objectively and make informed refactoring decisions.</p>
+<h1 id="screencast-outline">Screencast Outline</h1>
+<ol>
+<li><p>Introduction</p>
+<ul>
+<li>A Common UI Scenario for React Components -&gt; Large Data Tables</li>
+<li>Developer Default: Google/Stack Overflow Driven Development</li>
+<li>The Quest for a pre-built Library</li>
+</ul>
+</li>
+<li><p>Performance Goals</p>
+<ul>
+<li>Important Metrics: TTI (time to interactive), TTFMP (time to first meaningful paint)</li>
+<li>Setting a Frame Budget: (60fps / 16.7ms) might not always be feasible</li>
+<li>The Feedback Loop: Experiment, Evaluate</li>
+</ul>
+</li>
+<li><p>React Development Patterns</p>
+<ul>
+<li>Start BIG: 1 component, 1 render method, then profile</li>
+<li>Decompose: limit the surface area of your component by thinking hard about props, then profile</li>
+<li>Optimize by:<ul>
+<li>Reducing JS Execution: work the browser doesn&#39;t have to do doesn&#39;t need to be optimized</li>
+<li>Reducing Surface Area for Change: small components, limited surface area, small lists of props</li>
+<li>Keep <code>render</code> methods simple and <em>mostly</em> static</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="code">Code</h1>
+<p><a href="https://github.com/davemo/react-performance-analysis">https://github.com/davemo/react-performance-analysis</a></p>
+]]></description><link>http://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 07 Nov 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[makefile usability tips]]></title><description><![CDATA[<p>It has been but a <a href="/build-automation-holy-war.png">few short years</a> since <em>web developers</em> chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of <a href="https://en.wikipedia.org/wiki/Editor_war">many</a> <a href="https://en.wikipedia.org/wiki/Browser_wars">wars</a> that have been fought <a href="https://en.wikipedia.org/wiki/Indent_style">countless times</a> since the dawn of computing. In the grim darkness of the far future, there is only war.</p>
+<p>...</p>
+<p>Meh. War is tiresome and I have had enough of war. This post is about some small usability improvements you can add to your Makefiles if you are using Make. Let&#39;s dig in!</p>
+<h1 id="the-makefile">The Makefile</h1>
+<p>Make has been around for a <a href="https://en.wikipedia.org/wiki/Make_(software)">long time</a>. It has some neat features but it&#39;s not always the friendliest to neophytes. Imagine you have a new developer joining your team, and your project has a Makefile that looks something like this:</p>
+<pre><code class="lang-Makefile">VERSION ?= <span class="hljs-variable">$(<span class="hljs-built_in">shell</span> cat VERSION)</span>
+
+<span class="hljs-meta"><span class="hljs-meta-keyword">.PHONY</span>: version clean bump release</span>
+
+<span class="hljs-section">build:</span>
+  @echo <span class="hljs-string">"building..."</span>
+  <span class="hljs-comment"># build the app here</span>
+
+<span class="hljs-section">clean:</span>
+  <span class="hljs-comment"># rm -rf build</span>
+
+<span class="hljs-section">release:</span>
+  <span class="hljs-comment"># bump</span>
+  <span class="hljs-comment"># make push -e VERSION=$(shell cat VERSION)</span>
+
+<span class="hljs-section">push:</span>
+  <span class="hljs-comment"># push the build artifact at a given version somewhere</span>
+
+<span class="hljs-section">version:</span>
+  <span class="hljs-comment"># cat VERSION</span>
+
+<span class="hljs-section">bump:</span>
+  <span class="hljs-comment"># using semver, bump the version by a major, minor or patch increment</span>
+</code></pre>
+<p>At first glance this Makefile isn&#39;t all that complicated but chances are your build automation process is composed of many more lines of code or even split into multiple places. The wise aged veteran developer on your team tells the new member &quot;to build this project just clone this repo and run <code>make</code>&quot; after which the new developer sees:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+building...
+</code></pre>
+<p>Now, assuming new dev didn&#39;t encounter any snags with project setup and installing dependencies (hah! unlikely) this still doesn&#39;t present a great picture of how the project is assembled or the bits of the lifecycle that are involved at first glance. Let&#39;s see if we can improve this initial Makefile developer experience.</p>
+<h2 id="step-1-add-a-default_goal">Step 1: Add a DEFAULT_GOAL</h2>
+<p>In Make semantics, <em>goals</em> are targets that <code>make</code> should strive to update. The docs give us a nice <a href="https://www.gnu.org/software/make/manual/html_node/Goals.html">explanation of goals</a> as well as some hints about how we can manage which goal is run first:</p>
+<blockquote>
+<p>By default, the goal is the first target in the makefile (not counting targets that start with a period). Therefore, makefiles are usually written so that the first target is for compiling the entire program or programs they describe. If the first rule in the makefile has several targets, only the first target in the rule becomes the default goal, not the whole list. You can manage the selection of the default goal from within your makefile using the .DEFAULT_GOAL variable (see <a href="https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables">Other Special Variables</a>).</p>
+</blockquote>
+<p>Even though the docs give us some informal conventions about the first target in our Makefile I think it <em>makes</em> (heh) for a better experience if we add some sort of help target that spits out some information to the terminal. Make doesn&#39;t have any facility to display help messages like some <a href="http://rake.rubyforge.org/Rake/Application.html">other build automation tools</a>, but it won&#39;t be too hard to add one. First, let&#39;s add a default goal of help:</p>
+<pre><code class="lang-Makefile"><span class="hljs-string">.DEFAULT_GOAL</span> := <span class="hljs-keyword">help</span>
+
+<span class="hljs-keyword">help</span>:
+  @<span class="hljs-keyword">echo</span> <span class="hljs-string">"Welcome to the Project!"</span>
+</code></pre>
+<caption>
+  <strong>Tip:</strong> prefixing a line in your make target with <code>@</code> suppresses output of that line to stdout.
+</caption>
+
+<p><br />With this in place our new developer sees the following:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+Welcome to the Project!
+</code></pre>
+<p>Ok, this is a little more friendly but still not very useful. We can do better!</p>
+<h2 id="step-2-annotate-makefile-targets">Step 2: Annotate Makefile Targets</h2>
+<p>Let&#39;s update our Makefile to add helpful annotations to <em>some</em> of our targets using comment blocks prefixed with <code>##</code>:</p>
+<pre><code class="lang-Makefile"><span class="hljs-keyword">build: </span><span class="hljs-comment">## builds the application</span>
+  @echo <span class="hljs-string">"building..."</span>
+<span class="hljs-symbol">
+clean:</span> <span class="hljs-comment">## gets you back to a clean working state</span>
+  <span class="hljs-comment"># rm -rf build</span>
+<span class="hljs-symbol">
+release:</span> <span class="hljs-keyword">bump </span><span class="hljs-comment">## bump the VERSION file, git tags, and push to github</span>
+  <span class="hljs-comment"># make push -e VERSION=$(shell cat VERSION)</span>
+</code></pre>
+<p>This annotation scheme works pretty well but doesn&#39;t buy us anything on its own, to make this truly useful we need to parse the Makefile, look for lines prefixed with <code>##</code> and format them in a pretty way and write them to <code>stdout</code></p>
+<h2 id="step-3-parse-annotations">Step 3: Parse Annotations</h2>
+<p>Make includes a handy <a href="https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables">list of special variables</a> that can be used for all sorts of handy things. In this case we can use the <code>MAKEFILE_LIST</code> variable along with <code>grep</code>, <code>sort</code> and <code>awk</code> to get a list of annotated targets and display them on <code>stdout</code> in a user-friendly way:</p>
+<pre><code class="lang-Makefile"><span class="hljs-keyword">help</span>:
+  @grep -E <span class="hljs-string">'^[a-zA-Z_-]+:.*?## .*$$'</span> $(MAKEFILE_LIST) | <span class="hljs-keyword">sort</span> | awk <span class="hljs-string">'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'</span>
+</code></pre>
+<caption>
+  <strong>Tip: </strong>Wondering what the <code>help</code> target is doing? See this <a href="https://explainshell.com/explain?cmd=grep+-E+%27%5E%5Ba-zA-Z_-%5D%2B%3A.*%3F%23%23+.*%24%24%27+%24%28MAKEFILE_LIST%29+%7C+sort+%7C+awk+%27BEGIN+%7BFS+%3D+%22%3A.*%3F%23%23+%22%7D%3B+%7Bprintf+%22%5C033%5B36m%25-30s%5C033%5B0m+%25s%5Cn%22%2C+%24%241%2C+%24%242%7D%27">explain shell</a>.
+</caption>
+
+<p><br />With that in place our new developer would run <code>make</code> from the command-line and see:</p>
+<pre><code class="lang-shell">neophyte<span class="hljs-variable">@newbie</span><span class="hljs-symbol">:~/code/project</span>
+<span class="hljs-variable">$ </span>make
+build                          builds the application
+clean                          gets you back to a clean working state
+release                        bump the VERSION file, git tags, <span class="hljs-keyword">and</span> push to github
+</code></pre>
+<p>Yay! This is a much nicer developer-experience than what we started with. To take it even further I might suggest annotating only a subset of tasks that are most commonly used.</p>
+<h1 id="acknowledgements-links">Acknowledgements / Links</h1>
+<p>There are a few sources that come up when you google for &quot;self-documenting makefile&quot; along with a few different ways of solving this problem. I drew inspiration for this post mostly from <a href="https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html">this marmelab entry</a>, but felt like there were enough interesting points and general make tips added that it was worth another post.</p>
+<p>Other links you may find useful:</p>
+<ul>
+<li><a href="https://gist.github.com/davemo/c0462e8196289e0fb0210ee63ff02962">Full Makefile as Gist</a></li>
+<li><a href="https://gist.github.com/davemo/88de90577a57698dd72d722bcfc44964">VERSION bump script as Gist</a></li>
+<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li><a href="https://www.cmcrossroads.com/print/article/self-documenting-makefiles">Self Documenting Makefiles</a></li>
+<li><a href="https://explainshell.com">Explain Shell</a></li>
+</ul>
+]]></description><link>http://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Mon, 17 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[advanced directives with angular js part 2]]></title><description><![CDATA[<blockquote>
+<p>Two years in the making; just released and fresh off the presses it&#39;s yet another screencast covering everybodys favorite enterprise JS framework: Angular JS!</p>
+</blockquote>
+<iframe src="http://www.youtube.com/embed/4zG8SfucUzg?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+
+<p>In all seriousness, I had a hard time considering whether or not to publish this screencast because I found myself questioning whether the content would still be relevant almost two years later. However, in revisiting all the comments and questions about the alluded-to &quot;part 2&quot; from the first video I felt like there were still valuable things to talk about. At the heart of this screencast is discussion around what I consider <strong>one of the most valuable features of angular</strong>: the ability to use custom elements as a domain-specific language (DSL) to ease the <strong>wrapping and use of 3rd party libraries</strong>.</p>
+<p>This screencast continues the examination of some of the advanced features in Angular from <a href="http://blog.davemo.com/posts/2015-02-13-advanced-directives-with-angular-js">Advanced Directives with Angular JS</a> and expands by tackling some of the issues raised in Part 1 including:</p>
+<ul>
+<li>bugfixes for the inline editor</li>
+<li>auto toggling of editing state using CSS content generation and the angular $scope</li>
+<li>leveraging the DSL from the first screencast as an interface to a 3rd party JavaScript data grid component: js-grid</li>
+</ul>
+<p>If you&#39;re interested in some more context prior to watching, check out my other <a href="https://www.youtube.com/c/DavidMosher">angular screencasts</a> and an earlier post on the <a href="http://blog.davemo.com/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks">power of web components as abstractions</a>.</p>
+<p>Hopefully the next screencast series won&#39;t take 2 years to complete ;)</p>
+<h1 id="code">Code</h1>
+<ul>
+<li>bugfix: don’t re-add and compile editors <a href="https://github.com/davemo/advanced-directives-with-angular-js/commit/4efc9edfacc3cee791f155d52bf517a7ab251586">https://github.com/davemo/advanced-directives-with-angular-js/commit/4efc9edfacc3cee791f155d52bf517a7ab251586</a></li>
+<li>feature: swap arrow on editor state <a href="https://github.com/davemo/advanced-directives-with-angular-js/commit/2f046f51dda4b54891353b7ec047b3a6e381792d">https://github.com/davemo/advanced-directives-with-angular-js/commit/2f046f51dda4b54891353b7ec047b3a6e381792d</a></li>
+<li>feature: leverage a 3rd party lib using the same DSL <a href="https://github.com/davemo/advanced-directives-with-angular-js/pull/2/files">https://github.com/davemo/advanced-directives-with-angular-js/pull/2/files</a></li>
+</ul>
+]]></description><link>http://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 07 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[reasons not to quit your job]]></title><description><![CDATA[<p>&quot;2016.&quot; A year of ups and (if you agree with many of the social media channels in the last month) a significantly larger number of downs. I&#39;m not sure  <em>exactly</em> what it is about this time of year that causes us to reflect so much more than the rest of the year; I suspect it <em>mostly</em> has to do with a heightened sense of awareness as we approach boundaries.</p>
+<p>As children, we know they are there because our parents tell us and we frequently come close to them often by virtue of desiring to push past to see what is beyond. As parents, we know they are there because we create them; often intending to protect our children from things that are dangerous or to set parameters for healthy  age-appropriate interaction. As software developers we encounter <a href="https://www.destroyallsoftware.com/talks/boundaries">boundaries</a> in tests, the design of our code as it relates to components in a system, API&#39;s, the list goes on and on. Being in constant consideration of boundaries, whether consciously or subconsciously, has the side-effect of switching our brain into analysis and reflection mode.</p>
+<p>I recently had some friends reach out for advice as they were contemplating a transition at a critical boundary: quitting their job.</p>
+<blockquote>
+<p>&quot;It&#39;s time for a change&quot;</p>
+</blockquote>
+<p>...</p>
+<blockquote>
+<p>&quot;I&#39;ve been restless but I&#39;m trying to be cautious&quot;</p>
+</blockquote>
+<p>These exchanges, coupled with the time of year and my brain switching into reflection mode, have had me considering reasons I left jobs in the past. The more I thought about it the more my brain kept telling me that those reasons were often <em>not</em> valid reasons to justify leaving. I wrestled with it and tried to move onto other thoughts but it just kept nagging at me; this is usually an indication I need to deal with those thoughts in a positive way. So, here I am attempting to impart some wisdom about reasons <em>not</em> to quit your job in 2017 (but mostly just typing as an exercise to free my brain up to move onto other things!) ;)</p>
+<h1 id="technology">Technology</h1>
+<p>On April 3rd, 2014 I wrote <a href="http://blog.davemo.com/posts/2014-04-03-the-magnetic-core-philosophy.html">some of the reasons</a> I left the last job I was at. I&#39;ve re-read that post a dozen times trying to mine some fragments of wisdom, mostly to attempt to justify the decisions at that time. The only conclusions I&#39;ve come up with at this point are: there are a lot of emotions in my writing that stemmed <em>mainly</em> from too much focus on Technology as one of the reasons I quit.</p>
+<p>Technology is seductive; it attempts to woo us through flashy demos from paid evangelists or conference talks from influential heroes. Technology is like the trench-coat wearing crook on the street corner who promises us the Rolex and ends up delivering a cheap imitation. When the tech-stack you work with (or <em>want</em> to work with) becomes the justification for a career change it has the potential to snowball into a full on addiction to newness that sets your brain up for a dependence on switching tech in the same way a drug addict depends on their narcotic of choice.</p>
+<p>The truth is that most systems that we work on move slowly towards <a href="https://en.wikipedia.org/wiki/Software_entropy">disorder and complexity</a>, so it is no surprise that the promise of a fresh-start in a new technology stack is appealing. An entire generation of software developers have become so accustomed to quitting their job based on technology that I suspect the coming decades will yield a significant need for people who have experience dealing with systems over a long period of time. If we don&#39;t deal with our addiction to newness, the recruiter pitch of &quot;Junior Developer Wanted, 5 years experience Node.JS/Rails/...&quot; that we so frequently deride will turn into &quot;Senior Developer Wanted, 10 years experience dealing with software entropy&quot; and there will be no one to answer the call.</p>
+<p>Don&#39;t get sucked into the new tech cycle; learn to embrace what you&#39;re working on now and strive to work the best with the technology constraints you&#39;ve been handed.</p>
+<h1 id="scale">Scale</h1>
+<p>So, you&#39;ve thought considerably about your current job and ruled out technology as the main reason for leaving. In fact, you&#39;re sticking with the tried and true tech-stack you&#39;ve always known, but there&#39;s just been that nagging feeling that you&#39;d be so much better off if you could experience working with your stack at a larger scale. Oh to be able to understand the constraints of systems at an order-of-magnitude or two beyond where you are working now; that&#39;s the ticket!</p>
+<p>Scale is subtle; on the surface it promises a similar thing to the tech-stack switch: an opportunity to learn new things that your current scale of operations can&#39;t teach you. Chances are you will probably actually learn some new technical things by increasing scale; the reality is that we tend to focus more on the <em>technical</em> and less on the <em>human</em> side of software development which often affects increases in scale much more. In his book, <a href="http://www.predictablesuccess.com/books/predictable-success/">Predictable Success</a>, Les McKeown gives some wisdom about how scale affects success in an operation:</p>
+<blockquote>
+<p>Predictable Success is defined as one of the seven stages of organizational development. It can be attained by any organization or group that acts as a human machine, well-oiled, working in concert, not without challenge, but focused and &quot;in the zone&quot; where growth is attainable <em>and</em> sustainable. It is not about size or the age of an organization. It has nothing to do with resources, culture or industry.</p>
+</blockquote>
+<p><img src="/img/reasons-not-to-quit-your-job/predictable.success.whole.picture.png" alt="The Whole Picture of Organizational Development according to Predicable Success"></p>
+<p>I particularly like his focus on the &quot;human&quot; factors and exclusion of the traditionally technical things we tend to focus on. While the book is targeted towards business growth and the reasons why companies tend to fail, it can be broadly applied to <em>any</em> group or organization (including software development orgs). Ask the following questions about the organization you&#39;re contemplating joining:</p>
+<ul>
+<li>What <a href="/img/reasons-not-to-quit-your-job/predictable.success.whole.picture.png">stage of organizational development</a> are they in?</li>
+<li>Can I really grow the way I want to there, not just technically but also in my capacity as a human?</li>
+<li>Will the scale inhibit or promote my growth?</li>
+<li>What potential problems will exist at the new operating scale?</li>
+</ul>
+<p>In my experience working as a consultant the only constant I&#39;ve observed is that the same problems (and the same trend towards entropy) exist regardless of the scale of the company and how they use their technology.</p>
+<p>Think hard about using scale as justification for quitting your job; chances are you haven&#39;t considered the <em>human</em> factors involved.</p>
+<h1 id="adversity">Adversity</h1>
+<p>Ruling out both scale and technology as reasons for quitting a job is great, but to be honest they aren&#39;t the most common reasons I&#39;ve quit in the past. Typically that honor is reserved for a more sinister and damaging character-trait: an inability to handle adversity.</p>
+<p>Adversity is double-edged; it shows us the best <em>and</em> worst of ourselves, sometimes at the same time! If I take a step back and examine times when I left jobs because things just got too challenging I truly feel like there was <em>always</em> an opportunity to overcome <em>in spite of</em> the challenging situation and emerge a stronger human. How we respond to challenges in our workplace says a lot about our character:</p>
+<p><img src="/img/reasons-not-to-quit-your-job/calvin.character.building.png" alt="Calvin Builds Character Shoveling Snow"></p>
+<p><img src="/img/reasons-not-to-quit-your-job/calvin.character.building.2.gif" alt="Calvin Builds Character Eating Dinner"></p>
+<p><img src="/img/reasons-not-to-quit-your-job/calvin.character.building.3.gif" alt="Calvin Builds Character Being Cold (and Frugal)"></p>
+<p>Before you quit your job because it&#39;s just &quot;too damned hard&quot; I would encourage you to take a moment and step outside yourself; reflect on the situation and the facts -- <a href="https://www.vitalsmarts.com/crucialskills/2009/04/how-to-control-your-emotion/">take the emotion out of it</a> and be objective.</p>
+<p>If you can turn a challenging situation from a painful pity-party into an opportunity to conquer and emerge better you will be amazed at what you can come through.</p>
+<h1 id="still-ready-to-quit-">Still Ready to Quit?</h1>
+<p>There are valid reasons to quit your job, but I think we tend to dwell on them far too often before considering the reasons <em>not</em> to. My hope for you at the end of 2016 is that as you approach the boundary and transition leading into 2017 that you would be prompted to introspect and reflect on what it is you truly want. Set some goals, list some objectives for your life and above all ask yourself some tough questions before throwing in the towel; as a wise friend of mine once said:</p>
+<blockquote>
+<p>If the grass is greener on the other side, then you&#39;d better water your own lawn.</p>
+</blockquote>
+]]></description><link>http://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 30 Dec 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[introduction to react native]]></title><description><![CDATA[<iframe src="http://www.youtube.com/embed/n5RhAYhTxCk?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+
+<p>This is a basic introduction to getting started with React Native; this screencast shows how to get setup, development workflow, and building the first cut at a ListView to show some images and meta data for Hearthstone cards in the React Native application workflow.</p>
+<h1 id="resources">Resources</h1>
+<p><a href="http://facebook.github.io/react-native/">http://facebook.github.io/react-native/</a></p>
+]]></description><link>http://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 10 Apr 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[building dsls with javascript and coffeescript]]></title><description><![CDATA[<blockquote>
+<p>Web developers are integration specialists—tying plugins, scripts and frameworks together into a web application that works. Thinking in terms of abstractions—by condensing many low-level ideas into fewer high-level ideas—allows us to simplify our code and reason about it with less cognitive overhead.</p>
+</blockquote>
+<iframe src="http://www.youtube.com/embed/EOksrrySfwI?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+
+<p>In this screencast, recorded at <a href="prairiedevcon.com">Prairie Dev Con 2015</a>, we examine a few techniques for building abstractions on top of popular JavaScript frameworks by learning about Domain Specific Languages and bringing some convention to our code.</p>
+<h1 id="code">Code</h1>
+<p><a href="https://github.com/davemo/jsdsl">https://github.com/davemo/jsdsl</a></p>
+]]></description><link>http://blog.davemo.com/posts/2015-03-06-building-dsls-with-javascript-and-coffeescript.html</link><guid isPermaLink="true">http://blog.davemo.com/posts/2015-03-06-building-dsls-with-javascript-and-coffeescript.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 06 Mar 2015 00:00:00 GMT</pubDate></item></channel></rss>

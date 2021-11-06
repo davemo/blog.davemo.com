@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="david mosher" href="/index.xml"><title>david mosher | what polymer and angular tell us about the future success of the web platform and javascript frameworks</title></head><body><div id="wrap"><header class="root"><h1><a href="/">david mosher</a></h1><h2>personal and semi-professional opinions of a web designer and developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><h1><a href="http://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davatar.jpg" alt="David Mosher"></a></h1><p>Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats</p><a href="http://github.com/davemo">@davemo on github</a></section><nav><a href="/">home&nbsp;</a><a href="/archive.html">archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html">June 26th, 2013</a></time><div class="older-newer"><div class="newer"><a href="/posts/2013-08-08-testing-strategies-for-angular-js.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2013-06-18-frontend-workflows-with-grunt-and-angularjs.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html">what polymer and angular tell us about the future success of the web platform and javascript frameworks</a></h1></header><section class="body"><div class="inner"><p>Yehuda Katz recently gave a talk entitled <a href="https://www.youtube.com/watch?v=EcyxXPILO8E">&quot;The Future of the Client-Side
+Web&quot;</a> in which he detailed the
+current challenges that web standards bodies face when trying to design APIs
+for web developers to use. In this talk, Yehuda also highlighted Google&#39;s
+recently announced <a href="http://www.polymer-project.org/">Polymer Project</a> as a good
+example of the right way to push the web platform forward.</p>
+<p>Polymer provides a &quot;low enough&quot; level API that gives web developers the power
+to redefine the way they write markup using the power of newer features coming
+to JavaScript in <a href="http://tc39wiki.calculist.org/es6/">ES6</a>. The specifics of
+the implementation aren&#39;t relevant to what I want to say here, but Yehuda does
+a great job covering the details at a high level in the video; I suggest you
+watch it if they interest you.</p>
+<p>What I found interesting was the <em>message</em> that was at the heart of the talk,
+here&#39;s my paraphrased version:</p>
+<blockquote>
+<p>web platform standards bodies need to focus less on getting implementations
+of new APIs right the first time (hello
+<a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702">AppCache</a>) and instead
+provide web developers with a set of lower level APIs that are exposed to
+JavaScript. When this approach has been followed, developers are capable of
+iterating far faster than standards bodies which results in consensus on API
+design being reached faster and with less upfront design.</p>
+</blockquote>
+<p>This is a fundamental shift in thinking that should be embraced and I believe
+this approach has already been validated by a number of well-known JavaScript
+libraries.</p>
+<h1 id="the-backbone-lesson">The Backbone Lesson</h1>
+<p>Since its release, <a href="http://documentcloud.github.io/backbone/">Backbone</a> has
+exploded in popularity and many <a href="https://github.com/chaplinjs/chaplin">other</a>
+<a href="https://github.com/marionettejs/backbone.marionette">frameworks</a> have since
+been built on top of the low-level components it provides. <a href="http://www.twitter.com/jashkenas">Jeremy
+Ashkenas</a> and the team at <a href="http://www.documentcloud.org">Document
+Cloud</a> did an amazing job of releasing a set of
+components that can be adapted to fit almost any scenario when building a web
+application&mdash;from simple uses of Backbone.View inside an existing legacy
+application all the way up to writing a self-contained application that runs in
+the browser.</p>
+<p>When I first started working in Backbone almost two years ago, I remember
+feeling overwhelmed at how I was supposed to use all the pieces provided. I
+believe this speaks to the essence of how Backbone was created, and looking
+back now it is clear to me that Backbone follows the design model that Yehuda
+praises in his talk; it gave us a low-level set of components and didn&#39;t really
+enforce any particular design decisions on how to use them&mdash;aside from an
+important guiding principle: get your data out of the DOM.</p>
+<h1 id="the-ember-conundrum">The Ember Conundrum</h1>
+<p>A recent blog post comparing <a href="http://emberjs.com/">Ember</a> and
+Angular&mdash;originally entitled <a href="http://eviltrout.com/2013/06/15/ember-vs-angular-its-not-even-close.html">&quot;AngularJS vs Ember, It&#39;s not even
+close&quot;</a>&mdash;highlights
+some perceived shortcomings of Angular, chief among them being there are too
+many pitfalls in the simplistic features Angular provides and the Angular team
+should strive to provide higher-level conventions/components that developers
+can follow. While Yehuda didn&#39;t write the comparison post, the point of view
+expressed by the author really struck me as being in stark contrast to the
+decentralized/low-level API design approach that Yehuda extols the virtues of
+in his talk: success is realized when developers are given access to low-level
+components without many opinions on how they should be used. Designing a
+powerful, approachable, easy-to-learn-difficult-to-master framework _is_ hard,
+but Ember is <em>very</em> opinionated.</p>
+<p>It seems to me like the Ember team and contributors would be better served by
+following these design goals; spending more time observing how web developers
+use their low-level APIs when crafting solutions and less time trying to get a
+high-level rich-web application framework right the first time. Perhaps this is
+why the path to Ember&#39;s 1.0 release has been so full of frequent, <a href="http://meta.stackoverflow.com/a/163861">backwards
+compatibility breaking</a> API changes.</p>
+<h1 id="the-angular-approach">The Angular Approach</h1>
+<p>Initially I was skeptical about the power of
+<a href="http://www.angularjs.org">Angular</a>, having spent a good 18 months of my life
+invested in writing applications with Backbone I wasn&#39;t eager to make a jump to
+another framework. Thankfully my skepticism was quickly swept aside as I
+discovered the beauty in the simplicity of the Angular API. With Angular, I
+don&#39;t have to extend framework built-in objects or methods; I can just use
+POJSO&#39;s (Plain Old JavaScript Objects) and functions. I also don&#39;t have to
+spend a lot of time thinking about how to structure my application thanks to
+<a href="http://docs.angularjs.org/guide/module"><code>angular.module</code></a> and built-in
+<a href="http://docs.angularjs.org/guide/di">dependency injection</a>. Angular <em>really</em>
+hits the sweet spot between low-level components and <em>tightly scoped</em>
+high-level abstractions. It provides high-level features that each have a
+singular focus as well as low-level components that I can craft into
+domain-specific solutions within my applications.</p>
+<p>The ability to craft custom markup through
+<a href="http://docs.angularjs.org/guide/directive"><code>angular.directive</code></a> is an
+interesting high-level piece in that it has the power to create custom
+components that are as coarse or granular as you need them to be. Angular is
+<em>just</em> opinionated enough that it allows developers to work with the low-level
+components provided to craft higher level abstractions. In fact, I think that
+is the core benefit of Angular. Having the power to abstract:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">"chart"</span> data-type=<span class="hljs-string">"bar"</span>&gt;
+  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"legend"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+  ... lots <span class="hljs-keyword">of</span> other stuff
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>into</p>
+<pre><code class="lang-html"><span class="hljs-section">&lt;bar-chart&gt;</span><span class="hljs-section">&lt;/bar-chart&gt;</span>
+</code></pre>
+<p>is an incredibly powerful idea.</p>
+<h1 id="web-components-and-the-future-of-markup">Web Components and the future of Markup</h1>
+<p>One of the most exciting changes to the Web Platform in the last five years is
+the upcoming <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web
+Components</a> spec.
+<a href="https://www.google.ca/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CC0QFjAA&amp;url=https%3A%2F%2Ftwitter.com%2Febidel&amp;ei=_EDLUbuIK8iHywGUuYHoDg&amp;usg=AFQjCNHgffvpgL9vHcpCK96uvkRqTmUkzg&amp;bvm=bv.48340889,d.aWc">Eric
+Bidelman</a>
+gave a <a href="https://www.youtube.com/watch?v=fqULJBBEVQE">great overview</a> of it
+during Google IO this year and <a href="https://twitter.com/jkomoros">Alex Komoroske</a>
+and <a href="https://twitter.com/mattsmcnulty">Matthew McNulty</a> had an <a href="https://www.youtube.com/watch?v=0g0oOOT86NY">amazing
+demo</a> that showcased some of the
+capabilities. I&#39;m excited about Web Components because it will allow web
+developers to experiment at a lower-level by reshaping the way that we write
+markup. It will also offer true encapsulation on the web, a feature that has
+been sorely lacking.</p>
+<p>It seems like the lessons the Angular team have learned are helping to shape
+the direction of Web Components. In fact, <a href="https://twitter.com/mhevery">Miško
+Hevery</a> from the Angular team has <a href="https://groups.google.com/forum/#!msg/polymer-dev/4RSYaKmbtEk/uYnY3900wpIJ">this to
+say</a>
+on Angular + Web Components:</p>
+<blockquote>
+<p>Web Components (Polymer, Ember, or any other framework/library) will work
+ seamlessly within Angular apps and directives.</p>
+</blockquote>
+<blockquote>
+<p>Components written in Angular will export to Web Components (to be used by
+ Polymer, Ember, or any other framework/library).</p>
+</blockquote>
+<p>The awesome thing about Angular and Polymer is that you can use them to achieve
+these kinds of markup abstractions in your applications right now, along with
+all the other great features they provide. I&#39;m eager to see how the lower-level
+features in ES6 and low-level libraries like Polymer are going to be used by
+developers to create even more amazing frameworks in the future.</p>
+<h1 id="moving-the-web-forward-with-low-level-apis">Moving the Web Forward with Low-Level APIs</h1>
+<p>I think Yehuda has it right; standards bodies need to focus less on getting
+high-level APIs right up front and more on providing developers with enough
+low-level APIs with which to experiment. The same principle applies to the
+design of JavaScript application frameworks. My hope is that the standards
+bodies <em>and</em> JavaScript framework authors embrace this decentralized approach
+to design going forward. Ideally this will move the web development community
+beyond rhetoric and zero-sum thinking, and into an age of innovation.</p>
+</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
