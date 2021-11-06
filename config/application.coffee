@@ -25,4 +25,3 @@ module.exports = (lineman) ->
       description: "personal and semi-professional opinions of a web designer and developer living in ottawa, canada"
       url: "http://blog.davemo.com"
       dateFormat: 'MMMM Do, YYYY'
-      disqus: "davidmosher"
