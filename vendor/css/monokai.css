@@ -13,6 +13,7 @@ pre {
   background: #333;
   color: #fff;
   padding: 5px;
+  overflow: scroll;
 }
 
 .language-xml .hljs-meta,
