@@ -11,13 +11,12 @@ module.exports = (lineman) ->
     common: "copy:dev"
     dist: "copy:dist"
 
-   prependTasks:
-     dev: "markdown:dev"
-     dist: "markdown:dist"
+  prependTasks:
+    dev: "markdown:dev"
+    dist: "markdown:dist"
 
   removeTasks:
-    common: lineman.config.application.removeTasks.common.concat(
-      "pug:templates", "jst", "jshint")
+    common: lineman.config.application.removeTasks.common.concat("pug:templates", "jst", "jshint")
 
   markdown:
     options:
