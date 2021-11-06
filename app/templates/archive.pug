@@ -4,9 +4,8 @@ article.post.clearfix
     h1 archives
   section.body
     #archive.inner
-      - _(site.posts).chain().clone().reverse().each(function(post){
-        div
-          a(href=`/${post.htmlPath()}`) #{post.title()}
-          pre
-            #{JSON.stringify(post, null, 2)}
-      - })
+      ul
+        - _(site.posts).chain().clone().reverse().each(function(post){
+          li
+            a(href=`/${post.htmlPath()}`) #{post.title()}
+        - })
