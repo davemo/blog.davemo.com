@@ -1,3 +1,4 @@
+
 # Exports an object that defines
 #  all of the configuration needed by the projects'
 #  depended-on grunt tasks.
@@ -21,7 +22,7 @@ module.exports = (lineman) ->
   markdown:
     options:
       author: "David A. Mosher"
-      title: "blog: david mosher"
+      title: "{ blog: david mosher }"
       description: "personal opinions from a software developer living in ottawa, canada"
       url: "https://blog.davemo.com"
       dateFormat: 'MMMM Do, YYYY'
