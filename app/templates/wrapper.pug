@@ -12,14 +12,17 @@ html
         h2 #{site.description}
       aside#sidebar
         section#profile
-          h1
-            a(href='http://github.com/davemo' title="David Mosher's Github")
-              img.profile_image(src='/img/davatar.jpg' alt='David Mosher')
-          p Programmer, Designer, UX&apos;er, Hacker, Musician, ... wearer of many hats
-          a(href='http://github.com/davemo') @davemo on github
+          a(href='https://github.com/davemo' title="David Mosher's Github")
+            img.profile_image(src='/img/davemo.headphones.png' alt='David Mosher')
+          p Programmer, Designer, UX&apos;er, Hacker, Musician, Artist ... wearer of many hats 🤓
+          .icons
+            a.icon.github(href='https://github.com/davemo' title='davemo on github')
+            a.icon.linkedin(href='https://linkedin.com/in/dmosher' title='dmosher on linkedin')
+            a.icon.twitter(href='https://twitter.com/dmosher' title='dmosher on twitter')
+            a.icon.youtube(href='https://youtube.com/davidmosher' title='davidmosher on youtube')
         nav
-          a(href='/') home&nbsp;
-          a(href='/archive.html') archives
+          a(href='/') homepage
+          a(href='/archive.html') blog archives
       | !{yield}
       footer.root &copy; #{new Date().getFullYear()} - #{site.author}
     script(type='text/javascript' src=`${js}`)

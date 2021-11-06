@@ -21,7 +21,7 @@ module.exports = (lineman) ->
   markdown:
     options:
       author: "David A. Mosher"
-      title: "david mosher"
-      description: "personal and semi-professional opinions of a web designer and developer living in ottawa, canada"
+      title: "blog: david mosher"
+      description: "personal opinions from a software developer living in ottawa, canada"
       url: "http://blog.davemo.com"
       dateFormat: 'MMMM Do, YYYY'

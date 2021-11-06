@@ -26,27 +26,67 @@ aside#sidebar {
   font-size: 1.2em;
   color: #999;
 }
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon::before {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  background: url(/img/social-sprite.png) 0 0;
+  content: '';
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: 700px;
+  border-radius: 10px;
+}
+
+.icon.github::before {
+  background-position: -653px -11px;
+}
+
+.icon.github:hover::before {
+  background-position: -653px -70px;
+}
+
+.icon.linkedin::before {
+  background-position: -245px -11px;
+}
+
+.icon.linkedin:hover::before {
+  background-position: -245px -70px;
+}
+
+.icon.twitter::before {
+  background-position: -477px -11px;
+}
+
+.icon.twitter:hover::before {
+  background-position: -477px -70px;
+}
+
+.icon.youtube::before {
+  background-position: -594px -11px;
+}
+
+.icon.youtube:hover::before {
+  background-position: -594px -70px;
+}
+
 aside#sidebar #profile img.profile_image {
-  border: 1px solid #ccc;
-  width: 75px;
-  height: 75px;
+  width: 100%;
 }
 aside#sidebar nav {
   margin: 20px 0px;
 }
-aside#sidebar div.external {
-  margin: 10px 0;
+aside#sidebar nav a {
+  display: block;
 }
-aside#sidebar div.external a {
-  width: 16px;
-  height: 16px;
-  text-indent: -9999px;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 5px;
-  border: 1px solid black;
-  background: url(/images/icons/services/sprite.png?1326207468) no-repeat;
-}
+
 aside#sidebar section h1 {
   font-size: 11px;
   font-weight: normal;
