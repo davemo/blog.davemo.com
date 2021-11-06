@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "lineman clean",
     "start": "lineman run",
-    "postinstall": "lineman build",
+    "build": "linemane build",
     "test": "lineman spec"
   }
 }
