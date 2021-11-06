@@ -1,6 +1,9 @@
-It has been but a [few short years](/build-automation-holy-war.png) since _web developers_ chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of [many](https://en.wikipedia.org/wiki/Editor_war) [wars](https://en.wikipedia.org/wiki/Browser_wars) that have been fought [countless times](https://en.wikipedia.org/wiki/Indent_style) since the dawn of computing. In the grim darkness of the far future, there is only war.
+---
+title: "Makefile Usability Tips"
+date: "2017-04-17"
+---
 
-...
+> It has been but a [few short years](/build-automation-holy-war.png) since _web developers_ chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of [many](https://en.wikipedia.org/wiki/Editor_war) [wars](https://en.wikipedia.org/wiki/Browser_wars) that have been fought [countless times](https://en.wikipedia.org/wiki/Indent_style) since the dawn of computing. In the grim darkness of the far future, there is only war.
 
 Meh. War is tiresome and I have had enough of war. This post is about some small usability improvements you can add to your Makefiles if you are using Make. Let's dig in!
 

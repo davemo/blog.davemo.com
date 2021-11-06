@@ -1,16 +1,18 @@
-A wise man once told me that the best way to get ahead in life is to learn
+---
+title: "3 Characteristics of Good Programmers"
+date: "2010-01-12"
+---
+
+> A wise man once told me that the best way to get ahead in life is to learn
 lessons from the experiences and failures of others. That man was my dad. He
 didn't share often with me when I was growing up but when he did I listened
 carefully (for the most part..) because what he had to say carried the weight
 and experience of someone who had experienced far more in life than I had.
-Programming is a lot like learning this way. There are people and companies who
-have tried and failed, sometimes miserably, at coming up with solutions to
-problems. When compared to other disciplines, I suspect there are more failures
-in programming than there are successes. This puts us in a unique position as
-developers because it offers us a distinct advantage over other industries; we
-have more examples of what not to do ... if we choose to seek them out.
+Programming is a lot like learning this way.
 
-**Passion**
+There are people and companies who have tried and failed, sometimes miserably, at coming up with solutions to problems. When compared to other disciplines, I suspect there are more failures in programming than there are successes. This puts us in a unique position as developers because it offers us a distinct advantage over other industries; we have more examples of what not to do ... if we choose to seek them out.
+
+## Passion
 
 I love programming. It's the only job I've had where I feel energized by solving
 problems. Sometimes my solutions suck but I think that's ok because I'm willing
@@ -28,7 +30,7 @@ player who constantly changes up his strategy in an attempt to influence the
 outcome of the game. Passionate programmers realize that perfection is
 unattainable but they still strive to attain it with care.
 
-**Perfection**
+## Perfection
 
 It's been said before, "if we could only use solution [x] problem [y] would go
 away completely", "things will be all better if we just do this", "this is
@@ -48,16 +50,16 @@ and often with our business owners to understand the business goals of any
 potential solution. By considering business goals we mitigate against the risk
 of building only the perfect technical solution.
 
-**Perseverance**
+## Perseverance
 
 I'm not an english major but I think that Shakespeare has some good things to
 say about perseverance.
 
-> "To be, or not to be: that is the question:\
-> Whether 'tis nobler in the mind to suffer\
-> The slings and arrows of outrageous fortune,\
-> Or to take arms against a sea of troubles,\
-> And by opposing end them?"\
+> "To be, or not to be: that is the question:
+> Whether 'tis nobler in the mind to suffer
+> The slings and arrows of outrageous fortune,
+> Or to take arms against a sea of troubles,
+> And by opposing end them?"
 > -- *Hamlet*
 
 The answer to the question has to be: to be! Giving up is not an option!
@@ -66,12 +68,12 @@ have in order to face problems. They also surround themselves with like minded
 people and thrive on failure. Failure affords us the chance to persevere and
 refine our process until we reach a solution that is "good enough".
 
-> "And thus the native hue of resolution\
-> Is sicklied o'er with the pale cast of thought,\
-> And enterprises of great pith and moment\
-> With this regard their currents turn awry,\
-> And lose the name of action." \
-> -- *Hamlet*
+> "And thus the native hue of resolution
+> Is sicklied o'er with the pale cast of thought,
+> And enterprises of great pith and moment
+> With this regard their currents turn awry,
+> And lose the name of action."
+> -- *Hamlet*
 
 Have you resolved in the past to persevere through difficult problems as a
 programmer only to find that you get trapped in over thinking how you're going

@@ -1,3 +1,8 @@
+---
+title: "Building DSLs with JavaScript & CoffeeScript"
+date: "2015-03-06"
+---
+
 > Web developers are integration specialists—tying plugins, scripts and frameworks together into a web application that works. Thinking in terms of abstractions—by condensing many low-level ideas into fewer high-level ideas—allows us to simplify our code and reason about it with less cognitive overhead.
 
 <iframe src="https://www.youtube.com/embed/EOksrrySfwI?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>

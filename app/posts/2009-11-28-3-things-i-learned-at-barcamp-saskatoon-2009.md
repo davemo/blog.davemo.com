@@ -1,10 +1,15 @@
-I attended Bar Camp Saskatoon today and while I wasn't able to stay for the
+---
+title: "3 things I learned at BarCamp Saskatoon 2009"
+date: "2009-11-28"
+---
+
+> I attended Bar Camp Saskatoon today and while I wasn't able to stay for the
 entire series of presentations what I did manage to see was great. I presented
 on [SASS](https://www.sass-lang.com), [Compass](https://www.compass-style.org) and
 CSS Frameworks. My presentation didn't go exactly as I'd planned but I learned
 things from that experience and from other peoples presentations.
 
-**1. Your presentation doesn't have to be long to be effective.**
+## 1. Your presentation doesn't have to be long to be effective.
 
 [Nate Heagy's](https://twitter.com/nheagy) presentation on JavaScript was
 perfect, IMHO. It was about 15 minutes of airtime that offered about another 10
@@ -12,10 +17,10 @@ to 15 minutes of discussion. The time slot allotment is just about an hour
 (including time for questions) but I felt like given the open format of Bar Camp
 less talk and more group discussion works really well. Also, kudos to Nate for
 imbuing his presentation with a healthy dose of humour in addition to the
-excellent information. Engaging++
+excellent information. **Engaging++**
 
-**2. If you do live coding, be uber prepared for failure ... and recover
-gracefully if possible.**
+## 2. If you do live coding, be uber prepared for failure ... and recover
+gracefully if possible.
 
 After last years presentation on using Yahoo Pipes for one of our corporate
 website projects I thought it might be nice to do some actual live coding for a
@@ -42,7 +47,7 @@ I'd go back and stick to my script more (I generated a series of notes that I
 kind of "forgot" to use during the presentation -- nerves and all that),
 condense it significantly and offer more time for discussion.
 
-**3. Saskatoon has a vibrant, growing tech-community. This is awesome.**
+## 3. Saskatoon has a vibrant, growing tech-community. This is awesome.
 
 I've lived in Saskatoon since 1999. In the 10 years I've been here I have to say
 I don't think I've ever been as excited about living somewhere as I am right now
@@ -54,11 +59,11 @@ western tech-mecca than people already perceive. It's great that people like
 Lejbak](https://twitter.com/ryanlejbak) have taken the initiative to develop this
 sort of community (and my apologies if I missed your name and you were a key
 part of the involvement of Bar Camp Saskatoon) and companies like
-[zu](https://www.zu.com), [Point2](https://www.point2.com), [YasTech](https://www.yastech.ca)
+[zu](https://www.zu.com), [Point2](https://www.point2.com), [YasTech](https://www.yastech.ca)
 (and more) are willing to spend time and effort sponsoring the events. (Wanted:
 [VendAsta](https://www.vendasta.com) as a sponsor for next year!)
 
 I'm stoked to connect more with people in the tech-community within Saskatoon
-and continue to learn from interesting people. Can't wait until Bar Camp
-Saskatoon 2010 :D
+and continue to learn from interesting people. **Can't wait until Bar Camp
+Saskatoon 2010 :D**
 

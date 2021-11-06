@@ -1,3 +1,8 @@
+---
+title: "The SCNA 2011 Narrative: Suitability, Capability, Anarachy & Propaganda"
+date: "2011-11-21"
+---
+
 I attended [Software Crafstmanship North
 America](https://scna.softwarecraftsmanship.org/) in Chicago this weekend and
 came away feeling much differently than I thought I would. I [tweeted a
@@ -142,7 +147,7 @@ provoking talk at SCNA 2011. Here's my translation:
 > ideas:
 >
 > -   Make a list of stuff to do.
-> -   Do that stuff. 
+> -   Do that stuff.
 > -   Automate the heck out of everything.
 >
 > (note: these things don't have to be done in any particular order)
@@ -185,6 +190,6 @@ To me, the most important narrative of SCNA 2011, and the thoughts behind my
 
 -   Don't buy into all the propaganda, don't get indoctrinated. Get educated.
 -   Learn to *objectively* evaluate the tools, processes, and ideas we use in
-    terms of *suitability and capability*. 
--   Let go of suitability solutions if they don't give you any value. 
+    terms of *suitability and capability*.
+-   Let go of suitability solutions if they don't give you any value.
 -   Embrace capability solutions because you might be surprised by their value.

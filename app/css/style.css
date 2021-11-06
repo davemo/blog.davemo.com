@@ -27,6 +27,27 @@ aside#sidebar {
   color: #999;
 }
 
+#archive {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#archive.inner > div {
+  width:  240px;
+  /*height:  100px;*/
+  border:  1px solid red
+}
+
+#archive.inner > div:first-child {
+  width:  100%;
+  /*height:  150px;*/
+  border:  2px solid blue
+}
+
+
 .icons {
   display: flex;
   flex-direction: row;
@@ -107,7 +128,7 @@ div#wrap {
   text-align: left;
 }
 a {
-  color: #BC7134;
+  color: #bf5600;
   text-decoration: none;
 }
 a:hover {
@@ -162,6 +183,9 @@ article > header #navigation {
 article > header #navigation .older-newer {
   margin-top: 10px;
 }
+.older-newer a {
+  font-size: 12px;
+}
 article > header #navigation .older {
   float: right;
 }
@@ -175,15 +199,12 @@ article > header h1 {
   margin: 12px 0 0;
 }
 article > header h1 a {
-  color: #444;
+  color: #4e4e4e;
 }
-article > header h1 a:hover {
-  text-decoration: none;
-  color: #999;
-}
+
 article time a {
   font-size: 13px;
-  color: #C6C1A5;
+  color: #645500;
 }
 .clearfix:after {
   visibility: hidden;
@@ -198,6 +219,7 @@ header h1 {
 }
 header.root {
   margin-top: 40px;
+  margin-bottom: 40px;
   width: 500px;
   margin-left: 155px;
   display: block;

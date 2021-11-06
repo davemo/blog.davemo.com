@@ -3,9 +3,10 @@ article.post.clearfix
     section#navigation
     h1 archives
   section.body
-    .inner
-      ul
-        - _(site.posts).chain().clone().reverse().each(function(post){
-          li
-            a(href=`/${post.htmlPath()}`) #{post.title()}
-        - })
+    #archive.inner
+      - _(site.posts).chain().clone().reverse().each(function(post){
+        div
+          a(href=`/${post.htmlPath()}`) #{post.title()}
+          pre
+            #{JSON.stringify(post, null, 2)}
+      - })

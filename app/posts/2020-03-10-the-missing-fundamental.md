@@ -1,3 +1,8 @@
+---
+title: "The Missing Fundamental"
+date: "2020-03-10"
+---
+
 Music composition and production is a large part of my life outside of software development, so much so that I often find myself thinking of ways to draw parallels between the two. One such parallel that has stuck with me over the past 6 months or so is the concept of [the missing fundamental](https://en.wikipedia.org/wiki/Missing_fundamental).
 
 > A harmonic sound is said to have a **missing fundamental**, **suppressed fundamental**, or **phantom fundamental** when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself.

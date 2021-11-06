@@ -1,8 +1,13 @@
+---
+title: "React Performance Analysis"
+date: "2017-11-07"
+---
+
+> React is frequently touted as being performant due to the optimizations of its Virtual DOM technique, yet all to often this is used by developers as a crutch to avoid thinking about the performance of their code _at all_. This generally leads to performance problems in React apps of any significant scale.
+
 <iframe src="https://www.youtube.com/embed/sVDnCMIkmTM?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
 
 With the proliferation of React applications in the wild, I thought it would be a good idea to examine some techniques for evaluating the performance of React Components.
-
-React is frequently touted as being performant due to the optimizations of its Virtual DOM technique, yet all to often this is used by developers as a crutch to avoid thinking about the performance of their code _at all_. This generally leads to performance problems in React apps of any significant scale.
 
 This screencast covers a number of techniques for constructing components, but also shows how to evaluate performance objectively and make informed refactoring decisions.
 

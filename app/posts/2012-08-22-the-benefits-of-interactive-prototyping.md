@@ -1,4 +1,9 @@
-I had a small epiphany today while working on a new prototype for a client:
+---
+title: "The Benefits of Interactive Prototyping"
+date: "2012-08-22"
+---
+
+> I had a small epiphany today while working on a new prototype for a client:
 "different stages of prototyping yield different levels of information". I know
 I know, not much of a brainwave there, right? I was never one for writing
 headlines and there's a lot of knowledge packed into that statement, so stick
@@ -12,6 +17,7 @@ spectrum people often start by drawing lots of boxes and arrows on paper. Next
 comes some of the static mockup tools that are popular today, like
 [Balsamiq](https://www.balsamiq.com/), [Hot Gloo](https://www.hotgloo.com/),
 [Fireworks](https://www.adobe.com/products/fireworks.html) (and many more).
+
 Further up the fidelity chain comes prototyping in the Browser which has some
 interesting advantages over static prototypes; what struck me today was how much
 more I could learn from prototyping in the browser when I moved from static

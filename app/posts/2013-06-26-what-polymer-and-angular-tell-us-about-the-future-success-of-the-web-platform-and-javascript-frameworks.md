@@ -1,4 +1,9 @@
-Yehuda Katz recently gave a talk entitled ["The Future of the Client-Side
+---
+title: "What Polymer and Angular tell us about the future success of the Web Platform and JavaScript Frameworks"
+date: "2013-08-08"
+---
+
+> Yehuda Katz recently gave a talk entitled ["The Future of the Client-Side
 Web"](https://www.youtube.com/watch?v=EcyxXPILO8E) in which he detailed the
 current challenges that web standards bodies face when trying to design APIs
 for web developers to use. In this talk, Yehuda also highlighted Google's
@@ -15,7 +20,7 @@ watch it if they interest you.
 What I found interesting was the _message_ that was at the heart of the talk,
 here's my paraphrased version:
 
-> web platform standards bodies need to focus less on getting implementations
+> Web Platform standards bodies need to focus less on getting implementations
 > of new APIs right the first time (hello
 > [AppCache](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702)) and instead
 > provide web developers with a set of lower level APIs that are exposed to

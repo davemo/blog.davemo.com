@@ -1,4 +1,9 @@
-"2016." A year of ups and (if you agree with many of the social media channels in the last month) a significantly larger number of downs. I'm not sure  _exactly_ what it is about this time of year that causes us to reflect so much more than the rest of the year; I suspect it _mostly_ has to do with a heightened sense of awareness as we approach boundaries.
+---
+title: "Reasons not to quit your job"
+date: "2016-12-30"
+---
+
+> 2016 was a year of ups and (if you agree with many of the social media channels in the last month) a significantly larger number of downs. I'm not sure  _exactly_ what it is about this time of year that causes us to reflect so much more than the rest of the year; I suspect it _mostly_ has to do with a heightened sense of awareness as we approach boundaries.
 
 As children, we know they are there because our parents tell us and we frequently come close to them often by virtue of desiring to push past to see what is beyond. As parents, we know they are there because we create them; often intending to protect our children from things that are dangerous or to set parameters for healthy  age-appropriate interaction. As software developers we encounter [boundaries](https://www.destroyallsoftware.com/talks/boundaries) in tests, the design of our code as it relates to components in a system, API's, the list goes on and on. Being in constant consideration of boundaries, whether consciously or subconsciously, has the side-effect of switching our brain into analysis and reflection mode.
 

@@ -1,17 +1,24 @@
-![](/img/14471799-basketball.jpg)
+---
+title: "Focus is the glue"
+date: "2010-09-01"
+---
 
-(image courtesy [StuSeeger](https://www.flickr.com/photos/stuseeger/136715887/),
-Flickr).
-
-I've been playing a lot of basketball at work these days on lunch and coffee
+> I've been playing a lot of basketball at work these days on lunch and coffee
 breaks. As a programmer who sits most of the day, it's nice to have a place to
 go to spend some energy. I've been keeping track of my progress in shooting free
 throws and my percentage has been steadily improving. I think I shot 80% last
-week (using a general warmup and then 10 in a row as my benchmark). I had what I
-like to call a "micro-epiphany" the other day when I went out to shoot
-baskets.  I started thinking about what it takes to be successful at basketball
+week (using a general warmup and then 10 in a row as my benchmark).
+
+I had what I like to call a "micro-epiphany" the other day when I went out to shoot
+baskets. I started thinking about what it takes to be successful at basketball
 and realized that there are two primary areas of skill required: **mechanics**
-and **focus**.
+and **focus**.
+
+
+![Image of a basketball going into a hoop with a sunset in the background](/img/14471799-basketball.jpg)
+
+(image courtesy [StuSeeger](https://www.flickr.com/photos/stuseeger/136715887/),
+Flickr).
 
 To succeed in putting the ball through the hoop you have to be solid in your
 mechanics. Your guide hand needs to support, but not influence, the weight of
@@ -28,7 +35,7 @@ combine all the elements of a successful shot you require an understanding of
 all these mechanics; more importantly you need to have focus.
 
 Focus is like the glue that holds all the pieces together. When I was learning
-to shoot in high school we would do many drills that broke down each of the
+to shoot in high school we would do many drills that broke down each of the
 components of a shot into the basic parts. It's necessary to break things down
 when you are working with complex processes because people, by nature, develop
 bad habits. I haven't played ball competitively since the end of grade 12 and it
@@ -36,7 +43,7 @@ was surprising to me how bad my shot had become when I first picked it up again
 almost 6 weeks ago. Luckily I had a solid foundation of skills and the knowledge
 of how to do "corrective surgery" on my shot techniques that I was able to
 improve significantly and bring my shooting percentage up. (It remains to be
-seen if I can still perform under the pressures of defense and actually shoot
+seen if I can still perform under the pressures of defense and actually shoot
 well when playing against other players). However, even if I was perfect in all
 of the mechanics I would fail to make my shots count if I didn't have a focus on
 what I was doing. It's hard to describe it accurately so I'll attempt to convey
@@ -89,8 +96,7 @@ over the few mistakes I may have made in the process of taking the shot.
 
 I'm sure there are many parallels that can be drawn between what I've talked
 about here and other facets of life, but I'll leave that up to you the reader to
-do. 
+do.
 
-All I know is that it feels good to play ball again. It feels good to **focus**
-:)
+All I know is that it feels good to play ball again. It feels good to **focus**!
 

@@ -1,4 +1,9 @@
-Link Bundles for various talks and screencasts I've given:
+---
+title: "Talks, Screencasts & Links"
+date: "2007-01-01"
+---
+
+> Link Bundles for various talks and screencasts I've given
 
 ***
 

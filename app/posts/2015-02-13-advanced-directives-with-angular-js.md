@@ -1,3 +1,8 @@
+---
+title: "Advanced Directives with AngularJS (Part 1)"
+date: "2015-02-13"
+---
+
 > This screencast examines some of the more advanced features in Angular, specifically Directives. We'll see how we can leverage the power of custom elements and attributes to map Domain Specific concepts through HTML and translate those into Value Objects in our Domain, resulting in cleaner HTML output. Also discussed: complexity, creating a DSL with directives, debugging techniques, and other tips and tricks.
 
 <iframe src="https://www.youtube.com/embed/Ty8XcASK9js?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
@@ -23,3 +28,15 @@ Some things in the screencast aren't complete and some things could definitely d
 
 * Bugfix: the editor currently shows up multiple times, fix it so this doesn't happen (hint: maybe an 'edit' state that's tracked could help the directive know if it should execute `.insertAfter`)
 * Feature: make the expandy arrow thing point down when expanded and to the right when collapsed.
+
+# Resources
+
+This is part of a screencast series on Angular JS
+
+1. [Intro to Angular JS](http://www.youtube.com/watch?v=8ILQOFAgaXE)
+1. [End to End with Angular JS](http://www.youtube.com/watch?v=hqAyiqUs93c)
+1. [Security with Angular JS](http://www.youtube.com/watch?v=18ifoT-Id54)
+1. [Frontend Workflows with Grunt and Angular JS](http://www.youtube.com/watch?v=fSAgFxjFSqY)
+1. [Testing Strategies for Angular JS](https://www.youtube.com/watch?v=UYVcY9EJcRs)
+1. [Advanced Directives with Angular JS (Part 1)](https://www.youtube.com/watch?v=Ty8XcASK9js)
+1. [Advanced Directives with Angular JS (Part 2)](https://www.youtube.com/watch?v=4zG8SfucUzg)
