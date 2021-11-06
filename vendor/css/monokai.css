@@ -1,124 +1,115 @@
-/*
-Monokai style - ported by Luigi Maselli - http://grigio.org
+ /*!
+  Theme: nnfx dark
+  Description: a theme inspired by Netscape Navigator/Firefox
+  Author: (c) 2020-2021 Jim Mason <jmason@ibinx.com>
+  Maintainer: @RocketMan
+  License: https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
+  Updated: 2021-05-17
+
+  @version 1.1.0
 */
 
-pre code {
-  display: block; padding: 0.5em;
-  background: #272822;
+pre {
+  background: #333;
+  color: #fff;
+  padding: 5px;
 }
 
-pre .tag,
-pre .tag .title,
-pre .keyword,
-pre .literal,
-pre .strong,
-pre .change,
-pre .winutils,
-pre .flow,
-pre .lisp .title,
-pre .clojure .built_in,
-pre .nginx .title,
-pre .tex .special {
-  color: #F92672;
+.language-xml .hljs-meta,
+.language-xml .hljs-meta-string {
+  font-weight: bold;
+  font-style: italic;
+  color: #69f;
 }
 
-pre code {
-  color: #DDD;
+.hljs-comment,
+.hljs-quote {
+  font-style: italic;
+  color: #9c6;
 }
 
-pre code .constant {
-	color: #66D9EF;
+.hljs-name,
+.hljs-keyword,
+.hljs-built_in {
+  color: #a7a;
 }
 
-pre .code,
-pre .class .title,
-pre .header {
-	color: white;
-}
-
-pre .link_label,
-pre .attribute,
-pre .symbol,
-pre .symbol .string,
-pre .value,
-pre .regexp {
-	color: #BF79DB;
-}
-
-pre .link_url,
-pre .tag .value,
-pre .string,
-pre .bullet,
-pre .subst,
-pre .title,
-pre .emphasis,
-pre .haskell .type,
-pre .preprocessor,
-pre .ruby .class .parent,
-pre .built_in,
-pre .sql .aggregate,
-pre .django .template_tag,
-pre .django .variable,
-pre .smalltalk .class,
-pre .javadoc,
-pre .django .filter .argument,
-pre .smalltalk .localvars,
-pre .smalltalk .array,
-pre .attr_selector,
-pre .pseudo,
-pre .addition,
-pre .stream,
-pre .envvar,
-pre .apache .tag,
-pre .apache .cbracket,
-pre .tex .command,
-pre .prompt {
-  color: #A6E22E;
-}
-
-pre .comment,
-pre .java .annotation,
-pre .blockquote,
-pre .horizontal_rule,
-pre .python .decorator,
-pre .template_comment,
-pre .pi,
-pre .doctype,
-pre .deletion,
-pre .shebang,
-pre .apache .sqbracket,
-pre .tex .formula {
-  color: #75715E;
-}
-
-pre .keyword,
-pre .literal,
-pre .css .id,
-pre .phpdoc,
-pre .title,
-pre .header,
-pre .haskell .type,
-pre .vbscript .built_in,
-pre .sql .aggregate,
-pre .rsl .built_in,
-pre .smalltalk .class,
-pre .diff .header,
-pre .chunk,
-pre .winutils,
-pre .bash .variable,
-pre .apache .tag,
-pre .tex .special,
-pre .request,
-pre .status {
+.hljs-name,
+.hljs-attr {
   font-weight: bold;
 }
 
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
-  opacity: 0.5;
+.hljs-string {
+  font-weight: normal;
+}
+
+.hljs-code,
+.hljs-string,
+.hljs-meta .hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-link {
+  color: #bce;
+}
+
+.hljs-title,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable {
+  color: #d40;
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title,
+.hljs-type {
+  font-weight: bold;
+  color: #96c;
+}
+
+.hljs-title.function_,
+.hljs-function .hljs-title,
+.hljs-attr,
+.hljs-subst,
+.hljs-tag {
+  color: #fff;
+}
+
+.hljs-formula {
+  background-color: #eee;
+  font-style: italic;
+}
+
+.hljs-addition {
+  background-color: #797;
+}
+
+.hljs-deletion {
+  background-color: #c99;
+}
+
+.hljs-meta {
+  color: #69f;
+}
+
+.hljs-section,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  font-weight: bold;
+  color: #69f;
+}
+
+.hljs-selector-pseudo {
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }
