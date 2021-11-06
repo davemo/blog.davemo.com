@@ -1,7 +1,7 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="blog: david mosher" href="/index.xml"><title>blog: david mosher | javascript dependency management and yui loader quirks</title></head><body><div id="wrap"><header class="root"><h1><a href="/">blog: david mosher</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>Programmer, Designer, UX&apos;er, Hacker, Musician, Artist ... wearer of many hats 🤓</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2009-03-13-javascript-dependency-management-and-yui-loader-quirks.html">March 13th, 2009</a></time><div class="older-newer"><div class="newer"><a href="/posts/2009-03-24-yui-uploader-and-ie7-flash-bugs.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2008-12-17-application-usage-trends.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2009-03-13-javascript-dependency-management-and-yui-loader-quirks.html">javascript dependency management and yui loader quirks</a></h1></header><section class="body"><div class="inner"><p><a href="http://bzabos.wordpress.com/">Brett</a> and I recently began refactoring a
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="blog: david mosher" href="/index.xml"><title>blog: david mosher | javascript dependency management and yui loader quirks</title></head><body><div id="wrap"><header class="root"><h1><a href="/">blog: david mosher</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>Programmer, Designer, UX&apos;er, Hacker, Musician, Artist ... wearer of many hats 🤓</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2009-03-13-javascript-dependency-management-and-yui-loader-quirks.html">March 13th, 2009</a></time><div class="older-newer"><div class="newer"><a href="/posts/2009-03-24-yui-uploader-and-ie7-flash-bugs.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2008-12-17-application-usage-trends.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2009-03-13-javascript-dependency-management-and-yui-loader-quirks.html">javascript dependency management and yui loader quirks</a></h1></header><section class="body"><div class="inner"><p><a href="https://bzabos.wordpress.com/">Brett</a> and I recently began refactoring a
 significant amount of the JavaScript that is currently in
-<a href="http://www.myfrontsteps.com">MyFrontSteps</a> and
-<a href="http://www.myfrontsteps.com/myfrontsteps/home/">Homebook</a>. One of the areas we
+<a href="https://www.myfrontsteps.com">MyFrontSteps</a> and
+<a href="https://www.myfrontsteps.com/myfrontsteps/home/">Homebook</a>. One of the areas we
 identified as needing improvement was controlling when scripts get loaded in the
 page; it&#39;s a challenging subject especially when utilizing Django templates
 which can extend and include bits of HTML that are both static and dynamic.
@@ -10,18 +10,18 @@ to blog about the lessons we&#39;ve learned early on about how to manage JavaScr
 loading without having script tags all over the place.</p>
 <h3 id="manual-dependency-management-is-hard">Manual Dependency Management is Hard</h3>
 <p>Not too long ago, Yahoo put out a list of
-<a href="http://developer.yahoo.com/performance/rules.html">guidelines</a> that web
+<a href="https://developer.yahoo.com/performance/rules.html">guidelines</a> that web
 developers can use to enhance the performance of their websites. I won&#39;t get
 into it in this post but there is a Firefox plugin called
-<a href="http://developer.yahoo.com/yslow/">YSlow</a> available that can automate some of
+<a href="https://developer.yahoo.com/yslow/">YSlow</a> available that can automate some of
 the performance checking. The recommendation I&#39;m going to focus on here is the
 one regarding moving scripts as close to the bottom of the page as possible.
-I&#39;ll just quote the <a href="http://developer.yahoo.com/performance/rules.html">Yahoo
+I&#39;ll just quote the <a href="https://developer.yahoo.com/performance/rules.html">Yahoo
 doc</a> as they explain it very
 clearly:</p>
 <blockquote>
 <p>The problem caused by scripts is that they block parallel downloads. The
-<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">HTTP/1.1
+<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">HTTP/1.1
 specification</a>
 suggests that browsers download no more than two components in parallel per
 hostname. If you serve your images from multiple hostnames, you can get more
@@ -40,7 +40,7 @@ loaded which created a real nightmare for us as we had to manually track down
 the position of the dependent scripts in the page that was fed to the browser
 after a variable number of layers of templates and includes. We decided to
 research a better way to manage all these scripts and since we had been using
-the YUI library for many other parts of the website we settled on the <a href="http://developer.yahoo.com/yui/yuiloader/">YUI
+the YUI library for many other parts of the website we settled on the <a href="https://developer.yahoo.com/yui/yuiloader/">YUI
 loader</a>.</p>
 <h3 id="yui-loader-makes-dependency-management-easy">YUI Loader Makes Dependency Management Easy</h3>
 <blockquote>
