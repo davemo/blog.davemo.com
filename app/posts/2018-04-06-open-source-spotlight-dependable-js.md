@@ -1,9 +1,3 @@
-<hr>
-
-**This post was originally published on [blog.testdouble.com](https://blog.testdouble.com/posts/2018-04-06-open-source-spotlight-dependable-js/)**
-
-<hr>
-
 Recently, [Michael Schoonmaker](https://twitter.com/Schoonology), [Joshua Starkey](https://twitter.com/primarilysnark), and [myself](https://twitter.com/dmosher) got together to brainstorm some improvements we wanted to make to an open source library called Dependable that we had used on a client project.
 
 [Dependable](https://github.com/testdouble/dependable) is billed as "A minimalist dependency injection framework for node.js", but I feel like it only took on the "minimalist" moniker after we shipped version 2.0 just a few weeks ago. As we sat down to discuss what we wanted to do there were a number of questions that shook out that I feel need to be asked by any team working on an open source project:

@@ -1,9 +1,3 @@
-<hr>
-
-**This post was originally published on [blog.testdouble.com](https://blog.testdouble.com/talks/2019-08-27-css-the-visual-state-machine/)**
-
-<hr>
-
 Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks. Whether you use [Redux](https://redux.js.org/), [MobX](https://mobx.js.org), or even perhaps something framework-agnostic like [xState](https://xstate.js.org), it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I've found there is still an area that is often overlooked when it comes to managing state in web applications: the visual or presentation layer.
 
 CSS is incredibly powerful yet frequently misunderstood by most developers, which often leads to derision of the language. I think this is mostly due to a fundamental error in the way web developers manage presentation, often focusing their efforts on conditional logic in templates instead of a more flexible application of state-specific CSS selectors to HTML elements.
