@@ -12,6 +12,7 @@ article.post.clearfix
             a(href=`/${site.olderPost(post).htmlPath()}`) older&nbsp;&#8674;
     h1.post-title
       a(href=`/${post.htmlPath()}`)
+        | #{post.title()}
   section.body
     .inner
       | !{post.content()}
