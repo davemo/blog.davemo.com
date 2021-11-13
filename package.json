@@ -11,7 +11,7 @@
     "grunt": "^1.0.1",
     "lineman": "0.39.0",
     "lineman-blog": "1.2.0",
-    "lineman-pug": "0.3.0"
+    "lineman-pug": "0.4.0"
   },
   "scripts": {
     "clean": "lineman clean",
