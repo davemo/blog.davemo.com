@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "lineman clean",
-    "start": "lineman run",
+    "start": "lineman clean run",
     "build": "lineman build",
     "test": "lineman spec"
   }
