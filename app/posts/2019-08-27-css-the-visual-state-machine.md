@@ -35,7 +35,7 @@ Svelte is a compiler that takes as input one or more `.svelte` files with _regio
 
 One of the first places a web developer might start is by crafting the template that represents the UI mockup we received from our designer friend above. This seems like a logical place to start, given we need some way to represent the data in a web browser. Let's build a template using svelte-infused HTML and see how it looks.
 
-``` html
+```xml
 <table>
   {#each users as user}
   <tr>
@@ -59,7 +59,9 @@ One of the first places a web developer might start is by crafting the template 
 </table>
 ```
 
-Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as `$: hasSelection = users.some(u => u.selected)`.
+Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as
+
+> `$: hasSelection = users.some(u => u.selected)`
 
 Although the code above satisfies _most_ of the user experience (UX) as detailed in the mockup, there are two problems that shake out of an implementation like this that focuses on conditional logic in templates:
 
@@ -74,7 +76,7 @@ I think we can do better if we shift our focus from conditional logic in templat
 
 One of the first considerations we'll need to make is how to address both the concerns raised in the previous section. We need to handle the `hover` state properly, and we also should strive for a solution that encodes data in the template and presentation in the stylesheets. Let's start by refactoring the template to eliminate the conditional logic:
 
-``` html
+```xml
 <table class:hasSelection="{hasSelection}" class="selectable">
   {#each users as user}
   <tr class:selected="{user.selected}">
@@ -142,7 +144,7 @@ With the combination of CSS and svelte-infused HTML we've achieved the result ou
 
 For completeness, here is the entirety of the example as included in `Application.svelte` from the [code on github](https://github.com/davemo/svelte-casts):
 
-``` html
+```xml
 <script>
   let users = [
     {name: 'Danika Dywtgowm', email: 'danika.dywtgowm@email.com'},

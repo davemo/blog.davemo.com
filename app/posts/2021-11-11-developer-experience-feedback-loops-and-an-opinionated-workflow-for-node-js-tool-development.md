@@ -19,17 +19,13 @@ Crisp, clear, and to the point. I think that a big part of the "how" that Jean m
 
 I first started working with [Node](https://nodejs.org) around [version 0.4](https://github.com/nodejs/node-v0.x-archive/blob/v0.4.0/ChangeLog) in 2011 and at the time I had absolutely no idea how anything worked. I was coming from a designer-first frontend background and my knowledge of JavaScript was limited to the execution context of the [web browser](https://www.youtube.com/watch?v=Lsg84NtJbmI).
 
-Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools were all new to me, yet I was intrigued by the possibility to leverage my knowledge of JS _and_ expand into the world of tool building and systems programming.
+Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the possibility to leverage my knowledge of JS _and_ expand into the world of tool building and systems programming.
 
 Around this time I had the great fortune to work with and be mentored by [Justin Searls](https://twitter.com/searls), and it wasn't long after that he created [LinemanJS](https://www.youtube.com/embed/KERJkJNV5nI) based on early conversations we had and frustrations I shared regarding frontend tooling at the time. (If you haven't heard of Lineman, it's a command-line tool for building frontend apps that got reasonably popular in our consulting circle around 2013. It still works and it's what's [powering this blog](https://github.com/linemanjs/lineman-blog-template/)).
 
 Since then, I've been able to work on some of my own tools, libraries, and even plugins for other tools all while picking up a few tips, tricks, and many opinions along the way.
 
-## The Workflow
-
-This workflow is what I consider a good _developer experience_ with a fast _feedback loop_.
-
-> Keep in mind, **I'm biased!** My approach will probably differ from yours and that's ok. There are also tools and techniques I surely don't know about -- please let me know on [twitter](https://twitter.com/dmosher). I'm always eager to learn.
+## So, you want to build a tool with Node.js
 
 My hope is that sharing this approach will give you the **starting place** I wished I had when learning to build tools in Node, or at the very least give you some answers to the following questions:
 
@@ -39,10 +35,21 @@ My hope is that sharing this approach will give you the **starting place** I wis
 - How can I write automated **tests** ?
 - How should I **package** things?
 
-If you would like to follow along while you read and you already have node and npm installed, then run the following steps to make some local directories and clone my [workflow template](https://github.com/davemo/nodejs-tool-dev-template).
+(Keep in mind, **I'm biased!** My approach will probably differ from yours and that's ok. There are also tools and techniques I surely don't know about -- please let me know on [twitter](https://twitter.com/dmosher). I'm always eager to learn).
 
-The rest of this post uses the directories `my_project` and `my_tool` as examples.
+> If you're new to systems programming altogether you might enjoy this [gist I created](https://gist.github.com/davemo/3c6042086deff4c2fd8a5f16751050d4) with some learning resources on the topic. Jumping into building tools with Node assumes at least _some_ of this knowledge.
 
+The rest of this post will take the form of a guided tutorial to help you get started building tools in Node. Let's go!
+
+### Getting started
+
+ You'll need the following pre-requisites in order to follow along:
+
+- an installation of `node` (>= v16) and `npm` (>= v8)
+- a terminal (like `Terminal.app` on macOS) and knowledge of how to execute commands
+- your favorite code editor
+
+First, run the following commands in your terminal to make some local directories and clone my [workflow template](https://github.com/davemo/nodejs-tool-dev-template).
 
 ```bash
 # create a sample project directory and scaffold with npm
@@ -58,13 +65,7 @@ npx degit davemo/nodejs-tool-dev-template
 npm i
 ```
 
-## Setting up for iterating locally
-
-Often you will want to test a node module locally without having to publish to npm.
-
-(You _could_ test by publishing, but doing so takes a bit longer and we're aiming for that fast feedback loop here. Also, publishing to npm should really be the _final_ step of development when building node packages).
-
-Here's what our directory should look like:
+Using the [`tree` command](https://formulae.brew.sh/formula/tree), here's what our directory should look like after running the above:
 
 ```shell
 $ tree -L 1
@@ -75,13 +76,13 @@ $ tree -L 1
 2 directories, 0 files
 ```
 
-NPM allows us to do this with `npm link`, which will "connect" the two folders above to allow us to iterate while developing _and_ test our changes in a real project at the same time.
+## Iterating locally with `npm link`
 
-Here's a snippet of what the docs say when using `npm help link`
+Often you will want to test a node module locally without having to publish to npm.
 
-> This is handy for installing your own stuff, so that you can work on it and test iteratively without having to continually rebuild.
->
-> Package linking is a **two-step process**.
+NPM allows us to do this with `npm link`, which will "connect" the two folders above to allow us to iterate while developing our tool _and_ test our changes in a real project at the same time.
+
+Package linking is a **two-step process**.
 
 ### Step 1: Link your tool to the global node_modules folder
 
@@ -116,6 +117,8 @@ $ ls -la node_modules/
 lrwxr-xr-x  13 davidmosher 11 Nov 15:53 my_tool -> ../../my_tool
 ```
 
+Once we've completed those two steps then we're ready to start iterating on `my_tool` inside of `my_project`.
+
 ## Invoking our tool using npm scripts
 
 The workflow template we cloned into the `my_tool` directory earlier comes with an entrypoint file which will be our CLI tool. That entrypoint requires a module that logs a simple message to `STDOUT` and completes after a delay of 1 second.
@@ -140,15 +143,6 @@ module.exports = function tool() {
 ```
 
 Now that we've got things linked up, we can make a quick test to see if our module is working using npm scripts inside `my_project/package.json`:
-
-```json
-
-```
-
-
-
-```
-
 
 Let's connect that tool
 

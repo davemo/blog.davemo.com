@@ -25,7 +25,7 @@ using. There are a few components to the root pipe we use to collect all this co
 
 We have a URL mounted on VendAsta.com that provides only 1 function: spitting out a list of link tags in the following format:
 
-```html
+```xml
 <link rel="alternate" type="application/rss+xml" title="Dave Mosher" href="https://www.davemo.com">
 ```
 

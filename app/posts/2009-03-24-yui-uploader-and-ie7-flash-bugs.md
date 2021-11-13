@@ -21,7 +21,7 @@ implementing the YUI Uploader in a specific area of the application.
 
 We have a number of context menus in Homebook that appear to the user on mouseover. This particular thumbnail represents the default image for a users Home, and clicking it prompts the user with a file dialog to select a new photo which is then uploaded via the YUI Uploader. When instantiated, the uploader inserts a transparent Flash object using the [SWFObject](https://blog.deconcept.com/swfobject/) plugin into the markup in the container specified. In our case we had the following markup:
 
-```jade
+```xml
 ul class='mfs-context-menu invisible' id='default-image-menu'
    li
       a
@@ -38,7 +38,7 @@ We use a class of invisible to set the css property 'display:none;' on the 'ul' 
 
 It took us a while to figure out what was going on, and the only way we tracked it down was by a process of elimination commenting out lines of code in the uploader instantiation script until we discovered it was our context menu show/hide trigger that made the uploader behave this way. So, the solution in our case was to move the uploader 'span' tag outside of the 'li' but still inside the thumbnail container, give it a fixed width and height directly above the image (like a transparent rectangle) and bind mouseover/mouseout events to it that triggered show/hide of the 'li' element with the 'a' inside:
 
-```jade
+```xml
 ul class='mfs-context-menu invisible' id='default-image-menu'
   span class='uploader' id='upload-profile-picture' /span
     li a 'Change Profile Picture' /a /li

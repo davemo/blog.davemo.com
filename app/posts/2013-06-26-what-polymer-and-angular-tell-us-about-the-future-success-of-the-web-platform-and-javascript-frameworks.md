@@ -101,7 +101,7 @@ _just_ opinionated enough that it allows developers to work with the low-level
 components provided to craft higher level abstractions. In fact, I think that
 is the core benefit of Angular. Having the power to abstract:
 
-```html
+```xml
 <div id="chart" data-type="bar">
   <div class="legend"></div>
   ... lots of other stuff
@@ -110,7 +110,7 @@ is the core benefit of Angular. Having the power to abstract:
 
 into
 
-```html
+```xml
 <bar-chart></bar-chart>
 ```
 
