@@ -8,16 +8,8 @@
 
 module.exports = (lineman) ->
 
-  appendTasks:
-    common: "copy:dev"
-    dist: "copy:dist"
-
-  prependTasks:
-    dev: "markdown:dev"
-    dist: "markdown:dist"
-
   removeTasks:
-    common: lineman.config.application.removeTasks.common.concat("pug:templates", "jst", "jshint")
+    common: lineman.config.application.removeTasks.common.concat("coffee", "pug:templates", "handlebars", "jst", "jshint")
 
   markdown:
     options:
