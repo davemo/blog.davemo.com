@@ -5,29 +5,35 @@ date: "2021-11-11"
 
 > If you're experienced and prefer code to prose, here's the [workflow template](https://github.com/davemo/nodejs-tool-dev-template).
 
-There's been a lot of focus on the topic of DX or developer experience recently, which is _great_ because it's something that I'm passionate about improving on the teams I work with. So passionate, in fact, that I recently transitioned out of a customer-focused engineering role into one focused on developers, tooling, and infrastructure.
+There's been a lot of focus on the topic of DX or developer experience recently, which is _great_ because it's something that I'm passionate about improving on the teams I work with. So passionate, in fact, that I recently transitioned out of a customer-focused engineering role into one focused on developers, tooling, and infrastructure. 🎉
 
-Now you might be asking yourself, 'What does DX _actually_ mean?', and you would be justified in asking -- I've heard varied interpretations of the term. I particularly like this laser-focused definition from [Jean Yang](https://twitter.com/jeanqasaur) in her recent post [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/):
+Now you might be asking yourself, 'What does DX _actually_ mean?', and you would be justified in asking -- I've heard varied interpretations of the term. I particularly like this laser-focused definition from [Jean Yang](https://twitter.com/jeanqasaur) in her recent post [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/)
 
-> What I mean by **developer experience** is the sum total of **how** developers interface with their tools, end-to-end, day-in and day-out.
+> What I mean by **developer experience** is the sum total of **how** developers interface with their **tools**, end-to-end, day-in and day-out.
 
-Crisp, clear, and to the point. I think that a big part of the "how" that Jean mentions is the concept of _feedback loops_. Good developer tools provide affordances to reduce cognitive load, surface key information at the right time, and prioritize keeping feedback loops fast; all are important parts of a good developer experience but nothing depletes my [cognitive batteries](https://en.wikipedia.org/wiki/Ego_depletion) faster than slow tools and confusing workflows. 😤
+I think that a big part of the "how" that Jean mentions is the concept of _feedback loops_. Good developer tools provide affordances that reduce cognitive load, surface key information at the right time, and (most importantly) prioritize keeping feedback loops _fast_.
+
+It should be no surprise, then, that companies investing in prioritizing developer experience are the ones growing.
+
+Nothing depletes my [cognitive batteries](https://en.wikipedia.org/wiki/Ego_depletion) faster than slow, clunky tools. 😤
 
 (While it would be fun to dive deeper into the topic of DX in general, I think I'll save that for another blog post -- but if you're as much of a software history nerd as I am, you may enjoy [The evolution of developer experience in the 20th century](https://www.linkedin.com/pulse/evolution-developer-experience-20th-century-stan-james/) by [Stan James](https://twitter.com/wanderingstan))
 
-## I can write command-line tools with... JavaScript?
+## You _can_ have a great developer experience writing command-line tools with Node
 
 I first started working with [Node](https://nodejs.org) around [version 0.4](https://github.com/nodejs/node-v0.x-archive/blob/v0.4.0/ChangeLog) in 2011 and at the time I had absolutely no idea how anything worked. I was coming from a designer-first frontend background and my knowledge of JavaScript was limited to the execution context of the [web browser](https://www.youtube.com/watch?v=Lsg84NtJbmI).
 
-Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the possibility to leverage my knowledge of JS _and_ expand into the world of tool building and systems programming.
+Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the possibility to leverage my knowledge of JS and expand into the world of tool building and systems programming.
 
-Around this time I had the great fortune to work with and be mentored by [Justin Searls](https://twitter.com/searls), and it wasn't long after that he created [LinemanJS](https://www.youtube.com/embed/KERJkJNV5nI) based on early conversations we had and frustrations I shared regarding frontend tooling at the time. (If you haven't heard of Lineman, it's a command-line tool for building frontend apps that got reasonably popular in our consulting circle around 2013. It still works and it's what's [powering this blog](https://github.com/linemanjs/lineman-blog-template/)).
+Around this time I was working with [Justin Searls](https://twitter.com/searls) who created [LinemanJS](https://www.youtube.com/embed/KERJkJNV5nI) after conversations we had about frustrations I was experiencing with frontend tooling at the time. (If you haven't heard of Lineman, it's a command-line tool for building frontend apps that got reasonably popular in our consulting circle around 2013. It still works and it's what's [powering this blog](https://github.com/linemanjs/lineman-blog-template/)).
 
-Since then, I've been able to work on some of my own tools, libraries, and even plugins for other tools all while picking up a few tips, tricks, and many opinions along the way.
+This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn't know as well, and incredibly slow. Justins' focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a _lot_ of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone was able to listen to my frustrations and translate them into magic on the command-line!
 
-## Ok, but where do _I_ start?
+Since then, I've been able to work on some of my own tools, libraries, and plugins while picking up a few tips, tricks, and many opinions along the way. My hope is that sharing my experience will give you a **starting place** I wished I had when learning to build tools in Node.
 
-The rest of this post will take the form of a guided tutorial to help you get started building tools in Node. My hope is that sharing this approach will give you the **starting place** I wished I had when learning to build tools in Node and might give you some answers to these questions:
+## Ok, but how do _I_ start?
+
+The rest of this post will take the form of a guided tutorial to help you get started building tools in Node with a fast feedback loop, and might give you some answers to these questions:
 
 - How can I **iterate** on a node module locally without publishing to npm?
 - How can I invoke my tool from **npm scripts**?
@@ -58,7 +64,7 @@ cd my_project
 npm init -y
 cd ..
 
-# clone the workflow template into the my_tool directory
+# create the my_tool directory and clone the workflow template
 mkdir my_tool
 cd my_tool
 npx degit davemo/nodejs-tool-dev-template

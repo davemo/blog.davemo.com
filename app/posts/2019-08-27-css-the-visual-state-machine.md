@@ -61,7 +61,9 @@ One of the first places a web developer might start is by crafting the template 
 
 Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as
 
-> `$: hasSelection = users.some(u => u.selected)`
+```javascript
+$: hasSelection = users.some(u => u.selected)
+````
 
 Although the code above satisfies _most_ of the user experience (UX) as detailed in the mockup, there are two problems that shake out of an implementation like this that focuses on conditional logic in templates:
 
@@ -219,7 +221,7 @@ For completeness, here is the entirety of the example as included in `Applicatio
 </table>
 ```
 
-# Closing Thoughts
+## Closing Thoughts
 
 This is how I have tended to manage the working relationship between HTML and CSS for the last 20 years, and I think the power of thinking in this way leads to cleaner code and easier to refactor web interfaces.
 
@@ -229,7 +231,7 @@ I've found that teams who up their level of knowledge in CSS and tend to try to 
 
 If you are interested in learning more about this approach and seeing a live coded version of this blog post, please check out the [screencast](https://www.youtube.com/watch?v=xpnmtkjCNng) posted to my YouTube channel; it walks through all the examples and touches on a few more svelte-specific things to consider.
 
-# Learning Resources
+## Learning Resources
 
 - [Svelte Tutorial](https://svelte.dev/tutorial/basics)
 - [Complex-Multi-Select Code on Github](https://github.com/davemo/svelte-casts)

@@ -28,6 +28,10 @@ aside#sidebar {
   margin-top: 20px;
   font-size: 1.2em;
   color: #999;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  /*box-shadow: inset 0px 0px 2px 0px #acacac;*/
 }
 
 #archive {
@@ -40,14 +44,12 @@ aside#sidebar {
 
 #archive.inner > div {
   width:  240px;
-  /*height:  100px;*/
-  border:  1px solid red
+  border:  1px solid red;
 }
 
 #archive.inner > div:first-child {
   width:  100%;
-  /*height:  150px;*/
-  border:  2px solid blue
+  border:  2px solid blue;
 }
 
 
@@ -105,7 +107,7 @@ aside#sidebar #profile img.profile_image {
   width: 100%;
 }
 aside#sidebar nav {
-  margin: 20px 0px;
+  margin-top: 20px;
 }
 aside#sidebar nav a {
   display: block;
@@ -250,6 +252,20 @@ header.root h2 {
   font-weight: normal;
 }
 
+pre, p > img {
+  box-shadow: 0px 0px 3px 1px #ddd;
+  border-radius: 6px;
+}
+
+.inner > p {
+  text-align:  justify;
+}
+
+iframe {
+  box-shadow: 0px 0px 3px 1px #ddd;
+  border-radius: 6px;
+}
+
 code {
   font-family: Consolas, Monaco, monospace;
   padding: .2em .4em;
@@ -261,11 +277,116 @@ code {
 
 pre code.hljs {
   display: block;
-  overflow-x: auto;
   padding: 1em;
-  line-height:  1.4em;
+  line-height: 1.4em;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+/*
+  paragraphs right before a pre block trail with ellipsis …
+*/
+
+
+
+/* start: (tip or explanation) blocks that come after a pre-formatted code example */
+pre + blockquote {
+  position: relative;
+  top: -13px;
+  border: none;
+  padding-right: 0.875rem;
+  margin-left: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+blockquote + pre {
+  margin-bottom: 0px;
+}
+
+pre + blockquote > p {
+  margin: 0px;
+  margin-left: 3px;
+  flex: 1;
+  font-size:  11px;
+  line-height: 1.2em;
+  color: rgb(136 136 136);
+}
+
+pre + blockquote:before {
+  content: '⏎';
+  transform:  scale(-1, 1); /* flip the arrow in the x-axis */
+  color: #8abeb7;
+  font-size:  large;
+  font-style: normal;
+}
+
+pre + blockquote + p {
+  margin-top:  0px;
+}
+
+/*
+  hard to get this working without using flex on the p, but then
+  things just go to crap with the text elements within :(
+
+  pre + blockquote > p:after {
+    content:  '';
+    border-bottom:  1px dotted #ccc;
+    margin-left:  5px;
+    flex: 1;
+  }
+*/
+
+/* end: (tip or explanation) */
+
+pre code:before {
+  width: 10000%;
+  content: "";
+  left: -1000px;
+  height: calc(100% - 2em);
+  position: absolute;
+  background: #f2f2f2;
+  z-index: -1;
 }
 
 .hljs-meta {
   user-select: none;
+}
+
+/*
+  Table Styling...
+*/
+
+table {
+  margin-bottom: 2em;
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+  text-align: left;
+}
+td { border-bottom: 1px solid #ddd; }
+caption, th, td {
+  padding: 4px 10px 4px 0;
+}
+caption {
+  background: #f1f1f1;
+  padding: 10px 0;
+  margin-bottom: 1em;
+}
+
+tr,td,th {
+  vertical-align: middle;
 }
