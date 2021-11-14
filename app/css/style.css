@@ -205,6 +205,11 @@ article > header h1 a {
   color: #4e4e4e;
 }
 
+article h2 {
+  margin: 16px 0 0;
+  padding: 0 0 2px;
+}
+
 article time a {
   font-size: 13px;
   color: #645500;
@@ -254,10 +259,13 @@ code {
   border-radius: 6px;
 }
 
-
-
 pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
+  line-height:  1.4em;
+}
+
+.hljs-meta {
+  user-select: none;
 }
