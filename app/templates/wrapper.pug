@@ -10,8 +10,8 @@ html
         h1
           a(href='/') #{site.title}
         h2 #{site.description}
-      aside#sidebar
-        section#profile
+      #sidebar
+        #profile
           a(href='https://github.com/davemo' title="David Mosher's Github")
             img.profile_image(src='/img/davemo.headphones.png' alt='David Mosher')
           p
@@ -21,9 +21,6 @@ html
             a.icon.linkedin(href='https://linkedin.com/in/dmosher' title='dmosher on linkedin')
             a.icon.twitter(href='https://twitter.com/dmosher' title='dmosher on twitter')
             a.icon.youtube(href='https://youtube.com/davidmosher' title='davidmosher on youtube')
-        nav
-          a(href='/') homepage
-          a(href='/archive.html') blog archives
       | !{yield}
-      footer.root &copy; #{new Date().getFullYear()} - #{site.author}
+      footer &copy; #{new Date().getFullYear()} - #{site.author}
     script(type='text/javascript' src=`${js}`)

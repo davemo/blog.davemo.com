@@ -1,15 +1,19 @@
 article.post.clearfix
+  nav
+    time(datetime=post.time())
+      a(href=`/${post.htmlPath()}`)
+        | #{post.date()}
+    #older-newer
+      if site.newerPost(post)
+        .newer
+          a(href=`/${site.newerPost(post).htmlPath()}`) newer
+      if site.olderPost(post)
+        .older
+          a(href=`/${site.olderPost(post).htmlPath()}`) older
+    #global
+      a(href='/') homepage
+      a(href='/archive.html') blog archives
   header
-    section#navigation
-      time#pub-date(datetime='')
-        a(href=`/${post.htmlPath()}`) #{post.date()}
-      .older-newer
-        if site.newerPost(post)
-          .newer
-            a(href=`/${site.newerPost(post).htmlPath()}`) &#8672;&nbsp;newer
-        if site.olderPost(post)
-          .older
-            a(href=`/${site.olderPost(post).htmlPath()}`) older&nbsp;&#8674;
     h1.post-title
       a(href=`/${post.htmlPath()}`)
         | #{post.title()}

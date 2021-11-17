@@ -3,11 +3,15 @@ title: "Developer Experience, Feedback Loops, and an Opinionated Workflow for No
 date: "2021-11-11"
 ---
 
-> If you're experienced and prefer code to prose, here's the [workflow template](https://github.com/davemo/nodejs-tool-dev-template).
+<aside>
+If you're experienced and prefer code to prose, here's the <a href="https://github.com/davemo/nodejs-tool-dev-template">workflow template</a>.
+</aside>
 
 There's been a lot of focus on the topic of DX or developer experience recently, which is _great_ because it's something that I'm passionate about improving on the teams I work with. So passionate, in fact, that I recently transitioned out of a customer-focused engineering role into one focused on developers, tooling, and infrastructure. 🎉
 
-Now you might be asking yourself, 'What does DX _actually_ mean?', and you would be justified in asking -- I've heard varied interpretations of the term. I particularly like this laser-focused definition from [Jean Yang](https://twitter.com/jeanqasaur) in her recent post [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/)
+Now you might be asking yourself, 'What does DX _actually_ mean?', and you would be justified in asking -- I've heard varied interpretations of the term.
+
+[Jean Yang](https://twitter.com/jeanqasaur), writing in [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/):
 
 > What I mean by **developer experience** is the sum total of **how** developers interface with their **tools**, end-to-end, day-in and day-out.
 
@@ -43,7 +47,7 @@ The rest of this post will take the form of a guided tutorial to help you get st
 
 (Keep in mind, **I'm biased!** If you're experienced and have done this before there's a good chance my approach will probably differ from yours and that's ok. There are many tools and techniques I'm not familiar with -- please let me know on [twitter](https://twitter.com/dmosher). I'm always eager to learn).
 
-### Getting started
+## Getting started
 
  You'll need the following pre-requisites in order to follow along:
 
@@ -71,7 +75,7 @@ npx degit davemo/nodejs-tool-dev-template
 npm i
 ```
 
-Using the [`tree` command](https://formulae.brew.sh/formula/tree), here's what things should look like after running the above.
+Using the [`tree` command](https://formulae.brew.sh/formula/tree), here's what things should look like.
 
 ```shell
 $ tree -L 2 ~/code/node
@@ -93,7 +97,7 @@ $ tree -L 2 ~/code/node
 
 ## Setting things up to develop with `npm link`
 
-Often you will want to test a node module locally without having to publish to npm.
+Often you will want to test a node module locally without having to publish it.
 
 NPM allows us to do this with `npm link`, which will "connect" the two folders above using symbolic links which will allow us to iterate while developing our tool _and_ test our changes in a real project at the same time.
 
@@ -136,7 +140,7 @@ Once we've completed those two steps then we're ready to start iterating on `my_
 
 ## Invoking our tool using npm scripts
 
-The workflow template we cloned into the `my_tool` directory earlier comes with an entrypoint file which will be our CLI tool. That entrypoint requires a module that logs a simple message to `STDOUT` and completes after a delay of 1 second.
+The workflow template we cloned into the `my_tool` directory earlier comes with an entrypoint file which will be our CLI tool. That entrypoint requires and executes a module that logs a simple message to `STDOUT` and completes after a delay of 1 second.
 
 ```shell
 $ cd my_tool
@@ -148,7 +152,14 @@ $ tree -L 2
 ```
 
 ```javascript
-// lib/tool.js
+// my_tool/index.js
+#!/usr/bin/env node
+
+require('./lib/tool.js')();
+```
+
+```javascript
+// my_tool/lib/tool.js
 module.exports = function tool() {
   console.log('⏳ CLI tool: working ...')
   setTimeout(function() {

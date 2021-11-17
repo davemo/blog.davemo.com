@@ -42,7 +42,7 @@ app[web.1]: near heap limit Allocation failed -
 app[web.1]: JavaScript heap out of memory
 ```
 
-(Note: The [slug](https://devcenter.heroku.com/articles/slug-compiler) for this application was \~74mb, which didn't seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to 512mb of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.)
+> The [slug](https://devcenter.heroku.com/articles/slug-compiler) for this application was \~74mb, which didn't seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to `512mb` of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.
 
 ## Fundamental #2: Profile
 

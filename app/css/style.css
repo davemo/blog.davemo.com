@@ -1,6 +1,10 @@
+:root {
+  --right-dashed-arrow: '\21E2';
+  --left-dashed-arrow: '\21E0';
+}
+
 html {
   font-size: 100%;
-  zoom: 120%;
 }
 
 body {
@@ -13,6 +17,7 @@ body {
   background-color: #FFF;
   font-family: Arial, Helvetica, sans-serif;
   color: #424037;
+  overflow-x: hidden;
 }
 
 blockquote {
@@ -20,18 +25,36 @@ blockquote {
   margin-left: 0.875rem;
   padding-left: 0.875rem;
   font-style: italic;
+  font-size:  large;
 }
 
-aside#sidebar {
+blockquote p:before {
+  content: '“';
+}
+
+blockquote p:after {
+  content: '”';
+}
+
+aside {
+  width: 40%;
+  padding-left: .5rem;
+  margin-left: .5rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px #29627e;
+  font-style: italic;
+  color: #29627e;
+}
+
+#sidebar {
   float: right;
   width: 175px;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   font-size: 1.2em;
   color: #999;
   background: white;
   padding: 10px;
   border-radius: 6px;
-  /*box-shadow: inset 0px 0px 2px 0px #acacac;*/
 }
 
 #archive {
@@ -103,22 +126,22 @@ aside#sidebar {
   background-position: -594px -70px;
 }
 
-aside#sidebar #profile img.profile_image {
+#sidebar #profile img.profile_image {
   width: 100%;
 }
-aside#sidebar nav {
+#sidebar nav {
   margin-top: 20px;
 }
-aside#sidebar nav a {
+#sidebar nav a {
   display: block;
 }
-
-aside#sidebar section h1 {
+#sidebar section h1 {
   font-size: 11px;
   font-weight: normal;
   color: #999;
 }
-footer.root {
+
+footer {
   width: 500px;
   margin-left: 155px;
   text-align: center;
@@ -127,76 +150,104 @@ footer.root {
   padding-top: 0px;
   padding-bottom: 20px;
 }
+
 div#wrap {
   margin: 0 auto;
   width: 900px;
   text-align: left;
 }
+
 a {
   color: #bf5600;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 h1,
 h2,
 h3 {
   margin: 0px;
 }
+
+h3 {
+  margin-top: 1.4em;
+}
+
 article {
   width: 655px;
   position: relative;
   margin-bottom: 35px;
   -webkit-font-smoothing: antialiased;
 }
-article footer {
-  float: left;
-  width: 655px;
-  margin-top: 10px;
-}
-article footer .responses {
-  width: 500px;
-  margin-left: 155px;
-}
+
 article .body {
   width: 500px;
   float: right;
-  font-size: 1.2em;
-  line-height: 1.8em;
+  font-size: 1.4em;
   display: inline;
 }
+
+article .body p {
+  line-height: 1.4em;
+}
+
 article .body .inner {
   margin: 15px 0 0;
 }
+
 article .body img {
   max-width: 500px;
 }
+
 article > header {
   width: 655px;
   padding-top: 5px;
 }
-article > header #navigation {
+
+article > nav {
   float: left;
   width: 130px;
   text-align: right;
-  display: inline;
+  display: flex;
+  flex-direction: column;
   min-height: 40px;
-  padding-top: 17px;
   margin-right: 25px;
+  gap: 6px;
 }
-article > header #navigation .older-newer {
-  margin-top: 10px;
+
+#older-newer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
-.older-newer a {
+
+#older-newer a {
   font-size: 12px;
 }
-article > header #navigation .older {
-  float: right;
+
+.older, .newer {
+  width: 100%;
 }
-article > header #navigation .newer {
-  float: left;
+
+.older {
+  text-align: right;
 }
+
+.newer {
+  text-align: left;
+}
+
+.newer:before {
+  content: var(--left-dashed-arrow);
+}
+
+.older:after {
+  content: var(--right-dashed-arrow);
+}
+
 article > header h1 {
   font-size: 22px;
   float: left;
@@ -208,8 +259,7 @@ article > header h1 a {
 }
 
 article h2 {
-  margin: 16px 0 0;
-  padding: 0 0 2px;
+  margin: 1.2em 0 0;
 }
 
 article time a {
@@ -318,9 +368,10 @@ pre + blockquote > p {
   margin: 0px;
   margin-left: 3px;
   flex: 1;
-  font-size:  11px;
-  line-height: 1.2em;
+  font-size: 0.7em;
+  line-height: 1.2em !important;
   color: rgb(136 136 136);
+  text-align: justify;
 }
 
 pre + blockquote:before {
@@ -331,8 +382,13 @@ pre + blockquote:before {
   font-style: normal;
 }
 
+pre + blockquote > p:before,
+pre + blockquote > p:after {
+  content: '';
+}
+
 pre + blockquote + p {
-  margin-top:  0px;
+  margin-top: 0px;
 }
 
 /*
