@@ -11,11 +11,11 @@ There's been a lot of focus on the topic of DX or developer experience recently,
 
 Now you might be asking yourself, 'What does DX _actually_ mean?', and you would be justified in asking -- I've heard varied interpretations of the term.
 
-[Jean Yang](https://twitter.com/jeanqasaur), writing in [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/):
+[Jean Yang](https://twitter.com/jeanqasaur) has a nice definition in [The Case for Developer Experience](https://future.a16z.com/the-case-for-developer-experience/):
 
 > What I mean by **developer experience** is the sum total of **how** developers interface with their **tools**, end-to-end, day-in and day-out.
 
-I think that a big part of the "how" that Jean mentions is the concept of _feedback loops_. Good developer tools provide affordances that reduce cognitive load, surface key information at the right time, and (most importantly) prioritize keeping feedback loops _fast_.
+I think that a big part of the "how" there is the concept of _feedback loops_. Good developer tools provide affordances that reduce cognitive load, surface key information at the right time, and (most importantly) prioritize keeping feedback loops _fast_.
 
 It should be no surprise, then, that companies investing in prioritizing developer experience are the ones growing.
 

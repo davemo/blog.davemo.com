@@ -6,6 +6,7 @@
   --navbar-width: 130px;
   --sidebar-width: 175px;
   --article-width: calc(var(--wrap-width) - var(--navbar-width) - var(--sidebar-width));
+  --body-text-color: #424037;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
   padding: 0;
   background-color: #FFF;
   font-family: Arial, Helvetica, sans-serif;
-  color: #424037;
+  color: var(--body-text-color);
   overflow-x: hidden;
 }
 
@@ -26,7 +27,11 @@ blockquote {
   margin-left: 0.875rem;
   padding-left: 0.875rem;
   font-style: italic;
-  font-size:  large;
+  font-size: 14px;
+}
+
+article blockquote p {
+  line-height: 1.2em;
 }
 
 blockquote p:before {
@@ -157,7 +162,7 @@ a {
 article a:link {
   text-decoration: none;
   color: #bf5600;
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #ffc89b;
   background-color: inherit;
   padding: 3px 0px 0px 0px;
 }
@@ -172,10 +177,10 @@ a:visited {
 article a:hover,
 nav a:hover,
 header a:hover {
-  color: white;
+  color: var(--body-text-color);
   text-decoration: none;
-  background-color: #bf5600;
-  border-color: #bf5600;
+  background-color: #ffc89b;
+  border-color: #ffc89b;
 }
 
 h1,
@@ -280,6 +285,7 @@ h1 a:link {
 
 article h2 {
   margin: 1.2em 0 0;
+  font-size: 1.2em;
 }
 
 article time a {
