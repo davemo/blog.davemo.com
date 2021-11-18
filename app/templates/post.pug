@@ -1,22 +1,8 @@
-article.post.clearfix
-  nav
+article
+  h1
+    a(href=`/${post.htmlPath()}` title=`Permanent link to ‘${post.title()}’`)
+      | #{post.title()}
+  h6
     time(datetime=post.time())
-      a(href=`/${post.htmlPath()}`)
-        | #{post.date()}
-    #older-newer
-      if site.newerPost(post)
-        .newer
-          a(href=`/${site.newerPost(post).htmlPath()}`) newer
-      if site.olderPost(post)
-        .older
-          a(href=`/${site.olderPost(post).htmlPath()}`) older
-    #global
-      a(href='/') homepage
-      a(href='/archive.html') blog archives
-  header
-    h1.post-title
-      a(href=`/${post.htmlPath()}`)
-        | #{post.title()}
-  section.body
-    .inner
-      | !{post.content()}
+      | #{post.date()}
+  | !{post.content()}
