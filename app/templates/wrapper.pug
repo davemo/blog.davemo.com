@@ -6,7 +6,9 @@ html
     link(rel='alternate' type='application/rss+xml' title=`${site.title}` href='/index.xml')
     title #{site.title}#{post ? ' | ' + post.title() : ''}
 
-  body
+  - var theme = post ? post.attributes.theme : ''
+
+  body(class=`theme-${theme || ''}`)
     #wrap
       header
         a(href='/') #{site.title}
@@ -30,7 +32,8 @@ html
       | !{yield}
 
       #sidebar
-        img.profile_image(src='/img/davemo.headphones.png' alt='David A. Mosher')
+        .profile_image
+          img(src='/img/davemo.headphones.png' alt='David A. Mosher')
         p
           | David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.
         .icons

@@ -1,15 +1,18 @@
 ---
 title: "The Missing Fundamental"
 date: "2020-03-10"
+theme: "tldr"
 ---
+
+<aside class="tldr">
+When evaluating software performance start with: investigate, profile, and identify the <i>missing</i> fundamental.
+</aside>
 
 Music composition and production is a large part of my life outside of software development, so much so that I often find myself thinking of ways to draw parallels between the two. One such parallel that has stuck with me over the past 6 months or so is the concept of [the missing fundamental](https://en.wikipedia.org/wiki/Missing_fundamental).
 
-> A harmonic sound is said to have a **missing fundamental**, **suppressed fundamental**, or **phantom fundamental** when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself.
+> A harmonic sound is said to have a **missing fundamental**, **suppressed fundamental**, or **phantom fundamental** when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself. This very concept of 'missing fundamental' being reproduced based on the overtones in the tone has been used to create the illusion of bass in sound systems that are not capable of such bass.
 
 When I first learned about this concept, I couldn't help but think of how it applied to the work we do as software engineers. In the same way that skilled audio engineers can leverage the concept of the missing fundamental to improve the characteristics of sound, skilled software engineers can use a similar set of skills to improve the performance of applications.
-
-> This very concept of "missing fundamental" being reproduced based on the overtones in the tone has been used to create the illusion of bass in sound systems that are not capable of such bass. In mid-1999, Meir Shashoua of Tel Aviv, co-founder of Waves Audio, patented an algorithm to create the sense of the missing fundamental by synthesizing higher harmonics. Waves Audio released the MaxxBass plug-in to allow computer users to apply the synthesized harmonics to their audio files.
 
 # The Fundamentals of Software Performance
 

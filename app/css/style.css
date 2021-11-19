@@ -46,23 +46,93 @@ ul {
   list-style-type: square;
 }
 
+/*aside {
+  color: #29627e;
+  position: absolute;
+  left: -240px;
+  width: 200px;
+  font-size: 12px;
+  text-align: right;
+}*/
+
+/*aside {
+  border-left: 4px solid #29627e;
+  color: #29627e;
+  width: 175px;
+  font-size: 12px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-style: italic;
+  padding-left: 20px;
+}*/
+
+aside.tldr {
+  float: none;
+  width: auto;
+  margin: 0;
+  font-family: Monaco, monospace, san-serif;
+  background: black;
+  color: #EBEBEB;
+  position: relative;
+}
+
+aside.tldr:before {
+  content: '$ ./tldr.sh';
+  display: block;
+  margin-bottom:  10px;
+  color: #C5EBC5;
+  font-weight: bold;
+}
+
+aside.tldr:after {
+  content: "";
+  width: 10000%;
+  background:  black;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: -1;
+}
+
+aside.tldr a:link {
+  color: #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+aside.tldr a:hover {
+  color: #5DC6F5;
+  border-bottom: 1px solid #5DC6F5;
+  background: none;
+}
+
 aside {
-  width: 40%;
+  background: rgb(175 184 193 / 20%);
+  border-radius: 6px;
+  color: #29627e;
+  width: 175px;
+  font-size: 12px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/*aside {
   padding-left: .5rem;
   margin-left: .5rem;
   box-shadow: inset 5px 0 5px -5px #29627e;
   font-style: italic;
   color: #29627e;
 }
-
+*/
 #sidebar {
   position: absolute;
-  top: 141px;
+  top: 110px;
   right:  0px;
   width: var(--sidebar-width);
   font-size: 12px;
   color: #999;
-  background: white;
   padding: 10px;
   border-radius: 6px;
 }
@@ -135,8 +205,17 @@ aside {
   background-position: -594px -70px;
 }
 
+.theme-tldr .profile_image {
+  background: black;
+}
+
 .profile_image {
+  clip-path: circle(88px at center);
+}
+
+.profile_image img {
   width: 100%;
+  clip-path: circle(82px at center);
 }
 
 footer {
@@ -163,7 +242,6 @@ article a:link {
   text-decoration: none;
   color: #bf5600;
   border-bottom: 1px solid #ffc89b;
-  background-color: inherit;
   padding: 3px 0px 0px 0px;
 }
 
@@ -206,8 +284,13 @@ article h6 {
   margin-bottom: 0.75em;
 }
 
+article h1:first-child {
+  min-height: 46px;
+}
+
 article h6 {
   font-size: 1em;
+  margin-bottom: 1.4em;
 }
 
 article p {
@@ -224,7 +307,7 @@ article img {
 
 nav {
   position: absolute;
-  top: 141px;
+  top: 172px;
   width: var(--navbar-width);
   text-align: right;
   display: flex;

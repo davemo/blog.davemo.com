@@ -1,10 +1,11 @@
 ---
 title: "Developer Experience, Feedback Loops, and an Opinionated Workflow for Node.js Tool Development"
 date: "2021-11-11"
+theme: "tldr"
 ---
 
-<aside>
-If you're experienced and prefer code to prose, here's the <a href="https://github.com/davemo/nodejs-tool-dev-template">workflow template</a>.
+<aside class="tldr">
+If you're experienced and prefer code to prose, feel free to grab the <a href="https://github.com/davemo/nodejs-tool-dev-template">workflow template</a> and give it a try.
 </aside>
 
 There's been a lot of focus on the topic of DX or developer experience recently, which is _great_ because it's something that I'm passionate about improving on the teams I work with. So passionate, in fact, that I recently transitioned out of a customer-focused engineering role into one focused on developers, tooling, and infrastructure. 🎉
@@ -25,11 +26,13 @@ Nothing depletes my [cognitive batteries](https://en.wikipedia.org/wiki/Ego_depl
 
 ## You _can_ have a great developer experience writing command-line tools with Node
 
-I first started working with [Node](https://nodejs.org) around [version 0.4](https://github.com/nodejs/node-v0.x-archive/blob/v0.4.0/ChangeLog) in 2011 and at the time I had absolutely no idea how anything worked. I was coming from a designer-first frontend background and my knowledge of JavaScript was limited to the execution context of the [web browser](https://www.youtube.com/watch?v=Lsg84NtJbmI).
+I first started working with Node around [version 0.4](https://github.com/nodejs/node-v0.x-archive/blob/v0.4.0/ChangeLog) in 2011 and at the time I had absolutely no idea how anything worked. I was coming from a designer-first frontend background and my knowledge of JavaScript was limited to the execution context of the [web browser](https://www.youtube.com/watch?v=Lsg84NtJbmI).
 
 Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the possibility to leverage my knowledge of JS and expand into the world of tool building and systems programming.
 
-Around this time I was working with [Justin Searls](https://twitter.com/searls) who created [LinemanJS](https://www.youtube.com/embed/KERJkJNV5nI) after conversations we had about frustrations I was experiencing with frontend tooling at the time. (If you haven't heard of Lineman, it's a command-line tool for building frontend apps that got reasonably popular in our consulting circle around 2013. It still works and it's what's [powering this blog](https://github.com/linemanjs/lineman-blog-template/)).
+<aside>Lineman is a command-line tool for building frontend apps that got reasonably popular in our consulting circle around 2013. It still works and it's what's powering this blog.</aside>
+
+Around this time I was working with [Justin Searls](https://twitter.com/searls) who created [Lineman](https://www.youtube.com/embed/KERJkJNV5nI)<sup>+</sup> after conversations we had about frustrations I was experiencing with frontend tooling at the time.
 
 This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn't know as well, and incredibly slow. Justins' focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a _lot_ of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone was able to listen to my frustrations and translate them into magic on the command-line!
 
