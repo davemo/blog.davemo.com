@@ -7,6 +7,7 @@
   --sidebar-width: 175px;
   --article-width: calc(var(--wrap-width) - var(--navbar-width) - var(--sidebar-width));
   --body-text-color: #424037;
+  --link-color: #bf5600;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-text-color);
   overflow-x: hidden;
+  zoom: 125%;
 }
 
 blockquote {
@@ -67,6 +69,12 @@ ul {
   padding-left: 20px;
 }*/
 
+aside.tldr code {
+  color: #EBEBEB;
+  margin-top: 5px;
+  background-color: rgba(175, 184, 193, 0.5);
+}
+
 aside.tldr {
   float: none;
   width: auto;
@@ -75,6 +83,7 @@ aside.tldr {
   background: black;
   color: #EBEBEB;
   position: relative;
+  line-height: 1.6em;
 }
 
 aside.tldr:before {
@@ -106,16 +115,33 @@ aside.tldr a:hover {
   background: none;
 }
 
+aside.left {
+  float: left;
+  margin: 0 20px 10px 0;
+  width: 175px;
+}
+
+aside.right {
+  float: right;
+  margin: 0 0 10px 20px;
+  width: 175px;
+}
+
+/*aside.right + p,
+aside.left + p {
+  text-align: justify;
+}
+*/
+aside:not(.tldr) {
+  font-style: italic;
+}
+
 aside {
   background: rgb(175 184 193 / 20%);
   border-radius: 6px;
   color: #29627e;
-  width: 175px;
   font-size: 12px;
-  float: right;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  padding: 10px;
+  padding: 14px;
 }
 
 /*aside {
@@ -240,16 +266,13 @@ a {
 
 article a:link {
   text-decoration: none;
-  color: #bf5600;
+  color: var(--link-color);
   border-bottom: 1px solid #ffc89b;
   padding: 3px 0px 0px 0px;
 }
 
 a:visited {
-  color: #bf5600;
-  border-bottom: 1px dotted #999;
-  background-color: inherit;
-  padding: 3px 0px 2px 0px;
+  color: var(--link-color);
 }
 
 article a:hover,
@@ -295,10 +318,11 @@ article h6 {
 
 article p {
   line-height: 1.6em;
+  /*text-align: justify;*/
 }
 
 article li {
-  margin-bottom: 4px;
+  line-height: 1.8em;
 }
 
 article img {
@@ -359,15 +383,39 @@ nav li {
   content: var(--right-dashed-arrow);
 }
 
-h1 a:link {
-  color: #4e4e4e;
+article sup {
+  line-height: normal;
+}
+
+article h1 a:link,
+article h1 a:visited {
+  color: #29627e;
   text-decoration: none;
   border: none;
+  border-color: unset;
   padding: 0px;
 }
 
 article h2 {
   margin: 1.2em 0 0;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+}
+
+article h2:after {
+  content: '';
+  border-bottom:  1px dotted black;
+  flex: 1;
+  margin-left: 10px;
+  align-self: center;
+}
+
+article h2 code {
+  margin-left: 5px;
+}
+
+article h3 {
   font-size: 1.2em;
 }
 
@@ -425,6 +473,12 @@ iframe {
   border-radius: 6px;
 }
 
+a code {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-bottom: 0;
+}
+
 code {
   font-family: Consolas, Monaco, monospace;
   padding: .2em .4em;
@@ -433,6 +487,11 @@ code {
   background-color: rgba(175, 184, 193, 0.2);
   border-radius: 6px;
   color: #222;
+}
+
+code:not(.hljs),
+pre code span[class^="language-"] {
+  user-select: all;
 }
 
 pre code.hljs {
