@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[{ blog: david mosher }]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 21 Nov 2021 18:36:56 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David A. Mosher]]></author><item><title><![CDATA[Developer Experience, Feedback Loops, and an Enjoyable Workflow for Node.js Tool Development]]></title><description><![CDATA[<aside class="tldr">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 21 Nov 2021 22:12:09 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Developer Experience, Feedback Loops, and an Enjoyable Workflow for Node.js Tool Development]]></title><description><![CDATA[<aside class="tldr">
 If you're experienced and prefer code to prose, you can explore the <a href="https://github.com/davemo/nodejs-tool-dev-template">code on github</a> or <code>npx degit davemo/nodejs-tool-dev-template</code>.
 </aside>
 
@@ -293,7 +293,7 @@ dist/sourcemap-register.js
 <p>This concludes my tutorial on an enjoyable workflow for Node.js tool development. I hope you found this useful and that you find the experience of developing tools in this way enjoyable and the feedback loop fast and efficient.</p>
 <p>If you have questions or wish to provide feedback, please reach out to me on <a href="https://twitter.com/dmosher">twitter</a>. I would love to hear from you!</p>
 <p>Happy tool-making. 💚</p>
-]]></description><link>https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Sat, 20 Nov 2021 00:00:00 GMT</pubDate></item><item><title><![CDATA[The Missing Fundamental]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Sat, 20 Nov 2021 00:00:00 GMT</pubDate></item><item><title><![CDATA[The Missing Fundamental]]></title><description><![CDATA[<aside class="tldr">
 Keys to evaluating software performance: investigate, profile, and identify the <em>missing</em> fundamental.
 </aside>
 
@@ -442,7 +442,7 @@ The script uses ~ 44.550048828125 MB
 <p><img src="/img/the-missing-fundamental/after-2s-no-timeouts-50mb-ram-usage.png" alt="After"></p>
 <h1 id="conclusions">Conclusions</h1>
 <p>If you find yourself in a similar situation evaluating the performance of some legacy code I would encourage you to think about asking questions around what the missing fundamental(s) are. Walking through <strong>investigate</strong>, <strong>profile</strong>, <strong>identify</strong> (rinse. repeat.) has been useful for me, and I hope it is for you!</p>
-]]></description><link>https://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 10 Mar 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[CSS: The Visual State-Machine]]></title><description><![CDATA[<aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
+]]></description><link>https://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2020-03-10-the-missing-fundamental.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Tue, 10 Mar 2020 00:00:00 GMT</pubDate></item><item><title><![CDATA[CSS: The Visual State-Machine]]></title><description><![CDATA[<aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
 
 <p>Thinking of web applications in terms of <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machines</a> is <a href="https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/">not a new idea</a>; in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.</p>
 <p>Whether you use <a href="https://redux.js.org/">Redux</a>, <a href="https://mobx.js.org">MobX</a>, or even perhaps something framework-agnostic like <a href="https://xstate.js.org">xState</a>, it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I’ve found there is still an area that is often overlooked when it comes to managing state in web applications: <strong>the visual or presentation layer</strong>.</p>
@@ -676,7 +676,7 @@ The script uses ~ 44.550048828125 MB
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">CSS Generated Content</a></li>
 <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/">HTML Entity Symbols</a></li>
 </ul>
-]]></description><link>https://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 27 Aug 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Open Source Spotlight: Dependable JS]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2019-08-27-css-the-visual-state-machine.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Tue, 27 Aug 2019 00:00:00 GMT</pubDate></item><item><title><![CDATA[Open Source Spotlight: Dependable JS]]></title><description><![CDATA[<aside class="tldr">
 <a href="https://github.com/testdouble/dependable">Dependable</a> is a dependency injection framework for Node.js
 </aside>
 
@@ -776,7 +776,7 @@ The script uses ~ 44.550048828125 MB
 <li><a href="https://martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern</a></li>
 <li><a href="https://www.youtube.com/watch?v=mU1JcPikdMs">Inversion of Control, The UI Thread and Backbone.JS Views</a></li>
 </ul>
-]]></description><link>https://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 06 Apr 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[The Consultants Code]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2018-04-06-open-source-spotlight-dependable-js.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Fri, 06 Apr 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[The Consultants Code]]></title><description><![CDATA[<aside class="tldr">
   As software-consultants, building trust should be our number one goal, but we have to remember that building trust takes time.
 </aside>
 
@@ -808,7 +808,7 @@ The script uses ~ 44.550048828125 MB
 <li><a href="https://www.amazon.ca/SPIN-Selling-Neil-Rackham/dp/0070511136">Spin Selling</a></li>
 </ul>
 <p>Also, if you’re looking for a great opportunity to develop your consulting skills, they are hiring at Test Double, you should <a href="https://testdouble.com/join/">apply</a>. :)</p>
-]]></description><link>https://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[React Performance Analysis]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2018-02-01-the-consultants-code.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate></item><item><title><![CDATA[React Performance Analysis]]></title><description><![CDATA[<aside class="tldr">
   A screencast that covers a number of techniques on evaluating the performance of React applications.
 </aside>
 
@@ -849,7 +849,7 @@ The script uses ~ 44.550048828125 MB
 </ul>
 <h2 id="code">Code</h2>
 <p><a href="https://github.com/davemo/react-performance-analysis">https://github.com/davemo/react-performance-analysis</a></p>
-]]></description><link>https://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 07 Nov 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Makefile Usability Tips]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-11-07-react-performance-analysis.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Tue, 07 Nov 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Makefile Usability Tips]]></title><description><![CDATA[<aside class="tldr">
 You can improve the DX of Makefiles using some simple target annotations and some parsing with <code>grep</code> and <code>awk</code>.
 </aside>
 
@@ -946,7 +946,7 @@ release         bump the VERSION file, git tags, and push to github
 <li><a href="https://www.cmcrossroads.com/print/article/self-documenting-makefiles">Self Documenting Makefiles</a></li>
 <li><a href="https://explainshell.com">Explain Shell</a></li>
 </ul>
-]]></description><link>https://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Mon, 17 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Advanced Directives with AngularJS (Part 2)]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-04-17-makefile-usability-tips.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Mon, 17 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Advanced Directives with AngularJS (Part 2)]]></title><description><![CDATA[<aside class="tldr">
 A continuation of my exploration of AngularJS and advanced directives through a screencast.
 </aside>
 
@@ -979,7 +979,7 @@ A continuation of my exploration of AngularJS and advanced directives through a 
 <li><a href="https://www.youtube.com/watch?v=Ty8XcASK9js">Advanced Directives with Angular JS (Part 1)</a></li>
 <li><a href="https://www.youtube.com/watch?v=4zG8SfucUzg">Advanced Directives with Angular JS (Part 2)</a></li>
 </ol>
-]]></description><link>https://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Tue, 07 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Reasons not to quit your job]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2017-03-07-advanced-directives-with-angular-js-part-2.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Tue, 07 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Reasons not to quit your job]]></title><description><![CDATA[<aside class="tldr">
 Think hard before you quit your job. Consider whether you might be quitting to chase technology, scale, or to run from adversity.
 </aside>
 
@@ -1027,7 +1027,7 @@ Think hard before you quit your job. Consider whether you might be quitting to c
 <blockquote>
 <p>If the grass is greener on the other side, then you’d better water your own lawn.</p>
 </blockquote>
-]]></description><link>https://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 30 Dec 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Introduction to React Native]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2016-12-30-reasons-not-to-quit-your-job.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Fri, 30 Dec 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Introduction to React Native]]></title><description><![CDATA[<aside class="tldr">
 A basic introduction to getting started with React Native.
 </aside>
 
@@ -1036,4 +1036,4 @@ A basic introduction to getting started with React Native.
 
 <h2 id="resources">Resources</h2>
 <p><a href="https://facebook.github.io/react-native/">https://facebook.github.io/react-native/</a></p>
-]]></description><link>https://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Fri, 10 Apr 2015 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>https://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2015-04-10-introduction-to-react-native.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Fri, 10 Apr 2015 00:00:00 GMT</pubDate></item></channel></rss>
