@@ -118,8 +118,15 @@ aside {
   padding: 14px;
 }
 
-aside:not(.tldr) a:link {
+aside:not(.tldr) :any-link {
   color: var(--alt-color);
+  border-bottom: 1px solid var(--alt-color);
+}
+
+aside:not(.tldr) :any-link:hover {
+  color: black;
+  border-bottom: 1px solid black;
+  background: none;
 }
 
 #sidebar {
@@ -223,9 +230,9 @@ a:visited {
   border-bottom: 1px solid #ffc89b;
 }
 
-article a:hover,
-nav a:hover,
-header a:hover {
+article :any-link:hover,
+nav :any-link:hover,
+header :any-link:hover {
   color: var(--body-text-color);
   text-decoration: none;
   background-color: #ffc89b;
