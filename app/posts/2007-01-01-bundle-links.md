@@ -3,11 +3,11 @@ title: "Talks, Screencasts & Links"
 date: "2007-01-01"
 ---
 
-> Link Bundles for various talks and screencasts I've given
+<aside class="tldr">
+Link Bundles for various talks and screencasts I've given.
+</aside>
 
-***
-
-<iframe id="empath-equation" width="100%" height="315" src="https://www.youtube.com/embed/_ECwOcrKqo0" frameborder="0" allowfullscreen></iframe>
+## The Empathy Equestion
 
 * [The Empathy Equation: Slides on Speakerdeck](https://speakerdeck.com/dmosher/the-empathy-equation)
 * [Five Dysfunctions Products | The Table Group](https://www.tablegroup.com/books/dysfunctions)
@@ -15,9 +15,9 @@ date: "2007-01-01"
 * [Books - 7 Habits of Highly Effective People](https://www.stephencovey.com/7habits/7habits.php)
 * [Crucial Conversations Book - VitalSmarts](https://www.vitalsmarts.com/crucialconversations/)
 
-***
+<iframe id="empath-equation" width="100%" height="315" src="https://www.youtube.com/embed/_ECwOcrKqo0" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="javascript-coffeescript-dsl" width="100%" height="315" src="https://www.youtube.com/embed/EOksrrySfwI" frameborder="0" allowfullscreen></iframe>
+## Building DSLs with JavaScript and CoffeeScript
 
 * [Building DSLs with JavaScript and CoffeeScript // Speaker Deck](https://speakerdeck.com/dmosher/building-dsls-with-javascript-and-coffeescript)
 * [davemo/jsdsl · GitHub](https://github.com/davemo/jsdsl)
@@ -28,35 +28,36 @@ date: "2007-01-01"
 * [Fowler on Domain Specific Languages](https://martinfowler.com/books/dsl.html)
 * [testdouble/backbone-fixins · GitHub](https://github.com/testdouble/backbone-fixins)
 
-***
+<iframe id="javascript-coffeescript-dsl" width="100%" height="315" src="https://www.youtube.com/embed/EOksrrySfwI" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="frontend-workflows-grunt-and-angular" width="100%" height="315" src="https://www.youtube.com/embed/fSAgFxjFSqY" frameborder="0" allowfullscreen></iframe>
+## Frontend Workflows with Grunt and AngularJS
 
 * [Ender - the no-library JavaScript library](https://ender.jit.su/)
 * [ded/reqwest · GitHub](https://github.com/ded/reqwest)
 * [Frontend Workflows with Grunt and Angular on Github](https://github.com/davemo/frontend-workflows-with-grunt-and-angularjs)
 
-***
 
-<iframe id="security-with-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/18ifoT-Id54" frameborder="0" allowfullscreen></iframe>
+<iframe id="frontend-workflows-grunt-and-angular" width="100%" height="315" src="https://www.youtube.com/embed/fSAgFxjFSqY" frameborder="0" allowfullscreen></iframe>
+
+## Security with AngularJS
 
 * [Best Practices for Designing a Pragmatic RESTful API | Vinay Sahni](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 * [Comparing 370eddc83f...f2e04b5c9a · davemo/end-to-end-with-angularjs · GitHub](https://github.com/davemo/end-to-end-with-angularjs/compare/370eddc83f...f2e04b5c9a)
 * [Troy Hunt: Your login form posts to HTTPS, but you blew it when you loaded it over HTTP](https://www.troyhunt.com/your-login-form-posts-to-https-but-you/)
 
-***
+<iframe id="security-with-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/18ifoT-Id54" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="end-to-end-with-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/hqAyiqUs93c" frameborder="0" allowfullscreen></iframe>
+## End to End with AngularJS
 
 * [davemo/end-to-end-with-angularjs · GitHub](https://github.com/davemo/end-to-end-with-angularjs)
 * [Laravel 4: Protecting Routes](https://four.laravel.com/docs/security#protecting-routes)
 * [Laravel 4 Mastery | Nettuts+](https://net.tutsplus.com/tutorials/php/laravel-4-mastery/)
 * [Laravel 4 Documentation](https://four.laravel.com/)
-* [Authentication in Single Page Applications with Angular.js - A Modest Proposal](https://www.frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/)
+* [Authentication in Single Page Applications with AngularJS - A Modest Proposal](https://www.frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/)
 
-***
+<iframe id="end-to-end-with-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/hqAyiqUs93c" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="introduction-to-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/8ILQOFAgaXE" frameborder="0" allowfullscreen></iframe>
+## Introduction to AngularJS
 
 * [btford/ngmin · GitHub](https://github.com/btford/ngmin)
 * [paulirish/dotfiles · GitHub](https://github.com/paulirish/dotfiles/blob/master/.functions#L26)
@@ -66,9 +67,9 @@ date: "2007-01-01"
 * [Bringing Angular Apps to Life with Animation by Miško Hevery - YouTube](https://www.youtube.com/watch?feature=player_embedded&v=cF_JsA9KsDM)
 * [davemo/intro-to-angularjs · GitHub](https://github.com/davemo/intro-to-angularjs)
 
-***
+<iframe id="introduction-to-angularjs" width="100%" height="315" src="https://www.youtube.com/embed/8ILQOFAgaXE" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="mobile-ui-components-with-composition" width="100%" height="315" src="https://www.youtube.com/embed/9cBSl1w8cxA" frameborder="0" allowfullscreen></iframe>
+## Building Mobile Web UI Components using Composition
 
 * [davemo/composing-mobile-widgets · GitHub](https://github.com/davemo/composing-mobile-widgets)
 * [Multiple inheritance - Wikipedia](https://en.wikipedia.org/wiki/Diamond_problem#The_diamond_problem)
@@ -78,9 +79,9 @@ date: "2007-01-01"
 * [Backbone.js](https://backbonejs.org/)
 * [Foundation from ZURB](https://foundation.zurb.com/)
 
-***
+<iframe id="mobile-ui-components-with-composition" width="100%" height="315" src="https://www.youtube.com/embed/9cBSl1w8cxA" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="inversion-of-control-ui-thread-backbone-views" width="100%" height="315" src="https://www.youtube.com/embed/mU1JcPikdMs" frameborder="0" allowfullscreen></iframe>
+## Inversion of Control, the UI Thread, and Backbone Views
 
 * [How Chromium Displays Web Pages - The Chromium Projects](https://www.chromium.org/developers/design-documents/displaying-a-web-page-in-chrome)
 * [Browsers are single threaded and this single thread (The UI thread) is shared between the rendering engine and the js engine.](https://stackoverflow.com/a/9084320)
@@ -89,9 +90,9 @@ date: "2007-01-01"
 * [Underscore.js Defer](https://underscorejs.org/#defer)
 * [What is a non-blocking script? | NCZOnline](https://www.nczonline.net/blog/2010/08/10/what-is-a-non-blocking-script/)
 
-***
+<iframe id="inversion-of-control-ui-thread-backbone-views" width="100%" height="315" src="https://www.youtube.com/embed/mU1JcPikdMs" frameborder="0" allowfullscreen></iframe>
 
-<iframe id="so-you-want-to-be-a-frontend-engineer" width="100%" height="315" src="https://www.youtube.com/embed/Lsg84NtJbmI" frameborder="0" allowfullscreen></iframe>
+## So, You want to be a Frontend Engineer
 
 * [So, You Want to Be a Front-End Engineer? // Speaker Deck](https://speakerdeck.com/dmosher/so-you-want-to-be-a-front-end-engineer)
 * [CSS display: inline-Block: Why It Rocks, And Why It Sucks](https://robertnyman.com/2010/02/24/css-display-inline-block-why-it-rocks-and-why-it-sucks/)
@@ -103,3 +104,6 @@ date: "2007-01-01"
 * [Roundup on Parallel Connections | High Performance Web Sites](https://www.stevesouders.com/blog/2008/03/20/roundup-on-parallel-connections/)
 * [How Browsers Work: Behind the scenes of modern web browsers - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 * [Reflows & Repaints: CSS Performance making your JavaScript slow?](https://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/)
+
+
+<iframe id="so-you-want-to-be-a-frontend-engineer" width="100%" height="315" src="https://www.youtube.com/embed/Lsg84NtJbmI" frameborder="0" allowfullscreen></iframe>

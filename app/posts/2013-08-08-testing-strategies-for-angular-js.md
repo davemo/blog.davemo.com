@@ -3,16 +3,20 @@ title: "Testing Strategies for Angular JS"
 date: "2013-08-08"
 ---
 
-> This screencast examines low and high fidelity testing strategies for Angular JS, and demonstrates examples of how to write tests with these strategies using Protractor, Testem, and Jasmine.
+<aside class="tldr">
+Choosing a testing strategy has more to do with selecting the right level of fidelity than selecting the right testing framework.
+</aside>
 
-<iframe src="https://www.youtube.com/embed/UYVcY9EJcRs?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+This screencast examines low and high fidelity testing strategies for Angular JS, and demonstrates examples of how to write tests with these strategies using Protractor, Testem, and Jasmine.
+
+<iframe src="https://www.youtube.com/embed/UYVcY9EJcRs?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
 
 
-# Code
+## Code
 
-https://github.com/davemo/lineman-angular-template
+- https://github.com/davemo/lineman-angular-template
 
-# Resources
+## Resources
 
 This is part of a screencast series on Angular JS
 

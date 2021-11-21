@@ -1,8 +1,18 @@
-html {
-  font-size: 100%;
+:root {
+  --right-dashed-arrow: '\21E2';
+  --left-dashed-arrow: '\21E0';
+  --gap: 40px;
+  --wrap-width: 900px;
+  --navbar-width: 130px;
+  --sidebar-width: 175px;
+  --article-width: calc(var(--wrap-width) - var(--navbar-width) - var(--sidebar-width));
+  --body-text-color: #424037;
+  --link-color: #bf5600;
+  --alt-color: #29627e;
 }
+
 body {
-  font-size: 62.5%;
+  font-size: 13px;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -10,21 +20,114 @@ body {
   padding: 0;
   background-color: #FFF;
   font-family: Arial, Helvetica, sans-serif;
-  color: #424037;
+  color: var(--body-text-color);
+  overflow-x: hidden;
+  /*zoom: 125%;*/
 }
+
 blockquote {
   border-left: 4px solid #ff8d30;
   margin-left: 0.875rem;
   padding-left: 0.875rem;
   font-style: italic;
+  font-size: 14px;
 }
 
-aside#sidebar {
-  float: right;
+article blockquote p {
+  line-height: 1.2em;
+}
+
+blockquote p:before {
+  content: '“';
+}
+
+blockquote p:after {
+  content: '”';
+}
+
+ul {
+  list-style-type: square;
+}
+
+aside.tldr code {
+  color: #EBEBEB;
+  margin-top: 5px;
+  background-color: rgba(175, 184, 193, 0.5);
+}
+
+aside.tldr {
+  float: none;
+  width: auto;
+  margin: 0;
+  font-family: Monaco, monospace, san-serif;
+  background: black;
+  color: #EBEBEB;
+  position: relative;
+  line-height: 1.6em;
+}
+
+aside.tldr:before {
+  content: '$ ./tldr.sh';
+  display: block;
+  margin-bottom:  10px;
+  color: #C5EBC5;
+  font-weight: bold;
+}
+
+aside.tldr:after {
+  content: "";
+  width: 10000%;
+  background:  black;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: -1;
+}
+
+aside.tldr a:link {
+  color: #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+aside.tldr a:hover {
+  color: #5DC6F5;
+  border-bottom: 1px solid #5DC6F5;
+  background: none;
+}
+
+aside.left {
+  float: left;
+  margin: 0 20px 10px 0;
   width: 175px;
-  margin-top: 20px;
-  font-size: 1.2em;
+}
+
+aside.right {
+  float: right;
+  margin: 0 0 10px 20px;
+  width: 175px;
+}
+
+aside:not(.tldr) {
+  font-style: italic;
+}
+
+aside {
+  background: rgb(175 184 193 / 20%);
+  border-radius: 6px;
+  color: var(--alt-color);
+  font-size: 12px;
+  padding: 14px;
+}
+
+#sidebar {
+  position: absolute;
+  top: 110px;
+  right:  0px;
+  width: var(--sidebar-width);
+  font-size: 12px;
   color: #999;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 #archive {
@@ -37,16 +140,13 @@ aside#sidebar {
 
 #archive.inner > div {
   width:  240px;
-  /*height:  100px;*/
-  border:  1px solid red
+  border:  1px solid red;
 }
 
 #archive.inner > div:first-child {
   width:  100%;
-  /*height:  150px;*/
-  border:  2px solid blue
+  border:  2px solid blue;
 }
-
 
 .icons {
   display: flex;
@@ -98,108 +198,187 @@ aside#sidebar {
   background-position: -594px -70px;
 }
 
-aside#sidebar #profile img.profile_image {
+.profile_image img {
   width: 100%;
 }
-aside#sidebar nav {
-  margin: 20px 0px;
-}
-aside#sidebar nav a {
-  display: block;
-}
 
-aside#sidebar section h1 {
-  font-size: 11px;
-  font-weight: normal;
-  color: #999;
-}
-footer.root {
-  width: 500px;
-  margin-left: 155px;
+footer {
+  width: var(--article-width);
+  margin-left: var(--navbar-width);
   text-align: center;
   font-size: 12px;
   color: #999;
-  padding-top: 0px;
   padding-bottom: 20px;
 }
-div#wrap {
+
+#wrap {
   margin: 0 auto;
-  width: 900px;
+  width: var(--wrap-width);
   text-align: left;
+  position: relative;
 }
+
 a {
-  color: #bf5600;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+
+article a:link {
+  text-decoration: none;
+  color: var(--link-color);
+  border-bottom: 1px solid #ffc89b;
+  padding: 3px 0px 0px 0px;
 }
+
+a:visited {
+  color: var(--link-color);
+  border-bottom: 1px solid #ffc89b;
+}
+
+article a:hover,
+nav a:hover,
+header a:hover {
+  color: var(--body-text-color);
+  text-decoration: none;
+  background-color: #ffc89b;
+  border-color: #ffc89b;
+}
+
 h1,
 h2,
 h3 {
   margin: 0px;
 }
+
+h3 {
+  margin-top: 1.4em;
+}
+
 article {
-  width: 655px;
   position: relative;
-  margin-bottom: 35px;
+  margin-left: calc(var(--navbar-width) + var(--gap));
+  margin-right: calc(var(--sidebar-width) + var(--gap));
   -webkit-font-smoothing: antialiased;
 }
-article footer {
-  float: left;
-  width: 655px;
-  margin-top: 10px;
+
+article h1,
+article h6 {
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
-article footer .responses {
-  width: 500px;
-  margin-left: 155px;
+
+article h1:first-child {
+  min-height: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-article .body {
-  width: 500px;
-  float: right;
-  font-size: 1.2em;
+
+article h6 {
+  font-size: 1em;
+  margin-bottom: 1.4em;
+}
+
+article p {
+  line-height: 1.6em;
+  /*text-align: justify;*/
+}
+
+article li {
   line-height: 1.8em;
-  display: inline;
 }
-article .body .inner {
-  margin: 15px 0 0;
+
+article img {
+  max-width: 100%;
 }
-article .body img {
-  max-width: 500px;
-}
-article > header {
-  width: 655px;
-  padding-top: 5px;
-}
-article > header #navigation {
-  float: left;
-  width: 130px;
+
+nav {
+  position: absolute;
+  top: 172px;
+  width: var(--navbar-width);
   text-align: right;
-  display: inline;
-  min-height: 40px;
-  padding-top: 17px;
-  margin-right: 25px;
+  display: flex;
+  flex-direction: column;
+  margin-right: var(--gap);
+  gap: 6px;
 }
-article > header #navigation .older-newer {
-  margin-top: 10px;
+
+nav ul a:link {
+  border-bottom: none;
+  display: block;
 }
-.older-newer a {
-  font-size: 12px;
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
-article > header #navigation .older {
-  float: right;
+
+nav li {
+  letter-spacing: 2px;
+  margin: 0 0 0.4em 0;
+  text-transform: uppercase;
 }
-article > header #navigation .newer {
-  float: left;
+
+#older-newer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
-article > header h1 {
-  font-size: 22px;
-  float: left;
-  width: 500px;
-  margin: 12px 0 0;
+
+.older, .newer {
+  width: 100%;
 }
-article > header h1 a {
-  color: #4e4e4e;
+
+.older {
+  text-align: right;
+}
+
+.newer {
+  text-align: left;
+}
+
+.newer:before {
+  content: var(--left-dashed-arrow);
+}
+
+.older:after {
+  content: var(--right-dashed-arrow);
+}
+
+article sup {
+  line-height: normal;
+}
+
+article h1 a:link,
+article h1 a:visited {
+  color: #29627e;
+  text-decoration: none;
+  border: none;
+  border-color: unset;
+  padding: 0px;
+}
+
+article h2 {
+  margin: 1.2em 0 0;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+}
+
+article h2:after {
+  content: '';
+  border-bottom:  1px dotted black;
+  flex: 1;
+  margin-left: 10px;
+  align-self: center;
+}
+
+article h2 code {
+  margin-left: 5px;
+}
+
+article h3 {
+  font-size: 1.2em;
 }
 
 article time a {
@@ -217,27 +396,200 @@ article time a {
 header h1 {
   letter-spacing: -1px;
 }
-header.root {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  width: 500px;
-  margin-left: 155px;
+header {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  margin-left: calc(var(--navbar-width) + var(--gap));
+  margin-right: calc(var(--sidebar-width) + var(--gap));
   display: block;
 }
-header.root h1 {
+
+header .description {
+  margin-left: 10px;
+}
+
+header .description:before {
+  content: "|";
+  display: inline-block;
+  margin-right:  10px;
+}
+
+header h1 {
   font-size: 3.2em;
   line-height: 1.6em;
   letter-spacing: -1px;
 }
-header.root h1 a:hover {
+header h1 a:hover {
   color: #ccc;
   text-decoration: none;
 }
-header.root h1 a,
-header.root h2 {
+header h1 a,
+header h2 {
   color: #999;
 }
-header.root h2 {
+header h2 {
   font-size: 1.4em;
   font-weight: normal;
+}
+
+pre, p > img:not(.screenshot) {
+  box-shadow: 0px 0px 3px 1px #ddd;
+  border-radius: 6px;
+}
+
+img.screenshot {
+  transform: scale(1.175);
+  margin: 1em 0;
+}
+
+.inner > p {
+  text-align:  justify;
+}
+
+iframe {
+  box-shadow: 0px 0px 3px 1px #ddd;
+  border-radius: 6px;
+}
+
+a code {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-bottom: 0;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+  color: #222;
+}
+
+code:not(.hljs),
+pre code span[class^="language-"] {
+  user-select: all;
+}
+
+pre code.hljs {
+  display: block;
+  padding: 1em;
+  line-height: 1.4em;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+/*
+  paragraphs right before a pre block trail with ellipsis …
+*/
+
+
+
+/* start: (tip or explanation) blocks that come after a pre-formatted code example */
+pre + blockquote {
+  position: relative;
+  top: -13px;
+  border: none;
+  padding-right: 0.875rem;
+  margin-left: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 20px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+blockquote + pre {
+  margin-bottom: 0px;
+}
+
+pre + blockquote > p {
+  margin: 0px;
+  margin-left: 3px;
+  flex: 1;
+  font-size: 0.78em;
+  line-height: 1.2em !important;
+  color: #29627e;
+  text-align: justify;
+}
+
+pre + blockquote:before {
+  content: '⏎';
+  transform:  scale(-1, 1); /* flip the arrow in the x-axis */
+  color: #8abeb7;
+  font-size:  large;
+  font-style: normal;
+}
+
+pre + blockquote > p:before,
+pre + blockquote > p:after {
+  content: '';
+}
+
+pre + blockquote + p {
+  margin-top: 0px;
+}
+
+/*
+  hard to get this working without using flex on the p, but then
+  things just go to crap with the text elements within :(
+
+  pre + blockquote > p:after {
+    content:  '';
+    border-bottom:  1px dotted #ccc;
+    margin-left:  5px;
+    flex: 1;
+  }
+*/
+
+/* end: (tip or explanation) */
+
+pre code:before {
+  width: 10000%;
+  content: "";
+  left: -1000px;
+  height: calc(100% - 2em);
+  position: absolute;
+  background: #f2f2f2;
+  z-index: -1;
+}
+
+.hljs-meta {
+  user-select: none;
+}
+
+/*
+  Table Styling...
+*/
+
+table {
+  margin-bottom: 2em;
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+  text-align: left;
+}
+td { border-bottom: 1px solid #ddd; }
+caption, th, td {
+  padding: 4px 10px 4px 0;
+}
+caption {
+  background: #f1f1f1;
+  padding: 10px 0;
+  margin-bottom: 1em;
+}
+
+tr,td,th {
+  vertical-align: middle;
 }

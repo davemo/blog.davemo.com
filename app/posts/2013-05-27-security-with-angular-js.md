@@ -3,9 +3,11 @@ title: "Security with Angular JS"
 date: "2013-05-27"
 ---
 
-> A brief look at some common-sense ways that you can secure a web application written with Angular JS and Laravel 4.
+<aside class="tldr">
+Securing rich-client applications' interactions with the server-side is challenging.
+</aside>
 
-<iframe src="https://www.youtube.com/embed/18ifoT-Id54?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+A brief look at some common-sense ways that you can secure a web application written with Angular JS and Laravel 4.
 
 By watching this screencast you can expect to learn about:
 
@@ -15,7 +17,9 @@ By watching this screencast you can expect to learn about:
 - ng-sanitize
 - Laravel CSRF support, route filters, and built in protection
 
-# Resources
+<iframe src="https://www.youtube.com/embed/18ifoT-Id54?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+## Resources
 
 This is part of a screencast series on Angular JS
 

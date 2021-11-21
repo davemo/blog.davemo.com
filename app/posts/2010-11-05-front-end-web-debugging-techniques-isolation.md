@@ -3,7 +3,11 @@ title: "Frontend Web Debugging Techniques : Isolation"
 date: "2010-11-05"
 ---
 
-> I must be getting older. My idea of "fun" on a Friday night is to go downstairs and write a blog post with some of the ideas that have been percolating in my brain for the last few months. I am disappoint. Oh well, my impending senility is your benefit! That is of course if you're into front end web development at all.
+<aside class="tldr">
+When working in clunky slow software, creating isolated test cases is often a quicker path to resolving bugs.
+</aside>
+
+I must be getting older. My idea of "fun" on a Friday night is to go downstairs and write a blog post with some of the ideas that have been percolating in my brain for the last few months. I am disappoint. Oh well, my impending senility is your benefit! That is of course if you're into front end web development at all.
 
 So, I've been talking with a few friends lately about this idea of "good habits" with regards to front end web development and I started stewing on a bunch of ideas on how I could write about something like that in an effective way. Sorry to say that this blog post will not be about good habits relating to code but rather as they relate to debugging front end code. I think the latter is valuable and you'll still get a decent idea of some good habits to work with going forward. Enough rambling, onward!
 

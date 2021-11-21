@@ -1,15 +1,17 @@
 ---
-title: "CSS is a visual state machine"
+title: "CSS: The Visual State-Machine"
 date: "2019-08-27"
 ---
 
-> Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.
+<aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
 
-<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.
 
 Whether you use [Redux](https://redux.js.org/), [MobX](https://mobx.js.org), or even perhaps something framework-agnostic like [xState](https://xstate.js.org), it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I've found there is still an area that is often overlooked when it comes to managing state in web applications: **the visual or presentation layer**.
 
 CSS is incredibly powerful yet frequently misunderstood by most developers, which often leads to derision of the language. I think this is mostly due to a fundamental error in the way web developers manage presentation, often focusing their efforts on conditional logic in templates instead of a more flexible application of state-specific CSS selectors to HTML elements.
+
+<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
 
 ## A Simple Example
 
@@ -35,7 +37,7 @@ Svelte is a compiler that takes as input one or more `.svelte` files with _regio
 
 One of the first places a web developer might start is by crafting the template that represents the UI mockup we received from our designer friend above. This seems like a logical place to start, given we need some way to represent the data in a web browser. Let's build a template using svelte-infused HTML and see how it looks.
 
-``` html
+```xml
 <table>
   {#each users as user}
   <tr>
@@ -59,7 +61,13 @@ One of the first places a web developer might start is by crafting the template 
 </table>
 ```
 
-Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as `$: hasSelection = users.some(u => u.selected)`.
+> Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution.
+
+We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as
+
+```javascript
+$: hasSelection = users.some(u => u.selected)
+````
 
 Although the code above satisfies _most_ of the user experience (UX) as detailed in the mockup, there are two problems that shake out of an implementation like this that focuses on conditional logic in templates:
 
@@ -74,7 +82,7 @@ I think we can do better if we shift our focus from conditional logic in templat
 
 One of the first considerations we'll need to make is how to address both the concerns raised in the previous section. We need to handle the `hover` state properly, and we also should strive for a solution that encodes data in the template and presentation in the stylesheets. Let's start by refactoring the template to eliminate the conditional logic:
 
-``` html
+```xml
 <table class:hasSelection="{hasSelection}" class="selectable">
   {#each users as user}
   <tr class:selected="{user.selected}">
@@ -142,7 +150,7 @@ With the combination of CSS and svelte-infused HTML we've achieved the result ou
 
 For completeness, here is the entirety of the example as included in `Application.svelte` from the [code on github](https://github.com/davemo/svelte-casts):
 
-``` html
+```xml
 <script>
   let users = [
     {name: 'Danika Dywtgowm', email: 'danika.dywtgowm@email.com'},
@@ -217,7 +225,7 @@ For completeness, here is the entirety of the example as included in `Applicatio
 </table>
 ```
 
-# Closing Thoughts
+## Closing Thoughts
 
 This is how I have tended to manage the working relationship between HTML and CSS for the last 20 years, and I think the power of thinking in this way leads to cleaner code and easier to refactor web interfaces.
 
@@ -227,7 +235,7 @@ I've found that teams who up their level of knowledge in CSS and tend to try to 
 
 If you are interested in learning more about this approach and seeing a live coded version of this blog post, please check out the [screencast](https://www.youtube.com/watch?v=xpnmtkjCNng) posted to my YouTube channel; it walks through all the examples and touches on a few more svelte-specific things to consider.
 
-# Learning Resources
+## Learning Resources
 
 - [Svelte Tutorial](https://svelte.dev/tutorial/basics)
 - [Complex-Multi-Select Code on Github](https://github.com/davemo/svelte-casts)

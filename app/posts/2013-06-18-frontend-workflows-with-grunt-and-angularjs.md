@@ -3,11 +3,15 @@ title: "Frontend Workflows with Grunt & Angular JS"
 date: "2013-06-18"
 ---
 
-> A screencast that shows front-end developers how they can craft workflows with Grunt JS, along with some specific workflow improvements when working with Angular JS.
+<aside class="tldr">
+Frontend tooling should meet the demands of developers building rich-client applications.
+</aside>
 
-<iframe src="https://www.youtube.com/embed/fSAgFxjFSqY?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+A screencast that shows front-end developers how they can craft workflows with Grunt JS, along with some specific workflow improvements when working with Angular JS.
 
-# Resources
+<iframe src="https://www.youtube.com/embed/fSAgFxjFSqY?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+## Resources
 
 - Github Source: https://github.com/davemo/frontend-workflows-with-grunt-and-angularjs
 - Resource Bundle: https://blog.davemo.com/posts/2007-01-01-bundle-links.html#frontend-workflows-grunt-and-angular

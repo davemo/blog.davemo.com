@@ -3,9 +3,9 @@ title: "End to End with Angular JS"
 date: "2013-05-21"
 ---
 
-> A more intermediate/advanced look at building an AngularJS application backed by a MySQL database using the Laravel 4 PHP Web Application Framework.
-
-<iframe src="https://www.youtube.com/embed/hqAyiqUs93c?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+<aside class="tldr">
+A more advanced look at building an AngularJS application backed by a MySQL database using the Laravel 4 PHP Web Application Framework.
+</aside>
 
 This is an extension of my screencast [Intro to Angular JS](http://www.youtube.com/watch?v=8ILQOFAgaXE) that focuses more on intermediate/advanced topics and walks through creating a working web application on top of the Laravel 4 Web Application Framework.
 
@@ -20,7 +20,9 @@ Things you can expect to learn:
 * $routeProvider.resolve property and making view rendering data dependent
 * laravel 4 migrations, controllers, models, and authentication
 
-# Resources
+<iframe src="https://www.youtube.com/embed/hqAyiqUs93c?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+## Resources
 
 This is part of a screencast series on Angular JS
 

@@ -3,7 +3,7 @@ title: "Application Usage Trends"
 date: "2008-12-17"
 ---
 
-> If I had captured a snapshot of my application usage habits during each year of the last few years I think I would have discovered something like this:
+If I had captured a snapshot of my application usage habits during each year of the last few years I think I would have discovered something like this:
 
 - **2005:**(Windows): Photoshop, Fireworks, Dreamweaver, Firefox
 - **2006:** (Windows/Linux): Fireworks, Komodo, Linux Terminal, Notepad, PHPMySQL, WAMP, Firefox (+Firebug)

@@ -3,9 +3,8 @@ title: "Yahoo Pipes at VendAsta"
 date: "2009-06-24"
 ---
 
-> **Note**: this post was originally started in September/November, 2008. It's
-been sitting in my drafts for quite a while and I decided it was time to finish
-it up.
+<aside><strong>Note</strong>: this post was originally started in September/November, 2008. It's been sitting in my drafts for quite a while and I decided it was time to finish it up.
+</aside>
 
 We finished off a short 1 week development sprint last Friday [edit: sometime in Sep/Nov 2008] which culminated in the current live version of the [VendAsta](https://www.vendasta.com) website. Despite such a short dev-cycle, I feel we were able to accomplish most of our research goals.
 
@@ -25,7 +24,7 @@ using. There are a few components to the root pipe we use to collect all this co
 
 We have a URL mounted on VendAsta.com that provides only 1 function: spitting out a list of link tags in the following format:
 
-```html
+```xml
 <link rel="alternate" type="application/rss+xml" title="Dave Mosher" href="https://www.davemo.com">
 ```
 

@@ -3,7 +3,7 @@ title: "Positive Dissatisfaction & Scrum"
 date: "2008-09-11"
 ---
 
-> There are some interesting things that happen when a job comes to you as opposed to the alternative (read: job hunting trying to find a company that fits you). When *you* fit the company things click.
+There are some interesting things that happen when a job comes to you as opposed to the alternative (read: job hunting trying to find a company that fits you). When *you* fit the company things click.
 
 Perhaps I'm being a bit presumptuous with that last sentence, but it's truly how I feel working at VendAsta. This feeling is one of the things that has solidified this idea of positive dissatisfaction in my mind and how it can be a huge benefit to people in any field of work, but even more so to those in the world of software development.
 

@@ -1,7 +1,11 @@
 ---
-title: "The SCNA 2011 Narrative: Suitability, Capability, Anarachy & Propaganda"
+title: "The SCNA 2011 Narrative"
 date: "2011-11-21"
 ---
+
+<aside class="tldr">
+Suitability, Capability, Anarchy & Propaganda.
+</aside>
 
 I attended [Software Crafstmanship North
 America](https://scna.softwarecraftsmanship.org/) in Chicago this weekend and

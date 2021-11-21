@@ -3,6 +3,10 @@ title: "The Consultants Code"
 date: "2018-02-01"
 ---
 
+<aside class="tldr">
+  As software-consultants, building trust should be our number one goal, but we have to remember that building trust takes time.
+</aside>
+
 > I wish we could have built it right the first time but we were learning along the way.
 >
 > Ugh, we got handed this mess and now we have to figure out what to do with it.
@@ -33,7 +37,7 @@ Depending on the nature of the team and the consulting engagement, it may prove 
 
 Like every piece of advice, when to jump into technical overdrive is highly context-sensitive; sometimes it is more appropriate to employ the opposite strategy and slow things down. Some teams have a bad habit of shipping their prototypes to production, and it is in this scenario where good consultants will try and introduce better habits around technical design, architecture discussions and how to effectively prototype. In some ways the slow-things-down scenario also involves technical overdrive, as it might mean taking the lead on demonstrating what these good habits look like for the team.
 
-# Closing Thoughts & Recommended Reading
+## Closing Thoughts & Recommended Reading
 
 As a consultant, building trust should be our number one goal, but we have to remember that it takes time and is a skill that needs to be cultivated over the course of many engagements. If you are interested in spending time honing your skills and improving your "consultant's code" I would recommend investing in the following resources:
 

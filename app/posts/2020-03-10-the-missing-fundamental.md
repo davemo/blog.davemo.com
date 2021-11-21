@@ -1,17 +1,20 @@
 ---
 title: "The Missing Fundamental"
 date: "2020-03-10"
+theme: "tldr"
 ---
+
+<aside class="tldr">
+Keys to evaluating software performance: investigate, profile, and identify the <em>missing</em> fundamental.
+</aside>
 
 Music composition and production is a large part of my life outside of software development, so much so that I often find myself thinking of ways to draw parallels between the two. One such parallel that has stuck with me over the past 6 months or so is the concept of [the missing fundamental](https://en.wikipedia.org/wiki/Missing_fundamental).
 
-> A harmonic sound is said to have a **missing fundamental**, **suppressed fundamental**, or **phantom fundamental** when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself.
+> A harmonic sound is said to have a **missing fundamental**, **suppressed fundamental**, or **phantom fundamental** when its overtones suggest a fundamental frequency but the sound lacks a component at the fundamental frequency itself. This very concept of 'missing fundamental' being reproduced based on the overtones in the tone has been used to create the illusion of bass in sound systems that are not capable of such bass.
 
 When I first learned about this concept, I couldn't help but think of how it applied to the work we do as software engineers. In the same way that skilled audio engineers can leverage the concept of the missing fundamental to improve the characteristics of sound, skilled software engineers can use a similar set of skills to improve the performance of applications.
 
-> This very concept of "missing fundamental" being reproduced based on the overtones in the tone has been used to create the illusion of bass in sound systems that are not capable of such bass. In mid-1999, Meir Shashoua of Tel Aviv, co-founder of Waves Audio, patented an algorithm to create the sense of the missing fundamental by synthesizing higher harmonics. Waves Audio released the MaxxBass plug-in to allow computer users to apply the synthesized harmonics to their audio files.
-
-# The Fundamentals of Software Performance
+## The Fundamentals of Software Performance
 
 [Ali](https://blog.testdouble.com/authors/ali-ibrahim/) and I were recently tasked with improving the performance of a legacy codebase that was deployed on Heroku using Node.js, MongoDB, and Angular 1. One of our first steps in evaluating the performance of code is to do an audit of dependencies and configuration; this is a great starting point because it can often lead to simple fixes for performance issues, like updating a database ORM adapter that can query things more efficiently.
 
@@ -42,7 +45,7 @@ app[web.1]: near heap limit Allocation failed -
 app[web.1]: JavaScript heap out of memory
 ```
 
-(Note: The [slug](https://devcenter.heroku.com/articles/slug-compiler) for this application was \~74mb, which didn't seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to 512mb of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.)
+> The [slug](https://devcenter.heroku.com/articles/slug-compiler) for this application was \~74mb, which didn't seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to `512mb` of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.
 
 ## Fundamental #2: Profile
 
@@ -118,7 +121,7 @@ The script uses ~ 456.143798828125 MB
 
 Looking at this code I couldn't help but wonder if there was a more efficient way to query and aggregate this information.
 
-## Fundamental #3: Identify the _Missing_ Fundamental
+## Fundamental #3: Identify the Missing Fundamental
 
 Returning to the idea of the missing fundamental, as audio engineers must ask themselves "what can I change about the frequencies in this mix in order to bring things into harmony?" the relevant question for software engineers is very similar: "what does this system need in order to bring harmony to its operation?". In our case it was also helpful to consider that question in a historical context as "what fundamental were the original developers missing when they built this?"
 

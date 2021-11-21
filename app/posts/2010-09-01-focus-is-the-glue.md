@@ -3,7 +3,11 @@ title: "Focus is the glue"
 date: "2010-09-01"
 ---
 
-> I've been playing a lot of basketball at work these days on lunch and coffee
+<aside class="tldr">
+Focus focus focus.
+</aside>
+
+I've been playing a lot of basketball at work these days on lunch and coffee
 breaks. As a programmer who sits most of the day, it's nice to have a place to
 go to spend some energy. I've been keeping track of my progress in shooting free
 throws and my percentage has been steadily improving. I think I shot 80% last
@@ -25,7 +29,9 @@ mechanics. Your guide hand needs to support, but not influence, the weight of
 the ball on your shooting hand. The ball should be positioned in your shooting
 hand in front of your head and not above it. When you release the ball you need
 to have a proper follow-through that directs and puts the proper amount of spin
-on it. The amount of weight you put into your shot is also influenced by the
+on it.
+
+The amount of weight you put into your shot is also influenced by the
 usage of your legs and the proportion of force you exert with your arms. When
 you break it all down from a mechanics point of view there are lots of things
 going on in a shot. Add in other variables like juking defenders, shooting from
@@ -42,9 +48,13 @@ bad habits. I haven't played ball competitively since the end of grade 12 and it
 was surprising to me how bad my shot had become when I first picked it up again
 almost 6 weeks ago. Luckily I had a solid foundation of skills and the knowledge
 of how to do "corrective surgery" on my shot techniques that I was able to
-improve significantly and bring my shooting percentage up. (It remains to be
+improve significantly and bring my shooting percentage up.
+
+<aside>It remains to be
 seen if I can still perform under the pressures of defense and actually shoot
-well when playing against other players). However, even if I was perfect in all
+well when playing against other players.</aside>
+
+However, even if I was perfect in all
 of the mechanics I would fail to make my shots count if I didn't have a focus on
 what I was doing. It's hard to describe it accurately so I'll attempt to convey
 a brain dump in words of what goes on inside my head during a shot when I'm

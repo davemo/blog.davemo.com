@@ -1,18 +1,8 @@
-article.post.clearfix
-  header
-    section#navigation
-      time#pub-date(datetime='')
-        a(href=`/${post.htmlPath()}`) #{post.date()}
-      .older-newer
-        if site.newerPost(post)
-          .newer
-            a(href=`/${site.newerPost(post).htmlPath()}`) &#8672;&nbsp;newer
-        if site.olderPost(post)
-          .older
-            a(href=`/${site.olderPost(post).htmlPath()}`) older&nbsp;&#8674;
-    h1.post-title
-      a(href=`/${post.htmlPath()}`)
-        | #{post.title()}
-  section.body
-    .inner
-      | !{post.content()}
+article
+  h1
+    a(href=`/${post.htmlPath()}` title=`Permanent link to ‘${post.title()}’`)
+      | #{post.title()}
+  h6
+    time(datetime=post.time())
+      | #{post.date()}
+  | !{post.content()}

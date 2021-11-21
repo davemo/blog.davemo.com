@@ -3,7 +3,7 @@ title: "VendAsta: a year in review"
 date: "2009-08-06"
 ---
 
-> It was almost a year ago that I [posted](https://davemo.wordpress.com/2008/08/18/work-bliss/) on my experiences as a new employee at [VendAsta](https://www.vendasta.com) Technologies, one of the newest technology companies in Saskatoon. I think it's a good idea to have a blog to look back on, it's a really good indication of the accomplishments you've made and gives you the ability to reflect on what your mindset was and how it's changed since then.
+It was almost a year ago that I [posted](https://davemo.wordpress.com/2008/08/18/work-bliss/) on my experiences as a new employee at [VendAsta](https://www.vendasta.com) Technologies, one of the newest technology companies in Saskatoon. I think it's a good idea to have a blog to look back on, it's a really good indication of the accomplishments you've made and gives you the ability to reflect on what your mindset was and how it's changed since then.
 
 In re-reading my blog post about work bliss, I've come to some conclusions about my experiences in the past year and decided it would be a good idea to reflect on my experiences with the company in that time and some of the struggles and accomplishments I've worked through.
 

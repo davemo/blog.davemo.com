@@ -3,7 +3,7 @@ title: "Useful bash scripting"
 date: "2009-06-19"
 ---
 
-> Kevin Pierce showed me some handy scripting when I was updating some svn stuff.
+Kevin Pierce showed me some handy scripting when I was updating some svn stuff.
 
 ```bash
 for x in static/ yourapp/ index.yamltemplates/; do svn mv $x appengine_starter_kit/; done
