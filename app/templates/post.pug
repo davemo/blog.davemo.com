@@ -1,4 +1,7 @@
-article
+- site.canonical = `${site.url}${post.htmlPath()}`
+- site.shownav = true
+
+article#post
   h1
     a(href=`/${post.htmlPath()}` title=`Permanent link to ‘${post.title()}’`)
       | #{post.title()}

@@ -1,1 +1,12 @@
-| !{site.htmlFor(post)}
+- site.canonical = false
+- site.shownav = true
+- site.mode = 'index'
+
+article#post
+  h1
+    a(href=`/${post.htmlPath()}` title=`Permanent link to ‘${post.title()}’`)
+      | #{post.title()}
+  h6
+    time(datetime=post.time())
+      | #{post.date()}
+  | !{post.content()}

@@ -1,3 +1,7 @@
+- site.canonical = `${site.url}/archive.html`
+- site.shownav = false
+- site.mode = 'archive'
+
 article#archive
 
   - var groups = _(site.getPosts()).chain().clone().groupBy(function(post){

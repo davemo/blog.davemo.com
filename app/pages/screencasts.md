@@ -1,6 +1,7 @@
 ---
 title: "Screencasts"
 starting: "2012"
+description: "Screencasts by David Mosher, a Canadian Software Developer, Designer, Musician, and Artist."
 ---
 
 ## Introduction to AngularJS

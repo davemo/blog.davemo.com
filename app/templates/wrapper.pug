@@ -1,19 +1,33 @@
 doctype html
 html(lang="en")
-  head
-    title blog: david mosher#{post ? ' | ' + post.title() : ' | Archive'}
-    link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
-    link(rel='alternate' type='application/rss+xml' title=`${site.title}` href='/index.xml')
-    meta(name="viewport" content="width=device-width")
-    meta(name="description" content=`${post && (post.attributes.description || post.title() + ' from David Mosher') || 'Archive of Blog Posts from blog.davemo.com'}`)
-    meta(name="theme-color" content="#bf5600")
 
-  - var theme = post ? `theme-${post.attributes.theme}` : ''
-  - function shouldShowNavFor(post) {
-  -   return post && post.htmlPath().startsWith('posts/');
+  - var tagline = `${site.author} | Canadian Software Developer, Designer, Musician, and Artist`
+  - function getDescription() {
+  -   return site.mode == 'index' ? tagline : post && (post.attributes.description || post.title())
   - }
 
-  body(class=`${theme}`)
+  head
+    title
+      if site.mode == 'index'
+        | #{tagline}
+      else if site.mode == 'archive'
+        | #{site.author} | All Posts
+      else if site.mode == 'page'
+        | #{site.author} | #{page.title()}
+      else
+        | #{post.title()}
+
+    if site.canonical
+      link(rel="canonical" href=`${site.canonical}`)
+
+    link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
+    link(rel='alternate' type='application/rss+xml' title=`${tagline}` href='/index.xml')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content=`${getDescription()}`)
+    meta(name="theme-color" content="#bf5600")
+    meta(name="author" content=`${site.author}`)
+
+  body
     #wrap
       header
         a(href='/') #{site.title}
@@ -30,8 +44,7 @@ html(lang="en")
           li
             a(href='/talks.html') talks
 
-        //- the Archive isnt a post or page
-        if shouldShowNavFor(post)
+        if site.shownav
           #older-newer
             if site.newerPost(post)
               .newer

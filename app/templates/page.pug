@@ -1,6 +1,10 @@
+- site.canonical = `${site.url}${page.htmlPath()}`
+- site.shownav = false
+- site.mode = 'page'
+
 article#page
   h1
-    a(href=`${page.htmlPath()}` title=`Permanent link to ‘${page.title()}’`)
+    a(href=`/${page.htmlPath()}` title=`Permanent link to ‘${page.title()}’`)
       | #{page.title()}
   if page.attributes.starting
     h6

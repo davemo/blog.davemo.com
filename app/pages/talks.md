@@ -1,6 +1,7 @@
 ---
 title: "Talks"
 starting: "2012"
+description: "Talks by David Mosher, a Canadian Software Developer, Designer, Musician, and Artist."
 ---
 
 ## So, You want to be a Frontend Engineer
