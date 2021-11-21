@@ -223,6 +223,10 @@ a {
   text-decoration: none;
 }
 
+:any-link {
+  color: var(--link-color);
+}
+
 article a:link {
   text-decoration: none;
   color: var(--link-color);
