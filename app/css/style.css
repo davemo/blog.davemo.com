@@ -84,7 +84,8 @@ aside.tldr:after {
   z-index: -1;
 }
 
-aside.tldr a:link {
+aside.tldr a:link,
+aside.tldr a:visited {
   color: #EBEBEB;
   border-bottom: 1px solid #EBEBEB;
 }
