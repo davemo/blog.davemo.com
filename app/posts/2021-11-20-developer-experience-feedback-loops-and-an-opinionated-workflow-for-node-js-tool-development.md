@@ -29,9 +29,9 @@ Jumping into Node was extremely disorienting for me, up was down and left was ri
 
 Around this time I was working with [Searls](https://twitter.com/searls), who created [Lineman](https://www.youtube.com/embed/KERJkJNV5nI) after I shared frustrations with most of the frontend tooling I was using.
 
-This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn't know as well, and incredibly slow. Justins' focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a _lot_ of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone was able to listen to my frustrations and translate them into magic on the command-line!
+This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn't know as well, and incredibly slow. Justin's focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a _lot_ of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone listen to my frustrations and translate them into magic on the command-line!
 
-Since then, I've been able to work on some of my own tools, libraries, and plugins while picking up a few tips, tricks, and many opinions along the way. My hope is that sharing my experience will give you the **starting place** I wished for when learning to build tools in Node and lead you to an enjoyable developer experience.
+Since then, I've been able to work on some of my own tools, libraries, and plugins while picking up a few tips, tricks, and many opinions along the way. My hope is that sharing my experience will give you the **starting place** I wished for when learning to build tools in Node and lead you to a more enjoyable developer experience.
 
 ## Ok, but how do I start?
 
@@ -39,8 +39,8 @@ Great question! It's the same one I had when I was interested in writing command
 
 - How can I [iterate](#iterating-locally-using-npm-install-dir) on a node module locally without publishing to npm?
 - How can I test what I'm building in [another project](#testing-our-tool-in-another-project)?
-- How can I [debug](#development-workflow-watch-build--debug) the code while [developing](#watch--build-with-vercelncc)?
-- How should I [package]() things?
+- How can I [debug](#development-workflow-watch-build--debug) the code while developing?
+- How should I [package](#packaging-with-vercelncc-and-npm) things?
 
 <aside>
 Keep in mind, <b>I'm biased!</b> If you're experienced and have done this before there's a good chance my approach will probably differ from yours and that's ok. There are many tools and techniques I'm not familiar with -- please let me know on <a href="https://twitter.com/dmosher">twitter</a>. I'm always eager to learn.
@@ -77,7 +77,7 @@ $ npx degit davemo/nodejs-tool-dev-template
 $ npm i
 ```
 
-Using the `tree` [command](https://formulae.brew.sh/formula/tree), here's what things should look like.
+Using the `tree` [command](https://formulae.brew.sh/formula/tree), here's what things should look like
 
 ```shell
 $ tree -L 2 ~/code/node
@@ -98,7 +98,7 @@ $ tree -L 2 ~/code/node
 6 directories, 4 files
 ```
 
-The `my_tool` directory comes with an entrypoint file `index.js` which will be our CLI tool. This entrypoint requires and executes `lib/tools.js` which logs a simple message to `STDOUT` and completes after a delay of 1 second. Here's what those files look like:
+The `my_tool` directory comes with an entrypoint file `index.js` which will be our CLI tool. This entrypoint requires and executes `lib/tools.js` which logs a simple message to `STDOUT` and completes after a delay of 1 second. Here's what those files look like
 
 ```javascript
 // my_tool/index.js
@@ -134,7 +134,7 @@ $ npm install ../my_tool
 added 1 package, and audited 3 packages in 634ms
 ```
 
-Installing a package this way causes _three_ side-effects that we should know about:
+Installing a package this way causes _three_ side-effects that we should know about
 
 ```shell
 $ # a symbolic link for my_tool is created in node_modules
@@ -176,7 +176,7 @@ To work with `my_tool` inside of `my_project` we're going to use [npm scripts](h
 }
 ````
 
-We can now execute `npm run log_a_message` to invoke `my_tool`. If everything is linked correctly you should see something like this:
+We can now execute `npm run log_a_message` to invoke `my_tool`. If everything is linked correctly you should see something like this
 
 
 ```shell
@@ -191,7 +191,7 @@ $ npm run log_a_message
 
 ### What happens when we call `npm run log_a_message`?
 
-To better understand what's going on, let's take a look at the `name` and `bin` of the fields within the scaffolded `package.json` that came with the workflow template:
+To better understand what's going on, let's take a look at the `name` and `bin` keys within the scaffolded `package.json` that came with the workflow template
 
 ```json
 // my_tool/package.json
@@ -208,7 +208,7 @@ To better understand what's going on, let's take a look at the `name` and `bin` 
 }
 ```
 
-> In our case, because the name of the package and the command are the same, we _could_ also simplify using the `implicit` syntax above, but I generally prefer to use the `explicit` syntax just to make it clear to future readers.
+> In our case, because the name of the package and the command are the same, we _could_ simplify using the `implicit` syntax, but I generally prefer to use the `explicit` syntax just to make it clear to future readers.
 
 The `bin` key in `my_tool/package.json` is a mapping of the command name (`my_tool`) to the local file name (`dist/index.js`) that will be executed.
 
@@ -241,9 +241,9 @@ With `my_tool`installed within `my_project`, the next thing we might want to do 
 
 ### Watch + Build with `@vercel/ncc`
 
-The `watch` target here invokes `build` and passes along the `-w` parameter which tells `@vercel/ncc` that it should watch for file changes and recompile every time a change is detected.
+The `watch` target here invokes `build` and passes along the `-w` parameter which tells `ncc` that it should watch for file changes and recompile every time a change is detected.
 
-The `build` target invokes `@vercel/ncc`, which traverses the dependency graph starting at our `index.js` entrypoint and compiles everything it finds (including dynamically imported things) into a single file with all dependencies inlined, kind of like `gcc`.
+The `build` target invokes `ncc`, which traverses the dependency graph starting at our `index.js` entrypoint, and compiles everything it finds (including dynamically imported things) into a single file with all dependencies inlined, kind of like `gcc`.
 
 To kick things off, run `npm run watch` from within `my_tool`:
 
@@ -279,7 +279,7 @@ I like starting with this "watch-build" workflow when developing for a few reaso
 
 The `debug` target spins up `ndb` pointing at our single compiled file in `dist/index.js`. The feedback loop when developing and debugging is nearly instant, and `ndb` includes some really nice DX features which we'll take at shortly.
 
-First, let's add a `debugger` statement within `my_tool/lib/tool.js`. (Remember, it will be compiled into `dist/index.js` automatically by our Watch + Build process).
+First, let's add a `debugger` statement within `my_tool/lib/tool.js` knowing that it will be compiled into `dist/index.js` automatically by our Watch + Build process.
 
 ```javascript
 // my_tool/lib/tool.js
@@ -306,7 +306,7 @@ Chromium downloaded to /Users/davidmosher/code/node/my_tool/node_modules/carlo/l
 ⏳ CLI tool: working ...
 ````
 
-> The first time you run the `debug` target, `ndb` will download Chromium.
+> The first time you run the `debug` target `ndb` will download Chromium.
 
 With this process launched you should see a Chromium window pop up:
 
@@ -314,7 +314,7 @@ With this process launched you should see a Chromium window pop up:
 
 This is where we can see some of the `ndb` DX specifics I mentioned earlier that make this workflow so nice.
 
-- 📃 Notice the `NPM Scripts` tab? This allows you to repeatedly invoke any npm script from within `package.json` right from the GUI. This is really handy for making changes and then testing them immediately.
+- 📃 Notice the `NPM Scripts` tab? This allows you to repeatedly invoke any npm script right from the GUI. This is really handy for making changes and then testing them immediately.
 
 - 🔁 `ndb` stays launched and available for you to re-run any of those npm scripts; this is much nicer than `node --inspect-brk` which exits after the current debug stack is completed.
 
@@ -358,13 +358,13 @@ dist/index.js.map
 dist/sourcemap-register.js
 ````
 
-Our last step before publishing will be to remove the `private: true` flag from `package.json` (I added this just so nobody accidentally publishes the workflow template). Once that's done, then you can simply `npm publish` and your minimal package will be uploaded to the npm registry.
+Our last step before publishing will be to remove the `private: true` flag from `package.json`, which I added so nobody accidentally published the workflow template. Once that's done, then you can simply `npm publish` and your minimal package will be uploaded to the npm registry.
 
 <aside>If you don't provide a tag when you publish, npm will automatically assign your published package to the <code>latest</code> specifier, which would allow you to install it using <br><code>npm install my_tool@latest</code>.</aside>
 
 ## Wrapping up
 
-This concludes my tutorial on an enjoyable workflow for Node.js tool development. I hope you found this useful and that you find the experience of developing tools in this way delightful, and the feedback loop fast and efficient.
+This concludes my tutorial on an enjoyable workflow for Node.js tool development. I hope you found this useful and that you find the experience of developing tools in this way enjoyable and the feedback loop fast and efficient.
 
 If you have questions or wish to provide feedback, please reach out to me on [twitter](https://twitter.com/dmosher). I would love to hear from you!
 
