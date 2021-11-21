@@ -3,21 +3,23 @@ title: "Reasons not to quit your job"
 date: "2016-12-30"
 ---
 
-> 2016 was a year of ups and (if you agree with many of the social media channels in the last month) a significantly larger number of downs. I'm not sure  _exactly_ what it is about this time of year that causes us to reflect so much more than the rest of the year; I suspect it _mostly_ has to do with a heightened sense of awareness as we approach boundaries.
+<aside class="tldr">
+Think hard before you quit your job. Consider whether you might be quitting to chase technology, scale, or to run from adversity.
+</aside>
+
+2016 was a year of ups and (if you agree with many of the social media channels in the last month) a significantly larger number of downs. I'm not sure  _exactly_ what it is about this time of year that causes us to reflect so much more than the rest of the year; I suspect it _mostly_ has to do with a heightened sense of awareness as we approach boundaries.
 
 As children, we know they are there because our parents tell us and we frequently come close to them often by virtue of desiring to push past to see what is beyond. As parents, we know they are there because we create them; often intending to protect our children from things that are dangerous or to set parameters for healthy  age-appropriate interaction. As software developers we encounter [boundaries](https://www.destroyallsoftware.com/talks/boundaries) in tests, the design of our code as it relates to components in a system, API's, the list goes on and on. Being in constant consideration of boundaries, whether consciously or subconsciously, has the side-effect of switching our brain into analysis and reflection mode.
 
 I recently had some friends reach out for advice as they were contemplating a transition at a critical boundary: quitting their job.
 
-> "It's time for a change"
+> It's time for a change
 
-...
+> I've been restless but I'm trying to be cautious
 
-> "I've been restless but I'm trying to be cautious"
+These exchanges, coupled with the time of year and my brain switching into reflection mode, have had me considering reasons I left jobs in the past. The more I thought about it the more my brain kept telling me that those reasons were often _not_ valid reasons to justify leaving. I wrestled with it and tried to move onto other thoughts but it just kept nagging at me; this is usually an indication I need to deal with those thoughts in a positive way. So, here I am attempting to impart some wisdom about reasons _not_ to quit your job in 2017 (but mostly just typing as an exercise to free my brain up to move onto other things!) 😉
 
-These exchanges, coupled with the time of year and my brain switching into reflection mode, have had me considering reasons I left jobs in the past. The more I thought about it the more my brain kept telling me that those reasons were often _not_ valid reasons to justify leaving. I wrestled with it and tried to move onto other thoughts but it just kept nagging at me; this is usually an indication I need to deal with those thoughts in a positive way. So, here I am attempting to impart some wisdom about reasons _not_ to quit your job in 2017 (but mostly just typing as an exercise to free my brain up to move onto other things!) ;)
-
-# Technology
+## Technology
 
 On April 3rd, 2014 I wrote [some of the reasons](https://blog.davemo.com/posts/2014-04-03-the-magnetic-core-philosophy.html) I left the last job I was at. I've re-read that post a dozen times trying to mine some fragments of wisdom, mostly to attempt to justify the decisions at that time. The only conclusions I've come up with at this point are: there are a lot of emotions in my writing that stemmed _mainly_ from too much focus on Technology as one of the reasons I quit.
 
@@ -27,7 +29,7 @@ The truth is that most systems that we work on move slowly towards [disorder and
 
 Don't get sucked into the new tech cycle; learn to embrace what you're working on now and strive to work the best with the technology constraints you've been handed.
 
-# Scale
+## Scale
 
 So, you've thought considerably about your current job and ruled out technology as the main reason for leaving. In fact, you're sticking with the tried and true tech-stack you've always known, but there's just been that nagging feeling that you'd be so much better off if you could experience working with your stack at a larger scale. Oh to be able to understand the constraints of systems at an order-of-magnitude or two beyond where you are working now; that's the ticket!
 
@@ -48,7 +50,7 @@ In my experience working as a consultant the only constant I've observed is that
 
 Think hard about using scale as justification for quitting your job; chances are you haven't considered the _human_ factors involved.
 
-# Adversity
+## Adversity
 
 Ruling out both scale and technology as reasons for quitting a job is great, but to be honest they aren't the most common reasons I've quit in the past. Typically that honor is reserved for a more sinister and damaging character-trait: an inability to handle adversity.
 
@@ -64,7 +66,7 @@ Before you quit your job because it's just "too damned hard" I would encourage y
 
 If you can turn a challenging situation from a painful pity-party into an opportunity to conquer and emerge better you will be amazed at what you can come through.
 
-# Still Ready to Quit?
+## Still Ready to Quit?
 
 There are valid reasons to quit your job, but I think we tend to dwell on them far too often before considering the reasons _not_ to. My hope for you at the end of 2016 is that as you approach the boundary and transition leading into 2017 that you would be prompted to introspect and reflect on what it is you truly want. Set some goals, list some objectives for your life and above all ask yourself some tough questions before throwing in the towel; as a wise friend of mine once said:
 

@@ -3,7 +3,7 @@ title: "Using 'the cloud' as a blog"
 date: "2009-06-17"
 ---
 
-> I saw Posterous through the [TweetDeck](https://www.tweetdeck.com) update and was pleasantly intrigued by the interface. Couldn't have a simpler concept for publishing personal stuff if you ask me, so I decided to give it a try and see what it looked like.
+I saw Posterous through the [TweetDeck](https://www.tweetdeck.com) update and was pleasantly intrigued by the interface. Couldn't have a simpler concept for publishing personal stuff if you ask me, so I decided to give it a try and see what it looked like.
 
 I'm pretty impressed to be honest, driving content via email, sms, or any other number of input methods and having it appear automagically on a website somewhere with panache is a pretty cool idea.
 

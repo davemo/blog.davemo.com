@@ -3,7 +3,7 @@ title: "Work Bliss"
 date: "2008-08-18"
 ---
 
-> Normally I think most people would associate work with emotions other than bliss.
+Normally I think most people would associate work with emotions other than bliss.
 
 It's not often in life you can find yourself working in a job with people who are on the same page as you. It's also not too often in life you can find yourself working in a job where the things you are passionately interested in are what people want you to work on. Combine the two previously mentioned "hard-to-find" qualities with a brand new MacBook Pro and a healthy salary (there's something to be said for getting paid well for the things you love to do) and you have what I would consider the recipe for the perfect job; aka: work bliss.
 

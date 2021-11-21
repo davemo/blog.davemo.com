@@ -1,5 +1,5 @@
 ---
-title: "JavaScript Dependency Management and YUI Loader Quirks"
+title: "JS Dependency Management and YUI Loader Quirks"
 date: "2009-03-13"
 ---
 

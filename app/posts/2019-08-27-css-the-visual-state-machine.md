@@ -1,15 +1,17 @@
 ---
-title: "CSS is a visual state machine"
+title: "CSS: The Visual State-Machine"
 date: "2019-08-27"
 ---
 
-> Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.
+<aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
 
-<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.
 
 Whether you use [Redux](https://redux.js.org/), [MobX](https://mobx.js.org), or even perhaps something framework-agnostic like [xState](https://xstate.js.org), it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I've found there is still an area that is often overlooked when it comes to managing state in web applications: **the visual or presentation layer**.
 
 CSS is incredibly powerful yet frequently misunderstood by most developers, which often leads to derision of the language. I think this is mostly due to a fundamental error in the way web developers manage presentation, often focusing their efforts on conditional logic in templates instead of a more flexible application of state-specific CSS selectors to HTML elements.
+
+<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
 
 ## A Simple Example
 
@@ -59,7 +61,9 @@ One of the first places a web developer might start is by crafting the template 
 </table>
 ```
 
-Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as
+> Aside from the svelte-specific things like the `{#each}` and `{#if}` blocks, this is probably close to what you might implement in any front-end or server-side templating solution.
+
+We've taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state "1 or more Selections Active"; to do this we defined a local variable in our JavaScript region called `hasSelection` which is defined using Sveltes [reactive declarations](https://svelte.dev/tutorial/reactive-declarations) as
 
 ```javascript
 $: hasSelection = users.some(u => u.selected)

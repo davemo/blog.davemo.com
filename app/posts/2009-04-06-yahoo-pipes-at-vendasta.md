@@ -3,9 +3,8 @@ title: "Yahoo Pipes at VendAsta"
 date: "2009-06-24"
 ---
 
-> **Note**: this post was originally started in September/November, 2008. It's
-been sitting in my drafts for quite a while and I decided it was time to finish
-it up.
+<aside><strong>Note</strong>: this post was originally started in September/November, 2008. It's been sitting in my drafts for quite a while and I decided it was time to finish it up.
+</aside>
 
 We finished off a short 1 week development sprint last Friday [edit: sometime in Sep/Nov 2008] which culminated in the current live version of the [VendAsta](https://www.vendasta.com) website. Despite such a short dev-cycle, I feel we were able to accomplish most of our research goals.
 

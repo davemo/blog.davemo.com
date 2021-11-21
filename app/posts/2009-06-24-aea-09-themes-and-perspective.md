@@ -3,7 +3,11 @@ title: "An Event Apart 2009 - themes and perspective"
 date: "2009-06-24"
 ---
 
-> I'm sitting in Boston's Logan International Airport because my flight was delayed. Normally I'd be tired and cranky but I'm just tired;  the rest of me is so encouraged due to the emotional and motivational high I'm on after participating in [An Event Apart: Boston, 2009](https://www.aneventapart.com/2009/boston/).
+<aside class="tldr">
+Connection. Pixel Perfection. UX.
+</aside>
+
+I'm sitting in Boston's Logan International Airport because my flight was delayed. Normally I'd be tired and cranky but I'm just tired;  the rest of me is so encouraged due to the emotional and motivational high I'm on after participating in [An Event Apart: Boston, 2009](https://www.aneventapart.com/2009/boston/).
 
 Having not attended before, I arrived not knowing what to expect and was fairly intimidated by the number of people in attendance. My fear quickly dissipated after the first day of presentations and the opening night party, which brings me to the first of a couple themes I identified throughout the conference.
 

@@ -3,11 +3,9 @@ title: "Introduction to Angular JS"
 date: "2013-05-03"
 ---
 
-> Walk through building a sample application with AngularJS to learn some of the basics along with some commentary that contrasts it with jQuery / Backbone.JS
-
-<iframe src="https://www.youtube.com/embed/8ILQOFAgaXE?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
-
-# Resources
+<aside class="tldr">
+Walk through building a webapp with AngularJS learning the basics and how it differs from jQuery / BackboneJS.
+</aside>
 
 This is part of a screencast series on Angular JS
 
@@ -18,6 +16,11 @@ This is part of a screencast series on Angular JS
 1. [Testing Strategies for Angular JS](https://www.youtube.com/watch?v=UYVcY9EJcRs)
 1. [Advanced Directives with Angular JS (Part 1)](https://www.youtube.com/watch?v=Ty8XcASK9js)
 1. [Advanced Directives with Angular JS (Part 2)](https://www.youtube.com/watch?v=4zG8SfucUzg)
+
+
+<iframe src="https://www.youtube.com/embed/8ILQOFAgaXE?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+## Resources
 
 Some additional high-quality resources:
 

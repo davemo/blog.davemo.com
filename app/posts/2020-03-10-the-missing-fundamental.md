@@ -14,7 +14,7 @@ Music composition and production is a large part of my life outside of software 
 
 When I first learned about this concept, I couldn't help but think of how it applied to the work we do as software engineers. In the same way that skilled audio engineers can leverage the concept of the missing fundamental to improve the characteristics of sound, skilled software engineers can use a similar set of skills to improve the performance of applications.
 
-# The Fundamentals of Software Performance
+## The Fundamentals of Software Performance
 
 [Ali](https://blog.testdouble.com/authors/ali-ibrahim/) and I were recently tasked with improving the performance of a legacy codebase that was deployed on Heroku using Node.js, MongoDB, and Angular 1. One of our first steps in evaluating the performance of code is to do an audit of dependencies and configuration; this is a great starting point because it can often lead to simple fixes for performance issues, like updating a database ORM adapter that can query things more efficiently.
 

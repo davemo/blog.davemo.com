@@ -198,17 +198,8 @@ aside {
   background-position: -594px -70px;
 }
 
-.theme-tldr .profile_image {
-  background: black;
-}
-
-.profile_image {
-  clip-path: circle(88px at center);
-}
-
 .profile_image img {
   width: 100%;
-  clip-path: circle(82px at center);
 }
 
 footer {

@@ -3,11 +3,15 @@ title: "Makefile Usability Tips"
 date: "2017-04-17"
 ---
 
-> It has been but a [few short years](/build-automation-holy-war.png) since _web developers_ chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of [many](https://en.wikipedia.org/wiki/Editor_war) [wars](https://en.wikipedia.org/wiki/Browser_wars) that have been fought [countless times](https://en.wikipedia.org/wiki/Indent_style) since the dawn of computing. In the grim darkness of the far future, there is only war.
+<aside class="tldr">
+You can improve the DX of Makefiles using some simple target annotations and some parsing with <code>grep</code> and <code>awk</code>.
+</aside>
+
+It has been but a [few short years](/build-automation-holy-war.png) since _web developers_ chose a side and took up arms in the holy war of <a href="https://en.wikipedia.org/wiki/Make_(software)">build automation tools</a>; this is only one of [many](https://en.wikipedia.org/wiki/Editor_war) [wars](https://en.wikipedia.org/wiki/Browser_wars) that have been fought [countless times](https://en.wikipedia.org/wiki/Indent_style) since the dawn of computing. In the grim darkness of the far future, there is only war.
 
 Meh. War is tiresome and I have had enough of war. This post is about some small usability improvements you can add to your Makefiles if you are using Make. Let's dig in!
 
-# The Makefile
+## The Makefile
 
 Make has been around for a <a href="https://en.wikipedia.org/wiki/Make_(software)">long time</a>. It has some neat features but it's not always the friendliest to neophytes. Imagine you have a new developer joining your team, and your project has a Makefile that looks something like this
 
@@ -47,7 +51,7 @@ building...
 
 Now, assuming new dev didn't encounter any snags with project setup and installing dependencies (hah! unlikely) this still doesn't present a great picture of how the project is assembled or the bits of the lifecycle that are involved at first glance. Let's see if we can improve this initial Makefile developer experience.
 
-## Step 1: Add a DEFAULT_GOAL
+### Step 1: Add a DEFAULT_GOAL
 
 In Make semantics, _goals_ are targets that `make` should strive to update. The docs give us a nice [explanation of goals](https://www.gnu.org/software/make/manual/html_node/Goals.html) as well as some hints about how we can manage which goal is run first
 
@@ -75,7 +79,7 @@ Welcome to the Project!
 
 Ok, this is a little more friendly but still not very useful. We can do better!
 
-## Step 2: Annotate Makefile Targets
+### Step 2: Annotate Makefile Targets
 
 Let's update our Makefile to add helpful annotations to _some_ of our targets using comment blocks prefixed with `##`
 
@@ -92,7 +96,7 @@ release: bump ## bump the VERSION file, git tags, and push to github
 
 This annotation scheme works pretty well but doesn't buy us anything on its own, to make this truly useful we need to parse the Makefile, look for lines prefixed with `##` and format them in a pretty way and write them to `stdout`
 
-## Step 3: Parse Annotations
+### Step 3: Parse Annotations
 
 Make includes a handy [list of special variables](https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables) that can be used for all sorts of handy things. In this case we can use the `MAKEFILE_LIST` variable along with `grep`, `sort` and `awk` to get a list of annotated targets and display them on `stdout` in a user-friendly way
 
@@ -108,14 +112,14 @@ With that in place our new developer would run `make` from the command-line and 
 ```shell
 neophyte@newbie:~/code/project
 $ make
-build                          builds the application
-clean                          gets you back to a clean working state
-release                        bump the VERSION file, git tags, and push to github
+build           builds the application
+clean           gets you back to a clean working state
+release         bump the VERSION file, git tags, and push to github
 ```
 
 Yay! This is a much nicer developer-experience than what we started with. To take it even further I might suggest annotating only a subset of tasks that are most commonly used.
 
-# Acknowledgements / Links
+## Acknowledgements / Links
 
 There are a few sources that come up when you google for "self-documenting makefile" along with a few different ways of solving this problem. I drew inspiration for this post mostly from [this marmelab entry](https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html), but felt like there were enough interesting points and general make tips added that it was worth another post.
 

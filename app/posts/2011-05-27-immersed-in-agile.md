@@ -3,7 +3,11 @@ title: "Immersed in agile"
 date: "2011-05-27"
 ---
 
-> I started working as an independent contractor for [Pillar
+<aside class="tldr">
+Little-a "agile" software development is more about trust and show, and less about contracts and tell.
+</aside>
+
+I started working as an independent contractor for [Pillar
 Technology](https://www.pillartechnology.com/) over 6 months ago (Nov 1, 2010).
 At the time, I had no idea what was in store for me; looking back now I think
 I've hit a new point from which to grow in my career so it seems time to engage

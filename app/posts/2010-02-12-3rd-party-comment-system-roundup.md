@@ -3,7 +3,11 @@ title: "Third-Party Comment System Roundup"
 date: "2010-02-12"
 ---
 
-> We've all seen it. The classic tutorial on [insert popular web framework here]
+<aside class="tldr">
+Commenting systems on the web are a subject of "intense debate" (pun intended).
+</aside>
+
+We've all seen it. The classic tutorial on [insert popular web framework here]
 that has us building a blogging system in twenty minutes or less. It's actually
 getting kind of old and I'm growing sick of seeing what I'm able to create with
 only platform x,y and z. I'm more interested in how I can use a web framework

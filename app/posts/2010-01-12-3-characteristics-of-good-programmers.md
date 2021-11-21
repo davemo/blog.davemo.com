@@ -3,7 +3,11 @@ title: "3 Characteristics of Good Programmers"
 date: "2010-01-12"
 ---
 
-> A wise man once told me that the best way to get ahead in life is to learn
+<aside class="tldr">
+Passion. Perfection. Perseverance.
+</aside>
+
+A wise man once told me that the best way to get ahead in life is to learn
 lessons from the experiences and failures of others. That man was my dad. He
 didn't share often with me when I was growing up but when he did I listened
 carefully (for the most part..) because what he had to say carried the weight
@@ -55,11 +59,11 @@ of building only the perfect technical solution.
 I'm not an english major but I think that Shakespeare has some good things to
 say about perseverance.
 
-> "To be, or not to be: that is the question:
+> To be, or not to be: that is the question:
 > Whether 'tis nobler in the mind to suffer
 > The slings and arrows of outrageous fortune,
 > Or to take arms against a sea of troubles,
-> And by opposing end them?"
+> And by opposing end them?
 > -- *Hamlet*
 
 The answer to the question has to be: to be! Giving up is not an option!
@@ -68,11 +72,11 @@ have in order to face problems. They also surround themselves with like minded
 people and thrive on failure. Failure affords us the chance to persevere and
 refine our process until we reach a solution that is "good enough".
 
-> "And thus the native hue of resolution
+> And thus the native hue of resolution
 > Is sicklied o'er with the pale cast of thought,
 > And enterprises of great pith and moment
 > With this regard their currents turn awry,
-> And lose the name of action."
+> And lose the name of action.
 > -- *Hamlet*
 
 Have you resolved in the past to persevere through difficult problems as a

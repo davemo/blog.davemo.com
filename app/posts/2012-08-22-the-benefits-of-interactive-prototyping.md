@@ -3,7 +3,11 @@ title: "The Benefits of Interactive Prototyping"
 date: "2012-08-22"
 ---
 
-> I had a small epiphany today while working on a new prototype for a client:
+<aside class="tldr">
+Prototyping at varying levels of fidelity can yield different results and uncover hidden product requirements.
+</aside>
+
+I had a small epiphany today while working on a new prototype for a client:
 "different stages of prototyping yield different levels of information". I know
 I know, not much of a brainwave there, right? I was never one for writing
 headlines and there's a lot of knowledge packed into that statement, so stick
@@ -69,7 +73,7 @@ repeatedly try to express the system constraints in "plain old english" as if I
 were a user trying to interact with them, but I didn't come to that realization
 until I made the leap from static to interactive.
 
-* * * * *
+<aside>The images for this post got eaten by the changes in cloudapp and they don't seem to be retrievable. Something something "my mouth was a broken jpeg!" 😤</aside>
 
 ![Static Prototype
 1](https://f.cl.ly/items/3D1t0k1K073g2o3h3L3a/static.prototype.1.png)
@@ -84,8 +88,6 @@ nothing to help users understand what it is they are doing; we ended up deciding
 on a new layout that positions the summary to be always in the users view in the
 following iteration.
 
-* * * * *
-
 ![Static Prototype
 2](https://f.cl.ly/items/1W1T340A0W0V3c2T1Y2f/static.prototype.2.png)
 
@@ -93,8 +95,6 @@ In this iteration the idea for a "live updating" summary was the driver for the
 layout change. We thought that if users could see the results of their
 interaction taking shape live it would help to reinforce how the interface was
 affecting the output (challenge creation).
-
-* * * * *
 
 ![iOS Static Prototype
 1](https://f.cl.ly/items/0E41451o0B1f1V1J2w2W/iOS.prototype.1.png)
@@ -115,8 +115,6 @@ still iterating with static markup and felt like we were making good progress
 with the information we had received from in browser testing. The next step was
 to start wiring up user interactions to see what else was revealed.
 
-* * * * *
-
 ![Dynamic Prototype
 1](https://f.cl.ly/items/0V4742133R030g453t1D/dynamic.prototype.1.png)
 
@@ -129,8 +127,6 @@ that many rules due to our fixed position summary preview. (note: the new [affix
 plugin](https://twitter.github.com/bootstrap/javascript.html#affix) in [bootstrap
 2.1](https://twitter.github.com/bootstrap/) is \_great\_ for this, but you should
 be aware of how tall your content could potentially be!)
-
-* * * * *
 
 ![Dynamic Prototype
 2](https://f.cl.ly/items/2T2h3a1y232u2a1a3619/dynamic.prototype.2.png)
@@ -146,8 +142,6 @@ english (we arrived at that after a number of iterations) but the display of the
 data isn't helpful to users at all and really mirrors how the underlying system
 stores the data.
 
-* * * * *
-
 ## Moving Forward
 
 Our next step will be to prototype a layout where the summary preview \_is\_ the
@@ -161,4 +155,3 @@ interfaces that are much more usable.
 If you aren't already prototyping interactivity in the browser I would encourage
 you to start as soon as possible, the earlier you start the earlier you'll find
 out how to fix your interface! :)
-

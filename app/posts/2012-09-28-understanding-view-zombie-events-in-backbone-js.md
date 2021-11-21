@@ -3,10 +3,14 @@ title: "Understanding View Zombie Events in Backbone JS"
 date: "2012-09-28"
 ---
 
-> A quick examination of view level zombie events in Backbone.JS, how they manifest, and one solution to help eliminate them.
+<aside class="tldr">
+Zombies... BRAINS!!!
+</aside>
 
-<iframe src="https://www.youtube.com/embed/hb8_IReoms8?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+A quick examination of view level zombie events in Backbone.JS, how they manifest, and one solution to help eliminate them.
 
-# Resources
+<iframe src="https://www.youtube.com/embed/hb8_IReoms8?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+## Resources
 
 - Code: https://github.com/davemo/zombie-events
