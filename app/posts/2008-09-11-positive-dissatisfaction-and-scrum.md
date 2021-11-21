@@ -1,6 +1,7 @@
 ---
 title: "Positive Dissatisfaction & Scrum"
 date: "2008-09-11"
+description: "A way to think about continuous improvement in agile software development using Scrum."
 ---
 
 <aside class="tldr">

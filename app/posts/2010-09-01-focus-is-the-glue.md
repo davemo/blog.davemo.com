@@ -1,6 +1,7 @@
 ---
 title: "Focus is the glue"
 date: "2010-09-01"
+description: "Reflections on the importance of focus in ones life."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Application Usage Trends"
 date: "2008-12-17"
+description: "Software developer application usage trends from 2005 to 2008."
 ---
 
 <aside class="tldr">

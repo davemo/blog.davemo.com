@@ -1,6 +1,7 @@
 ---
 title: "React Performance Analysis"
 date: "2017-11-07"
+description: "A screencast on performance profiling and anlysis with React"
 ---
 
 <aside class="tldr">

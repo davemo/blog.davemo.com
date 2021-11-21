@@ -1,10 +1,12 @@
 doctype html
-html
-
+html(lang="en")
   head
+    title blog: david mosher#{post ? ' | ' + post.title() : ' | Archive'}
     link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
     link(rel='alternate' type='application/rss+xml' title=`${site.title}` href='/index.xml')
-    title #{site.title}#{post ? ' | ' + post.title() : ' | Archive'}
+    meta(name="viewport" content="width=device-width")
+    meta(name="description" content=`${post && (post.attributes.description || post.title() + ' from David Mosher') || 'Archive of Blog Posts from blog.davemo.com'}`)
+    meta(name="theme-color" content="#bf5600")
 
   - var theme = post ? `theme-${post.attributes.theme}` : ''
   - function shouldShowNavFor(post) {

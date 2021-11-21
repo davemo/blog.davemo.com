@@ -1,6 +1,7 @@
 ---
 title: "Using 'The Cloud' as a Blog"
 date: "2009-06-17"
+description: "Blogging in the cloud with Posterous."
 ---
 
 <aside class="tldr">

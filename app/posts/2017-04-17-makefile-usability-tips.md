@@ -1,6 +1,7 @@
 ---
 title: "Makefile Usability Tips"
 date: "2017-04-17"
+description: "A guide on improving the usability of Makefiles."
 ---
 
 <aside class="tldr">

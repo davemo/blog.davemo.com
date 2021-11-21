@@ -1,6 +1,7 @@
 ---
 title: "Frontend Workflows with Grunt & Angular JS"
 date: "2013-06-18"
+description: "A screencast on using GruntJS and LinemanJS to build frontend tooling workflows for AngularJS applications."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Static Design Processes lead to Usability Failures"
 date: "2009-07-06"
+description: "Thoughts on static design processes leading to usability failures."
 ---
 
 <aside class="tldr">

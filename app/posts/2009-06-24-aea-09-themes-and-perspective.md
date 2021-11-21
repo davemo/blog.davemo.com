@@ -1,6 +1,7 @@
 ---
 title: "An Event Apart 2009 - themes and perspective"
 date: "2009-06-24"
+description: "A recap of An Event Apart 2009, a conference that was held in Boston."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "The new Twitter homepage, now with 114% more blue"
 date: "2009-07-31"
+description: "What the twitter homepage looked like in 2009."
 ---
 
 <aside class="tldr">

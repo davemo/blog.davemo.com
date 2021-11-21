@@ -1,6 +1,7 @@
 ---
 title: "The Magnetic Core Philosophy"
 date: "2014-04-03"
+description: "Thoughts on why companies succeed and the dangers of prioritizing technical skill over empathy."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Open Source Spotlight: Dependable JS"
 date: "2018-04-06"
+description: "A look at an open-source dependency injection framework for Node.js called Dependable.js"
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Frontend Web Debugging Techniques : Isolation"
 date: "2010-11-05"
+description: "How to debug frontend code in a reliable way by creating an isolated example to work from."
 ---
 
 <aside class="tldr">

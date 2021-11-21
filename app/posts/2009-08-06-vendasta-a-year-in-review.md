@@ -1,6 +1,7 @@
 ---
 title: "VendAsta: a year in review"
 date: "2009-08-06"
+description: "Reflections on past struggles and accomplishment."
 ---
 
 <aside class="tldr">

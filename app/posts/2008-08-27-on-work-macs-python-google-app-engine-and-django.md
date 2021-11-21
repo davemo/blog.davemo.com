@@ -1,6 +1,7 @@
 ---
 title: "On Work, Macs, Python, Google App Engine & Django"
 date: "2008-08-27"
+description: "Thoughts on working with Macs, Python, Google App Engine and the Django framework."
 ---
 
 <aside class="tldr">

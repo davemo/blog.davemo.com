@@ -1,6 +1,7 @@
 ---
 title: "Using the SED stream editor in macOS terminal.app"
 date: "2009-10-27"
+description: "How to use the unix SED command to batch rename files."
 ---
 
 <aside class="tldr">

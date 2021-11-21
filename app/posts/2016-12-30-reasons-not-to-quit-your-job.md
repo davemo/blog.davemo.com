@@ -1,6 +1,7 @@
 ---
 title: "Reasons not to quit your job"
 date: "2016-12-30"
+description: "What to think about before you decide to quit your job."
 ---
 
 <aside class="tldr">

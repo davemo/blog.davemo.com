@@ -1,6 +1,7 @@
 ---
 title: "The Benefits of Interactive Prototyping"
 date: "2012-08-22"
+description: "Thoughts on the benefits of interactive prototyping."
 ---
 
 <aside class="tldr">

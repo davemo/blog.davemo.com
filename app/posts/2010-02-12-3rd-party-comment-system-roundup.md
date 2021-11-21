@@ -1,6 +1,7 @@
 ---
 title: "Third-Party Comment System Roundup"
 date: "2010-02-12"
+description: "A review of third-party commenting systems for use with blogs."
 ---
 
 <aside class="tldr">

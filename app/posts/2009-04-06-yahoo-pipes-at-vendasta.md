@@ -1,6 +1,7 @@
 ---
 title: "Yahoo Pipes at VendAsta"
 date: "2009-06-24"
+description: "Using Yahoo Pipes as an RSS content pipeline for your blog."
 ---
 
 <aside class="tldr">

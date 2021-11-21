@@ -1,6 +1,7 @@
 ---
 title: "The SCNA 2011 Narrative"
 date: "2011-11-21"
+description: "Reflections on the Software Craftsmanship North America conference from 2011."
 ---
 
 <aside class="tldr">

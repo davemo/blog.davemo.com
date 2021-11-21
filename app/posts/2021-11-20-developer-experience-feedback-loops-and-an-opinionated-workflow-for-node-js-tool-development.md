@@ -1,7 +1,7 @@
 ---
 title: "Developer Experience, Feedback Loops, and an Enjoyable Workflow for Node.js Tool Development"
 date: "2021-11-20"
-theme: "tldr"
+description: "How to create an enjoyable workflow for building command-line tools with Node.js with an emphasis on good developer experience and fast feedback loops."
 ---
 
 <aside class="tldr">

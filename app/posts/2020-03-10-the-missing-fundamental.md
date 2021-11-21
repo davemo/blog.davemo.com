@@ -1,7 +1,7 @@
 ---
 title: "The Missing Fundamental"
 date: "2020-03-10"
-theme: "tldr"
+description: "An approach to evaluating software performance using an audio engineering concept called the missing fundamental."
 ---
 
 <aside class="tldr">

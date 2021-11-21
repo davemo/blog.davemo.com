@@ -1,6 +1,7 @@
 ---
 title: "End to End with Angular JS"
 date: "2013-05-21"
+description: "A screencast exploring more advanced AngularJS integration with Laravel 4."
 ---
 
 <aside class="tldr">

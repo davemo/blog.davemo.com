@@ -1,6 +1,7 @@
 ---
 title: "3 things I learned at BarCamp Saskatoon 2009"
 date: "2009-11-28"
+description: "Recap of BarCamp Saskatoon 2009."
 ---
 
 <aside class="tldr">

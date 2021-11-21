@@ -1,6 +1,7 @@
 ---
 title: "Immersed in agile"
 date: "2011-05-27"
+description: "Thoughts on the essence of agile software development."
 ---
 
 <aside class="tldr">

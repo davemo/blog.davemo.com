@@ -1,6 +1,7 @@
 ---
 title: "Understanding View Zombie Events in Backbone JS"
 date: "2012-09-28"
+description: "A screencast on BackboneJS and view level zombie events."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Usability failures in the wild on lego.com"
 date: "2009-07-08"
+description: "Investigating usability failures on lego.com"
 ---
 
 <aside class="tldr">

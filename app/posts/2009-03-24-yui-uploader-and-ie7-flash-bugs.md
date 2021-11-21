@@ -1,6 +1,7 @@
 ---
 title: "YUI Uploader and IE7 Flash Bugs"
 date: "2009-03-24"
+description: "Bugs with the YUI Loader and Internet Explorer 7."
 ---
 
 <aside class="tldr">

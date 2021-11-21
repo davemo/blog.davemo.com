@@ -1,6 +1,7 @@
 ---
 title: "What Polymer / Angular tell us about the future of the Web Platform and JavaScript Frameworks"
 date: "2013-08-08"
+description: "Thoughts on the future of web development and JavaScript frameworks."
 ---
 
 <aside class="tldr">

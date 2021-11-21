@@ -1,6 +1,7 @@
 ---
 title: "Introduction to React Native"
 date: "2015-04-10"
+description: "A screencast introduction to React Native."
 ---
 
 <aside class="tldr">

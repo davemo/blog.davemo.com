@@ -1,6 +1,7 @@
 ---
 title: "JS Dependency Management and YUI Loader Quirks"
 date: "2009-03-13"
+description: "A solution for JavaScript dependency management using the YUI Loader."
 ---
 
 <aside class="tldr">

@@ -1,6 +1,7 @@
 ---
 title: "Inversion of Control, the UI thread, and Backbone JS"
 date: "2012-11-02"
+description: "A screencast on inversion of control, the ui thread in web browsers, and Backbone JS."
 ---
 
 <aside class="tldr">

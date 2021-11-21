@@ -1,6 +1,7 @@
 ---
 title: "3 Characteristics of Good Programmers"
 date: "2010-01-12"
+description: "Three characteristics of good programmers, Passion, Perfection, and Perseverance."
 ---
 
 <aside class="tldr">

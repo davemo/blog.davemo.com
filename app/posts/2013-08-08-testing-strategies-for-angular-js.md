@@ -1,6 +1,7 @@
 ---
 title: "Testing Strategies for Angular JS"
 date: "2013-08-08"
+description: "A screencast on testing strategies for AngularJS."
 ---
 
 <aside class="tldr">

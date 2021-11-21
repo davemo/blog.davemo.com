@@ -1,6 +1,7 @@
 ---
 title: "Introduction to Angular JS"
 date: "2013-05-03"
+description: "An screencast introduction to the AngularJS framework."
 ---
 
 <aside class="tldr">

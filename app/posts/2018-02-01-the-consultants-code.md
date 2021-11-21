@@ -1,6 +1,7 @@
 ---
 title: "The Consultants Code"
 date: "2018-02-01"
+description: "Thoughts on how to build trust as a software consultant."
 ---
 
 <aside class="tldr">

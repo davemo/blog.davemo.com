@@ -1,6 +1,7 @@
 ---
 title: "Useful bash scripting"
 date: "2009-06-19"
+description: "How to loop over folders using bash."
 ---
 
 <aside class="tldr">

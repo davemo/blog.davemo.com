@@ -1,6 +1,7 @@
 ---
 title: "Building DSLs with JavaScript & CoffeeScript"
 date: "2015-03-06"
+description: "A screencast and conference talk on building domain-specific languages using JavaScript and CoffeeScript."
 ---
 
 <aside class="tldr">

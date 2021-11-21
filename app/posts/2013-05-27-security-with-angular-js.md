@@ -1,6 +1,7 @@
 ---
 title: "Security with Angular JS"
 date: "2013-05-27"
+description: "A screencast on security considerations when building a web application with AngularJS."
 ---
 
 <aside class="tldr">

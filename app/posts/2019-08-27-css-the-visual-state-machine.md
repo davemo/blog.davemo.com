@@ -1,6 +1,7 @@
 ---
 title: "CSS: The Visual State-Machine"
 date: "2019-08-27"
+description: "Using SvelteJS to explore treating CSS as a visual state machine."
 ---
 
 <aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>

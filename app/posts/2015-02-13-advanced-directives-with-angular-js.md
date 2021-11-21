@@ -1,6 +1,7 @@
 ---
 title: "Advanced Directives with AngularJS (Part 1)"
 date: "2015-02-13"
+description: "Part 1 of a screencast series looking at advanced directives with AngularJS."
 ---
 
 <aside class="tldr">

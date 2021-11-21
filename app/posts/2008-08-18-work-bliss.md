@@ -1,6 +1,7 @@
 ---
 title: "Work Bliss"
 date: "2008-08-18"
+description: "What you might feel like after you start a new job."
 ---
 
 <aside class="tldr">
