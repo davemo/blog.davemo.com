@@ -3,6 +3,10 @@ title: "Application Usage Trends"
 date: "2008-12-17"
 ---
 
+<aside class="tldr">
+Moving from Designer to Developer has caused a change in my most commonly used tools.
+</aside>
+
 If I had captured a snapshot of my application usage habits during each year of the last few years I think I would have discovered something like this:
 
 - **2005:**(Windows): Photoshop, Fireworks, Dreamweaver, Firefox

@@ -25,14 +25,14 @@ For about a year now I've thought that being required to produce pixel perfect w
 
 It definitely seems like a touchy subject; at one point someone in the crowd shouted "YES!" because she was convinced that her clients could never be persuaded that this was the way to go. I think it's inevitable that web developers and designers are going to get to a turning point where supporting 8 or 9 browser rendering differences is just not going to be feasible to clients from a monetary point of view. As Andy Clarke put it during his presentation:
 
-> "your clients will quit worrying about pixel perfection when you convince them of the value you can offer by producing more features that make them money in less time." -(rough paraphrase).
+> your clients will quit worrying about pixel perfection when you convince them of the value you can offer by producing more features that make them money in less time. -(rough paraphrase).
 
 There was much talk of "visual rewards", basically offering the nice visual touches to the browsers that support them without worrying if IE looks good. Safari4, Firefox3.5 support border-radius, text-shadow, box-shadow and rgba; Internet Explorer doesn't. That's ok, IE can live without those flourishes because ultimately it's all about the content anyways, right? ;) In fact, Andy Clarke has gone as far as creating a [style sheet](https://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/) that can be fed to IE6 that strips away all substance except the text and
 positioning.
 
 Perhaps it would be more accurate to say that IE needs to die, but web developers have been saying that for years and it hasn't happened yet. We need to convince our clients that the time spent creating unsemantic markup and hacks to get things to work in IE just isn't worth it.
 
-## User Experience (UX) is Exploding
+## UX is Exploding
 
 UX, IA, IxD: all these terms seem fairly new to me but there were so many people at AEA09 who were involved with these disciplines in one way or another. The importance of these positions should NOT be underestimated. Interaction Design, in particular, is an area I feel is severely underrepresented in most organizations. So many times design teams produce static mockups in a very high-fidelity mode through applications like photoshop or fireworks without giving any consideration to user interaction.
 
@@ -42,7 +42,7 @@ The solution is to start with a much lower-fidelity solution like paper prototyp
 
 [Whitney Hess](https://www.whitneyhess.com), a presenter and UX Engineer who I had the pleasure of meeting, encouraged me greatly in this area. Producing web interfaces that are clunky and unusable is a surefire way to limit revenue, but aside from the business concerns I feel that at the heart of UX there is a method to connect people with technology in ways that aren't limiting. I can't take full credit for that initial thought however, as a great conversation with [Matt Ventre](https://www.matthewventre.com/) is what really prompted me to see the true nature of UX. If anything, we should be producing web interfaces that focus on providing great content that is portable and formatted in a standards compliant way, housed in an interface that makes the entire experience seamless.
 
-## Epiblog
+## Epilogue
 
 I head back to Saskatoon with a sense of determination and optimism. An Event Apart is truly a special place, one that empowers people to spread the gospel of
 standards, openness, user experience and excellent design. I think Andy Clarke is right when he says that we're in a transition time in the web development world. I tweeted the other day that I couldn't remember how I managed to develop before Firebug;

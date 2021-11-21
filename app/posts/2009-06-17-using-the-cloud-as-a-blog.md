@@ -1,7 +1,11 @@
 ---
-title: "Using 'the cloud' as a blog"
+title: "Using 'The Cloud' as a Blog"
 date: "2009-06-17"
 ---
+
+<aside class="tldr">
+When publishing a blog post was as easy as sending an email.
+</aside>
 
 I saw Posterous through the [TweetDeck](https://www.tweetdeck.com) update and was pleasantly intrigued by the interface. Couldn't have a simpler concept for publishing personal stuff if you ask me, so I decided to give it a try and see what it looked like.
 
