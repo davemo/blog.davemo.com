@@ -277,7 +277,7 @@ I like starting with this "watch-build" workflow when developing for a few reaso
 
 ### Debugging with `ndb`
 
-The `debug` target spins up `ndb` pointing at our single compiled file in `dist/index.js`. The feedback loop when developing and debugging is nearly instant, and `ndb` includes some really nice DX features which we'll take at shortly.
+The `debug` target spins up `ndb` pointing at our single compiled file in `dist/index.js`. The feedback loop when developing and debugging is nearly instant, and `ndb` includes some really nice DX features which we'll look at shortly.
 
 First, let's add a `debugger` statement within `my_tool/lib/tool.js` knowing that it will be compiled into `dist/index.js` automatically by our Watch + Build process.
 
