@@ -4,7 +4,7 @@ html
   head
     link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
     link(rel='alternate' type='application/rss+xml' title=`${site.title}` href='/index.xml')
-    title #{site.title}#{post ? ' | ' + post.title() : ''}
+    title #{site.title}#{post ? ' | ' + post.title() : ' | Archive'}
 
   - var theme = post ? `theme-${post.attributes.theme}` : ''
   - function shouldShowNavFor(post) {

@@ -4,7 +4,8 @@ article#archive
   -   return post.attributes.date.split('-')[0]
   - }).value()
 
-  h1 Previously, on blog.davemo.com
+  h1
+    a(href='/archive.html' title=`Permanent link to ‘Archive: blog.davemo.com’`) Previously, on blog.davemo.com
   h6
     time()
       time 2008 - #{new Date().getFullYear()}
