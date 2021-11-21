@@ -218,7 +218,7 @@ Watching for changes...
 </li>
 </ul>
 <h3 id="debugging-with-ndb">Debugging with <code>ndb</code></h3>
-<p>The <code>debug</code> target spins up <code>ndb</code> pointing at our single compiled file in <code>dist/index.js</code>. The feedback loop when developing and debugging is nearly instant, and <code>ndb</code> includes some really nice DX features which we’ll take at shortly.</p>
+<p>The <code>debug</code> target spins up <code>ndb</code> pointing at our single compiled file in <code>dist/index.js</code>. The feedback loop when developing and debugging is nearly instant, and <code>ndb</code> includes some really nice DX features which we’ll look at shortly.</p>
 <p>First, let’s add a <code>debugger</code> statement within <code>my_tool/lib/tool.js</code> knowing that it will be compiled into <code>dist/index.js</code> automatically by our Watch + Build process.</p>
 <pre><code class="hljs language-javascript"><span class="hljs-comment">// my_tool/lib/tool.js</span>
 <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">function</span> <span class="hljs-title function_">tool</span>(<span class="hljs-params"></span>) {
