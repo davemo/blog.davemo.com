@@ -1,8 +1,8 @@
-article
-  header
-    section#navigation
-    h1
-      | !{page.title()}
-  section
-    .inner
-      | !{page.content()}
+article#page
+  h1
+    a(href=`${page.htmlPath()}` title=`Permanent link to ‘${page.title()}’`)
+      | #{page.title()}
+  if page.attributes.starting
+    h6
+      time #{post.attributes.starting} - #{new Date().getFullYear()}
+  | !{page.content()}

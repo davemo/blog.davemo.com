@@ -7,6 +7,9 @@ html
     title #{site.title}#{post ? ' | ' + post.title() : ''}
 
   - var theme = post ? `theme-${post.attributes.theme}` : ''
+  - function shouldShowNavFor(post) {
+  -   return post && post.htmlPath().startsWith('posts/');
+  - }
 
   body(class=`${theme}`)
     #wrap
@@ -17,12 +20,16 @@ html
       nav
         ul
           li
+            a(href='/archive.html') archive
+          li
             a(href='/') homepage
           li
-            a(href='/archive.html') archive
+            a(href='/screencasts.html') screencasts
+          li
+            a(href='/talks.html') talks
 
         //- the Archive isnt a post or page
-        if post
+        if shouldShowNavFor(post)
           #older-newer
             if site.newerPost(post)
               .newer

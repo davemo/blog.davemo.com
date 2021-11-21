@@ -573,7 +573,7 @@ tr,td,th {
   vertical-align: middle;
 }
 
-#archive h1 {
-  margin-bottom: 49px;
+#archive h1,
+#page h1 {
   color: var(--alt-color);
 }
