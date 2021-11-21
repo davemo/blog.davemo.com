@@ -1,19 +1,21 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | What Polymer and Angular tell us about the future success of the Web Platform and JavaScript Frameworks</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html">August 8th, 2013</a></time><div class="older-newer"><div class="newer"><a href="/posts/2013-08-08-testing-strategies-for-angular-js.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2013-06-18-frontend-workflows-with-grunt-and-angularjs.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html">What Polymer and Angular tell us about the future success of the Web Platform and JavaScript Frameworks</a></h1></header><section class="body"><div class="inner"><blockquote>
-<p>Yehuda Katz recently gave a talk entitled <a href="https://www.youtube.com/watch?v=EcyxXPILO8E">&quot;The Future of the Client-Side
-Web&quot;</a> in which he detailed the
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | What Polymer / Angular tell us about the future of the Web Platform and JavaScript Frameworks</title></head><body class="theme-"><div id="wrap"><header><a href="/">{ blog: david mosher }</a><span class="description">thoughts on software, music, design, and meaning</span></header><nav><ul><li><a href="/">homepage</a></li><li><a href="/archive.html">archive</a></li></ul><div id="older-newer"><div class="newer"><a href="/posts/2013-08-08-testing-strategies-for-angular-js.html">newer</a></div><div class="older"><a href="/posts/2013-06-18-frontend-workflows-with-grunt-and-angularjs.html">older</a></div></div></nav><article><h1><a href="/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html" title="Permanent link to ‘What Polymer / Angular tell us about the future of the Web Platform and JavaScript Frameworks’">What Polymer / Angular tell us about the future of the Web Platform and JavaScript Frameworks</a></h1><h6><time datetime="2013-08-08">August 8th, 2013</time></h6><aside class="tldr">
+Building a framework is hard. It requires a balance between low-level primitives and higher-level abstractions.
+</aside>
+
+<p>Yehuda Katz recently gave a talk entitled <a href="https://www.youtube.com/watch?v=EcyxXPILO8E">“The Future of the Client-Side
+Web”</a> in which he detailed the
 current challenges that web standards bodies face when trying to design APIs
-for web developers to use. In this talk, Yehuda also highlighted Google&#39;s
+for web developers to use. In this talk, Yehuda also highlighted Google’s
 recently announced <a href="https://www.polymer-project.org/">Polymer Project</a> as a good
 example of the right way to push the web platform forward.</p>
-</blockquote>
-<p>Polymer provides a &quot;low enough&quot; level API that gives web developers the power
+<p>Polymer provides a “low enough” level API that gives web developers the power
 to redefine the way they write markup using the power of newer features coming
 to JavaScript in <a href="https://tc39wiki.calculist.org/es6/">ES6</a>. The specifics of
-the implementation aren&#39;t relevant to what I want to say here, but Yehuda does
+the implementation aren’t relevant to what I want to say here, but Yehuda does
 a great job covering the details at a high level in the video; I suggest you
 watch it if they interest you.</p>
 <p>What I found interesting was the <em>message</em> that was at the heart of the talk,
-here&#39;s my paraphrased version:</p>
+here’s my paraphrased version:</p>
 <blockquote>
 <p>Web Platform standards bodies need to focus less on getting implementations
 of new APIs right the first time (hello
@@ -26,7 +28,7 @@ design being reached faster and with less upfront design.</p>
 <p>This is a fundamental shift in thinking that should be embraced and I believe
 this approach has already been validated by a number of well-known JavaScript
 libraries.</p>
-<h1 id="the-backbone-lesson">The Backbone Lesson</h1>
+<h2 id="the-backbone-lesson">The Backbone Lesson</h2>
 <p>Since its release, <a href="https://documentcloud.github.io/backbone/">Backbone</a> has
 exploded in popularity and many <a href="https://github.com/chaplinjs/chaplin">other</a>
 <a href="https://github.com/marionettejs/backbone.marionette">frameworks</a> have since
@@ -41,37 +43,37 @@ the browser.</p>
 feeling overwhelmed at how I was supposed to use all the pieces provided. I
 believe this speaks to the essence of how Backbone was created, and looking
 back now it is clear to me that Backbone follows the design model that Yehuda
-praises in his talk; it gave us a low-level set of components and didn&#39;t really
+praises in his talk; it gave us a low-level set of components and didn’t really
 enforce any particular design decisions on how to use them&mdash;aside from an
 important guiding principle: get your data out of the DOM.</p>
-<h1 id="the-ember-conundrum">The Ember Conundrum</h1>
+<h2 id="the-ember-conundrum">The Ember Conundrum</h2>
 <p>A recent blog post comparing <a href="https://emberjs.com/">Ember</a> and
-Angular&mdash;originally entitled <a href="https://eviltrout.com/2013/06/15/ember-vs-angular-its-not-even-close.html">&quot;AngularJS vs Ember, It&#39;s not even
-close&quot;</a>&mdash;highlights
+Angular&mdash;originally entitled <a href="https://eviltrout.com/2013/06/15/ember-vs-angular-its-not-even-close.html">“AngularJS vs Ember, It’s not even
+close”</a>&mdash;highlights
 some perceived shortcomings of Angular, chief among them being there are too
 many pitfalls in the simplistic features Angular provides and the Angular team
 should strive to provide higher-level conventions/components that developers
-can follow. While Yehuda didn&#39;t write the comparison post, the point of view
+can follow. While Yehuda didn’t write the comparison post, the point of view
 expressed by the author really struck me as being in stark contrast to the
 decentralized/low-level API design approach that Yehuda extols the virtues of
 in his talk: success is realized when developers are given access to low-level
 components without many opinions on how they should be used. Designing a
-powerful, approachable, easy-to-learn-difficult-to-master framework _is_ hard,
+powerful, approachable, easy-to-learn-difficult-to-master framework <em>is</em> hard,
 but Ember is <em>very</em> opinionated.</p>
 <p>It seems to me like the Ember team and contributors would be better served by
 following these design goals; spending more time observing how web developers
 use their low-level APIs when crafting solutions and less time trying to get a
 high-level rich-web application framework right the first time. Perhaps this is
-why the path to Ember&#39;s 1.0 release has been so full of frequent, <a href="https://meta.stackoverflow.com/a/163861">backwards
+why the path to Ember’s 1.0 release has been so full of frequent, <a href="https://meta.stackoverflow.com/a/163861">backwards
 compatibility breaking</a> API changes.</p>
-<h1 id="the-angular-approach">The Angular Approach</h1>
+<h2 id="the-angular-approach">The Angular Approach</h2>
 <p>Initially I was skeptical about the power of
 <a href="https://www.angularjs.org">Angular</a>, having spent a good 18 months of my life
-invested in writing applications with Backbone I wasn&#39;t eager to make a jump to
+invested in writing applications with Backbone I wasn’t eager to make a jump to
 another framework. Thankfully my skepticism was quickly swept aside as I
 discovered the beauty in the simplicity of the Angular API. With Angular, I
-don&#39;t have to extend framework built-in objects or methods; I can just use
-POJSO&#39;s (Plain Old JavaScript Objects) and functions. I also don&#39;t have to
+don’t have to extend framework built-in objects or methods; I can just use
+POJSO’s (Plain Old JavaScript Objects) and functions. I also don’t have to
 spend a lot of time thinking about how to structure my application thanks to
 <a href="https://docs.angularjs.org/guide/module"><code>angular.module</code></a> and built-in
 <a href="https://docs.angularjs.org/guide/di">dependency injection</a>. Angular <em>really</em>
@@ -86,16 +88,16 @@ components that are as coarse or granular as you need them to be. Angular is
 <em>just</em> opinionated enough that it allows developers to work with the low-level
 components provided to craft higher level abstractions. In fact, I think that
 is the core benefit of Angular. Having the power to abstract:</p>
-<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">"chart"</span> data-type=<span class="hljs-string">"bar"</span>&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">"legend"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-  ... lots <span class="hljs-keyword">of</span> other stuff
-&lt;/<span class="hljs-keyword">div</span>&gt;
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chart&quot;</span> <span class="hljs-attr">data-type</span>=<span class="hljs-string">&quot;bar&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;legend&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  ... lots of other stuff
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 <p>into</p>
-<pre><code class="lang-html"><span class="hljs-section">&lt;bar-chart&gt;</span><span class="hljs-section">&lt;/bar-chart&gt;</span>
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bar-chart</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bar-chart</span>&gt;</span>
 </code></pre>
 <p>is an incredibly powerful idea.</p>
-<h1 id="web-components-and-the-future-of-markup">Web Components and the future of Markup</h1>
+<h2 id="web-components-and-the-future-of-markup">Web Components and the future of Markup</h2>
 <p>One of the most exciting changes to the Web Platform in the last five years is
 the upcoming <a href="https://www.w3.org/TR/2013/WD-components-intro-20130606/">Web
 Components</a> spec.
@@ -105,7 +107,7 @@ gave a <a href="https://www.youtube.com/watch?v=fqULJBBEVQE">great overview</a> 
 during Google IO this year and <a href="https://twitter.com/jkomoros">Alex Komoroske</a>
 and <a href="https://twitter.com/mattsmcnulty">Matthew McNulty</a> had an <a href="https://www.youtube.com/watch?v=0g0oOOT86NY">amazing
 demo</a> that showcased some of the
-capabilities. I&#39;m excited about Web Components because it will allow web
+capabilities. I’m excited about Web Components because it will allow web
 developers to experiment at a lower-level by reshaping the way that we write
 markup. It will also offer true encapsulation on the web, a feature that has
 been sorely lacking.</p>
@@ -124,10 +126,10 @@ on Angular + Web Components:</p>
 </blockquote>
 <p>The awesome thing about Angular and Polymer is that you can use them to achieve
 these kinds of markup abstractions in your applications right now, along with
-all the other great features they provide. I&#39;m eager to see how the lower-level
+all the other great features they provide. I’m eager to see how the lower-level
 features in ES6 and low-level libraries like Polymer are going to be used by
 developers to create even more amazing frameworks in the future.</p>
-<h1 id="moving-the-web-forward-with-low-level-apis">Moving the Web Forward with Low-Level APIs</h1>
+<h2 id="moving-the-web-forward-with-low-level-apis">Moving the Web Forward with Low-Level APIs</h2>
 <p>I think Yehuda has it right; standards bodies need to focus less on getting
 high-level APIs right up front and more on providing developers with enough
 low-level APIs with which to experiment. The same principle applies to the
@@ -135,4 +137,4 @@ design of JavaScript application frameworks. My hope is that the standards
 bodies <em>and</em> JavaScript framework authors embrace this decentralized approach
 to design going forward. Ideally this will move the web development community
 beyond rhetoric and zero-sum thinking, and into an age of innovation.</p>
-</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
+</article><div id="sidebar"><div class="profile_image"><img src="/img/davemo.headphones.png" alt="David A. Mosher"></div><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></div><footer>&copy; 2007–2021 David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

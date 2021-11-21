@@ -1,7 +1,9 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | Open Source Spotlight: Dependable JS</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2018-04-06-open-source-spotlight-dependable-js.html">April 6th, 2018</a></time><div class="older-newer"><div class="newer"><a href="/posts/2019-08-27-css-the-visual-state-machine.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2018-02-01-the-consultants-code.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2018-04-06-open-source-spotlight-dependable-js.html">Open Source Spotlight: Dependable JS</a></h1></header><section class="body"><div class="inner"><blockquote>
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | Open Source Spotlight: Dependable JS</title></head><body class="theme-"><div id="wrap"><header><a href="/">{ blog: david mosher }</a><span class="description">thoughts on software, music, design, and meaning</span></header><nav><ul><li><a href="/">homepage</a></li><li><a href="/archive.html">archive</a></li></ul><div id="older-newer"><div class="newer"><a href="/posts/2019-08-27-css-the-visual-state-machine.html">newer</a></div><div class="older"><a href="/posts/2018-02-01-the-consultants-code.html">older</a></div></div></nav><article><h1><a href="/posts/2018-04-06-open-source-spotlight-dependable-js.html" title="Permanent link to ‘Open Source Spotlight: Dependable JS’">Open Source Spotlight: Dependable JS</a></h1><h6><time datetime="2018-04-06">April 6th, 2018</time></h6><aside class="tldr">
+<a href="https://github.com/testdouble/dependable">Dependable</a> is a dependency injection framework for Node.js
+</aside>
+
 <p>Recently, <a href="https://twitter.com/Schoonology">Michael Schoonmaker</a>, <a href="https://twitter.com/primarilysnark">Joshua Starkey</a>, and <a href="https://twitter.com/dmosher">myself</a> got together to brainstorm some improvements we wanted to make to an open source library called Dependable that we had used on a client project.</p>
-</blockquote>
-<p><a href="https://github.com/testdouble/dependable">Dependable</a> is billed as &quot;A minimalist dependency injection framework for node.js&quot;, but I feel like it only took on the &quot;minimalist&quot; moniker after we shipped version 2.0 just a few weeks ago. As we sat down to discuss what we wanted to do there were a number of questions that shook out that I feel need to be asked by any team working on an open source project:</p>
+<p><a href="https://github.com/testdouble/dependable">Dependable</a> is billed as “A minimalist dependency injection framework for node.js”, but I feel like it only took on the “minimalist” moniker after we shipped version 2.0 just a few weeks ago. As we sat down to discuss what we wanted to do there were a number of questions that shook out that I feel need to be asked by any team working on an open source project:</p>
 <ul>
 <li>How can we make this smaller?</li>
 <li>What features are core and what can we prune?</li>
@@ -11,7 +13,7 @@
 </ul>
 <p>As we worked towards the backlog of features, we built up a list of <em>nice-to-haves</em> and <em>must-haves</em>, choosing to defer the former and focus our efforts on the latter. <a href="https://github.com/testdouble/dependable/projects/1">Github Projects</a> actually worked pretty well for a lightweight project management tool.</p>
 <p><img src="/img/open-source-spotlight-dependable-js/github-projects-dependable.png" alt="Github Projects"></p>
-<h1 id="limiting-api-surface-area">Limiting API Surface Area</h1>
+<h2 id="limiting-api-surface-area">Limiting API Surface Area</h2>
 <p>One of our stated goals was to reduce the surface area of dependable in order to eliminate complexity in the codebase. The 1.0 release of dependable included a public API with 6 methods on the dependency inversion <code>container</code> and our rewrite whittled this down to 4. Choosing to have this discussion early allowed us to focus on what the most valuable parts of the API were, using our experience of real-world use within consulting projects to help guide us.</p>
 <table>
 <thead>
@@ -20,8 +22,7 @@
 <th>2.0 Public API</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>container.register(name, func)</code></td>
 <td><code>container.factory(name, func)</code></td>
 </tr>
@@ -49,10 +50,9 @@
 <td>non-existent</td>
 <td><code>container.getSandboxed(name, overrides={})</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>With the API sufficiently whittled down, we also set ourselves to renaming the methods in the public API in order to better reveal the intent for each method and avoid violating <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">SRP</a> (which some of the 1.0 API methods had done via overloading). <code>container.register(hash)</code> became <code>container.constant(name, object)</code>, and <code>container.register</code> was renamed simply to <code>container.factory</code>. We deliberated for a while over naming but felt that <code>.factory</code> and <code>.constant</code> were terms that were familiar enough in the context of dependency injection and more descriptive than their 1.0 counterparts.</p>
-<h1 id="rewriting-source-and-test">Rewriting Source and Test</h1>
+<h2 id="rewriting-source-and-test">Rewriting Source and Test</h2>
 <p>Dependable 1.0 was written in CoffeeScript which we felt would limit options for potential future contributors. We chose to rewrite the library in ES6 and use <a href="https://standardjs.com/">standard</a> to manage formatting the code for us. It becomes much easier for future contributors to submit patches when the tooling in an open source project handles formatting of the code.</p>
 <table>
 <thead>
@@ -61,13 +61,11 @@
 <th>2.0 LOC (index.js)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>134</td>
 <td>99</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The test-suite took slightly longer to rewrite due to the removal of <code>container.load(fileOrFolder)</code>. We felt that this method complected the 1.0 codebase and was syntactic sugar for what could be accomplished by a user via loading one or many files externally using <code>require</code> or <code>import</code> and then invoking <code>container.factory(name, func)</code> within the context of a call to <code>.map</code>. In addition to translating the <code>.coffee</code> test sources to <code>.js</code>, we also reorganized the test examples themselves to better communicate the intended use of dependable.</p>
 <table>
 <thead>
@@ -76,30 +74,28 @@
 <th>2.0 Test LOC (test.js)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>~380</td>
 <td>259</td>
 </tr>
-</tbody>
-</table>
-<p>A consistent use of objects from a real world scenario involving a <code>Logger</code>, <code>Router</code>, and <code>Formatter</code> in the context of an <code>App</code> was used throughout the test-suite. I&#39;ve found that I&#39;m much more likely to contribute to open source projects that have a well architected test suite with meaningful examples.</p>
-<pre><code class="lang-javascript">it(<span class="hljs-string">'should register a factory with a single dependency'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span> {
-  subject.factory(<span class="hljs-string">'logger'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'message'</span>
+</tbody></table>
+<p>A consistent use of objects from a real world scenario involving a <code>Logger</code>, <code>Router</code>, and <code>Formatter</code> in the context of an <code>App</code> was used throughout the test-suite. I’ve found that I’m much more likely to contribute to open source projects that have a well architected test suite with meaningful examples.</p>
+<pre><code class="hljs language-javascript"><span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;should register a factory with a single dependency&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  subject.<span class="hljs-title function_">factory</span>(<span class="hljs-string">&#x27;logger&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;message&#x27;</span>
   })
-  subject.factory(<span class="hljs-string">'app'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(logger)</span></span> {
+  subject.<span class="hljs-title function_">factory</span>(<span class="hljs-string">&#x27;app&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">logger</span>) {
     <span class="hljs-keyword">return</span> logger
   })
-  <span class="hljs-built_in">assert</span>.equal(subject.get(<span class="hljs-string">'app'</span>), <span class="hljs-string">'message'</span>)
+  assert.<span class="hljs-title function_">equal</span>(subject.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;app&#x27;</span>), <span class="hljs-string">&#x27;message&#x27;</span>)
 })
 </code></pre>
 <p>In addition, we added first-class support for isolation testing via <code>container.getSandboxed</code> which should be used during testing to ensure that a module under test has been completely isolated.</p>
-<h1 id="closing-thoughts-recommended-reading">Closing Thoughts &amp; Recommended Reading</h1>
-<p>At Test Double we are proud of our commitment to open source and we take pride in trying to be thoughtful in the way we approach open source stewardship. If you share these values and are interested in joining us you should <a href="https://testdouble.com/join/">reach out</a>, we&#39;re hiring!</p>
-<p>If you aren&#39;t familiar with the concept or benefits of Dependency Injection these are some great followup resources to get you thinking:</p>
+<h2 id="closing-thoughts--recommended-reading">Closing Thoughts &amp; Recommended Reading</h2>
+<p>At Test Double we are proud of our commitment to open source and we take pride in trying to be thoughtful in the way we approach open source stewardship. If you share these values and are interested in joining us you should <a href="https://testdouble.com/join/">reach out</a>, we’re hiring!</p>
+<p>If you aren’t familiar with the concept or benefits of Dependency Injection these are some great followup resources to get you thinking:</p>
 <ul>
 <li><a href="https://martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern</a></li>
 <li><a href="https://www.youtube.com/watch?v=mU1JcPikdMs">Inversion of Control, The UI Thread and Backbone.JS Views</a></li>
 </ul>
-</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
+</article><div id="sidebar"><div class="profile_image"><img src="/img/davemo.headphones.png" alt="David A. Mosher"></div><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></div><footer>&copy; 2007–2021 David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

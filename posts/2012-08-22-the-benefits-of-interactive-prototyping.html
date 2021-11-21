@@ -1,10 +1,12 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | The Benefits of Interactive Prototyping</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2012-08-22-the-benefits-of-interactive-prototyping.html">August 22nd, 2012</a></time><div class="older-newer"><div class="newer"><a href="/posts/2012-09-28-understanding-view-zombie-events-in-backbone-js.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2011-11-21-the-scna-2011-narrative-suitability-capability-anarchy-and-propaganda.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2012-08-22-the-benefits-of-interactive-prototyping.html">The Benefits of Interactive Prototyping</a></h1></header><section class="body"><div class="inner"><blockquote>
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | The Benefits of Interactive Prototyping</title></head><body class="theme-"><div id="wrap"><header><a href="/">{ blog: david mosher }</a><span class="description">thoughts on software, music, design, and meaning</span></header><nav><ul><li><a href="/">homepage</a></li><li><a href="/archive.html">archive</a></li></ul><div id="older-newer"><div class="newer"><a href="/posts/2012-09-28-understanding-view-zombie-events-in-backbone-js.html">newer</a></div><div class="older"><a href="/posts/2011-11-21-the-scna-2011-narrative-suitability-capability-anarchy-and-propaganda.html">older</a></div></div></nav><article><h1><a href="/posts/2012-08-22-the-benefits-of-interactive-prototyping.html" title="Permanent link to ‘The Benefits of Interactive Prototyping’">The Benefits of Interactive Prototyping</a></h1><h6><time datetime="2012-08-22">August 22nd, 2012</time></h6><aside class="tldr">
+Prototyping at varying levels of fidelity can yield different results and uncover hidden product requirements.
+</aside>
+
 <p>I had a small epiphany today while working on a new prototype for a client:
-&quot;different stages of prototyping yield different levels of information&quot;. I know
+“different stages of prototyping yield different levels of information”. I know
 I know, not much of a brainwave there, right? I was never one for writing
-headlines and there&#39;s a lot of knowledge packed into that statement, so stick
+headlines and there’s a lot of knowledge packed into that statement, so stick
 with me as I attempt to unpack it for you :)</p>
-</blockquote>
 <h2 id="the-gist">The Gist</h2>
 <p>Those familiar with it will know there are some basic ways to prototype that
 progress upwards in terms of fidelity. At the lowest end of the fidelity
@@ -48,10 +50,10 @@ design.</li>
 </ul>
 <p>As I read through the list above I notice a few interesting things. Firstly, the
 value of the information I receive increases as I move to a higher fidelity
-prototype. In Paper and Static prototyping the information I get isn&#39;t really
+prototype. In Paper and Static prototyping the information I get isn’t really
 all that useful; for the most part it is hypothetical. I can show it to others
 to get more feedback but it is still subjective; based on perception and varied
-interpretation. It isn&#39;t until I move into prototyping with the Browser that I
+interpretation. It isn’t until I move into prototyping with the Browser that I
 can actually play with the information, architecture, and layout and start to
 get concrete information that will help me approach what I need to change in my
 next iteration.</p>
@@ -60,15 +62,16 @@ next iteration.</p>
 user creating a fitness challenge comprised of multiple activities for multiple
 participants. As I was working to take my browser prototype from static to
 interactive I discovered that even though I had a good idea of how the system I
-was implementing worked I found I didn&#39;t have a great way to express the system
+was implementing worked I found I didn’t have a great way to express the system
 thinking in a user interface that made sense to humans.</p>
 <p>So often engineers have a great grasp on what the system requirements are for
 the interface they are building that they end up building the interface as if it
 reads like machine language. In the last two days I feel it was very valuable to
-repeatedly try to express the system constraints in &quot;plain old english&quot; as if I
-were a user trying to interact with them, but I didn&#39;t come to that realization
+repeatedly try to express the system constraints in “plain old english” as if I
+were a user trying to interact with them, but I didn’t come to that realization
 until I made the leap from static to interactive.</p>
-<hr>
+<aside>The images for this post got eaten by the changes in cloudapp and they don't seem to be retrievable. Something something "my mouth was a broken jpeg!" 😤</aside>
+
 <p><img src="https://f.cl.ly/items/3D1t0k1K073g2o3h3L3a/static.prototype.1.png" alt="Static Prototype
 1"></p>
 <p>In my first pass at the prototype with static content and no interaction this is
@@ -80,14 +83,12 @@ realization that that positioning the summary at the bottom of the screen does
 nothing to help users understand what it is they are doing; we ended up deciding
 on a new layout that positions the summary to be always in the users view in the
 following iteration.</p>
-<hr>
 <p><img src="https://f.cl.ly/items/1W1T340A0W0V3c2T1Y2f/static.prototype.2.png" alt="Static Prototype
 2"></p>
-<p>In this iteration the idea for a &quot;live updating&quot; summary was the driver for the
+<p>In this iteration the idea for a “live updating” summary was the driver for the
 layout change. We thought that if users could see the results of their
 interaction taking shape live it would help to reinforce how the interface was
 affecting the output (challenge creation).</p>
-<hr>
 <p><img src="https://f.cl.ly/items/0E41451o0B1f1V1J2w2W/iOS.prototype.1.png" alt="iOS Static Prototype
 1"></p>
 <p><img src="https://f.cl.ly/items/1F3r351R0G2Q1D3Q3p0E/iOS.prototype.2.png" alt="iOS Static Prototype
@@ -103,41 +104,38 @@ simulator really helped to further shape the layout. Up to this point we were
 still iterating with static markup and felt like we were making good progress
 with the information we had received from in browser testing. The next step was
 to start wiring up user interactions to see what else was revealed.</p>
-<hr>
 <p><img src="https://f.cl.ly/items/0V4742133R030g453t1D/dynamic.prototype.1.png" alt="Dynamic Prototype
 1"></p>
-<p>I&#39;ve been using <a href="https://documentcloud.github.com/backbone/">Backbone.JS</a> for the
-last 18 months and it&#39;s a wonderful tool for building prototypes with. We
+<p>I’ve been using <a href="https://documentcloud.github.com/backbone/">Backbone.JS</a> for the
+last 18 months and it’s a wonderful tool for building prototypes with. We
 decided to add some simple collection backed views and flesh out the user
 interaction of adding Activities and having them update live in the preview.
-What this yielded first was a realization that our design didn&#39;t account for all
+What this yielded first was a realization that our design didn’t account for all
 that many rules due to our fixed position summary preview. (note: the new <a href="https://twitter.github.com/bootstrap/javascript.html#affix">affix
 plugin</a> in <a href="https://twitter.github.com/bootstrap/">bootstrap
 2.1</a> is _great_ for this, but you should
 be aware of how tall your content could potentially be!)</p>
-<hr>
 <p><img src="https://f.cl.ly/items/2T2h3a1y232u2a1a3619/dynamic.prototype.2.png" alt="Dynamic Prototype
 2"></p>
 <p>Oops. You could say I should have encountered that in the static stage of in
-browser testing by adding more static data to test the layout, but I didn&#39;t and
+browser testing by adding more static data to test the layout, but I didn’t and
 I find that this is often the case with static prototypes. Adding interactivity
 to a prototype helps to uncover places your design breaks down. It was at this
 point I had a discussion with a teammate to demo what had been built so far and
 we both came to the realization that the tabular display under the activities UI
 was not user friendly. The interface for adding Activities seems to read like
 english (we arrived at that after a number of iterations) but the display of the
-data isn&#39;t helpful to users at all and really mirrors how the underlying system
+data isn’t helpful to users at all and really mirrors how the underlying system
 stores the data.</p>
-<hr>
 <h2 id="moving-forward">Moving Forward</h2>
 <p>Our next step will be to prototype a layout where the summary preview _is_ the
-interface to eliminate the &quot;system language&quot; from the interface altogether. In
-conclusion, I don&#39;t think we would have been able to iterate and refine our
+interface to eliminate the “system language” from the interface altogether. In
+conclusion, I don’t think we would have been able to iterate and refine our
 approach as effectively if we had not started in the browser and added
 interactivity to the prototype soon after prototyping with static markup. The
 things we can learn from interactive prototypes can really help crank out
 interfaces that are much more usable.</p>
-<p>If you aren&#39;t already prototyping interactivity in the browser I would encourage
-you to start as soon as possible, the earlier you start the earlier you&#39;ll find
+<p>If you aren’t already prototyping interactivity in the browser I would encourage
+you to start as soon as possible, the earlier you start the earlier you’ll find
 out how to fix your interface! :)</p>
-</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
+</article><div id="sidebar"><div class="profile_image"><img src="/img/davemo.headphones.png" alt="David A. Mosher"></div><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></div><footer>&copy; 2007–2021 David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

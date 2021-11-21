@@ -1,10 +1,10 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | CSS is a visual state machine</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2019-08-27-css-the-visual-state-machine.html">August 27th, 2019</a></time><div class="older-newer"><div class="newer"><a href="/posts/2020-03-10-the-missing-fundamental.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2018-04-06-open-source-spotlight-dependable-js.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2019-08-27-css-the-visual-state-machine.html">CSS is a visual state machine</a></h1></header><section class="body"><div class="inner"><blockquote>
-<p>Thinking of web applications in terms of <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machines</a> is <a href="https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/">not a new idea</a>; in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.</p>
-</blockquote>
-<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | CSS: The Visual State-Machine</title></head><body class="theme-"><div id="wrap"><header><a href="/">{ blog: david mosher }</a><span class="description">thoughts on software, music, design, and meaning</span></header><nav><ul><li><a href="/">homepage</a></li><li><a href="/archive.html">archive</a></li></ul><div id="older-newer"><div class="newer"><a href="/posts/2020-03-10-the-missing-fundamental.html">newer</a></div><div class="older"><a href="/posts/2018-04-06-open-source-spotlight-dependable-js.html">older</a></div></div></nav><article><h1><a href="/posts/2019-08-27-css-the-visual-state-machine.html" title="Permanent link to ‘CSS: The Visual State-Machine’">CSS: The Visual State-Machine</a></h1><h6><time datetime="2019-08-27">August 27th, 2019</time></h6><aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
 
-<p>Whether you use <a href="https://redux.js.org/">Redux</a>, <a href="https://mobx.js.org">MobX</a>, or even perhaps something framework-agnostic like <a href="https://xstate.js.org">xState</a>, it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I&#39;ve found there is still an area that is often overlooked when it comes to managing state in web applications: <strong>the visual or presentation layer</strong>.</p>
+<p>Thinking of web applications in terms of <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machines</a> is <a href="https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/">not a new idea</a>; in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.</p>
+<p>Whether you use <a href="https://redux.js.org/">Redux</a>, <a href="https://mobx.js.org">MobX</a>, or even perhaps something framework-agnostic like <a href="https://xstate.js.org">xState</a>, it is clear that thinking about web applications in terms of state machines is occurring much more frequently. With all this focus on state, transitions, and the benefits that come with structuring our applications like this, I’ve found there is still an area that is often overlooked when it comes to managing state in web applications: <strong>the visual or presentation layer</strong>.</p>
 <p>CSS is incredibly powerful yet frequently misunderstood by most developers, which often leads to derision of the language. I think this is mostly due to a fundamental error in the way web developers manage presentation, often focusing their efforts on conditional logic in templates instead of a more flexible application of state-specific CSS selectors to HTML elements.</p>
+<iframe src="https://www.youtube.com/embed/xpnmtkjCNng?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
 <h2 id="a-simple-example">A Simple Example</h2>
 <p>Let us examine a simple example of a multi-selectable list for a user interface (UI) that a designer may have provided in mockup form for us as web developers to decompose into working code.</p>
 <p><img src="/img/css-the-visual-state-machine/css-mockup.gif" alt="An animation of a multi-selectable list of users in tabular form. Each row has an icon which changes to indicate the selection state, defaulting to a snowman, empty checkbox on hover, and finally checked checkbox when selected."></p>
@@ -17,8 +17,7 @@
 <th>Change</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>Selected</em></td>
 <td>Click</td>
 <td>Icon changes to a checkbox</td>
@@ -43,67 +42,71 @@
 <td>No User Interaction</td>
 <td>All icons change to empty checkboxes to indicate the ability to select multiple rows</td>
 </tr>
-</tbody>
-</table>
-<p>Putting aside <a href="https://en.wikipedia.org/wiki/Interaction_design">interaction design</a> (IxD) and <a href="https://en.wikipedia.org/wiki/Web_accessibility">accessibility</a> (a11y) concerns for the time being, after enumerating the states that we see here there is a lot to consider when building this UI! How should we manage the states? Should the logic live in our template or in our stylesheets? Let&#39;s take a brief look at the first approach, using an implementation in <a href="https://svelte.dev">Svelte</a>.</p>
-<p>Svelte is a compiler that takes as input one or more <code>.svelte</code> files with <em>regions</em> of functionality based on JavaScript, HTML, and CSS; with that input it produces the minimal amount of DOM API output in JavaScript to achieve the desired result. It&#39;s a different take than something like React, Angular, or Ember, which ship substantial runtimes to the browser that execute application code. If you are interested in learning more I highly recommend watching this excellent talk called <em><a href="https://www.youtube.com/watch?v=AdNJ3fydeao">Rethinking Reactivity</a></em> from Rich Harris introducing some of the core ideas. The code in the following examples is intended to be simple enough that you should be able to port the ideas represented to any other framework with minimal effort.</p>
+</tbody></table>
+<p>Putting aside <a href="https://en.wikipedia.org/wiki/Interaction_design">interaction design</a> (IxD) and <a href="https://en.wikipedia.org/wiki/Web_accessibility">accessibility</a> (a11y) concerns for the time being, after enumerating the states that we see here there is a lot to consider when building this UI! How should we manage the states? Should the logic live in our template or in our stylesheets? Let’s take a brief look at the first approach, using an implementation in <a href="https://svelte.dev">Svelte</a>.</p>
+<p>Svelte is a compiler that takes as input one or more <code>.svelte</code> files with <em>regions</em> of functionality based on JavaScript, HTML, and CSS; with that input it produces the minimal amount of DOM API output in JavaScript to achieve the desired result. It’s a different take than something like React, Angular, or Ember, which ship substantial runtimes to the browser that execute application code. If you are interested in learning more I highly recommend watching this excellent talk called <em><a href="https://www.youtube.com/watch?v=AdNJ3fydeao">Rethinking Reactivity</a></em> from Rich Harris introducing some of the core ideas. The code in the following examples is intended to be simple enough that you should be able to port the ideas represented to any other framework with minimal effort.</p>
 <h2 id="implementation-templates">Implementation: Templates</h2>
-<p>One of the first places a web developer might start is by crafting the template that represents the UI mockup we received from our designer friend above. This seems like a logical place to start, given we need some way to represent the data in a web browser. Let&#39;s build a template using svelte-infused HTML and see how it looks.</p>
-<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
-  </span><span class="hljs-template-tag">{#<span class="hljs-name">each</span> users as user}</span><span class="xml">
+<p>One of the first places a web developer might start is by crafting the template that represents the UI mockup we received from our designer friend above. This seems like a logical place to start, given we need some way to represent the data in a web browser. Let’s build a template using svelte-infused HTML and see how it looks.</p>
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  {#each users as user}
   <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
-      </span><span class="hljs-template-tag">{#<span class="hljs-name">if</span> user.selected &amp;&amp; hasSelection}</span><span class="xml">
-        </span><span class="hljs-template-variable">{checkedBox}</span><span class="xml">
-      </span><span class="hljs-template-variable">{:else <span class="hljs-keyword">if</span> !user.selected &amp;&amp; hasSelection}</span><span class="xml">
-        </span><span class="hljs-template-variable">{uncheckedBox}</span><span class="xml">
-      </span><span class="hljs-template-variable">{:else}</span><span class="xml">
-        </span><span class="hljs-template-variable">{snowman}</span><span class="xml">
-      </span><span class="hljs-template-tag">{/<span class="hljs-name">if</span>}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon&quot;</span>&gt;</span>
+      {#if user.selected &amp;&amp; hasSelection}
+        {checkedBox}
+      {:else if !user.selected &amp;&amp; hasSelection}
+        {uncheckedBox}
+      {:else}
+        {snowman}
+      {/if}
     <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
-      </span><span class="hljs-template-variable">{user.name}</span><span class="xml">
+      {user.name}
     <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
-      </span><span class="hljs-template-variable">{user.email}</span><span class="xml">
+      {user.email}
     <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  </span><span class="hljs-template-tag">{/<span class="hljs-name">each</span>}</span><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span>
+  {/each}
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 </code></pre>
-<p>Aside from the svelte-specific things like the <code>{#each}</code> and <code>{#if}</code> blocks, this is probably close to what you might implement in any front-end or server-side templating solution. We&#39;ve taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state &quot;1 or more Selections Active&quot;; to do this we defined a local variable in our JavaScript region called <code>hasSelection</code> which is defined using Sveltes <a href="https://svelte.dev/tutorial/reactive-declarations">reactive declarations</a> as <code>$: hasSelection = users.some(u =&gt; u.selected)</code>.</p>
+<blockquote>
+<p>Aside from the svelte-specific things like the <code>{#each}</code> and <code>{#if}</code> blocks, this is probably close to what you might implement in any front-end or server-side templating solution.</p>
+</blockquote>
+<p>We’ve taken the list of potential states that we extracted from the mockup above and encoded them as conditional logic in our templates in order to achieve the desired result. The one special case we needed to account for was the non-interactive state “1 or more Selections Active”; to do this we defined a local variable in our JavaScript region called <code>hasSelection</code> which is defined using Sveltes <a href="https://svelte.dev/tutorial/reactive-declarations">reactive declarations</a> as</p>
+<pre><code class="hljs language-javascript"><span class="hljs-attr">$</span>: hasSelection = users.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.<span class="hljs-property">selected</span>)
+</code></pre>
 <p>Although the code above satisfies <em>most</em> of the user experience (UX) as detailed in the mockup, there are two problems that shake out of an implementation like this that focuses on conditional logic in templates:</p>
 <ol>
-<li>We didn&#39;t capture <em>all</em> of the states enumerated, as we cannot effectively translate a user&#39;s <code>hover</code> action in templates alone unless we get really creative and complex</li>
+<li>We didn’t capture <em>all</em> of the states enumerated, as we cannot effectively translate a user’s <code>hover</code> action in templates alone unless we get really creative and complex</li>
 <li>This paradigm scales <em>very poorly</em> as our templates grow, mixing concerns of <code>presentation</code> and <code>data</code> in a template, resulting in code that is much harder to read and maintain over the life of a project</li>
 </ol>
-<p>The scalability concern is the more worrisome of the two, yet is a common byproduct of developers using conditional logic in templates. Increasingly thorny conditionals can lead to missed acceptance criteria, which in turn can lead to stress and tension on a team. Rather than throw blame around, it&#39;s worth focusing on whether that approach is healthy for a long-term project.</p>
-<p>I think we can do better if we shift our focus from conditional logic in templates to thinking more in terms of leveraging CSS as the language we use to define the states in our presentational state machine and using JavaScript to manage when to apply those states. Let&#39;s see what that looks like as we refactor the above example.</p>
+<p>The scalability concern is the more worrisome of the two, yet is a common byproduct of developers using conditional logic in templates. Increasingly thorny conditionals can lead to missed acceptance criteria, which in turn can lead to stress and tension on a team. Rather than throw blame around, it’s worth focusing on whether that approach is healthy for a long-term project.</p>
+<p>I think we can do better if we shift our focus from conditional logic in templates to thinking more in terms of leveraging CSS as the language we use to define the states in our presentational state machine and using JavaScript to manage when to apply those states. Let’s see what that looks like as we refactor the above example.</p>
 <h2 id="implementation-stylesheets">Implementation: Stylesheets</h2>
-<p>One of the first considerations we&#39;ll need to make is how to address both the concerns raised in the previous section. We need to handle the <code>hover</code> state properly, and we also should strive for a solution that encodes data in the template and presentation in the stylesheets. Let&#39;s start by refactoring the template to eliminate the conditional logic:</p>
-<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class:hasSelection</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{hasSelection}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"selectable"</span>&gt;</span>
-  </span><span class="hljs-template-tag">{#<span class="hljs-name">each</span> users as user}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class:selected</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{user.selected}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+<p>One of the first considerations we’ll need to make is how to address both the concerns raised in the previous section. We need to handle the <code>hover</code> state properly, and we also should strive for a solution that encodes data in the template and presentation in the stylesheets. Let’s start by refactoring the template to eliminate the conditional logic:</p>
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class:hasSelection</span>=<span class="hljs-string">&quot;{hasSelection}&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;selectable&quot;</span>&gt;</span>
+  {#each users as user}
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class:selected</span>=<span class="hljs-string">&quot;{user.selected}&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
-      </span><span class="hljs-template-variable">{user.name}</span><span class="xml">
+      {user.name}
     <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>
-      </span><span class="hljs-template-variable">{user.email}</span><span class="xml">
+      {user.email}
     <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  </span><span class="hljs-template-tag">{/<span class="hljs-name">each</span>}</span><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span>
+  {/each}
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 </code></pre>
-<p>The first thing you might notice is that we removed the conditional blocks replaced them with <a href="https://svelte.dev/docs#class_name">svelte&#39;s class element directive</a>. This is an elegant way to control toggling of a CSS class on an element via a boolean value, which we previously defined as <code>{user.selected}</code> and <code>{hasSelection}</code>. We also added a <code>class=selectable</code> to the root table element in order to allow us to better manage the complexity of the conditional logic for states in CSS. Let&#39;s defer looking at the JavaScript that defines those values and instead look at what the definition of each state in our presentational state machine looks like when we encode it with CSS:</p>
-<pre><code class="lang-css"><span class="hljs-comment">/*
+<p>The first thing you might notice is that we removed the conditional blocks replaced them with <a href="https://svelte.dev/docs#class_name">svelte’s class element directive</a>. This is an elegant way to control toggling of a CSS class on an element via a boolean value, which we previously defined as <code>{user.selected}</code> and <code>{hasSelection}</code>. We also added a <code>class=selectable</code> to the root table element in order to allow us to better manage the complexity of the conditional logic for states in CSS. Let’s defer looking at the JavaScript that defines those values and instead look at what the definition of each state in our presentational state machine looks like when we encode it with CSS:</p>
+<pre><code class="hljs language-css"><span class="hljs-comment">/*
   CSS variables in conjunction with escaped unicode or html
   entities are a great way to represent things like icons
 */</span>
 <span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--unchecked-box</span>: <span class="hljs-string">"\02610"</span>;
-  <span class="hljs-attribute">--checked-box</span>: <span class="hljs-string">"\02611"</span>;
-  <span class="hljs-attribute">--snowman</span>: <span class="hljs-string">"\02603"</span>;
+  <span class="hljs-attr">--unchecked-box</span>: <span class="hljs-string">&quot;\02610&quot;</span>;
+  <span class="hljs-attr">--checked-box</span>: <span class="hljs-string">&quot;\02611&quot;</span>;
+  <span class="hljs-attr">--snowman</span>: <span class="hljs-string">&quot;\02603&quot;</span>;
 }
 
 <span class="hljs-comment">/*
@@ -135,40 +138,40 @@
   - for a table without a selection, when the user hovers, show the unchecked box
   - for a table with selections, swap the icon from the snowman to the unchecked box
 */</span>
-<span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not(.hasSelection)</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
+<span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.hasSelection</span>) <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
 <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
   <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--unchecked-box);
 }
 </code></pre>
-<p>With the combination of CSS and svelte-infused HTML we&#39;ve achieved the result our designer was hoping for when they handed us the initial mockup, with an appropriate separation between the definition of our states (CSS) and the application of those states (HTML, and JavaScript).</p>
+<p>With the combination of CSS and svelte-infused HTML we’ve achieved the result our designer was hoping for when they handed us the initial mockup, with an appropriate separation between the definition of our states (CSS) and the application of those states (HTML, and JavaScript).</p>
 <p>For completeness, here is the entirety of the example as included in <code>Application.svelte</code> from the <a href="https://github.com/davemo/svelte-casts">code on github</a>:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<pre><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
   <span class="hljs-keyword">let</span> users = [
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Danika Dywtgowm'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'danika.dywtgowm@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Erica Bule'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'erica.bule@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Jim Snales'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'jim.snales@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Daria Thorobox'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'daria.thorobox@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Mendikant Hargrove'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'mendikant.hargrove@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Ephraim Lischok'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'ephraim.lischok@email.com'</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">'Lera Nedialkova'</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">'lera.nedialkova@email.com'</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Danika Dywtgowm&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;danika.dywtgowm@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Erica Bule&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;erica.bule@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Jim Snales&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;jim.snales@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Daria Thorobox&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;daria.thorobox@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Mendikant Hargrove&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;mendikant.hargrove@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Ephraim Lischok&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;ephraim.lischok@email.com&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Lera Nedialkova&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;lera.nedialkova@email.com&#x27;</span>},
   ]
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">selectUser</span>(<span class="hljs-params">user</span>) </span>{
-    users[users.findIndex(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.name === user.name)] = {
+  <span class="hljs-keyword">function</span> <span class="hljs-title function_">selectUser</span>(<span class="hljs-params">user</span>) {
+    users[users.<span class="hljs-title function_">findIndex</span>(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.<span class="hljs-property">name</span> === user.<span class="hljs-property">name</span>)] = {
       ...user,
-      <span class="hljs-attr">selected</span>: !user.selected
+      <span class="hljs-attr">selected</span>: !user.<span class="hljs-property">selected</span>
     }
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${user.name}</span> was <span class="hljs-subst">${user.selected ? <span class="hljs-string">'de-selected'</span> : <span class="hljs-string">'selected'</span>}</span>`</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">${user.name}</span> was <span class="hljs-subst">${user.selected ? <span class="hljs-string">&#x27;de-selected&#x27;</span> : <span class="hljs-string">&#x27;selected&#x27;</span>}</span>`</span>);
   }
 
-  <span class="hljs-attr">$</span>: hasSelection = users.some(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.selected)
+  <span class="hljs-attr">$</span>: hasSelection = users.<span class="hljs-title function_">some</span>(<span class="hljs-function"><span class="hljs-params">u</span> =&gt;</span> u.<span class="hljs-property">selected</span>)
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
   <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--unchecked-box</span>: <span class="hljs-string">'\02610'</span>;
-    <span class="hljs-attribute">--checked-box</span>: <span class="hljs-string">'\02611'</span>;
-    <span class="hljs-attribute">--snowman</span>: <span class="hljs-string">'\02603'</span>;
+    <span class="hljs-attr">--unchecked-box</span>: <span class="hljs-string">&#x27;\02610&#x27;</span>;
+    <span class="hljs-attr">--checked-box</span>: <span class="hljs-string">&#x27;\02611&#x27;</span>;
+    <span class="hljs-attr">--snowman</span>: <span class="hljs-string">&#x27;\02603&#x27;</span>;
   }
 
   <span class="hljs-selector-tag">td</span> {
@@ -193,7 +196,7 @@
     <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--checked-box);
   }
 
-  <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not(.hasSelection)</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
+  <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.hasSelection</span>) <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span>,
   <span class="hljs-selector-class">.selectable</span><span class="hljs-selector-class">.hasSelection</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-pseudo">:after</span> {
     <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--unchecked-box);
   }
@@ -215,12 +218,12 @@
   {/each}
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 </code></pre>
-<h1 id="closing-thoughts">Closing Thoughts</h1>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
 <p>This is how I have tended to manage the working relationship between HTML and CSS for the last 20 years, and I think the power of thinking in this way leads to cleaner code and easier to refactor web interfaces.</p>
-<p>If this looks completely foreign to you and you found yourself considering that the template-based conditional-logic approach made more sense, I&#39;d recommend learning more about the capabilities of CSS features like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">pseudo-selectors :not</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">variables</a>, and the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">generated content: property</a>.</p>
-<p>I&#39;ve found that teams who up their level of knowledge in CSS and tend to try to split concerns like we&#39;ve done here will have web applications that are easier to change over the long term.</p>
+<p>If this looks completely foreign to you and you found yourself considering that the template-based conditional-logic approach made more sense, I’d recommend learning more about the capabilities of CSS features like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">pseudo-selectors :not</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">variables</a>, and the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">generated content: property</a>.</p>
+<p>I’ve found that teams who up their level of knowledge in CSS and tend to try to split concerns like we’ve done here will have web applications that are easier to change over the long term.</p>
 <p>If you are interested in learning more about this approach and seeing a live coded version of this blog post, please check out the <a href="https://www.youtube.com/watch?v=xpnmtkjCNng">screencast</a> posted to my YouTube channel; it walks through all the examples and touches on a few more svelte-specific things to consider.</p>
-<h1 id="learning-resources">Learning Resources</h1>
+<h2 id="learning-resources">Learning Resources</h2>
 <ul>
 <li><a href="https://svelte.dev/tutorial/basics">Svelte Tutorial</a></li>
 <li><a href="https://github.com/davemo/svelte-casts">Complex-Multi-Select Code on Github</a></li>
@@ -229,4 +232,4 @@
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content">CSS Generated Content</a></li>
 <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/">HTML Entity Symbols</a></li>
 </ul>
-</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
+</article><div id="sidebar"><div class="profile_image"><img src="/img/davemo.headphones.png" alt="David A. Mosher"></div><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></div><footer>&copy; 2007–2021 David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>

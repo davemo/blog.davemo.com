@@ -1,39 +1,42 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | React Performance Analysis</title></head><body><div id="wrap"><header class="root"><h1><a href="/">{ blog: david mosher }</a></h1><h2>personal opinions from a software developer living in ottawa, canada</h2></header><aside id="sidebar"><section id="profile"><a href="https://github.com/davemo" title="David Mosher's Github"><img class="profile_image" src="/img/davemo.headphones.png" alt="David Mosher"></a><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></section><nav><a href="/">homepage</a><a href="/archive.html">blog archives</a></nav></aside><article class="post clearfix"><header><section id="navigation"><time id="pub-date" datetime=""><a href="/posts/2017-11-07-react-performance-analysis.html">November 7th, 2017</a></time><div class="older-newer"><div class="newer"><a href="/posts/2018-02-01-the-consultants-code.html">&#8672;&nbsp;newer</a></div><div class="older"><a href="/posts/2017-04-17-makefile-usability-tips.html">older&nbsp;&#8674;</a></div></div></section><h1 class="post-title"><a href="/posts/2017-11-07-react-performance-analysis.html">React Performance Analysis</a></h1></header><section class="body"><div class="inner"><blockquote>
-<p>React is frequently touted as being performant due to the optimizations of its Virtual DOM technique, yet all to often this is used by developers as a crutch to avoid thinking about the performance of their code <em>at all</em>. This generally leads to performance problems in React apps of any significant scale.</p>
-</blockquote>
-<iframe src="https://www.youtube.com/embed/sVDnCMIkmTM?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" media="all" href="/css/app.css"><link rel="alternate" type="application/rss+xml" title="{ blog: david mosher }" href="/index.xml"><title>{ blog: david mosher } | React Performance Analysis</title></head><body class="theme-"><div id="wrap"><header><a href="/">{ blog: david mosher }</a><span class="description">thoughts on software, music, design, and meaning</span></header><nav><ul><li><a href="/">homepage</a></li><li><a href="/archive.html">archive</a></li></ul><div id="older-newer"><div class="newer"><a href="/posts/2018-02-01-the-consultants-code.html">newer</a></div><div class="older"><a href="/posts/2017-04-17-makefile-usability-tips.html">older</a></div></div></nav><article><h1><a href="/posts/2017-11-07-react-performance-analysis.html" title="Permanent link to ‘React Performance Analysis’">React Performance Analysis</a></h1><h6><time datetime="2017-11-07">November 7th, 2017</time></h6><aside class="tldr">
+  A screencast that covers a number of techniques on evaluating the performance of React applications.
+</aside>
 
+<p>React is frequently touted as being performant due to the optimizations of its Virtual DOM technique, yet all to often this is used by developers as a crutch to avoid thinking about the performance of their code <em>at all</em>. This generally leads to performance problems in React apps of any significant scale.</p>
 <p>With the proliferation of React applications in the wild, I thought it would be a good idea to examine some techniques for evaluating the performance of React Components.</p>
 <p>This screencast covers a number of techniques for constructing components, but also shows how to evaluate performance objectively and make informed refactoring decisions.</p>
-<h1 id="screencast-outline">Screencast Outline</h1>
+<iframe src="https://www.youtube.com/embed/sVDnCMIkmTM?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
+
+<h2 id="screencast-outline">Screencast Outline</h2>
 <ol>
-<li><p>Introduction</p>
+<li>Introduction</li>
+</ol>
 <ul>
 <li>A Common UI Scenario for React Components -&gt; Large Data Tables</li>
 <li>Developer Default: Google/Stack Overflow Driven Development</li>
 <li>The Quest for a pre-built Library</li>
 </ul>
-</li>
-<li><p>Performance Goals</p>
+<ol start="2">
+<li>Performance Goals</li>
+</ol>
 <ul>
 <li>Important Metrics: TTI (time to interactive), TTFMP (time to first meaningful paint)</li>
 <li>Setting a Frame Budget: (60fps / 16.7ms) might not always be feasible</li>
 <li>The Feedback Loop: Experiment, Evaluate</li>
 </ul>
-</li>
-<li><p>React Development Patterns</p>
+<ol start="3">
+<li>React Development Patterns</li>
+</ol>
 <ul>
 <li>Start BIG: 1 component, 1 render method, then profile</li>
 <li>Decompose: limit the surface area of your component by thinking hard about props, then profile</li>
 <li>Optimize by:<ul>
-<li>Reducing JS Execution: work the browser doesn&#39;t have to do doesn&#39;t need to be optimized</li>
+<li>Reducing JS Execution: work the browser doesn’t have to do doesn’t need to be optimized</li>
 <li>Reducing Surface Area for Change: small components, limited surface area, small lists of props</li>
 <li>Keep <code>render</code> methods simple and <em>mostly</em> static</li>
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-<h1 id="code">Code</h1>
+<h2 id="code">Code</h2>
 <p><a href="https://github.com/davemo/react-performance-analysis">https://github.com/davemo/react-performance-analysis</a></p>
-</div></section></article><footer class="root">&copy; 2021 - David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
+</article><div id="sidebar"><div class="profile_image"><img src="/img/davemo.headphones.png" alt="David A. Mosher"></div><p>David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.</p><div class="icons"><a class="icon github" href="https://github.com/davemo" title="davemo on github"></a><a class="icon linkedin" href="https://linkedin.com/in/dmosher" title="dmosher on linkedin"></a><a class="icon twitter" href="https://twitter.com/dmosher" title="dmosher on twitter"></a><a class="icon youtube" href="https://youtube.com/davidmosher" title="davidmosher on youtube"></a></div></div><footer>&copy; 2007–2021 David A. Mosher</footer></div><script type="text/javascript" src="/js/app.js"></script></body></html>
