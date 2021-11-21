@@ -1,11 +1,15 @@
-article
-  header
-    section#navigation
-    h1 archives
-  section.body
-    #archive.inner
-      ul
-        - _(site.getPosts()).chain().clone().reverse().each(function(post){
-          li
-            a(href=`/${post.htmlPath()}`) #{post.title()}
-        - })
+article#archive
+
+  - var groups = _(site.getPosts()).chain().clone().groupBy(function(post){
+  -   return post.attributes.date.split('-')[0]
+  - }).value()
+
+  h1 Previously, on blog.davemo.com
+  - _(Object.keys(groups).reverse()).each(function(year) {
+    h2 #{year}
+    ul
+      - groups[year].reverse().forEach(function(post) {
+        li
+          a(href=`/${post.htmlPath()}`) #{post.title()}
+      - })
+  - })

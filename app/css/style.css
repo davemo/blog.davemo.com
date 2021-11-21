@@ -21,7 +21,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-text-color);
   overflow-x: hidden;
-  /*zoom: 125%;*/
 }
 
 blockquote {
@@ -128,24 +127,6 @@ aside {
   color: #999;
   padding: 10px;
   border-radius: 6px;
-}
-
-#archive {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-#archive.inner > div {
-  width:  240px;
-  border:  1px solid red;
-}
-
-#archive.inner > div:first-child {
-  width:  100%;
-  border:  2px solid blue;
 }
 
 .icons {
@@ -396,6 +377,7 @@ article time a {
   font-size: 13px;
   color: #645500;
 }
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -404,9 +386,11 @@ article time a {
   clear: both;
   height: 0;
 }
+
 header h1 {
   letter-spacing: -1px;
 }
+
 header {
   margin-top: 10px;
   margin-bottom: 60px;
@@ -430,14 +414,17 @@ header h1 {
   line-height: 1.6em;
   letter-spacing: -1px;
 }
+
 header h1 a:hover {
   color: #ccc;
   text-decoration: none;
 }
+
 header h1 a,
 header h2 {
   color: #999;
 }
+
 header h2 {
   font-size: 1.4em;
   font-weight: normal;
@@ -491,13 +478,6 @@ pre code.hljs {
   white-space: pre-wrap;
 }
 
-/*
-  paragraphs right before a pre block trail with ellipsis …
-*/
-
-
-
-/* start: (tip or explanation) blocks that come after a pre-formatted code example */
 pre + blockquote {
   position: relative;
   top: -13px;
@@ -549,20 +529,6 @@ pre + blockquote + p {
   margin-top: 0px;
 }
 
-/*
-  hard to get this working without using flex on the p, but then
-  things just go to crap with the text elements within :(
-
-  pre + blockquote > p:after {
-    content:  '';
-    border-bottom:  1px dotted #ccc;
-    margin-left:  5px;
-    flex: 1;
-  }
-*/
-
-/* end: (tip or explanation) */
-
 pre code:before {
   width: 10000%;
   content: "";
@@ -577,24 +543,26 @@ pre code:before {
   user-select: none;
 }
 
-/*
-  Table Styling...
-*/
-
 table {
   margin-bottom: 2em;
   width: 100%;
   border-collapse: collapse;
 }
+
 th {
   border-bottom: 2px solid #ccc;
   font-weight: bold;
   text-align: left;
 }
-td { border-bottom: 1px solid #ddd; }
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
 caption, th, td {
   padding: 4px 10px 4px 0;
 }
+
 caption {
   background: #f1f1f1;
   padding: 10px 0;
@@ -603,4 +571,9 @@ caption {
 
 tr,td,th {
   vertical-align: middle;
+}
+
+#archive h1 {
+  margin-bottom: 49px;
+  color: var(--alt-color);
 }

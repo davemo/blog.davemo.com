@@ -6,9 +6,9 @@ html
     link(rel='alternate' type='application/rss+xml' title=`${site.title}` href='/index.xml')
     title #{site.title}#{post ? ' | ' + post.title() : ''}
 
-  - var theme = post ? post.attributes.theme : ''
+  - var theme = post ? `theme-${post.attributes.theme}` : ''
 
-  body(class=`theme-${theme || ''}`)
+  body(class=`${theme}`)
     #wrap
       header
         a(href='/') #{site.title}
@@ -21,13 +21,15 @@ html
           li
             a(href='/archive.html') archive
 
-        #older-newer
-          if site.newerPost(post)
-            .newer
-              a(href=`/${site.newerPost(post).htmlPath()}`) newer
-          if site.olderPost(post)
-            .older
-              a(href=`/${site.olderPost(post).htmlPath()}`) older
+        //- the Archive isnt a post or page
+        if post
+          #older-newer
+            if site.newerPost(post)
+              .newer
+                a(href=`/${site.newerPost(post).htmlPath()}`) newer
+            if site.olderPost(post)
+              .older
+                a(href=`/${site.olderPost(post).htmlPath()}`) older
 
       | !{yield}
 
