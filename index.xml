@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[{ blog: david mosher }]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 21 Nov 2021 03:08:00 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David A. Mosher]]></author><item><title><![CDATA[Developer Experience, Feedback Loops, and an Enjoyable Workflow for Node.js Tool Development]]></title><description><![CDATA[<aside class="tldr">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[{ blog: david mosher }]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 21 Nov 2021 13:15:37 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David A. Mosher]]></author><item><title><![CDATA[Developer Experience, Feedback Loops, and an Enjoyable Workflow for Node.js Tool Development]]></title><description><![CDATA[<aside class="tldr">
 If you're experienced and prefer code to prose, you can explore the <a href="https://github.com/davemo/nodejs-tool-dev-template">code on github</a> or <code>npx degit davemo/nodejs-tool-dev-template</code>.
 </aside>
 
@@ -16,15 +16,15 @@ If you're experienced and prefer code to prose, you can explore the <a href="htt
 
 <p>Jumping into Node was extremely disorienting for me, up was down and left was right, <code>window</code> was <code>global</code> and there was no <code>XHR</code> or <code>DOM</code>. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the potential to leverage my knowledge of JavaScript within the world of tool building and systems programming.</p>
 <p>Around this time I was working with <a href="https://twitter.com/searls">Searls</a>, who created <a href="https://www.youtube.com/embed/KERJkJNV5nI">Lineman</a> after I shared frustrations with most of the frontend tooling I was using.</p>
-<p>This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn’t know as well, and incredibly slow. Justins’ focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a <em>lot</em> of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone was able to listen to my frustrations and translate them into magic on the command-line!</p>
-<p>Since then, I’ve been able to work on some of my own tools, libraries, and plugins while picking up a few tips, tricks, and many opinions along the way. My hope is that sharing my experience will give you the <strong>starting place</strong> I wished for when learning to build tools in Node and lead you to an enjoyable developer experience.</p>
+<p>This experience was transformative for me because up until that point the tools I was using were clunky, written in other languages I didn’t know as well, and incredibly slow. Justin’s focus on the DX of Lineman was immediately apparent and the fact that it was written in JavaScript (ok, and a <em>lot</em> of CoffeeScript) made it easy for me to contribute to. It was empowering to have someone listen to my frustrations and translate them into magic on the command-line!</p>
+<p>Since then, I’ve been able to work on some of my own tools, libraries, and plugins while picking up a few tips, tricks, and many opinions along the way. My hope is that sharing my experience will give you the <strong>starting place</strong> I wished for when learning to build tools in Node and lead you to a more enjoyable developer experience.</p>
 <h2 id="ok-but-how-do-i-start">Ok, but how do I start?</h2>
 <p>Great question! It’s the same one I had when I was interested in writing command-line tools with Node. The rest of this post will be a guided tutorial that I think will help you get started and answer the following questions:</p>
 <ul>
 <li>How can I <a href="#iterating-locally-using-npm-install-dir">iterate</a> on a node module locally without publishing to npm?</li>
 <li>How can I test what I’m building in <a href="#testing-our-tool-in-another-project">another project</a>?</li>
-<li>How can I <a href="#development-workflow-watch-build--debug">debug</a> the code while <a href="#watch--build-with-vercelncc">developing</a>?</li>
-<li>How should I <a href="">package</a> things?</li>
+<li>How can I <a href="#development-workflow-watch-build--debug">debug</a> the code while developing?</li>
+<li>How should I <a href="#packaging-with-vercelncc-and-npm">package</a> things?</li>
 </ul>
 <aside>
 Keep in mind, <b>I'm biased!</b> If you're experienced and have done this before there's a good chance my approach will probably differ from yours and that's ok. There are many tools and techniques I'm not familiar with -- please let me know on <a href="https://twitter.com/dmosher">twitter</a>. I'm always eager to learn.
@@ -56,7 +56,7 @@ $ </span><span class="language-bash"><span class="hljs-comment"># create the my_
 <span class="hljs-meta">$ </span><span class="language-bash">npx degit davemo/nodejs-tool-dev-template</span>
 <span class="hljs-meta">$ </span><span class="language-bash">npm i</span>
 </code></pre>
-<p>Using the <code>tree</code> <a href="https://formulae.brew.sh/formula/tree">command</a>, here’s what things should look like.</p>
+<p>Using the <code>tree</code> <a href="https://formulae.brew.sh/formula/tree">command</a>, here’s what things should look like</p>
 <pre><code class="hljs language-shell"><span class="hljs-meta">$ </span><span class="language-bash">tree -L 2 ~/code/node</span>
 
 ~/code/node
@@ -74,7 +74,7 @@ $ </span><span class="language-bash"><span class="hljs-comment"># create the my_
 
 6 directories, 4 files
 </code></pre>
-<p>The <code>my_tool</code> directory comes with an entrypoint file <code>index.js</code> which will be our CLI tool. This entrypoint requires and executes <code>lib/tools.js</code> which logs a simple message to <code>STDOUT</code> and completes after a delay of 1 second. Here’s what those files look like:</p>
+<p>The <code>my_tool</code> directory comes with an entrypoint file <code>index.js</code> which will be our CLI tool. This entrypoint requires and executes <code>lib/tools.js</code> which logs a simple message to <code>STDOUT</code> and completes after a delay of 1 second. Here’s what those files look like</p>
 <pre><code class="hljs language-javascript"><span class="hljs-comment">// my_tool/index.js</span>
 #!<span class="hljs-regexp">/usr/</span>bin/env node
 
@@ -100,7 +100,7 @@ We could also achieve this using <a href="https://docs.npmjs.com/cli/v8/commands
 
 added 1 package, and audited 3 packages in 634ms
 </code></pre>
-<p>Installing a package this way causes <em>three</em> side-effects that we should know about:</p>
+<p>Installing a package this way causes <em>three</em> side-effects that we should know about</p>
 <pre><code class="hljs language-shell"><span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-comment"># a symbolic link for my_tool is created in node_modules</span></span>
 <span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">ls</span> -la my_project/node_modules</span>
 my_tool -&gt; ../../my_tool
@@ -135,7 +135,7 @@ $ </span><span class="language-bash"><span class="hljs-comment"># my_tool is add
   <span class="hljs-attr">&quot;license&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISC&quot;</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-<p>We can now execute <code>npm run log_a_message</code> to invoke <code>my_tool</code>. If everything is linked correctly you should see something like this:</p>
+<p>We can now execute <code>npm run log_a_message</code> to invoke <code>my_tool</code>. If everything is linked correctly you should see something like this</p>
 <pre><code class="hljs language-shell"><span class="hljs-meta">$ </span><span class="language-bash">npm run log_a_message</span>
 <span class="hljs-meta">
 &gt; </span><span class="language-bash">my_project@1.0.0 log_a_message</span>
@@ -145,7 +145,7 @@ $ </span><span class="language-bash"><span class="hljs-comment"># my_tool is add
 ✅ CLI tool: done!
 </code></pre>
 <h3 id="what-happens-when-we-call-npm-run-log_a_message">What happens when we call <code>npm run log_a_message</code>?</h3>
-<p>To better understand what’s going on, let’s take a look at the <code>name</code> and <code>bin</code> of the fields within the scaffolded <code>package.json</code> that came with the workflow template:</p>
+<p>To better understand what’s going on, let’s take a look at the <code>name</code> and <code>bin</code> keys within the scaffolded <code>package.json</code> that came with the workflow template</p>
 <pre><code class="hljs language-json"><span class="hljs-comment">// my_tool/package.json</span>
 <span class="hljs-punctuation">{</span>
   <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my_tool&quot;</span><span class="hljs-punctuation">,</span>
@@ -160,7 +160,7 @@ $ </span><span class="language-bash"><span class="hljs-comment"># my_tool is add
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <blockquote>
-<p>In our case, because the name of the package and the command are the same, we <em>could</em> also simplify using the <code>implicit</code> syntax above, but I generally prefer to use the <code>explicit</code> syntax just to make it clear to future readers.</p>
+<p>In our case, because the name of the package and the command are the same, we <em>could</em> simplify using the <code>implicit</code> syntax, but I generally prefer to use the <code>explicit</code> syntax just to make it clear to future readers.</p>
 </blockquote>
 <p>The <code>bin</code> key in <code>my_tool/package.json</code> is a mapping of the command name (<code>my_tool</code>) to the local file name (<code>dist/index.js</code>) that will be executed.</p>
 <p>With that in mind, this is roughly what happens when we run <code>npm run log_a_message</code>:</p>
@@ -187,8 +187,8 @@ $ </span><span class="language-bash"><span class="hljs-comment"># my_tool is add
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <h3 id="watch--build-with-vercelncc">Watch + Build with <code>@vercel/ncc</code></h3>
-<p>The <code>watch</code> target here invokes <code>build</code> and passes along the <code>-w</code> parameter which tells <code>@vercel/ncc</code> that it should watch for file changes and recompile every time a change is detected.</p>
-<p>The <code>build</code> target invokes <code>@vercel/ncc</code>, which traverses the dependency graph starting at our <code>index.js</code> entrypoint and compiles everything it finds (including dynamically imported things) into a single file with all dependencies inlined, kind of like <code>gcc</code>.</p>
+<p>The <code>watch</code> target here invokes <code>build</code> and passes along the <code>-w</code> parameter which tells <code>ncc</code> that it should watch for file changes and recompile every time a change is detected.</p>
+<p>The <code>build</code> target invokes <code>ncc</code>, which traverses the dependency graph starting at our <code>index.js</code> entrypoint, and compiles everything it finds (including dynamically imported things) into a single file with all dependencies inlined, kind of like <code>gcc</code>.</p>
 <p>To kick things off, run <code>npm run watch</code> from within <code>my_tool</code>:</p>
 <pre><code class="hljs language-shell"><span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> my_tool</span>
 <span class="hljs-meta">$ </span><span class="language-bash">npm run watch</span>
@@ -219,7 +219,7 @@ Watching for changes...
 </ul>
 <h3 id="debugging-with-ndb">Debugging with <code>ndb</code></h3>
 <p>The <code>debug</code> target spins up <code>ndb</code> pointing at our single compiled file in <code>dist/index.js</code>. The feedback loop when developing and debugging is nearly instant, and <code>ndb</code> includes some really nice DX features which we’ll take at shortly.</p>
-<p>First, let’s add a <code>debugger</code> statement within <code>my_tool/lib/tool.js</code>. (Remember, it will be compiled into <code>dist/index.js</code> automatically by our Watch + Build process).</p>
+<p>First, let’s add a <code>debugger</code> statement within <code>my_tool/lib/tool.js</code> knowing that it will be compiled into <code>dist/index.js</code> automatically by our Watch + Build process.</p>
 <pre><code class="hljs language-javascript"><span class="hljs-comment">// my_tool/lib/tool.js</span>
 <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">function</span> <span class="hljs-title function_">tool</span>(<span class="hljs-params"></span>) {
   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;⏳ CLI tool: working ...&#x27;</span>)
@@ -241,14 +241,14 @@ Chromium downloaded to /Users/davidmosher/code/node/my_tool/node_modules/carlo/l
 ⏳ CLI tool: working ...
 </code></pre>
 <blockquote>
-<p>The first time you run the <code>debug</code> target, <code>ndb</code> will download Chromium.</p>
+<p>The first time you run the <code>debug</code> target <code>ndb</code> will download Chromium.</p>
 </blockquote>
 <p>With this process launched you should see a Chromium window pop up:</p>
 <img class="screenshot" src="/img/nodejs-tooling-development-workflow/ndb-example.png" alt="The Chromium window launched by ndb" />
 
 <p>This is where we can see some of the <code>ndb</code> DX specifics I mentioned earlier that make this workflow so nice.</p>
 <ul>
-<li><p>📃 Notice the <code>NPM Scripts</code> tab? This allows you to repeatedly invoke any npm script from within <code>package.json</code> right from the GUI. This is really handy for making changes and then testing them immediately.</p>
+<li><p>📃 Notice the <code>NPM Scripts</code> tab? This allows you to repeatedly invoke any npm script right from the GUI. This is really handy for making changes and then testing them immediately.</p>
 </li>
 <li><p>🔁 <code>ndb</code> stays launched and available for you to re-run any of those npm scripts; this is much nicer than <code>node --inspect-brk</code> which exits after the current debug stack is completed.</p>
 </li>
@@ -286,11 +286,11 @@ dist/index.js
 dist/index.js.map
 dist/sourcemap-register.js
 </code></pre>
-<p>Our last step before publishing will be to remove the <code>private: true</code> flag from <code>package.json</code> (I added this just so nobody accidentally publishes the workflow template). Once that’s done, then you can simply <code>npm publish</code> and your minimal package will be uploaded to the npm registry.</p>
+<p>Our last step before publishing will be to remove the <code>private: true</code> flag from <code>package.json</code>, which I added so nobody accidentally published the workflow template. Once that’s done, then you can simply <code>npm publish</code> and your minimal package will be uploaded to the npm registry.</p>
 <aside>If you don't provide a tag when you publish, npm will automatically assign your published package to the <code>latest</code> specifier, which would allow you to install it using <br><code>npm install my_tool@latest</code>.</aside>
 
 <h2 id="wrapping-up">Wrapping up</h2>
-<p>This concludes my tutorial on an enjoyable workflow for Node.js tool development. I hope you found this useful and that you find the experience of developing tools in this way delightful, and the feedback loop fast and efficient.</p>
+<p>This concludes my tutorial on an enjoyable workflow for Node.js tool development. I hope you found this useful and that you find the experience of developing tools in this way enjoyable and the feedback loop fast and efficient.</p>
 <p>If you have questions or wish to provide feedback, please reach out to me on <a href="https://twitter.com/dmosher">twitter</a>. I would love to hear from you!</p>
 <p>Happy tool-making. 💚</p>
 ]]></description><link>https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2021-11-20-developer-experience-feedback-loops-and-an-opinionated-workflow-for-node-js-tool-development.html</guid><dc:creator><![CDATA[David A. Mosher]]></dc:creator><pubDate>Sat, 20 Nov 2021 00:00:00 GMT</pubDate></item><item><title><![CDATA[The Missing Fundamental]]></title><description><![CDATA[<aside class="tldr">
