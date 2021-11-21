@@ -1,0 +1,18 @@
+    if site.mode == 'index'
+      meta(name="og:title" content=`${tagline}`)
+      meta(name="twitter:title" content=`${tagline}`)
+      meta(name="twitter:description" content=`${tagline}`)
+    else if site.mode == 'archive'
+      meta(name="og:title" content=`${site.author} | All Posts`)
+      meta(name="twitter:title" content=`${site.author} | All Posts`)
+      meta(name="twitter:description" content=`${site.author} | All Posts`)
+    else
+      meta(name="og:title" content=`${post.title()}`)
+      meta(name="twitter:title" content=`${post.title()}`)
+      meta(name="twitter:description" content=`${post.attributes.description}`)
+
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@dmosher")
+    meta(name="twitter:creator" content="@dmosher")
+    meta(name="og:site_name" content=`${site.title}`)
+    meta(name="og:locale" content="en-us")

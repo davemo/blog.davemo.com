@@ -28,6 +28,7 @@ html(lang="en")
     meta(name="author" content=`${site.author}`)
     if site.mode == 'post' || site.mode == 'index'
       meta(name="article:published_time" content=`${post.time()}`)
+      meta(name="article:modified_time" content=`${post.time()}`)
 
   body
     #wrap
