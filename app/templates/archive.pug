@@ -5,6 +5,9 @@ article#archive
   - }).value()
 
   h1 Previously, on blog.davemo.com
+  h6
+    time()
+      time 2008 - #{new Date().getFullYear()}
   - _(Object.keys(groups).reverse()).each(function(year) {
     h2 #{year}
     ul
