@@ -246,7 +246,7 @@ article {
 }
 
 article h1,
-article h6 {
+article time {
   margin-top: 0;
   margin-bottom: 0.75em;
 }
@@ -258,9 +258,11 @@ article h1:first-child {
   justify-content: flex-end;
 }
 
-article h6 {
+article time {
   font-size: 1em;
   margin-bottom: 1.4em;
+  font-weight: bold;
+  display: block;
 }
 
 article p {

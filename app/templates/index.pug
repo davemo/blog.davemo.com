@@ -6,7 +6,6 @@ article#post
   h1
     a(href=`/${post.htmlPath()}` title=`Permanent link to ‘${post.title()}’`)
       | #{post.title()}
-  h6
-    time(datetime=post.time())
-      | #{post.date()}
+  time(datetime=post.time())
+    | #{post.date()}
   | !{post.content()}

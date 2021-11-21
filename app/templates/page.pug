@@ -7,6 +7,5 @@ article#page
     a(href=`/${page.htmlPath()}` title=`Permanent link to ‘${page.title()}’`)
       | #{page.title()}
   if page.attributes.starting
-    h6
-      time #{post.attributes.starting} - #{new Date().getFullYear()}
+    time #{post.attributes.starting} - #{new Date().getFullYear()}
   | !{page.content()}
