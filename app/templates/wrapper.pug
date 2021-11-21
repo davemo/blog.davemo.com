@@ -22,13 +22,20 @@ html(lang="en")
 
     link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
     link(rel='alternate' type='application/rss+xml' title=`${tagline}` href='/index.xml')
+
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="description" content=`${getDescription()}`)
     meta(name="theme-color" content="#bf5600")
     meta(name="author" content=`${site.author}`)
     if site.mode == 'post' || site.mode == 'index'
+      meta(name="date" content=`${post.time()}`)
       meta(name="article:published_time" content=`${post.time()}`)
       meta(name="article:modified_time" content=`${post.time()}`)
+      meta(name="twitter:title" content=`${post.title()}`)
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@dmosher")
+    meta(name="twitter:creator" content="@dmosher")
+    meta(name="twitter:description" content=`${getDescription()}`)
 
   body
     #wrap
