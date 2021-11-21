@@ -403,6 +403,17 @@ header {
   margin-right: calc(var(--sidebar-width) + var(--gap));
   display: block;
 }
+
+header .description {
+  margin-left: 10px;
+}
+
+header .description:before {
+  content: "|";
+  display: inline-block;
+  margin-right:  10px;
+}
+
 header h1 {
   font-size: 3.2em;
   line-height: 1.6em;
