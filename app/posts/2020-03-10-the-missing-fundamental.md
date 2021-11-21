@@ -5,7 +5,7 @@ theme: "tldr"
 ---
 
 <aside class="tldr">
-When it comes to evaluating software performance, investigate, profile, and identify the <em>missing</em> fundamental.
+Keys to evaluating software performance: investigate, profile, and identify the <em>missing</em> fundamental.
 </aside>
 
 Music composition and production is a large part of my life outside of software development, so much so that I often find myself thinking of ways to draw parallels between the two. One such parallel that has stuck with me over the past 6 months or so is the concept of [the missing fundamental](https://en.wikipedia.org/wiki/Missing_fundamental).

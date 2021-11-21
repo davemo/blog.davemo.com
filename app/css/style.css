@@ -8,6 +8,7 @@
   --article-width: calc(var(--wrap-width) - var(--navbar-width) - var(--sidebar-width));
   --body-text-color: #424037;
   --link-color: #bf5600;
+  --alt-color: #29627e;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-text-color);
   overflow-x: hidden;
-  zoom: 125%;
+  /*zoom: 125%;*/
 }
 
 blockquote {
@@ -47,27 +48,6 @@ blockquote p:after {
 ul {
   list-style-type: square;
 }
-
-/*aside {
-  color: #29627e;
-  position: absolute;
-  left: -240px;
-  width: 200px;
-  font-size: 12px;
-  text-align: right;
-}*/
-
-/*aside {
-  border-left: 4px solid #29627e;
-  color: #29627e;
-  width: 175px;
-  font-size: 12px;
-  float: right;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-style: italic;
-  padding-left: 20px;
-}*/
 
 aside.tldr code {
   color: #EBEBEB;
@@ -127,11 +107,6 @@ aside.right {
   width: 175px;
 }
 
-/*aside.right + p,
-aside.left + p {
-  text-align: justify;
-}
-*/
 aside:not(.tldr) {
   font-style: italic;
 }
@@ -139,19 +114,11 @@ aside:not(.tldr) {
 aside {
   background: rgb(175 184 193 / 20%);
   border-radius: 6px;
-  color: #29627e;
+  color: var(--alt-color);
   font-size: 12px;
   padding: 14px;
 }
 
-/*aside {
-  padding-left: .5rem;
-  margin-left: .5rem;
-  box-shadow: inset 5px 0 5px -5px #29627e;
-  font-style: italic;
-  color: #29627e;
-}
-*/
 #sidebar {
   position: absolute;
   top: 110px;
@@ -273,6 +240,7 @@ article a:link {
 
 a:visited {
   color: var(--link-color);
+  border-bottom: 1px solid #ffc89b;
 }
 
 article a:hover,
@@ -309,6 +277,9 @@ article h6 {
 
 article h1:first-child {
   min-height: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 article h6 {
@@ -459,9 +430,14 @@ header h2 {
   font-weight: normal;
 }
 
-pre, p > img {
+pre, p > img:not(.screenshot) {
   box-shadow: 0px 0px 3px 1px #ddd;
   border-radius: 6px;
+}
+
+img.screenshot {
+  transform: scale(1.175);
+  margin: 1em 0;
 }
 
 .inner > p {
@@ -516,7 +492,7 @@ pre + blockquote {
   padding-right: 0.875rem;
   margin-left: 0px;
   margin-block-start: 0px;
-  margin-block-end: 0px;
+  margin-block-end: 20px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   border-bottom-left-radius: 6px;
@@ -537,9 +513,9 @@ pre + blockquote > p {
   margin: 0px;
   margin-left: 3px;
   flex: 1;
-  font-size: 0.7em;
+  font-size: 0.78em;
   line-height: 1.2em !important;
-  color: rgb(136 136 136);
+  color: #29627e;
   text-align: justify;
 }
 
