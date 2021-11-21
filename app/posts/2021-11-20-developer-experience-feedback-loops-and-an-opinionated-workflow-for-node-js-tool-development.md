@@ -77,7 +77,7 @@ $ npx degit davemo/nodejs-tool-dev-template
 $ npm i
 ```
 
-Using the `tree` [command](https://formulae.brew.sh/formula/tree), here's what things should look like
+Using the `tree` [command](https://formulae.brew.sh/formula/tree), we can visualize the folder structure.
 
 ```shell
 $ tree -L 2 ~/code/node
@@ -98,7 +98,7 @@ $ tree -L 2 ~/code/node
 6 directories, 4 files
 ```
 
-The `my_tool` directory comes with an entrypoint file `index.js` which will be our CLI tool. This entrypoint requires and executes `lib/tools.js` which logs a simple message to `STDOUT` and completes after a delay of 1 second. Here's what those files look like
+The `my_tool` directory comes with an entrypoint file `index.js` which will be our CLI tool. This entrypoint requires and executes `lib/tools.js` which logs a simple message to `STDOUT` and completes after a delay of 1 second.
 
 ```javascript
 // my_tool/index.js
@@ -134,7 +134,7 @@ $ npm install ../my_tool
 added 1 package, and audited 3 packages in 634ms
 ```
 
-Installing a package this way causes _three_ side-effects that we should know about
+Installing a package this way causes _three_ side-effects that we should know about.
 
 ```shell
 $ # a symbolic link for my_tool is created in node_modules
@@ -158,7 +158,7 @@ Now that we've got things installed, we're ready to start iterating on `my_tool`
 
 ## Testing our tool in another project
 
-To work with `my_tool` inside of `my_project` we're going to use [npm scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts) inside `my_project/package.json`. Let's add a script `log_a_message` that invokes `my_tool`:
+To work with `my_tool` inside of `my_project` we're going to use [npm scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts) inside `my_project/package.json`. Let's add a script `log_a_message` that invokes `my_tool`.
 
 ```json
 // my_project/package.json
@@ -176,8 +176,7 @@ To work with `my_tool` inside of `my_project` we're going to use [npm scripts](h
 }
 ````
 
-We can now execute `npm run log_a_message` to invoke `my_tool`. If everything is linked correctly you should see something like this
-
+We can now execute `npm run log_a_message` to invoke `my_tool`.
 
 ```shell
 $ npm run log_a_message
@@ -191,7 +190,7 @@ $ npm run log_a_message
 
 ### What happens when we call `npm run log_a_message`?
 
-To better understand what's going on, let's take a look at the `name` and `bin` keys within the scaffolded `package.json` that came with the workflow template
+To better understand what's going on, let's take a look at the `name` and `bin` keys within the scaffolded `package.json` that came with the workflow template.
 
 ```json
 // my_tool/package.json
@@ -224,7 +223,7 @@ With that in mind, this is roughly what happens when we run `npm run log_a_messa
 
 ## Development workflow: `(watch, build) + (debug)`
 
-With `my_tool`installed within `my_project`, the next thing we might want to do is debug our tooling code as we iterate while developing. There are a few included npm scripts in the workflow template that we'll find within `my_tool/package.json`:
+With `my_tool`installed within `my_project`, the next thing we might want to do is debug our tooling code as we iterate while developing. There are a few included npm scripts in the workflow template that we'll find within `my_tool/package.json`.
 
 ```json
 "scripts": {
@@ -245,7 +244,7 @@ The `watch` target here invokes `build` and passes along the `-w` parameter whic
 
 The `build` target invokes `ncc`, which traverses the dependency graph starting at our `index.js` entrypoint, and compiles everything it finds (including dynamically imported things) into a single file with all dependencies inlined, kind of like `gcc`.
 
-To kick things off, run `npm run watch` from within `my_tool`:
+To kick things off, run `npm run watch` from within `my_tool`.
 
 ```shell
 $ cd my_tool
@@ -293,7 +292,7 @@ module.exports = function tool() {
 }
 ```
 
-Then, in another terminal window let's spin up `ndb` using `npm run debug`:
+Then, in another terminal window let's spin up `ndb` using `npm run debug`.
 
 ```shell
 $ npm run debug
@@ -308,11 +307,11 @@ Chromium downloaded to /Users/davidmosher/code/node/my_tool/node_modules/carlo/l
 
 > The first time you run the `debug` target `ndb` will download Chromium.
 
-With this process launched you should see a Chromium window pop up:
+With this process launched you should see a Chromium window pop up.
 
 <img class="screenshot" src="/img/nodejs-tooling-development-workflow/ndb-example.png" alt="The Chromium window launched by ndb" />
 
-This is where we can see some of the `ndb` DX specifics I mentioned earlier that make this workflow so nice.
+This is where we can see some of the `ndb` DX specifics I mentioned earlier that make this workflow so nice:
 
 - 📃 Notice the `NPM Scripts` tab? This allows you to repeatedly invoke any npm script right from the GUI. This is really handy for making changes and then testing them immediately.
 
@@ -326,7 +325,7 @@ This is where we can see some of the `ndb` DX specifics I mentioned earlier that
 
 When you've finished creating your command-line masterpiece the next thing you may want to do is publish it to the npm registry so that others can `npm install` it. Thankfully, this step is easy because we already configured `ncc` to build for production in the `dist` folder via our `build` npm script.
 
-The last thing to consider is how to minimize the size of our package when a user installs it with `npm install`, and this has already been done for us in the `files` key within `my_tool/package.json` key:
+The last thing to consider is how to minimize the size of our package when a user installs it with `npm install`, and this has already been done for us in the `files` key within `my_tool/package.json` key.
 
 ```json
 {
@@ -337,7 +336,7 @@ The last thing to consider is how to minimize the size of our package when a use
   "bin": {
     "my_tool": "dist/index.js"
   },
-  "files": [
+  "files": [ // manages which files are published to npm
     "dist"
   ],
   // ...
@@ -346,7 +345,7 @@ The last thing to consider is how to minimize the size of our package when a use
 
 > NPM has some [documentation](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#files) on a few other `files` details that you may find helpful.
 
-Limiting `files` to just the `dist` directory ensures that we keep our package as small as possible, which is already taken care of thanks to `ncc` producing a single file. If you want a double check to see _exactly_ which files npm would add to the package, you can run `npx npm-packlist`:
+Limiting `files` to just the `dist` directory ensures that we keep our package as small as possible, which is already taken care of thanks to `ncc` producing a single file. If you want to double check to see _exactly_ which files npm would add to the package, you can run `npx npm-packlist`.
 
 ```shell
 $ npx npm-packlist
