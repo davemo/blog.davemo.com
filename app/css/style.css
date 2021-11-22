@@ -190,7 +190,8 @@ aside:not(.tldr) :any-link:hover {
 }
 
 .profile_image img {
-  width: 100%;
+  width: 175px;
+  height: 175px;
 }
 
 footer {
@@ -454,6 +455,7 @@ pre, p > img:not(.screenshot) {
 img.screenshot {
   transform: scale(1.175);
   margin: 1em 0;
+  width: 515px;
 }
 
 .inner > p {
