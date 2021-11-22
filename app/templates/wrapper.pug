@@ -39,44 +39,45 @@ html(lang="en")
 
   body
     #wrap
-      header
-        a(href='/') #{site.title}
-        span.description #{site.description}
+      #layout
+        header
+          a(href='/') #{site.title}
+          span.description #{site.description}
 
-      nav
-        ul
-          li
-            a(href='/archive.html') archive
-          li
-            a(href='/') homepage
-          li
-            a(href='/screencasts.html') screencasts
-          li
-            a(href='/talks.html') talks
+        nav
+          ul
+            li
+              a(href='/archive.html') archive
+            li
+              a(href='/') homepage
+            li
+              a(href='/screencasts.html') screencasts
+            li
+              a(href='/talks.html') talks
 
-        if site.shownav
-          #older-newer
-            if site.newerPost(post)
-              .newer
-                a(href=`/${site.newerPost(post).htmlPath()}`) newer
-            if site.olderPost(post)
-              .older
-                a(href=`/${site.olderPost(post).htmlPath()}`) older
+          if site.shownav
+            #older-newer
+              if site.newerPost(post)
+                .newer
+                  a(href=`/${site.newerPost(post).htmlPath()}`) newer
+              if site.olderPost(post)
+                .older
+                  a(href=`/${site.olderPost(post).htmlPath()}`) older
 
-      | !{yield}
+        | !{yield}
 
-      #sidebar
-        .profile_image
-          img(src='/img/davemo.upscaled.png' alt='David A. Mosher')
-        p
-          | David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.
-        .icons
-          a.icon.github(href='https://github.com/davemo' title='davemo on github')
-          a.icon.linkedin(href='https://linkedin.com/in/dmosher' title='dmosher on linkedin')
-          a.icon.twitter(href='https://twitter.com/dmosher' title='dmosher on twitter')
-          a.icon.youtube(href='https://youtube.com/davidmosher' title='davidmosher on youtube')
+        #sidebar
+          .profile_image
+            img(src='/img/davemo.upscaled.png' alt='David A. Mosher')
+          p
+            | David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.
+          .icons
+            a.icon.github(href='https://github.com/davemo' title='davemo on github')
+            a.icon.linkedin(href='https://linkedin.com/in/dmosher' title='dmosher on linkedin')
+            a.icon.twitter(href='https://twitter.com/dmosher' title='dmosher on twitter')
+            a.icon.youtube(href='https://youtube.com/davidmosher' title='davidmosher on youtube')
 
-      footer
-        | &copy; 2007–#{new Date().getFullYear()} #{site.author}
+        footer
+          | &copy; 2007–#{new Date().getFullYear()} #{site.author}
 
     script(type='text/javascript' src=`${js}`)
