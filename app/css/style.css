@@ -117,7 +117,7 @@
 
   nav {
     position: absolute;
-    top: 172px;
+    top: 168px;
     width: var(--navbar-width);
     text-align: right;
     display: flex;
