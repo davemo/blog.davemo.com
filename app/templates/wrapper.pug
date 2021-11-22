@@ -53,8 +53,10 @@ html(lang="en")
     #wrap
       #layout
         header
-          a(href='/') #{site.title}
-          span.description #{site.description}
+          a(href='/')
+            span.sr-only #{site.title}
+            span.description
+              span.sr-only davemo.com thoughts on software, music, art, and meaning.
 
         nav
           ul
