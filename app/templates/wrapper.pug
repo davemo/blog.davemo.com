@@ -5,6 +5,11 @@ html(lang="en")
   - function getDescription() {
   -   return site.mode == 'index' ? tagline : post && (post.attributes.description || post.title())
   - }
+  - function getPosition() {
+  -   if(!site.newerPost(post)) { return 'start' }
+  -   if(!site.olderPost(post)) { return 'end' }
+  -   return 'middle';
+  - }
 
   head
     title
@@ -56,7 +61,7 @@ html(lang="en")
               a(href='/talks.html') talks
 
           if site.shownav
-            #older-newer
+            #older-newer(class=`${getPosition()}`)
               if site.newerPost(post)
                 .newer
                   a(href=`/${site.newerPost(post).htmlPath()}`) newer

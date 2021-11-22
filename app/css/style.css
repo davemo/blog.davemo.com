@@ -309,11 +309,13 @@ nav {
   flex-direction: column;
   margin-right: var(--gap);
   gap: 6px;
+  font-size: 14px;
 }
 
 nav ul a:link {
   border-bottom: none;
   display: block;
+  padding: 4px 0px;
 }
 
 nav ul {
@@ -324,7 +326,6 @@ nav ul {
 
 nav li {
   letter-spacing: 2px;
-  margin: 0 0 0.4em 0;
   text-transform: uppercase;
 }
 
@@ -334,7 +335,12 @@ nav li {
   flex-direction: row;
 }
 
-.older, .newer {
+#older-newer :any-link {
+  display: inline-block;
+}
+
+#older-newer.start .older,
+#older-newer.end .newer {
   width: 100%;
 }
 
@@ -342,16 +348,28 @@ nav li {
   text-align: right;
 }
 
+.older :any-link {
+  padding: 14px 0 14px 14px;
+}
+
 .newer {
   text-align: left;
 }
 
+.newer :any-link {
+  padding: 14px 14px 14px 0px;
+}
+
 .newer:before {
   content: var(--left-dashed-arrow);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .older:after {
   content: var(--right-dashed-arrow);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 article sup {
