@@ -22,7 +22,7 @@ I think that a big part of the "how" there is the concept of _feedback loops_. G
 
 I first started working with Node around [version 0.4](https://github.com/nodejs/node-v0.x-archive/blob/v0.4.0/ChangeLog) in 2011 and at the time I had absolutely no idea how anything worked. I came from a designer-first frontend background and my knowledge of JavaScript was limited to the context of the [browser](https://www.youtube.com/watch?v=Lsg84NtJbmI).
 
-<aside class="right">If you're new to systems programming altogether you might enjoy this <a href="https://gist.github.com/davemo/3c6042086deff4c2fd8a5f16751050d4" title="So, You want to be a Systems Engineer">gist I created</a> with some learning resources on the topic. Building tools with Node assumes at least some of this knowledge.
+<aside class="right">If you're new to systems programming altogether you might enjoy <a href="https://gist.github.com/davemo/3c6042086deff4c2fd8a5f16751050d4" title="So, You want to be a Systems Engineer">this gist</a> I put together with a learning path. Building tools with Node assumes at least some of this knowledge.
 </aside>
 
 Jumping into Node was extremely disorienting for me, up was down and left was right, `window` was `global` and there was no `XHR` or `DOM`. Writing modules, packages, and command-line tools was all new to me, yet I was intrigued by the potential to leverage my knowledge of JavaScript within the world of tool building and systems programming.
@@ -309,7 +309,7 @@ Chromium downloaded to /Users/davidmosher/code/node/my_tool/node_modules/carlo/l
 
 With this process launched you should see a Chromium window pop up.
 
-<img class="screenshot" src="/img/nodejs-tooling-development-workflow/ndb-example.png" alt="The Chromium window launched by ndb" />
+![The Chromium window launched by ndb](/img/nodejs-tooling-development-workflow/ndb-example.png)
 
 This is where we can see some of the `ndb` DX specifics I mentioned earlier that make this workflow so nice:
 
@@ -343,7 +343,7 @@ The last thing to consider is how to minimize the size of our package when a use
 }
 ```
 
-> NPM has some [documentation](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#files) on a few other `files` details that you may find helpful.
+> NPM has some [documentation](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#files) on `files` that you may find helpful.
 
 Limiting `files` to just the `dist` directory ensures that we keep our package as small as possible, which is already taken care of thanks to `ncc` producing a single file. If you want to double check to see _exactly_ which files npm would add to the package, you can run `npx npm-packlist`.
 
@@ -359,7 +359,7 @@ dist/sourcemap-register.js
 
 Our last step before publishing will be to remove the `private: true` flag from `package.json`, which I added so nobody accidentally published the workflow template. Once that's done, then you can simply `npm publish` and your minimal package will be uploaded to the npm registry.
 
-<aside>If you don't provide a tag when you publish, npm will automatically assign your published package to the <code>latest</code> specifier, which would allow you to install it using <br><code>npm install my_tool@latest</code>.</aside>
+<aside>If you don't provide a tag when you publish, npm will automatically assign your published package to the <code>latest</code> specifier, which would allow you to install it using <code>npm install my_tool@latest</code>.</aside>
 
 ## Wrapping up
 

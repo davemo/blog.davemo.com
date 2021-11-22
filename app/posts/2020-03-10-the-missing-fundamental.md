@@ -179,11 +179,11 @@ The script uses ~ 44.550048828125 MB
 
 Using the Aggregation pipeline had yielded an order of magnitude less memory and CPU usage! Here's a couple of screenshots from the Heroku dashboard for this app that show the before/after comparisons as well.
 
-### Before - request timeouts, and large amounts of memory consumption.
+### Before - request timeouts and high memory usage.
 
 ![Before](/img/the-missing-fundamental/before-30s-timeouts-large-ram-usage.png)
 
-### After - no timeouts, memory consumption reduced by a factor of 10.
+### After - no timeouts, memory usage reduced by a factor of 10.
 
 ![After](/img/the-missing-fundamental/after-2s-no-timeouts-50mb-ram-usage.png)
 
