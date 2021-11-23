@@ -54,26 +54,12 @@
     margin: 0;
   }
 
-  aside.tldr:after {
-    content: none;
-  }
-
   #sidebar {
     position: unset;
   }
 }
 
 @media only screen and (min-width: 900px) {
-
-  aside.tldr:after {
-    content: "";
-    width: 10000%;
-    background:  black;
-    position: absolute;
-    top: 0px;
-    height: 100%;
-    z-index: -1;
-  }
 
   #sidebar {
     position: absolute;
@@ -112,8 +98,6 @@
     margin-right: calc(var(--sidebar-width) + var(--gap));
     -webkit-font-smoothing: antialiased;
   }
-
-
 
   nav {
     position: absolute;
@@ -173,6 +157,9 @@ h1,
 h2,
 h3 {
   margin: 0px;
+  font-family: "Rotundo";
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -287,7 +274,6 @@ aside:not(.tldr) :any-link:hover {
 }
 
 body {
-  font-size: 13px;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -364,10 +350,14 @@ article time {
   margin-bottom: 1.4em;
   font-weight: bold;
   display: block;
+  font-family: 'Captain Edward';
+  font-weight: 400;
 }
 
 article p {
-  line-height: 1.6em;
+  font-family: 'Ships Whistle';
+  font-weight: 400;
+  text-align: justify;
 }
 
 .center {
@@ -453,11 +443,13 @@ article h1 a:visited {
   border: none;
   border-color: unset;
   padding: 0px;
+  font-size: 0.9em;
+  line-height: 1em;
 }
 
 article h2 {
   margin: 1.2em 0 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   display: flex;
   align-items: center;
 }
@@ -549,7 +541,7 @@ a code {
 
 code {
   font-family: Consolas, Monaco, monospace;
-  padding: .2em .4em;
+  padding: .05em .4em;
   margin: 0;
   font-size: 85%;
   background-color: rgba(175, 184, 193, 0.2);

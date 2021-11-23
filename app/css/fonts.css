@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Captain Edward";
+  font-weight: 400;
+  src: url("../webfonts/Captain-Edward/CaptainEdward-Regular.woff") format("woff"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Regular.woff2") format("woff2"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Regular.ttf") format("truetype"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Cartridge";
+  font-weight: 400;
+  src: url("../webfonts/Cartridge/Cartridge-Regular.woff") format("woff"),
+       url("../webfonts/Cartridge/Cartridge-Regular.woff2") format("woff2"),
+       url("../webfonts/Cartridge/Cartridge-Regular.ttf") format("truetype"),
+       url("../webfonts/Cartridge/Cartridge-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Rotundo";
+  font-weight: 400;
+  src: url("../webfonts/Rotundo/Rotundo-Regular.woff") format("woff"),
+       url("../webfonts/Rotundo/Rotundo-Regular.woff2") format("woff2"),
+       url("../webfonts/Rotundo/Rotundo-Regular.ttf") format("truetype"),
+       url("../webfonts/Rotundo/Rotundo-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Ships Whistle";
+  font-weight: 400;
+  src: url("../webfonts/Ships-Whistle/ShipsWhistle-Regular.woff") format("woff"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Regular.woff2") format("woff2"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Regular.ttf") format("truetype"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Vault Alarm";
+  font-weight: 200;
+  src: url("../webfonts/Vault-Alarm/VaultAlarm-Soft.woff") format("woff"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Soft.woff2") format("woff2"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Soft.ttf") format("truetype"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Soft.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Vault Alarm";
+  font-weight: 400;
+  src: url("../webfonts/Vault-Alarm/VaultAlarm-Regular.woff") format("woff"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Regular.woff2") format("woff2"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Regular.ttf") format("truetype"),
+       url("../webfonts/Vault-Alarm/VaultAlarm-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Ships Whistle";
+  font-weight: 700;
+  src: url("../webfonts/Ships-Whistle/ShipsWhistle-Bold.woff") format("woff"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Bold.woff2") format("woff2"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Bold.ttf") format("truetype"),
+       url("../webfonts/Ships-Whistle/ShipsWhistle-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Parkly";
+  font-weight: 200;
+  src: url("../webfonts/Parkly/Parkly-Condensed.woff") format("woff"),
+       url("../webfonts/Parkly/Parkly-Condensed.woff2") format("woff2"),
+       url("../webfonts/Parkly/Parkly-Condensed.ttf") format("truetype"),
+       url("../webfonts/Parkly/Parkly-Condensed.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Parkly";
+  font-weight: 400;
+  src: url("../webfonts/Parkly/Parkly-Regular.woff") format("woff"),
+       url("../webfonts/Parkly/Parkly-Regular.woff2") format("woff2"),
+       url("../webfonts/Parkly/Parkly-Regular.ttf") format("truetype"),
+       url("../webfonts/Parkly/Parkly-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Parkly";
+  font-weight: 400;
+  src: url("../webfonts/Parkly/Parkly-Wide.woff") format("woff"),
+       url("../webfonts/Parkly/Parkly-Wide.woff2") format("woff2"),
+       url("../webfonts/Parkly/Parkly-Wide.ttf") format("truetype"),
+       url("../webfonts/Parkly/Parkly-Wide.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Captain Edward";
+  font-weight: 500;
+  src: url("../webfonts/Captain-Edward/CaptainEdward-Rough.woff") format("woff"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Rough.woff2") format("woff2"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Rough.ttf") format("truetype"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Rough.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Captain Edward";
+  font-weight: 700;
+  src: url("../webfonts/Captain-Edward/CaptainEdward-Bold.woff") format("woff"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Bold.woff2") format("woff2"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Bold.ttf") format("truetype"),
+       url("../webfonts/Captain-Edward/CaptainEdward-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Captain Edward";
+  font-weight: 800;
+  src: url("../webfonts/Captain-Edward/CaptainEdward-BoldRough.woff") format("woff"),
+       url("../webfonts/Captain-Edward/CaptainEdward-BoldRough.woff2") format("woff2"),
+       url("../webfonts/Captain-Edward/CaptainEdward-BoldRough.ttf") format("truetype"),
+       url("../webfonts/Captain-Edward/CaptainEdward-BoldRough.otf") format("opentype");
+}
+

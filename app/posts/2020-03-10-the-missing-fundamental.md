@@ -22,7 +22,7 @@ In this case an audit of dependencies didn't yield much and we had to dive furth
 
 One of our first steps was to reduce the dyno size and monitor logs to see if the Performance L size was warranted.
 
-## Fundamental #1: Investigate
+## #1: Investigate
 
 Heroku makes it pretty easy to peek at logs for your app, which is what we started with: `heroku logs --tail -a td-client-slow-app`. This yielded the following trace:
 
@@ -47,7 +47,7 @@ app[web.1]: JavaScript heap out of memory
 
 > The [slug](https://devcenter.heroku.com/articles/slug-compiler) for this application was \~74mb, which didn't seem overly large to warrant running out of memory on the lowest tier dyno Heroku provides. That dyno allocates up to `512mb` of RAM, so we dug into the code path that led to the above stacktrace to gain some more information.
 
-## Fundamental #2: Profile
+## #2: Profile
 
 Node.js has some pretty decent profiling tools for engineers who want to dive into performance profiling. TD-resident DevOps pro [Micah](https://blog.testdouble.com/authors/micah-adams/) showed me that you can add some flags to the `node` process on startup to influence how V8 manages garbage collection. This is useful if you aren't getting consistency in your crashes and want to place constraints on the application runtime in order to suss out the source of the memory leak.
 
@@ -121,7 +121,7 @@ The script uses ~ 456.143798828125 MB
 
 Looking at this code I couldn't help but wonder if there was a more efficient way to query and aggregate this information.
 
-## Fundamental #3: Identify the Missing Fundamental
+## #3: Identify the Missing Fundamental
 
 Returning to the idea of the missing fundamental, as audio engineers must ask themselves "what can I change about the frequencies in this mix in order to bring things into harmony?" the relevant question for software engineers is very similar: "what does this system need in order to bring harmony to its operation?". In our case it was also helpful to consider that question in a historical context as "what fundamental were the original developers missing when they built this?"
 
