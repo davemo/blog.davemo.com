@@ -1,22 +1,21 @@
 doctype html
 html(lang="en")
 
-  - var tagline = `${site.author} | Canadian Software Developer, Designer, Musician, and Artist`
   - function getDescription() {
-  -   if(site.mode == 'index') { return tagline; }
-  -   if(site.mode == 'archive') { return 'Archive of blog posts from blog.davemo.com'; }
-  -   if(site.mode == 'post') { return post.attributes.description || post.title(); }
+  -   if(site.mode == 'index' || site.mode == 'post' || site.mode == 'page') { return post.attributes.description; }
+  -   if(site.mode == 'archive') { return 'Previous posts from blog.davemo.com.'; }
   - }
+
   - function getPosition() {
   -   if(!site.newerPost(post)) { return 'start' }
   -   if(!site.olderPost(post)) { return 'end' }
   -   return 'middle';
   - }
+
   - function getTitle() {
-  -   if(site.mode == 'index') { return `${tagline}` }
+  -   if(site.mode == 'index' || site.mode == 'post') { return `${post.title()}` }
   -   if(site.mode == 'archive') { return `${site.author} | All Posts`}
   -   if(site.mode == 'page') { return `${site.author} | ${page.title()}`}
-  -   return `${post.title()}`
   - }
 
   head
@@ -27,7 +26,7 @@ html(lang="en")
       link(rel="canonical" href=`${site.canonical}`)
 
     link(rel="stylesheet" type="text/css" media="all" href=`${css}`)
-    link(rel='alternate' type='application/rss+xml' title=`${tagline}` href='/index.xml')
+    link(rel='alternate' type='application/rss+xml' title=`${site.author} | Canadian Software Developer, Designer, Musician, and Artist` href='/index.xml')
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
     link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
@@ -53,9 +52,9 @@ html(lang="en")
         meta(property="og:image" content=`${site.url}${post.attributes.social_img}`)
         meta()
       else
-        meta(name="twitter:image" content=`${site.url}/img/site/logo.png`)
+        meta(name="twitter:image" content=`${site.url}/img/site/logo-social.png`)
         meta(name="twitter:card" content="summary")
-        meta(property="og:image" content=`${site.url}/img/site/logo.png`)
+        meta(property="og:image" content=`${site.url}/img/site/logo-social.png`)
 
     meta(name="twitter:site" content="@dmosher")
     meta(name="twitter:creator" content="@dmosher")
