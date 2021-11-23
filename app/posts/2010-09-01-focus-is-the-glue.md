@@ -20,7 +20,7 @@ and realized that there are two primary areas of skill required: **mechanics**
 and **focus**.
 
 
-![Image of a basketball going into a hoop with a sunset in the background](/img/14471799-basketball.jpg)
+![Image of a basketball going into a hoop with a sunset in the background](/img/focus-is-the-glue/basketball.jpg)
 
 (image courtesy [StuSeeger](https://www.flickr.com/photos/stuseeger/136715887/),
 Flickr).

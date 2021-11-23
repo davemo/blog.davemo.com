@@ -8,13 +8,11 @@ description: "How to debug frontend code in a reliable way by creating an isolat
 When working in clunky slow software, creating isolated test cases is often a quicker path to resolving bugs.
 </aside>
 
-I must be getting older. My idea of "fun" on a Friday night is to go downstairs and write a blog post with some of the ideas that have been percolating in my brain for the last few months. I am disappoint. Oh well, my impending senility is your benefit! That is of course if you're into front end web development at all.
-
 So, I've been talking with a few friends lately about this idea of "good habits" with regards to front end web development and I started stewing on a bunch of ideas on how I could write about something like that in an effective way. Sorry to say that this blog post will not be about good habits relating to code but rather as they relate to debugging front end code. I think the latter is valuable and you'll still get a decent idea of some good habits to work with going forward. Enough rambling, onward!
 
 ## Isolation, Your First Stop
 
-You've just fired up your browser and checked out an existing application from your repository of choice. You get the app running and go to take a look at the state of the front end because you have a bug to fix. A nice shiny red bug sitting there in front of you. Eager to dig in you open [Firebug](https://www.getfirebug.com) / [Webkit Inspector](https://webkit.org/blog/1091/more-web-inspector-updates/) and find yourself looking at no less than 50 separate CSS files and 40 javascript files. YIKES!
+You've just fired up your browser and checked out an existing application from your repository of choice. You get the app running and go to take a look at the state of the front end because you have a bug to fix. A nice shiny red bug sitting there in front of you. Eager to dig in you open [Firebug](https://www.getfirebug.com) / [Webkit Inspector](https://webkit.org/blog/1091/more-web-inspector-updates/) and find yourself looking at no less than 50 separate CSS files and 40 javascript files. **YIKES**!
 
 The bug card you have says some buttons aren't appearing properly in IE7 and the latest Chrome. So you dive in with your front end tweaker and start disabling styles dynamically hoping you can affect some change in the cascade that will fix the bug live in the browser right there in front of you. Bam! Looks good in Firefox/Chrome and then you open IE and things go to hell. Sound familiar?
 
@@ -38,8 +36,8 @@ Bring the HTML in question into your sample page as it appears in your productio
 
 You probably have some assumptions about what you think the problem is, this is the step where you verify that. Open your sample page in the browsers you want to test in and see what kind of results you get. The goal here is to eliminate the thousands of lines of other CSS and JavaScript that might be altering the way your markup is displayed.
 
-![](/img/17120048-Screen_shot_2010-11-05_at_10.13.57_PM.png)
-![](/img/17120050-Screen_shot_2010-11-05_at_10.14.39_PM.png)
+![What floats look like in Internet Explorer 7](/img/frontend-debugging-isolation/form-float-isolation-ie.png)
+![What floats look like in Safari](/img/frontend-debugging-isolation/form-float-isolation-safari.png)
 
 ## 4. Refactor
 
@@ -47,7 +45,7 @@ Once you've verified things are behaving the way you want you should probably re
 
 ## 5. Verify ... Again
 
-You've made changes, run your test page through the browsers you are testing for again. Repeat step 4 and 5 until you've got a good baseline to work with. It's also good to remember the answer to [https://dowebsitesneedtolookexactlythesameineverybrowser.com](https://dowebsitesneedtolookexactlythesameineverybrowser.com) at this point.
+You've made changes, run your test page through the browsers you are testing for again. Repeat step 4 and 5 until you've got a good baseline to work with. It's also good to remember the answer to the question "Do websites need to look exactly the same in every browser?" **NO**.
 
 ## 6. Integrate
 
