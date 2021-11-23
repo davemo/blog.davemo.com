@@ -53,10 +53,11 @@ html(lang="en")
     #wrap
       #layout
         header
-          a(href='/') #{site.title}
-          span.description #{site.description}
+          a(href='/') blog.davemo.com
+          span.description thoughts on software, music, art, and meaning.
 
         nav
+          a(href='/')
           ul
             li
               a(href='/archive.html') archive
@@ -81,13 +82,13 @@ html(lang="en")
         #sidebar
           .profile_image
             img(src='/img/davemo.upscaled.png' alt='David A. Mosher')
-          p
-            | David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.
           .icons
             a.icon.github(href='https://github.com/davemo' title='davemo on github')
             a.icon.linkedin(href='https://linkedin.com/in/dmosher' title='dmosher on linkedin')
             a.icon.twitter(href='https://twitter.com/dmosher' title='dmosher on twitter')
             a.icon.youtube(href='https://youtube.com/davidmosher' title='davidmosher on youtube')
+          p(style="text-align: right;")
+            | David Mosher is a Canadian Software Developer, Designer, Musician, and Artist.
 
         footer
           | &copy; 2007–#{new Date().getFullYear()} #{site.author}
