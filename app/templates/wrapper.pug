@@ -3,24 +3,25 @@ html(lang="en")
 
   - var tagline = `${site.author} | Canadian Software Developer, Designer, Musician, and Artist`
   - function getDescription() {
-  -   return site.mode == 'index' ? tagline : post && (post.attributes.description || post.title())
+  -   if(site.mode == 'index') { return tagline; }
+  -   if(site.mode == 'archive') { return 'Archive of blog posts from blog.davemo.com'; }
+  -   if(site.mode == 'post') { return post.attributes.description || post.title(); }
   - }
   - function getPosition() {
   -   if(!site.newerPost(post)) { return 'start' }
   -   if(!site.olderPost(post)) { return 'end' }
   -   return 'middle';
   - }
+  - function getTitle() {
+  -   if(site.mode == 'index') { return `${tagline}` }
+  -   if(site.mode == 'archive') { return `${site.author} | All Posts`}
+  -   if(site.mode == 'page') { return `${site.author} | ${page.title()}`}
+  -   return `${post.title()}`
+  - }
 
   head
     title
-      if site.mode == 'index'
-        | #{tagline}
-      else if site.mode == 'archive'
-        | #{site.author} | All Posts
-      else if site.mode == 'page'
-        | #{site.author} | #{page.title()}
-      else
-        | #{post.title()}
+      | #{getTitle()}
 
     if site.canonical
       link(rel="canonical" href=`${site.canonical}`)
@@ -39,12 +40,23 @@ html(lang="en")
     meta(name="description" property="og:description" content=`${getDescription()}`)
     meta(name="theme-color" content="#bf5600")
     meta(name="author" content=`${site.author}`)
+    meta(property="og:title" content=`${getTitle()}`)
+
     if site.mode == 'post' || site.mode == 'index'
       meta(name="date" content=`${post.time()}`)
       meta(name="article:published_time" content=`${post.time()}`)
       meta(name="article:modified_time" content=`${post.time()}`)
       meta(name="twitter:title" content=`${post.title()}`)
-    meta(name="twitter:card" content="summary")
+      if post.attributes.social_img
+        meta(name="twitter:image" content=`${site.url}${post.attributes.social_img}`)
+        meta(name="twitter:card" content="summary_large_image")
+        meta(property="og:image" content=`${site.url}${post.attributes.social_img}`)
+        meta()
+      else
+        meta(name="twitter:image" content=`${site.url}/img/site/logo.png`)
+        meta(name="twitter:card" content="summary")
+        meta(property="og:image" content=`${site.url}/img/site/logo.png`)
+
     meta(name="twitter:site" content="@dmosher")
     meta(name="twitter:creator" content="@dmosher")
     meta(name="twitter:description" content=`${getDescription()}`)
