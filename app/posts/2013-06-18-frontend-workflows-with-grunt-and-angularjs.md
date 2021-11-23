@@ -15,7 +15,7 @@ A screencast that shows front-end developers how they can craft workflows with G
 ## Resources
 
 - Github Source: https://github.com/davemo/frontend-workflows-with-grunt-and-angularjs
-- Resource Bundle: https://blog.davemo.com/posts/2007-01-01-bundle-links.html#frontend-workflows-grunt-and-angular
+- Resource Bundle: https://blog.davemo.com/screencasts
 
 This is part of a screencast series on Angular JS
 
