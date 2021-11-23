@@ -137,6 +137,11 @@
   }
 }
 
+#logo {
+  width: 40px;
+  align-self: end;
+}
+
 header {
   padding: 0px;
 }
