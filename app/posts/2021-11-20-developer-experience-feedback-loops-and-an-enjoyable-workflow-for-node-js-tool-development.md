@@ -309,7 +309,9 @@ Chromium downloaded to /Users/davidmosher/code/node/my_tool/node_modules/carlo/l
 
 With this process launched you should see a Chromium window pop up.
 
-![The Chromium window launched by ndb](/img/nodejs-tooling-development-workflow/ndb-example.png)
+<a href="/img/nodejs-tooling-development-workflow/ndb-example.png" title="The Chromium window launched by ndb">
+  <img src="/img/nodejs-tooling-development-workflow/ndb-example.png" />
+</a>
 
 This is where we can see some of the `ndb` DX specifics I mentioned earlier that make this workflow so nice:
 
