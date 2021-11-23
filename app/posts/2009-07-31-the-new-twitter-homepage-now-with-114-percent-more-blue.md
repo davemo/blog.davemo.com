@@ -12,7 +12,8 @@ Everyone has been submitting reviews of the new [Twitter](https://www.twitter.co
 
 The new homepage does indeed have a new logo and a radically different look than previously and without digging into that too much I'll just say this: I do like the new look and feel. However, I do have to ask the question: "Why so much more blue?" Does the extra blue help or hinder? Is it too busy or does it help unify things on the page more? What do you think?
 
+![](/img/twitter-homepage/blues-in-old-twitter-homepage.png)
+
 <aside>Old site: 7 blues that I could count, New site: 16 blues!</aside>
 
-![](/img/1158376-Picture%2014.png)
-![](/img/1158377-Picture%2015.png)
+![](/img/twitter-homepage/blues-in-new-twitter-homepage.png)
