@@ -146,7 +146,7 @@
 
 #logo {
   width: 40px;
-  align-self: end;
+  align-self: flex-end;
 }
 
 header {
