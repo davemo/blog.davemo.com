@@ -4,7 +4,7 @@ date: "2019-08-27"
 description: "Using SvelteJS to explore treating CSS as a visual state machine."
 ---
 
-<aside class="tldr">Using Svelte, we reimagine the presentation layer of a web application as a state machine.</aside>
+<aside class="tldr">Using Svelte, we can reimagine the presentation layer of a web application as a state machine.</aside>
 
 Thinking of web applications in terms of [state machines](https://en.wikipedia.org/wiki/Finite-state_machine) is [not a new idea](https://www.techrepublic.com/article/set-up-web-applications-as-finite-state-machines/); in fact, it has become so popular in the past few years that teams are spending increasingly more time breaking down their application into states managed by front-end frameworks.
 
