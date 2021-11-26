@@ -9,11 +9,12 @@ article#archive
   - }).value()
 
   h1
-    a(href='/archive.html' title=`Permanent link to ‘Archive: blog.davemo.com’`) Previously, on blog.davemo.com
+    a(href='/archive.html' title=`Permanent link to ‘Archive: blog.davemo.com’`)
+      | Archive
+  time()
+    | 2008 - #{new Date().getFullYear()}
   h6
-    time()
-      time 2008 - #{new Date().getFullYear()}
-  - _(Object.keys(groups).reverse()).each(function(year) {
+  - Object.keys(groups).reverse().forEach(function(year) {
     h2 #{year}
     ul
       - groups[year].reverse().forEach(function(post) {
