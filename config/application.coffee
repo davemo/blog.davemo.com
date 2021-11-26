@@ -18,3 +18,4 @@ module.exports = (lineman) ->
       description: "thoughts on software, music, design, and meaning"
       url: "https://blog.davemo.com"
       dateFormat: 'MMMM Do, YYYY'
+      rssCount: 20
