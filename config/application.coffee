@@ -13,9 +13,10 @@ module.exports = (lineman) ->
 
   markdown:
     options:
-      author: "David Mosher"
       title: "David Mosher's Blog"
       description: "thoughts on software, music, design, and meaning"
       url: "https://blog.davemo.com"
+      author: "David Mosher"
+      authorUrl: "https://twitter.com/dmosher"
       dateFormat: 'MMMM Do, YYYY'
-      rssCount: 20
+      feedCount: 20
