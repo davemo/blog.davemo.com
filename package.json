@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "John Doe",
-    "company": "ACME, Inc."
+    "name": "David A. Mosher",
+    "company": "DAVEMO Consutling"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
     "lineman": "0.39.0",
-    "lineman-blog": "^2.0.0",
+    "lineman-blog": "^3.0.0",
     "lineman-pug": "0.4.0"
   },
   "scripts": {
