@@ -8,7 +8,6 @@
     "company": "DAVEMO Consutling"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
     "lineman": "0.39.0",
     "lineman-blog": "^3.0.0",
     "lineman-pug": "0.4.0"
@@ -16,7 +15,6 @@
   "scripts": {
     "clean": "lineman clean",
     "start": "lineman clean run",
-    "build": "lineman build",
-    "test": "lineman spec"
+    "build": "lineman build"
   }
 }
