@@ -1,3 +1,42 @@
+---
+title: "Learning the DOM by Cheating at Web Games"
+date: "2021-11-26"
+description: "Turning some fun in browser devtools into a learning opportunity."
+social_img: "/img/learn-dom-by-cheating/social-card.png"
+---
+
+<aside class="tldr">
+In which we turn an exploration of a web game into a learning opportunity.
+</aside>
+
+I've been on a recent quest to experiment with new frontend frameworks, like [htmx](https://htmx.org) and [solidjs](https://www.solidjs.com), when I came across [mavo](https://mavo.io/) which bills itself as...
+
+> A new, approachable way to create Web applications
+
+It's novel and got some interesting ideas around composing applications using only HTML/CSS, you should check it out!
+
+Whie exploring, I discovered a [Memory Game](https://dmitrysharabin.github.io/mavo-memory-game/) written in Mavo by one of its maintainers, [Dmitry Sharabin](https://twitter.com/DmitrySharabin), and was pretty impressed with how much interactive behaviour could be achieved with purely declarative markup and styles. As I was playing the game I ended up poking at the internals using my browsers dev tools, mostly because I wanted to see how easy it would be to cheat -- my memory game times are _miserable_. 😉
+
+![Image of memory game]
+
+It was a fun little exploration and I thought it might be a useful learning method to teach some DOM concepts so let's get cheatin'!
+
+## Scratching an Itch
+
+Whenever I'm inspired to learn something it's _usually_ because I have an itch that needs to be scratched; curiousity often drives me forward. In this case, that itch started with a question: I wonder if I can script an automated instant win condition in the Memory Game? 🤔
+
+To start exploring an answer, I did what I usually do: crack open my browsers dev tools and start poking at things.
+
+![image of browser dev tools looking at memory game]
+
+## How can I get the answers?
+
+## What data structure would be easiest to help me cheat?
+
+## How can I simulate user clicks?
+
+## How do I put it all together?
+
 answer = $$('.card span').reduce((out, c, i) => {
    if(out[c.textContent]) {
      out[c.textContent] = [...out[c.textContent], i+1]
