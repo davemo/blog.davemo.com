@@ -15,6 +15,10 @@ I've been on a recent quest to experiment with new frontend frameworks, like [ht
 
 It's novel and got some interesting ideas around composing applications using only HTML/CSS, you should check it out!
 
+<aside class="right">
+  I'm currently rebuilding my [TBS BattlePlanner toy app](https://tbs.davemo.com) using Mavo and plan to blog about it when I'm done, so stay tuned.™
+</aside>
+
 Whie exploring, I discovered a [Memory Game](https://dmitrysharabin.github.io/mavo-memory-game/) written in Mavo by one of its maintainers, [Dmitry Sharabin](https://twitter.com/DmitrySharabin), and was pretty impressed with how much interactive behaviour could be achieved with purely declarative markup and styles. As I was playing the game I ended up poking at the internals using my browsers dev tools, mostly because I wanted to see how easy it would be to cheat -- my memory game times are _miserable_. 😉
 
 ![Image of memory game]
