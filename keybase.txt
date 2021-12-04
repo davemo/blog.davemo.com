@@ -4,47 +4,49 @@ https://keybase.io/dmosher
 
 I hereby claim:
 
-  * I am an admin of https://www.davemo.com
+  * I am an admin of https://blog.davemo.com
   * I am dmosher (https://keybase.io/dmosher) on keybase.
-  * I have a public key ASAjl7nZA81gfQd-iomz3uGBjmQfBlYnEOEnehGNxILLGgo
+  * I have a public key ASDqynzi_r-S5rRVad1u-GVozFsNB0iTsYjUFmE8gL6LjAo
 
 To do so, I am signing this object:
 
 {
-    "body": {
-        "key": {
-            "eldest_kid": "0101637afe7749d75600747414d684277a73ae345c45ed32f85fa98f885cad783cbc0a",
-            "host": "keybase.io",
-            "kid": "01202397b9d903cd607d077e8a89b3dee1818e641f06562710e1277a118dc482cb1a0a",
-            "uid": "75fc8f9b985ffc6fe92647d19f966200",
-            "username": "dmosher"
-        },
-        "service": {
-            "hostname": "www.davemo.com",
-            "protocol": "http:"
-        },
-        "type": "web_service_binding",
-        "version": 1
+  "body": {
+    "key": {
+      "eldest_kid": "0101637afe7749d75600747414d684277a73ae345c45ed32f85fa98f885cad783cbc0a",
+      "host": "keybase.io",
+      "kid": "0120eaca7ce2febf92e6b45569dd6ef86568cc5b0d074893b188d416613c80be8b8c0a",
+      "uid": "75fc8f9b985ffc6fe92647d19f966200",
+      "username": "dmosher"
     },
-    "client": {
-        "name": "keybase.io go client",
-        "version": "1.0.22"
-    },
-    "ctime": 1494559874,
-    "expire_in": 504576000,
     "merkle_root": {
-        "ctime": 1494559825,
-        "hash": "dbbc1a948a724ad3826bb3cb4be4c6bc6292fd459efcd9dbf7d2c9b687e783b1518d0eda7a517cb544a62f78f9e26040a6c3d0bea2c2755626208bdfef4f617d",
-        "seqno": 1069739
+      "ctime": 1638654449,
+      "hash": "75bff70a6ec7e346d69ccb6f32da0f458381d4cb141a13bda9d90f0ddb0d3afcbc92988b824626f32762753d9d23b67c5e3ade8039b4163eea2d04e02a4e21c1",
+      "hash_meta": "002f8ce1a7996512e66dabb9ee10c98ff243b4fda645798a3576c7e7908bf36d",
+      "seqno": 21363994
     },
-    "prev": "de68ad6cd4bdc8df66bd039461bfb799f7690fb6b5b1f50579ad70b9a2b75a81",
-    "seqno": 16,
-    "tag": "signature"
+    "service": {
+      "entropy": "vnIw0JaB3Jux1VVBesJOQa26",
+      "hostname": "blog.davemo.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.8.0"
+  },
+  "ctime": 1638654479,
+  "expire_in": 504576000,
+  "prev": "15fab043c9c7cb2a2176275105e08ecb9f913846fb2e378abcff4d1967c059de",
+  "seqno": 40,
+  "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgI5e52QPNYH0HfoqJs97hgY5kHwZWJxDhJ3oRjcSCyxoKp3BheWxvYWTFAvZ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNjM3YWZlNzc0OWQ3NTYwMDc0NzQxNGQ2ODQyNzdhNzNhZTM0NWM0NWVkMzJmODVmYTk4Zjg4NWNhZDc4M2NiYzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMjM5N2I5ZDkwM2NkNjA3ZDA3N2U4YTg5YjNkZWUxODE4ZTY0MWYwNjU2MjcxMGUxMjc3YTExOGRjNDgyY2IxYTBhIiwidWlkIjoiNzVmYzhmOWI5ODVmZmM2ZmU5MjY0N2QxOWY5NjYyMDAiLCJ1c2VybmFtZSI6ImRtb3NoZXIifSwic2VydmljZSI6eyJob3N0bmFtZSI6Ind3dy5kYXZlbW8uY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yMiJ9LCJjdGltZSI6MTQ5NDU1OTg3NCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDk0NTU5ODI1LCJoYXNoIjoiZGJiYzFhOTQ4YTcyNGFkMzgyNmJiM2NiNGJlNGM2YmM2MjkyZmQ0NTllZmNkOWRiZjdkMmM5YjY4N2U3ODNiMTUxOGQwZWRhN2E1MTdjYjU0NGE2MmY3OGY5ZTI2MDQwYTZjM2QwYmVhMmMyNzU1NjI2MjA4YmRmZWY0ZjYxN2QiLCJzZXFubyI6MTA2OTczOX0sInByZXYiOiJkZTY4YWQ2Y2Q0YmRjOGRmNjZiZDAzOTQ2MWJmYjc5OWY3NjkwZmI2YjViMWY1MDU3OWFkNzBiOWEyYjc1YTgxIiwic2Vxbm8iOjE2LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQFD42jQ7Ax/CS+2EUOg093FiP8HyPUxfK/YjXMHgV2LYMFC2szJCqdNbfxOcWVkyz56gj6x4v9LcfmXQQ6Sn3wuoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCChfYd/vKyfXWhkPw/d7ynbm/Ue+RR5zIVeU2AOS2YlTKN0YWfNAgKndmVyc2lvbgE=
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg6sp84v6/kua0VWndbvhlaMxbDQdIk7GI1BZhPIC+i4wKp3BheWxvYWTESpcCKMQgFfqwQ8nHyyohdidRBeCOy5+ROEb7LjeKvP9NGWfAWd7EIL5kdiJKqIfOHmBWpUJxUXYZldYE90c4uJszW4ktUXhJAgHCo3NpZ8RASOnXkc+pjGjr/HkKVOM/cbXmHG8wWLz92O8PiaPNm7RFmM/yMpZaaHyECOUvJwzrmUzgv8DcO76u6Kh273WdBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIUanVeEN2VDWp695B3xsEqRgPbgkaaPNRSKRbdRiLXyo3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
