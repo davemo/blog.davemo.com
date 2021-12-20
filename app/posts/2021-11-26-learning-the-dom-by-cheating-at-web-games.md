@@ -19,7 +19,7 @@ It's novel and has some interesting ideas around composing applications using on
   I'm currently rebuilding my [TBS BattlePlanner](https://tbs.davemo.com) app using Mavo and plan to blog about it when I'm done, so stay tuned.™
 </aside>
 
-Whie exploring, I discovered a [Memory Game](https://dmitrysharabin.github.io/mavo-memory-game/) written in Mavo by one of its maintainers, [Dmitry Sharabin](https://twitter.com/DmitrySharabin), and was pretty impressed with how much interactive behaviour could be achieved with purely declarative markup and styles. As I was playing the game I ended up poking at the internals using my browsers dev tools, mostly because I wanted to see how easy it would be to **cheat** -- my memory game times are _miserable_. 😉
+While exploring, I discovered a [Memory Game](https://dmitrysharabin.github.io/mavo-memory-game/) written in Mavo by one of its maintainers, [Dmitry Sharabin](https://twitter.com/DmitrySharabin), and was pretty impressed with how much interactive behaviour could be achieved with purely declarative markup and styles. As I was playing the game I ended up poking at the internals using my browsers dev tools, mostly because I wanted to see how easy it would be to **cheat** -- my memory game times were _miserable_. 😉
 
 ![Image of memory game]
 
@@ -27,11 +27,13 @@ It was a fun little exploration and I thought it might be a useful learning meth
 
 ## Scratching an Itch
 
-Whenever I'm inspired to learn something it's _usually_ because I have an itch that needs to be scratched; curiousity often drives me forward and I find myself circling back at the end to take note of which questions I'd asked myself. In this case, that itch started with a question: I wonder if I can script an automated instant win condition in the Memory Game? 🤔
+Whenever I'm inspired to learn something it's _usually_ because I have an itch that needs to be scratched; curiousity often drives me forward and I find myself circling back at the end to take note of which questions I'd asked myself. In this case, that itch started with a question: I wonder if I can script an automated instant win in the Memory Game? 🤔
 
 To start exploring an answer, I did what I usually do: crack open my browsers dev tools and start poking at things.
 
 ![image of browser dev tools looking at memory game]
+
+
 
 ## How can I get the answers?
 
