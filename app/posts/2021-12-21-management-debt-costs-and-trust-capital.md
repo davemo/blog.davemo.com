@@ -94,4 +94,4 @@ Next, reflect on how you are doing on a monthly or quarterly cadence. This will 
 
 At a startup these conditions are going to change more frequently than if you are joining an established larger company -- you should understand this going in so that you aren't surprised when priorities change and you need to diversify your trust investment portfolio.
 
-The bottom line is, think of yourself as a savvy investor, trying to forecast, plan, and react to the market conditions in your new company as you make strategic investments to build up your trust account.
+The bottom line is, think of yourself as a savvy investor, trying to forecast, plan, and react to the market conditions in your new company as you make strategic investments to build up your trust account. 🚀
