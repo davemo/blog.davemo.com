@@ -25,7 +25,7 @@ Well, that's something you _could_ do, and definitely something I've done in the
 You should also consider the opportunity cost of choosing to relax instead of being proactive.
 </aside>
 
-Oh, you haven't thought about this before? I hadn't either, but you can be damned sure any CEO or startup founder worth her salt has likely read Ben's book _and_ has already thought about the cost and potential management debt that will be incurred by taking you on as an employee.
+Oh, you haven't thought about this before? I hadn't either, but you can be damn sure any CEO or startup founder worth her salt has likely read Ben's book _and_ has already thought about the cost and potential management debt that will be incurred by taking you on as an employee.
 
 Now, the fact that they hired you is a good indicator that they think this is a net positive investment over the long term, so you've got that going for you, but what you might not realize is that _most_ employees begin their employment with a slight deficit in their trust account.
 
