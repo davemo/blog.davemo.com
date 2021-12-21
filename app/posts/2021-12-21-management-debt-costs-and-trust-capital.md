@@ -1,8 +1,8 @@
 ---
 title: "Management Debt, Costs, and Trust Capital"
 date: "2021-12-21"
-description: "TODO"
-social_img: "TODO"
+description: "Trust can be thought of as a currency in relational bank accounts."
+social_img: "/img/trust-capital/social-card.png"
 ---
 
 <aside class="tldr">
