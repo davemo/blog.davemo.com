@@ -92,6 +92,6 @@ Unlimited vacation is a good indicator of someones self awareness; you shouldn't
 
 Next, reflect on how you are doing on a monthly or quarterly cadence. This will help you ensure you are making the best investments to earn the most trust and compound interest as you grow in your role at the new company. It will also help you be strategic about when the right time to make that big withdrawal is.
 
-At a startup, these conditions are going to change more frequently than if you are joining an established larger company -- you should understand this going in so that you aren't surprised when priorities change and you need to diversify your trust investment portfolio.
+At a startup these conditions are going to change more frequently than if you are joining an established larger company -- you should understand this going in so that you aren't surprised when priorities change and you need to diversify your trust investment portfolio.
 
 The bottom line is, think of yourself as a savvy investor, trying to forecast, plan, and react to the market conditions in your new company as you make strategic investments to build up your trust account.
