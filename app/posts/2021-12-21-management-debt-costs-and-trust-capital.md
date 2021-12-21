@@ -43,7 +43,7 @@ The _currency_ of this bank account is [trust](https://en.wikipedia.org/wiki/Tru
 
 ## Build Your Own Onboarding Plan
 
-One of the best ways to pay off your initial deficit is to come up with an onboarding plan. Yes, typically this is undertaken by your manager, but by thinking proactively about _your_ version of that plan, you will set yourself up for success.
+One of the best ways to reduce your initial deficit is to come up with an onboarding plan. Yes, typically this is undertaken by your manager, but by thinking proactively about _your_ version of that plan, you will set yourself up for success.
 
 Consider what was communicated to you during interviews, what things are most important to the company? Where is the company heading? What would be most valuable? Then, come up with a 90 day plan and partition it into 30 day segments, writing down what you hope to achieve in each of those segments and questions to clarify with your manager. Here's a few examples of questions that can help shape your plan:
 
