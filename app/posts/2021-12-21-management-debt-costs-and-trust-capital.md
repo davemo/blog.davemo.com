@@ -68,7 +68,7 @@ Lastly, be positive, this is a great opportunity to collaborate!
 
 Once you've begun onboarding, you should start thinking about what to do next. I've done this many times over my consulting career, onboarding with clients, and have a few lessons to share. Here are some do's and dont's:
 
-- You **should** ask lots of **questions** and **be curious**, doing so demonstrates willingness to learn. (Asking questions as someone new is a superpower; you can see things others might not, and the act of asking the question can uncover improvements.)
+- You **should** ask lots of **questions** and **be curious**, doing so demonstrates willingness to learn. (Asking questions as someone new is a superpower; you can see things others might not, and the act of asking the question can uncover improvements).
 
 - You **should** take **detailed notes** during your onboarding experience and reiterate your understanding to multiple people along the way. This shows that you are engaged and actively looking to make sure you are in alignment with what the rest of the organization understands.
 
