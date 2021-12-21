@@ -6,7 +6,7 @@ social_img: "/img/trust-capital/social-card.png"
 ---
 
 <aside class="tldr">
-As an employee, you have a management cost that you can reduce by making frequent deposits of trust capital.
+As an employee, you have a management cost that you can reduce by making frequent deposits in your trust bank.
 </aside>
 
 I've been reading [The Hard Thing About Hard Things](https://www.amazon.ca/Hard-Thing-About-Things-Building/dp/0062273205) by [Ben Horowitz](https://twitter.com/bhorowitz); it's excellent and you should totally add it to your reading list if you haven't already. Somewhere about the halfway point, there's a chapter on the topic of "Management Debt" with some ideas I hadn't considered before:
