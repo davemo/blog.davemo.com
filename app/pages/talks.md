@@ -19,7 +19,7 @@ description: "Talks by David Mosher, a Canadian Software Developer, Designer, Mu
 
 <iframe id="so-you-want-to-be-a-frontend-engineer" width="100%" height="315" src="https://www.youtube.com/embed/Lsg84NtJbmI" frameborder="0" allowfullscreen></iframe>
 
-## The Empathy Equestion
+## The Empathy Equation
 
 * [The Empathy Equation: Slides on Speakerdeck](https://speakerdeck.com/dmosher/the-empathy-equation)
 * [Five Dysfunctions Products | The Table Group](https://www.tablegroup.com/books/dysfunctions)
