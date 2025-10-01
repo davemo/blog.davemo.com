@@ -40,7 +40,7 @@ I ended up in a 1:1 with both the CEO and COO (or is that a 2:1?) where some hon
 
 I ended up shutting down hard after that—pretty much fulfilling the prophecy from the 1:1 feedback. A month later, I ended up leaving the company.
 
-In retrospect, the feedback wasn't really the problem; it was that I couldn't tell if we were in *Disagree & Commit* (a plan exists, follow it) or *Ship & Iterate* (we don't have a plan, keep narrowing and we'll decide later), and I didn't actually ask — I just shut down. Leadership had quietly shifted us into *Disagree & Commit* on a contractor-led plan, and I was still operating as if we were in *Ship & Iterate*.
+In retrospect, the feedback wasn't really the problem; it was that I couldn't tell if we were in *Disagree & Commit* (a plan exists, follow it) or *Ship & Iterate* (we don't have a plan, keep narrowing and we'll decide later), and I didn't actually ask—I just shut down. Leadership had quietly shifted us into *Disagree & Commit* on a contractor-led plan, and I was still operating as if we were in *Ship & Iterate*.
 
 ## Not My Plan, Still My Job
 
@@ -61,13 +61,13 @@ Had I been able to make that separation explicit, I think I would have done two 
 
 "Disagree & Commit" works when the goal is shared but the route is contested. It requires and rests on trust: I trust the decider's taste and judgment enough to set aside my preferred route and still give my best efforts. "Ship & Iterate" is different: it assumes we're still shaping the route, so the job is to _show work_, gather feedback, and narrow quickly.
 
-In my case, I had trust in the _person_—I trusted my CEO's judgment and sense of what good looked like. But I didn't have trust in the _system_: the unclear DRI, the surprising plan change, and the hazy timebox made it challenging to know how to be useful.
+In my case, I had trust in the _person_: I trusted my CEO's judgment and sense of what good looked like. But I didn't have trust in the _system_: the unclear DRI, the surprising plan change, and the hazy timebox made it challenging to know how to be useful.
 
 This distinction matters. You can be resilient when the plan is clear but hard—when you know what operating mode you're in and what's expected. But ambiguous systems drain resilience differently. Without clarity on operating mode and ownership, even well-intentioned people spin their wheels or shut down.
 
 These are solvable alignment problems—_if_ you name what mode you are operating in and ask for clarity:
 
-> "Before we continue, can we confirm our operating mode? Are we in *Commit to  Contractor's Plan* or *Iterate Toward a Decision*? If it's the former, I'd like to propose 2-3 contributions inside that plan by Friday. If it's the latter, I'll work on a few more iterations focusing on hero/information-architecture/templates—also by Friday.
+> Before we continue, can we confirm our operating mode? Are we in *Commit to  Contractor's Plan* or *Iterate Toward a Decision*? If it's the former, I'd like to propose 2-3 contributions inside that plan by Friday. If it's the latter, I'll work on a few more iterations focusing on hero/information-architecture/templates—also by Friday.
 
 What I like about this is it demonstrates curiosity, seeking to understand, and shows alignment and a bias for action regardless of what operating mode we're in. Had I done this, I feel like I would have kept myself in the arena a lot longer and been much more resilient to changing dynamics; resisting the temptation to become frustrated over things that simply weren't my task.
 
@@ -79,15 +79,15 @@ Resilience doesn't mean silence or shutting down; it means finding how to be *us
 
 In the time between the website project and now I've worked with six other clients and made a return to working at [Test Double](https://testdouble.com/team-directory/dave-mosher) as a full time consultant, and I've picked up a few tricks along the way that have helped me reframe my typical defensiveness when receiving feedback like I got from my CEO into a positive set of steps that help to keep me in the arena:
 
-1. *Pause* Feeling defensive? Name it, out loud or in your head, or to the other person if trust is high. Give it 30 minutes or so.
-2. *Separate tasks*. What is mine to own _right now_? What is not?
-3. *Identify the operating mode*. Are we in "Disagree & Commit" or "Ship & Iterate", or maybe even "Stick Your Neck Out"? Ask explicitly.
-4. *Contribute, don't control*. "What is the most useful thing I can contribute within these constraints?"
-5. *Close the loop*. Propose a timeboxed next step; confirm the owner and timeline.
+1. **Pause** Feeling defensive? Name it, out loud or in your head, or to the other person if trust is high. Give it 30 minutes or so.
+2. **Separate Tasks**. What is mine to own _right now_? What is not?
+3. **Identify the Operating Mode**. Are we in "Disagree & Commit" or "Ship & Iterate", or maybe even "Stick Your Neck Out"? Ask explicitly.
+4. **Contribute, don't Control**. "What is the most useful thing I can contribute within these constraints?"
+5. **Close the Loop**. Propose a timeboxed next step; confirm the owner and timeline.
 
 If it helps, here's a phrase you might use in such a scenario:
 
-> "I'm hearing X and Y aren't landing. I'll regroup and come back with options by Friday EOD. Can you confirm whether we're committing to Plan A or still in iterate-toward-spec mode? That changes how I'll structure my next pass.
+> I'm hearing X and Y aren't landing. I'll regroup and come back with options by Friday EOD. Can you confirm whether we're committing to Plan A or still in iterate-toward-spec mode? That changes how I'll structure my next pass.
 
 ## Staying in the Room
 
