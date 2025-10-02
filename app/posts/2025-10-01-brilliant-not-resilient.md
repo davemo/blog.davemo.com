@@ -60,7 +60,7 @@ Had I been able to make that separation explicit, I think I would have done two 
 
 In my case, I had trust in the _person_: I trusted my CEO's judgment and sense of what good looked like. But I didn't have trust in the _system_: the unclear DRI, the surprising plan change, and the hazy timebox made it challenging to know how to be useful.
 
-This distinction matters. You can be resilient when the plan is clear but hard—when you know what operating mode you're in and what's expected. But ambiguous systems drain resilience differently. Without clarity on operating mode and ownership, even well-intentioned people spin their wheels or shut down.
+This distinction matters. You can be resilient when the plan is clear but hard—when you know what operating mode you're in and what's expected. Unclear expectations make staying resilient far harder. Without clarity on operating mode and ownership, even well-intentioned people spin their wheels or shut down.
 
 These are solvable alignment problems—_if_ you name what mode you are operating in and ask for clarity:
 
