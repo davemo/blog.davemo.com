@@ -41,9 +41,9 @@ In retrospect, the feedback wasn't really the problem; it was that I couldn't te
 
 ## Not My Plan, Still My Job
 
-One of the most useful lessons from Courage to Be Disliked is that of the separation of tasks. If you haven't read it, the book is structured as a dialogue between a youth and a philosopher over five nights, exploring many of the themes in Adlerian Psychology—an excerpt on the topic of separating tasks from page 122:
+One of the most useful lessons from Courage to Be Disliked is that of the separation of tasks. If you haven't read it, the book is structured as a dialogue between a youth and a philosopher over five nights, exploring many of the themes in [Adlerian Psychology](https://en.wikipedia.org/wiki/Individual_psychology)—an excerpt on the topic of separating tasks from page 122:
 
-> PHILOSOPHER: One does not intrude on other people's tasks. That's all.
+> **PHILOSOPHER**: One does not intrude on other people's tasks.
 
 The conversation in the chapter continues with much more specific examples, but this snippet is enough to illustrate what I think I was missing: a concrete understanding of what my task was in the website redesign project, and perhaps what it began as and how it changed as the situation evolved.
 
