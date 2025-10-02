@@ -6,11 +6,8 @@ social_img: "/img/brilliant-not-resilient/social-card.png"
 ---
 
 <aside class="tldr">
-"You're brilliant, but you're not resilient."
-  — feedback I wasn't ready to hear (Nov 2023)
+Smarts™ aren't your career bottleneck; staying engaged in hard conversations is, especially when the plan isn't yours.
 </aside>
-
-Smarts™ aren't the bottleneck at senior levels of leadership; the bottleneck is staying in hard conversations long enough to learn, align, disagree, commit, and ship—_especially_ when the plan isn't yours.
 
 I recently finished reading [The Courage to Be Disliked](https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked) and thought it would be a good time to reflect on one of the more painful episodes in my career through the lens of resilience, [trust](https://blog.davemo.com/posts/2021-12-21-management-debt-costs-and-trust-capital.html), and the idea of separation of tasks that the book discusses so effectively.
 
