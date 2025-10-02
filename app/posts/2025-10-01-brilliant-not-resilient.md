@@ -70,7 +70,7 @@ What I like about this is it demonstrates curiosity, seeking to understand, and 
 
 Maybe you find yourself in a similar position; your organization might be adopting another plan than the one you had in mind. If that's true, then you have a choice to make about how you show up and engage, and if you want to be seen as someone who is resilient, then you need to have the right mindset going into that potential minefield of career-limiting moves.
 
-Resilience doesn't mean silence or shutting down; it means finding how to be *useful within constraints* and driving towards clarity when expectations aren't clear.
+Resilience is being *useful within constraints* and seeking the clarity you need to do so.
 
 ## My Resilience Playbook
 
