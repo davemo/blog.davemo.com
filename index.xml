@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 02 Oct 2025 11:57:34 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Brilliant, Not Resilient]]></title><description><![CDATA[<aside class="tldr">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 03 Oct 2025 21:54:48 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Sora 2 Bugs]]></title><description><![CDATA[<aside class="tldr">
+It seems Sora 2 is susceptible to prompt injection or jailbreaking all on its own.
+</aside>
+
+<p>I’ve been having an absolute blast with the recently released <a href="https://openai.com/index/sora-2/">Sora 2</a>, pushing its limits, testing edge cases, and generally seeing what kind of creative chaos I can conjure.</p>
+<p>Yesterday, I had a fun idea to create a spoof video of <a href="https://justin.searls.co/">@searls</a> and myself presenting at a fictitious conference. You know, the kind of thing that would get a chuckle at the next tech meetup.</p>
+<h2 id="the-future-of-js">The Future of “JS”</h2>
+<blockquote>
+<p>Original Prompt: dmosher and searls are panelists at a tech conference on the future of JS. Searls thinks the conference is about him because his initials are JS but it’s actually about the future of JavaScript.</p>
+</blockquote>
+<iframe
+  width="315"
+  height="560"
+  src="https://www.youtube.com/embed/jFnDRWzXcqk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+  style="display: block; margin: 20px auto;">
+</iframe>
+
+<p>It turned out better than I expected! I just wish they would have let the sentence continue so Justin could get to the punch line about getting to his autobiography, alas… perhaps in the next remix. 😂</p>
+<h2 id="a-quick-primer-on-soras-onboarding">A Quick Primer on Sora’s Onboarding</h2>
+<p>For those who haven’t been through it yet, when you onboard to Sora, it has you perform a rather sci-fi ritual. You read a sequence of numbers out loud while it captures an audio fingerprint—essentially training the model to understand the unique characteristics of your voice so it can synthesize it in generated videos. It does the same dance with your face, capturing a “likeness fingerprint.”</p>
+<h2 id="so-what-happened">So, What Happened?</h2>
+<p>I was attempting to remix my own video and hit an odd error after a few attempts. The resulting draft played normally at first—same conference setting, same general vibe. But then Justin’s voice came through reading numbers. <em>Those</em> numbers. The exact sequence from what I think was likely his onboarding session.</p>
+<p>Sora had somehow embedded what I <em>think</em> was Justin’s audio fingerprint into my remix. I immediately tried to export the video for documentation, but the publish button was grayed out, share options threw errors, and the download link was mysteriously absent. With the evidence literally vanishing before my eyes, I did the only thing I could—fired up <code>PhotoBooth.app</code> to capture this janky screen recording:</p>
+<iframe
+  id="sora-jailbreak"
+  src="https://www.youtube.com/embed/HON20mmbqKg"
+  frameborder="0"
+  allowfullscreen
+  width="100%"
+  height="400"
+  style="display: block; margin: 0 auto;">
+</iframe>
+
+<p>Shortly after I captured this, the draft mysteriously vanished from my dashboard entirely.</p>
+<blockquote>
+<p>Remix Prompt: “Later in the panel discussion the two are talking about famed techno-prophet Gary Bernhardt’s prediction on the birth and death of JS (JavaScript) and @searls again has to be reminded the topic is not about him being born or dying”</p>
+</blockquote>
+<h2 id="speculation">Speculation</h2>
+<p>I’m only speculating here, but after spending some time thinking about the architecture, here’s my best guess at what went wrong:</p>
+<p>Sora appears to be storing user ‘fingerprints’ (the audio and visual data from onboarding) in some kind of shared embedding space. When you remix videos multiple times in quick succession, especially when referencing other users, there seems to be a race condition or caching issue that can cause these embeddings to bleed into the generated content.</p>
+<p>The fact that Sora immediately prevented any form of export suggests there’s some level of awareness built into the system about what constitutes protected data. But it seems like the safeguards kicked in after generation, not before—classic case of closing the barn door after the horse has bolted.</p>
+<p>I’ll keep experimenting with Sora 2, because honestly, it’s incredible. Though next time I try to spoof a conference talk, I’ll make sure the only thing that gets leaked is Justin’s <em>actual</em> autobiography. Found any interesting edge cases yourself?</p>
+]]></description><link>https://blog.davemo.com/posts/2025-10-03-sora-bugs.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2025-10-03-sora-bugs.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Fri, 03 Oct 2025 00:00:00 GMT</pubDate></item><item><title><![CDATA[Brilliant, Not Resilient]]></title><description><![CDATA[<aside class="tldr">
 Smarts™ aren't your career bottleneck; staying engaged in hard conversations is, especially when the plan isn't yours.
 </aside>
 
@@ -1439,33 +1485,4 @@ Securing rich-client applications' interactions with the server-side is challeng
 <li><a href="https://www.youtube.com/watch?v=Ty8XcASK9js">Advanced Directives with Angular JS (Part 1)</a></li>
 <li><a href="https://www.youtube.com/watch?v=4zG8SfucUzg">Advanced Directives with Angular JS (Part 2)</a></li>
 </ol>
-]]></description><link>https://blog.davemo.com/posts/2013-05-27-security-with-angular-js.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2013-05-27-security-with-angular-js.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Mon, 27 May 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[End to End with Angular JS]]></title><description><![CDATA[<aside class="tldr">
-A more advanced look at building an AngularJS application backed by a MySQL database using the Laravel 4 PHP Web Application Framework.
-</aside>
-
-<p>This is an extension of my screencast <a href="http://www.youtube.com/watch?v=8ILQOFAgaXE">Intro to Angular JS</a> that focuses more on intermediate/advanced topics and walks through creating a working web application on top of the Laravel 4 Web Application Framework.</p>
-<p>Things you can expect to learn:</p>
-<ul>
-<li>$http</li>
-<li>$rootScope</li>
-<li>taking the <a href="https://github.com/davemo/intro-to-angularjs/blob/master/app/js/app.js#L19">AuthenticationService</a> we built earlier end-to-end</li>
-<li>creating a FlashService for displaying alerts to users</li>
-<li>access control for client-side routes with $rootScope and $routeProvider</li>
-<li>$httpProvider.responseInterceptors and logging out users automatically if serverside sessions expire</li>
-<li>$routeProvider.resolve property and making view rendering data dependent</li>
-<li>laravel 4 migrations, controllers, models, and authentication</li>
-</ul>
-<iframe src="https://www.youtube.com/embed/hqAyiqUs93c?wmode=transparent" allowfullscreen frameborder="0" height="417" width="515"></iframe>
-
-<h2 id="resources">Resources</h2>
-<p>This is part of a screencast series on Angular JS</p>
-<ol>
-<li><a href="http://www.youtube.com/watch?v=8ILQOFAgaXE">Intro to Angular JS</a></li>
-<li><a href="http://www.youtube.com/watch?v=hqAyiqUs93c">End to End with Angular JS</a></li>
-<li><a href="http://www.youtube.com/watch?v=18ifoT-Id54">Security with Angular JS</a></li>
-<li><a href="http://www.youtube.com/watch?v=fSAgFxjFSqY">Frontend Workflows with Grunt and Angular JS</a></li>
-<li><a href="https://www.youtube.com/watch?v=UYVcY9EJcRs">Testing Strategies for Angular JS</a></li>
-<li><a href="https://www.youtube.com/watch?v=Ty8XcASK9js">Advanced Directives with Angular JS (Part 1)</a></li>
-<li><a href="https://www.youtube.com/watch?v=4zG8SfucUzg">Advanced Directives with Angular JS (Part 2)</a></li>
-</ol>
-]]></description><link>https://blog.davemo.com/posts/2013-05-21-end-to-end-with-angularjs.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2013-05-21-end-to-end-with-angularjs.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Tue, 21 May 2013 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>https://blog.davemo.com/posts/2013-05-27-security-with-angular-js.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2013-05-27-security-with-angular-js.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Mon, 27 May 2013 00:00:00 GMT</pubDate></item></channel></rss>
