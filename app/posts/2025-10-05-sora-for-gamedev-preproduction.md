@@ -45,24 +45,27 @@ Here are some early attempts:
 
 > 2.35:1 cinematic, 24fps. Opening wide shot (24mm) eye-level, slow push-in through bustling dwarven taproom with flagstones, oak beams, rune-carved pillars. Warm 3000K firelight + practical candles, soft rim lighting; gentle haze for light rays. Cut to medium (50mm) tracking left as innkeeper (braided beard, leather apron) slides tankard; shallow DOF. High-detail props: copper taps, carved mugs, stew steam. Final close-up (85mm) with rack focus at 8s from stew to ledger UI: minimalist diegetic overlay (gold coins + rep meter). Teal-orange grade, subtle 35mm film grain, Deakins-style naturalism. Natural motion blur, clean cut transitions.
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_1-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_1.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_1.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
 
 > One unbroken 10s take, 60fps, real-time gameplay capture. Low-poly dwarven tavern with toon outline shader and flat color ramps. Third-person shoulder cam follows the innkeeper from keg to bar; smooth, game-like acceleration/deceleration. Patrons in looping emotes (cheer, sit, wave). Lighting: high-key warm directional + baked bounce; crisp shadows. Foam as simple particle sprites; stew steam as billboard particles. HUD: thin outlined panels with bold pictograms; +10 coins tick at top-left, Order Served toast top-right. No cuts, no photo montage, no still frames. Loop seamlessly.
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_2-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_2.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_2.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
 
 > Real-time gameplay capture, continuous 10s, 60fps, no cuts. Third-person follow cam tracking a dwarven innkeeper jogging through misty conifer forest at blue hour; hand-painted terrain, stylized-PBR foliage; volumetric fog and light shafts. Subtle head-bob, camera eases around trees; IK foot planting. The character harvests glowing chanterelles (bioluminescent), +1 ingredient appears as tiny rune HUD near the mushrooms, then fades. Audio: soft wind, branch creaks, cloth rustle. Cool teal environment vs warm fungus glow; mild DOF; foamless motion blur. Seamless loop.
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_3-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_3.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_3.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -97,8 +100,9 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 > Real-time character lookdev test, one continuous take, 10 seconds, 60fps, no cuts, no still frames, no timelapse. Locked front orthographic camera, waist-up to full-body framing, centered. Painted-toon hybrid: low/medium-poly forms, hand-painted albedo with visible brush strokes, stylized-PBR lighting, thin 1–2px toon outlines, two-step shadow ramps (teal shadows, warm highlights). Dwarven innkeeper: braided beard, leather apron, oak-tone bracers, stout silhouette. Idle animation: slow breathing, slight weight shift, tiny head turn, natural blinks; beard/cloth secondary motion; subtle finger fidgets. Lighting: soft key 3000–3500K from screen-left, rim from screen-right 5000K, gentle bounce; neutral backdrop (oak-grain or mid-gray). No camera move, no DOF, natural motion blur minimal. Turn on shader cues: specular on brass buckles, matte leather roughness, painted wood grain. Loop seamlessly end-to-start.
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_1-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_1.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_1.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -106,8 +110,9 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 > Real-time character turnaround test, continuous single take, 10s, 60fps. Locked camera, character rotates 360° clockwise at constant speed on a turntable; no cuts. Painted-toon hybrid look: hand-painted textures, thin toon outlines, two-step shadow ramps, stylized-PBR highlights on brass fittings. Lighting: three-point—key 3200K, fill −1.5 EV, cool rim 5500K; floor card for bounce. Animation: subtle idle breathing while rotating; beard/cloth secondary motion; no exaggerated sway. Backdrop: neutral studio sweep; no DOF. Material callouts visible: leather roughness, wood grain on tankard at belt, brushed metal on belt hooks. Seamless loop end-to-start (rotation lands on front exactly at 10s).
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_2-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_2.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_2.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -115,8 +120,9 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 > Real-time lookdev test, one continuous take, 10 seconds, 60fps, no cuts, no still frames, no timelapse, seamless loop end-to-start. Painted-toon hybrid: low/medium-poly forms, hand-painted albedo with visible brush strokes, stylized-PBR lighting, thin 1–2px toon outlines, two-step shadow ramps (teal shadows, warm highlights). Locked front orthographic camera, full-body, centered trio. Neutral mid-gray studio backdrop, no DOF, natural motion blur minimal. Three dwarven innkeeper variants stand side-by-side at equal scale: Tankard-Bearer (broad shoulders), Smith-Chef (apron + skillet on belt), Scout (lighter kit). All perform subtle idle: slow breathing, slight weight shift, natural blinks; beards/cloth secondary motion. High-contrast rim so silhouettes read clearly; lighting constant; no camera move.
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_3-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_3.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_3.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -136,8 +142,9 @@ I was trying to get a character turnaround and accidentally left in all of the p
 > Character sheet plate, single still. Dwarven innkeeper, painted-toon hybrid (hand-painted albedo, thin 1–2px outlines, two-step ramps, stylized-PBR highlights kept subtle). Stocky heroic proportions (broad shoulders, short legs), braided beard with clear air-gap from chest, bald crown with close-cropped sides, simple tunic, belt, pants, boots; no props/cape/apron/toolkit. A-pose: arms ~30° down from horizontal, hands open, fingers separated; legs shoulder-width, feet flat on ground plane, head level, neutral face. Camera: orthographic, full-body, perfectly [FRONT / RIGHT-PROFILE / BACK] facing, centered; framing consistent. Background: neutral mid-gray seamless; no DOF, no motion blur. Lighting: even studio three-point (key 5000K softbox, fill −1 EV, soft rim); shadows soft and minimal; materials unchanged. Exposure even, no vignetting, no color cast. Style anchors: warm, hand-painted base colors (muted earth palette: umber leather, slate cloth, iron accents), clean silhouettes, no grunge overlays, readable edge accents on folds and seams. Negative: no pose changes, no stepping, no crossed limbs, no props, no background objects, no text, no logos.
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_character_sheet_1-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_character_sheet_1.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_character_sheet_1.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -147,8 +154,9 @@ I was trying to get a character turnaround and accidentally left in all of the p
 > Character turnaround, 10s, 60fps, single continuous take, loopable. Painted-toon hybrid (hand-painted albedo, thin 1–2px outlines, two-step ramps, stylized-PBR). Locked orthographic camera, full-body, centered; neutral mid-gray cyc; no DOF, no motion blur. Dwarven innkeeper in A-pose (arms ~30° down from horizontal), legs shoulder-width, feet flat, hands open with fingers separated; head level; neutral face. No props, no cape, no apron, no toolkit. Beard volume clearly separated from chest. Elbows and hands fully visible (no self-occlusion). Character rotates 360° clockwise at constant speed on a turntable; framing constant. Lighting: neutral studio 3-point (key 5000K softbox, fill −1 EV, subtle rim), soft shadows; materials unchanged throughout.
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -185,8 +193,9 @@ After many iterations, I had evolved my prompt to produce an asset with:
 > Character sheet, 10s, 60fps, single take, sequential camera cuts; no motion blur, no DOF. Dwarven innkeeper, painted-toon hybrid (hand-painted albedo, thin 1–2px outlines, two-step ramps, subtle stylized-PBR). A-pose: arms ~30° from horizontal, hands open, fingers separated; legs shoulder-width, feet flat; head level, neutral face; beard with visible air-gap from chest. Camera & framing: orthographic, full-body, subject centered; lock zoom/orthographic size; character occupies ~70–80% of frame height; minimum 10% margin to all edges; no cropping of hands, feet, or elbows at any time; ground plane visible. Aspect 16:9. Background: neutral mid-gray seamless. Lighting constant (even studio three-point: key 5000K, fill −1 EV, soft rim). Timing: 0.0–2.5s = FRONT; 2.5–5.0s = RIGHT-PROFILE (90°); 5.0–7.5s = BACK (180°); 7.5–10.0s = 3⁄4 front-right (≈45°); loop resets to FRONT at 10s. Negative: no props/cape/apron/toolkit; no idle sway; no background objects; no text/watermarks;
 
 <figure class="featurette">
-  <video controls loop muted playsinline>
+  <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_character_sheet_sequential-poster.jpg">
     <source src="/img/sora-for-gamedev/lookdev_character_sheet_sequential.webm" type="video/webm">
+    <source src="/img/sora-for-gamedev/lookdev_character_sheet_sequential.mp4" type="video/mp4">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
