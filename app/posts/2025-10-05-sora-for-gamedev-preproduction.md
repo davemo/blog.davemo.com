@@ -46,8 +46,8 @@ Here are some early attempts:
 > 2.35:1 cinematic, 24fps. Opening wide shot (24mm) eye-level, slow push-in through bustling dwarven taproom with flagstones, oak beams, rune-carved pillars. Warm 3000K firelight + practical candles, soft rim lighting; gentle haze for light rays. Cut to medium (50mm) tracking left as innkeeper (braided beard, leather apron) slides tankard; shallow DOF. High-detail props: copper taps, carved mugs, stew steam. Final close-up (85mm) with rack focus at 8s from stew to ledger UI: minimalist diegetic overlay (gold coins + rep meter). Teal-orange grade, subtle 35mm film grain, Deakins-style naturalism. Natural motion blur, clean cut transitions.
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_1-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_style_exploration_1.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_1.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_1.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -55,8 +55,8 @@ Here are some early attempts:
 > One unbroken 10s take, 60fps, real-time gameplay capture. Low-poly dwarven tavern with toon outline shader and flat color ramps. Third-person shoulder cam follows the innkeeper from keg to bar; smooth, game-like acceleration/deceleration. Patrons in looping emotes (cheer, sit, wave). Lighting: high-key warm directional + baked bounce; crisp shadows. Foam as simple particle sprites; stew steam as billboard particles. HUD: thin outlined panels with bold pictograms; +10 coins tick at top-left, Order Served toast top-right. No cuts, no photo montage, no still frames. Loop seamlessly.
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_2-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_style_exploration_2.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_2.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_2.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -64,8 +64,8 @@ Here are some early attempts:
 > Real-time gameplay capture, continuous 10s, 60fps, no cuts. Third-person follow cam tracking a dwarven innkeeper jogging through misty conifer forest at blue hour; hand-painted terrain, stylized-PBR foliage; volumetric fog and light shafts. Subtle head-bob, camera eases around trees; IK foot planting. The character harvests glowing chanterelles (bioluminescent), +1 ingredient appears as tiny rune HUD near the mushrooms, then fades. Audio: soft wind, branch creaks, cloth rustle. Cool teal environment vs warm fungus glow; mild DOF; foamless motion blur. Seamless loop.
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_style_exploration_3-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_style_exploration_3.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_style_exploration_3.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_style_exploration_3.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -101,8 +101,8 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_1-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_1.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_1.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_1.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -111,8 +111,8 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_2-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_2.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_2.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_2.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -121,8 +121,8 @@ The key insight here: *specificity breeds consistency*. The more detailed your p
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_consistency_exploration_3-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_3.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_3.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_consistency_exploration_3.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -143,8 +143,8 @@ I was trying to get a character turnaround and accidentally left in all of the p
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_character_sheet_1-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_character_sheet_1.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_character_sheet_1.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_character_sheet_1.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -155,8 +155,8 @@ I was trying to get a character turnaround and accidentally left in all of the p
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_clean_a_pose_turnaround.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
@@ -194,8 +194,8 @@ After many iterations, I had evolved my prompt to produce an asset with:
 
 <figure class="featurette">
   <video controls muted playsinline preload="metadata" poster="/img/sora-for-gamedev/lookdev_character_sheet_sequential-poster.jpg">
-    <source src="/img/sora-for-gamedev/lookdev_character_sheet_sequential.webm" type="video/webm">
     <source src="/img/sora-for-gamedev/lookdev_character_sheet_sequential.mp4" type="video/mp4">
+    <source src="/img/sora-for-gamedev/lookdev_character_sheet_sequential.webm" type="video/webm">
     Your browser does not support the <code>video</code> tag.
   </video>
 </figure>
