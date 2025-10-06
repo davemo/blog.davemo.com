@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 06 Oct 2025 02:07:51 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Sora 2 for Lookdev]]></title><description><![CDATA[<aside class="tldr">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 06 Oct 2025 02:15:16 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Sora 2 for Lookdev]]></title><description><![CDATA[<aside class="tldr">
 Sora is a surprisingly capable idea generator for gamedev pre-production.
 </aside>
 
@@ -192,7 +192,7 @@ Peak Memory: 11525.65625 MB
 <li>Experimenting with environment and prop generation</li>
 </ul>
 <p>If you’re interested in trying this workflow yourself, everything lives in <a href="https://github.com/davemo/gamedev-preproduction-pipeline">davemo/gamedev-preproduction-pipeline</a>. Feel free to <a href="https://twitter.com/dmosher">reach out</a> if you want to chat about gamedev pipelines—I’m always happy to trade notes.</p>
-]]></description><link>https://blog.davemo.com/posts/2025-10-05-sora-for-gamdev-preproduction.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2025-10-05-sora-for-gamdev-preproduction.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Sun, 05 Oct 2025 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sora 2 Bugs]]></title><description><![CDATA[<aside class="tldr">
+]]></description><link>https://blog.davemo.com/posts/2025-10-05-sora-for-gamedev-preproduction.html</link><guid isPermaLink="true">https://blog.davemo.com/posts/2025-10-05-sora-for-gamedev-preproduction.html</guid><dc:creator><![CDATA[David Mosher]]></dc:creator><pubDate>Sun, 05 Oct 2025 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sora 2 Bugs]]></title><description><![CDATA[<aside class="tldr">
 Post-generation checks in Sora 2 flagged my remix after an unexpected voice segment appeared.
 </aside>
 

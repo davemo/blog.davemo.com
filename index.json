@@ -12,8 +12,8 @@
   ],
   "items": [
     {
-      "id": "https://blog.davemo.com/posts/2025-10-05-sora-for-gamdev-preproduction.html",
-      "url": "https://blog.davemo.com/posts/2025-10-05-sora-for-gamdev-preproduction.html",
+      "id": "https://blog.davemo.com/posts/2025-10-05-sora-for-gamedev-preproduction.html",
+      "url": "https://blog.davemo.com/posts/2025-10-05-sora-for-gamedev-preproduction.html",
       "title": "Sora 2 for Lookdev",
       "summary": "How I used Sora 2, GPT-5, and Codex to generate consistent character lookdev assets, A-pose references, and 3D meshes for indie game pre-production in a few hours.",
       "date_published": "2025-10-05T00:00:00.000Z",
