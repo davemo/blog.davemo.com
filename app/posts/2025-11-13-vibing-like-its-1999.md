@@ -5,7 +5,7 @@ description: "I thought my very first website from the late '90s was lost foreve
 social_img: "/img/vibing-like-its-1999/social-card.png"
 ---
 
-<aside class="tldr">LLMs make great "digital archivists," helping resurrect old sites and find lost assets with the Wayback Machine.</aside>
+<aside class="tldr">LLMs make great "digital archivists," resurrecting old sites and finding lost assets via the Wayback Machine.</aside>
 
 I've been down a nostalgia rabbit hole lately, trying to track down a lot of my early internet artifacts—including my first website.
 
