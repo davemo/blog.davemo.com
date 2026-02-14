@@ -274,7 +274,7 @@ agent.<span class="hljs-property">voice</span>.<span class="hljs-title function_
 <p>The machine is the skeleton; the agent is the muscle; and the muscle can only move the way the skeleton allows.</p>
 <h2 id="scaling-this-up-a-real-voice-workflow">Scaling this up: a real voice workflow</h2>
 <p>The code above is simple on purpose, but early tests and spikes have me confident that the pattern works. Imagine a production voice agent where callers dial in and speak to an AI assistant to complete a multi-step workflow over the phone:</p>
-<p>Telnyx handles telephony and streams audio over a WebSocket. Mastra connects to the OpenAI Realtime API for speech-to-speech — the caller speaks naturally and hears natural speech back. The round trip for a single turn looks like this:</p>
+<p><a href="https://telnyx.com">Telnyx</a> handles telephony and streams audio over a WebSocket. <a href="https://mastra.ai">Mastra</a> connects to the <a href="https://developers.openai.com/api/docs/guides/voice-agents/">OpenAI Realtime API</a> for speech-to-speech — the caller speaks naturally and hears natural speech back. The round trip for a single turn looks like this:</p>
 <pre><code><span class="hljs-number">1.</span> Caller speaks
    → Telnyx streams audio (μ-law, <span class="hljs-number">8</span>kHz) via WebSocket
 
