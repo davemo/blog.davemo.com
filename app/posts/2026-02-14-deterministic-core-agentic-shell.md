@@ -148,7 +148,7 @@ Which brings me back to where I started with this brain dump; Gary defined the f
 
 Because I lack originality, and I really like Gary, I'm calling it **deterministic core, agentic shell**.
 
-The trick as I see it is, all these companies want to build "agentic" features and rely heavily on the LLM, which frequently (and rightfully) violate every software engineer's sensibilities around determinism. Evals, LLM-as-judge, vibes-based-testing, and all of the "rigor" around how to "test" prompts and use of agents is all well and good, but for my money nothing beats the fast feedback loop of a sufficiently isolated unit test with pure functions.
+The trick as I see it is, all these companies want to build "agentic" features and rely heavily on the LLM, which frequently (and rightfully) violate every software engineer's sensibilities around determinism. Evals, LLM-as-judge, vibes-based-testing, and all of the "rigor" around how to "test" prompts and use of agents is all well and good, but for my money nothing beats the fast feedback loop and confidence of a sufficiently isolated unit test with pure functions.
 
 So, similar to how functional core was Gary's answer to testability in a world full of side effects, my assertion is that state machines are the answer to determinism in the era of AI agents. I have seen time and again that if we draw a larger box around that core and try as hard as possible to shove all the things that are important into it, and into a state machine, that the layers above (both imperative and agentic) become minimized, reducing risk, and making it much easier to verify correctness in the core of the system.
 
