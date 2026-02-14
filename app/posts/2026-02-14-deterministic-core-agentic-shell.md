@@ -449,7 +449,7 @@ TOOLS:
 `;
 ```
 
-The system prompt tells the agent _how_ to talk; the machine tells it _when_. Language lives in the shell, logic lives in the core.
+The system prompt also tells the agent _how_ to talk; the machine tells it _when_. Language lives in the shell, logic lives in the core.
 
 ## Boundaries
 
