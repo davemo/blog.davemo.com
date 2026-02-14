@@ -356,7 +356,7 @@ The machine is the skeleton; the agent is the muscle; and the muscle can only mo
 
 The code above is simple on purpose, but early tests and spikes have me confident that the pattern works. Imagine a production voice agent where callers dial in and speak to an AI assistant to complete a multi-step workflow over the phone:
 
-Telnyx handles telephony and streams audio over a WebSocket. Mastra connects to the OpenAI Realtime API for speech-to-speech — the caller speaks naturally and hears natural speech back. The round trip for a single turn looks like this:
+[Telnyx](https://telnyx.com) handles telephony and streams audio over a WebSocket. [Mastra](https://mastra.ai) connects to the [OpenAI Realtime API](https://developers.openai.com/api/docs/guides/voice-agents/) for speech-to-speech — the caller speaks naturally and hears natural speech back. The round trip for a single turn looks like this:
 
 ```
 1. Caller speaks
