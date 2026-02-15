@@ -134,11 +134,11 @@ SurveyTakingConversationMachine
 
 A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, just a voice agent running a state machine. My POC was five years too early for the tooling we now have with realtime agentic voice models!
 
-The POC didn't seem to get much traction internally, and I did not win the Hackathon, which had me scratching my head. One reason may be that `xState v4` had not yet formalized use of the Actor model — that came with `xState v5`, released in late 2023. The Actor model fits beautifully on top of a state machine: if the machine definition is a JSON blob serialized in your database, inflated at runtime, then the Actor is the user working their way through the states, guards, and actions defined by the machine. 
+The POC didn't seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. One reason may be that `xState v4` had not yet formalized use of the Actor model — that came with `xState v5`, released in late 2023. The Actor model fits beautifully on top of a state machine: if the machine definition is a JSON blob serialized in your database, inflated at runtime, then the Actor is the user working their way through the states, guards, and actions defined by the machine. 
 
 With `v5`, XState made this explicit — every running machine _is_ an actor, and you get `getPersistedSnapshot()` to serialize the full actor state and restore it later with `createActor(machine, { snapshot: restored })`. Will you look at that, the round-trip from database to runtime and back that the van Gurp & Bosch paper was gesturing at with their XML serialization and FSM instantiation patterns, just with JSON instead of `.ser` files!
 
-Maybe the idea was ahead of its time, maybe xState wasn't mature enough (but I'm like, hello? 1960's heritage with FSMs? this isn't rocket science nor new), or maybe I just wasn't good at pitching. 😅
+Maybe the idea was too ahead of its time, maybe xState wasn't mature enough, or maybe I just wasn't good at pitching. 😅
 
 ## Deterministic Core, Agentic Shell
 
