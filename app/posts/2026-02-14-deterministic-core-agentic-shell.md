@@ -144,7 +144,7 @@ Maybe the idea was ahead of its time, maybe xState wasn't mature enough (but I'm
 
 Anyways, fast forward to now, and I keep coming back to this idea as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.
 
-Which brings me back to where I started with this brain dump; Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. 
+Which brings me back to where I started with this brain dump: Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. 
 
 Because I lack originality, and I really like Gary, I'm calling it **deterministic core, agentic shell**.
 
