@@ -5,7 +5,7 @@ description: "How do you make AI agents deterministic? Put a state machine at th
 social_img: "/img/deterministic-core-agentic-shell/social-card.png"
 ---
 
-<aside class="tldr">State machines are the answer to those seeking determinism in the era of AI agents.</aside>
+<aside class="tldr">State machines are the answer for those seeking determinism in the era of AI agents.</aside>
 
 The release of Gary Bernhardt's screencast [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell) mentioned at the end of his talk [Boundaries](https://www.destroyallsoftware.com/talks/boundaries) was a transformational moment for me. Up until that point in my career, I hadn't really thought too much about "architecture" as it relates to software, well at least not in the way I had heard software architects speak about it, which was, to my eager-but-naive ears, filled with a bunch of buzzwords and acronyms that I did not understand.
 
