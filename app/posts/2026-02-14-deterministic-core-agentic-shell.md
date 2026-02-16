@@ -69,7 +69,7 @@ About 5 years ago I was working at [SurveyMonkey](https://www.surveymonkey.com/)
 
 At the time, my team was tasked with coming up with a vision for how we could improve the Analyze Experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated [Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/) due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. 
 
-Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of "the framework" open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using [XState](https://xstate.js.org/) v4.26.1 during one of our hackathons, and I recall thinking:
+Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of "the framework" open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using [XState](https://xstate.js.org/) `v4.26.1` during one of our hackathons, and I recall thinking:
 
 > this entire workflow, end to end, feels like it should be a state machine, what would it look like if we had survey creators use a GUI to produce a state machine definition that we could serialize in our db as the source of truth, and then when survey takers go to take the survey, we reinflate that definition and have them run it live in their browser
 
@@ -152,7 +152,7 @@ In 1999, van Gurp & Bosch were solving the same problem with XML and Java serial
 
 > FSMAction components are instantiated, configured and saved to a file using serialization. The saved files are referred to from the XML file as .ser files. When the framework is configured the .ser files are deserialized and plugged into the FSM framework.
 
-The round-trip from database to runtime and back that they were building with `XML` and `.ser` files is the same round-trip XState v5 gives you with `JSON` and `getPersistedSnapshot()` — same architectural instinct, 25 years apart.
+The round-trip from database to runtime and back that they were building with `XML` and `.ser` files is the same round-trip XState `v5` gives you with `JSON` and `getPersistedSnapshot()` — same architectural instinct, 25 years apart.
 
 ## Deterministic Core, Agentic Shell
 
