@@ -93,7 +93,7 @@ SurveyTakingConversationMachine</span>
 </code></pre>
 <p>A conversational survey (<code>SurveyTakingConversationMachine</code>) is, in hindsight, just a voice agent running a state machine. I just didn’t have the voice agent yet. My POC was five years too early for the tooling we now have with realtime agentic voice models!</p>
 <p>The POC didn’t seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. Maybe the idea was too ahead of its time, maybe XState wasn’t mature enough for the team, or maybe I just wasn’t good at pitching. 😅</p>
-<p>A more likely reason is that my POC hadn’t fully solved the serialization/runtime challenges; I had conceptualized how it would work as a machine definition as a JSON blob serialized in your database and inflated at runtime, but I didn’t show how that could happen aside from a basic demo using <code>localStorage</code>.</p>
+<p>A more likely reason is that my POC hadn’t fully solved the serialization/runtime challenges; I had conceptualized how it would work — a machine definition as a JSON blob serialized in your database and inflated at runtime — but I didn’t show how that could happen aside from a basic demo using <code>localStorage</code>.</p>
 <p>XState <code>v4</code> had not yet formalized use of the Actor model, which sits beautifully on top of a state machine; in <code>v5</code>, XState made this explicit — every running machine <em>is</em> an actor, and you get <code>getPersistedSnapshot()</code> to serialize the full actor state and restore it later with <code>createActor(machine, { snapshot: restored })</code>. </p>
 <p>In 1999, van Gurp &amp; Bosch were solving the same problem with XML and Java serialization:</p>
 <blockquote>
