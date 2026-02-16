@@ -13,7 +13,7 @@ I have returned to both the screencast and talk many times because the concepts 
 
 Gary's insight was that separating the pure from the effectful lets you test what matters and push complexity to the edges. I think we're at a similar inflection point now — but the "shell" has become something far more unpredictable than imperative I/O. The shell is now an LLM.
 
-## Finite State Machines
+## Where I learned state machines
 
 From ~2008-2011 I worked at my first startup, [Vendasta Technologies](https://www.vendasta.com). They're still around, and doing well, and dare I say had some of the best startup marketing of the 2000's. Seriously just watch this 40 second spot riffing on how we named the company and tell me you didn't laugh out loud …
 
@@ -41,7 +41,7 @@ I want to _underscore_ this was back in **2011**!
 
 <aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
-## We need to go further back …
+## Foundations of state machines
 
 Finite state machines trace back to the 1950s and 60s — [Mealy (1955)](https://en.wikipedia.org/wiki/Mealy_machine) and [Moore (1956)](https://en.wikipedia.org/wiki/Moore_machine) formalized the two canonical FSM models, and they became foundational in compiler design, protocol specification, and hardware engineering. Shawn and the team at Vendasta took those ideas and made them practical for web-scale async workflows.
 
@@ -166,7 +166,7 @@ The trick as I see it is, all these companies want to build "agentic" features a
 
 So, similar to how functional core was Gary's answer to testability in a world full of side effects, my assertion is that state machines are the answer to determinism in the era of AI agents. I have seen time and again that if we draw a larger box around that core and try as hard as possible to shove all the things that are important into it, and into a state machine, that the layers above (both imperative and agentic) become minimized, reducing risk, and making it much easier to verify correctness in the core of the system.
 
-## What this looks like in practice
+## A pragmatic reference architecture
 
 I've been spiking on a project with [Jon Girard](https://www.linkedin.com/in/jon-girard-8239988b/) and [Michael Timko](https://www.linkedin.com/in/miketimko/) and applying these ideas — the heritage from van Gurp & Bosch, the configuration-driven approach from Fantasm, the machine-as-source-of-truth thinking from my SurveyMonkey POC — and it is proving highly effective at validating **deterministic core, agentic shell**. 
 
@@ -481,7 +481,7 @@ The voice agent interprets the caller's input (non-deterministic), figures out w
 
 The non-deterministic parts are _thin_ — the deterministic core is _thick_ and does the actual work.
 
-## The through-line
+## Lineage
 
 I fell into an obsession with state machines as an architectural pattern by accident. I got to learn from Shawn, Jason, and Kevin at Vendasta, who were drawing on the pioneers that came before them. And I suspect there are more through-lines worth tracing, by revisiting old whitepapers and watching how ideas get refined as they move from theory to practice.
 
