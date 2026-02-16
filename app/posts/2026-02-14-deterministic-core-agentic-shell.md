@@ -1,7 +1,7 @@
 ---
 title: "Deterministic Core, Agentic Shell"
 date: "2026-02-14"
-description: "How do you make AI agents deterministic? Put a state machine at the core. A practical guide to the 'deterministic core, agentic shell' pattern with XState and Mastra."
+description: "How do you make AI agents deterministic? Put a state machine at the core. A pragmatic architecture pattern for AI agents using Mastra and XState."
 social_img: "/img/deterministic-core-agentic-shell/social-card.png"
 ---
 
