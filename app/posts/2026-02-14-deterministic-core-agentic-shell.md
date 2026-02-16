@@ -33,13 +33,13 @@ MashedIn needed async workflows — fan-out across multiple social media APIs, r
 
 It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company, and Shawn, Kevin, and Jason were instrumental in making it happen on the beta version of AppEngine (what would eventually become a part of GCP).
 
-![MashedIn Circa 2011](/img/deterministic-core-agentic-shell/mashedin-circa-2011.png)
-
-<aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
-
 It got so popular at the time that it was [featured on the App Engine blog](https://cloudplatform.googleblog.com/2011/03/implementing-workflows-on-app-engine.html). You can see [how it has evolved on GitHub.](https://github.com/vendasta/fantasm/tree/master)
 
 I want to _underscore_ this was back in **2011**!
+
+![MashedIn Circa 2011](/img/deterministic-core-agentic-shell/mashedin-circa-2011.png)
+
+<aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
 ## We need to go further back …
 
