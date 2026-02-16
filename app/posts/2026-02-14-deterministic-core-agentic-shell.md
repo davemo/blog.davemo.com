@@ -138,7 +138,7 @@ A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, ju
 
 The POC didn't seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. Maybe the idea was too ahead of its time, maybe XState wasn’t mature enough for the team, or maybe I just wasn’t good at pitching. 😅
 
-A more likely reason is that my POC hadn't fully solved the serialization/runtime challenges; I had conceptualized how it would work as a machine definition as a JSON blob serialized in your database and inflated at runtime, but I didn't show how that could happen aside from a basic demo using `localStorage`.
+A more likely reason is that my POC hadn't fully solved the serialization/runtime challenges; I had conceptualized how it would work — a machine definition as a JSON blob serialized in your database and inflated at runtime — but I didn't show how that could happen aside from a basic demo using `localStorage`.
 
 XState `v4` had not yet formalized use of the Actor model, which sits beautifully on top of a state machine; in `v5`, XState made this explicit — every running machine _is_ an actor, and you get `getPersistedSnapshot()` to serialize the full actor state and restore it later with `createActor(machine, { snapshot: restored })`. 
 
