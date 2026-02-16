@@ -35,7 +35,7 @@
 <p>About 5 years ago I was working at <a href="https://www.surveymonkey.com/">SurveyMonkey</a> as part of the Analyze team. The application was composed of a few pieces that fit together in a workflow, roughly: </p>
 <p><code>Design -&gt; Preview -&gt; Collect -&gt; Analyze -&gt; Present</code></p>
 <p>At the time, my team was tasked with coming up with a vision for how we could improve the Analyze Experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated <a href="https://htmx.org/essays/locality-of-behaviour/">Locality of Behaviour</a> due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. </p>
-<p>Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of “the framework” open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using <a href="https://xstate.js.org/">xState</a> v4.26.1 during one of our hackathons, and I recall thinking:</p>
+<p>Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of “the framework” open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using <a href="https://xstate.js.org/">XState</a> v4.26.1 during one of our hackathons, and I recall thinking:</p>
 <blockquote>
 <p>this entire workflow, end to end, feels like it should be a state machine, what would it look like if we had survey creators use a GUI to produce a state machine definition that we could serialize in our db as the source of truth, and then when survey takers go to take the survey, we reinflate that definition and have them run it live in their browser</p>
 </blockquote>
@@ -44,7 +44,7 @@
 <p>Simple enough to explain, but it maps perfectly to a state machine: each question is a state, each answer is an event, and branching logic is a guard.</p>
 <aside>This is pretty much the same kind of conditional transition that van Gurp & Bosch flagged as "hard to implement in an OO way" in the future work section of their whitepaper. They suggested using the <a href='https://refactoring.guru/design-patterns/command'>Command pattern</a> from the Gang of Four to create condition objects — XState has <a href='https://stately.ai/docs/guards'>guards</a> as a first-class concept. Same problem, solved 20 years later with a cleaner primitive.</aside>
 
-<p>Because I like code, here’s the core of the POC (syntax is <code>xState v4</code>, so it’s old and out of date compared to <code>v5</code>, but illustrative enough to get the gist):</p>
+<p>Because I like code, here’s the core of the POC (syntax is XState <code>v4</code>, so it’s old and out of date compared to <code>v5</code>, but illustrative enough to get the gist):</p>
 <pre><code class="hljs language-javascript"><span class="hljs-comment">// xstate v4 syntax from ~5 years ago</span>
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">Machine</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;xstate&#x27;</span>
 
