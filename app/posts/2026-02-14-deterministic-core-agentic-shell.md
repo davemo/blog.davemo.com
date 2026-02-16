@@ -469,7 +469,9 @@ The system prompt also tells the agent _how_ to talk; the machine tells it _when
 
 Applying the core/shell lens has helped me think about where to draw the boundary between agent and state machine, and we are now in a world where it is trivial to produce working concepts that can validate where that line should be.
 
-One way you might think about this is something like "let's start with one Mastra tool, `getMachine`, and the only thing it was able to do was get the next state from the machine." This is a decent place to start, but kind of fell over in short order because there's some amount of non-determinism you need in order for an agentic voice solution to work well — the agent needs to interpret messy human speech, handle interruptions, deal with off-topic questions, and generally be flexible about _how_ it gets the information the machine needs.
+One way you might think about this is something like "let's start with one Mastra tool, `getMachine`, and the only thing it was able to do was get the next state from the machine." 
+
+This is a decent place to start, but kind of fell over in short order because there's some amount of non-determinism you need in order for an agentic voice solution to work well — the agent needs to interpret messy human speech, handle interruptions, deal with off-topic questions, and generally be flexible about _how_ it gets the information the machine needs.
 
 What I've found works better is more guard-rails in the system prompt for the tools and workflow, but the principle of having the agent calling the machine to figure out what's possible and constrain the states and tools that can be called next has proven extremely valuable. 
 
