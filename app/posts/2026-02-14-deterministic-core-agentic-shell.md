@@ -483,7 +483,7 @@ The non-deterministic parts are _thin_ — the deterministic core is _thick_ and
 
 ## The through-line
 
-I kind of fell into this whole obsession with state machines as an architectural pattern by accident. I got to learn from Shawn, Jason, and Kevin at Vendasta, and they in turn got to learn from the pioneers that came before them. I suspect there are many more through-lines to connect the dots and lessons to be learned by scouring through old whitepapers and exploring how knowledge has moved through the intellectual supply chain over time.
+I fell into an obsession with state machines as an architectural pattern by accident. I got to learn from Shawn, Jason, and Kevin at Vendasta, who were drawing on the pioneers that came before them. And I suspect there are more through-lines worth tracing, by revisiting old whitepapers and watching how ideas get refined as they move from theory to practice.
 
 | Era | Tool | Pattern |
 |-----|------|---------|
