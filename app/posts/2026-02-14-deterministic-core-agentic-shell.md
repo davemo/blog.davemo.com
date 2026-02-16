@@ -9,7 +9,7 @@ social_img: "/img/deterministic-core-agentic-shell/social-card.png"
 
 The release of Gary Bernhardt's screencast [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell) mentioned at the end of his talk [Boundaries](https://www.destroyallsoftware.com/talks/boundaries) was a transformational moment for me. Up until that point in my career, I hadn't really thought too much about "architecture" as it relates to software, well at least not in the way I had heard software architects speak about it, which was, to my eager-but-naive ears, filled with a bunch of buzzwords and acronyms that I did not understand.
 
-I have returned to both the screencast and talk many times because the concepts are _packed_ with meaning that, upon subsequent rewatching, continues to shape my thinking; it is evergreen content, you should watch both.
+I have returned to both the screencast and talk many times because the concepts are _packed_ with insight that continues to shape my thinking; it is evergreen content, you should watch both.
 
 Gary's insight was that separating the pure from the effectful lets you test what matters and push complexity to the edges. I think we're at a similar inflection point now — but the "shell" has become something far more unpredictable than imperative I/O. The shell is now an LLM.
 
