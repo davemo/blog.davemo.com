@@ -55,7 +55,7 @@ The point I really wanted to make was, since my time at Vendasta, I have _repeat
 
 **If there's a golden hammer I think is actually worth swinging at every codebase, it's definitely state machines.**
 
-(And if this wasn't enough to summon [David K. Piano](https://x.com/DavidKPiano) I don't know what is). 😛
+(And if this wasn't enough to summon [David K. Piano](https://x.com/DavidKPiano), I don't know what is). 😛
 
 ## The pattern keeps showing up
 
