@@ -63,11 +63,11 @@ The point I really wanted to make was, since my time at Vendasta, I have _repeat
 
 ## The pattern keeps showing up
 
-About 5 years ago I was working at [SurveyMonkey](https://www.surveymonkey.com/) as part of the Analyze team. The application was composed of a few pieces that fit together in a workflow, roughly: 
+Five years ago I was working at [SurveyMonkey](https://www.surveymonkey.com/) as part of the Analyze team. The survey product was composed of a few pieces that fit together in a workflow: 
 
 `Design -> Preview -> Collect -> Analyze -> Present`
 
-At the time, my team was tasked with coming up with a vision for how we could improve the Analyze Experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated [Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/) due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. 
+At the time, my team was tasked with coming up with a vision for how we could improve the Analyze experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated [Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/) due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. 
 
 Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of "the framework" open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using [XState](https://xstate.js.org/) `v4.26.1` during one of our hackathons, and I recall thinking:
 
@@ -140,7 +140,7 @@ SurveyTakingClassicMachine
 SurveyTakingConversationMachine
 ```
 
-A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, just a voice agent running a state machine. I just didn't have the voice agent yet. My POC was five years too early for the tooling we now have with realtime agentic voice models!
+A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, just a voice agent running a state machine. I just didn't have the voice agent yet.
 
 The POC didn't seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. Maybe the idea was too ahead of its time, maybe XState wasn’t mature enough for the team, or maybe I just wasn’t good at pitching. 😅
 
