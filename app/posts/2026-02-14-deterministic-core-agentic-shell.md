@@ -13,7 +13,7 @@ I have returned to both the screencast and talk many times because the concepts 
 
 Gary's insight was that separating the pure from the effectful lets you test what matters and push complexity to the edges. I think we're at a similar inflection point now — but the "shell" has become something far more unpredictable than imperative I/O. The shell is now an LLM.
 
-## Where I learned state machines
+## Where I Learned State Machines
 
 From ~2008-2011 I worked at my first startup, [Vendasta Technologies](https://www.vendasta.com). They're still around, and doing well, and dare I say had some of the best startup marketing of the 2000's. Seriously just watch this 40 second spot riffing on how we named the company and tell me you didn't laugh out loud …
 
@@ -41,7 +41,7 @@ I want to _underscore_ this was back in **2011**!
 
 <aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
-## Foundations of state machines
+## Foundations of State Machines
 
 Finite state machines trace back to the 1950s and 60s — [Mealy (1955)](https://en.wikipedia.org/wiki/Mealy_machine) and [Moore (1956)](https://en.wikipedia.org/wiki/Moore_machine) formalized the two canonical FSM models, and they became foundational in compiler design, protocol specification, and hardware engineering. Shawn and the team at Vendasta took those ideas and made them practical for web-scale async workflows.
 
@@ -61,7 +61,7 @@ The point I really wanted to make was, since my time at Vendasta, I have _repeat
 
 (And if this wasn't enough to summon [David K. Piano](https://x.com/DavidKPiano), I don't know what is). 😛
 
-## The pattern keeps showing up
+## The Pattern Repeats
 
 Five years ago I was working at [SurveyMonkey](https://www.surveymonkey.com/) as part of the Analyze team. The survey product was composed of a few pieces that fit together in a workflow: 
 
@@ -166,7 +166,7 @@ The trick as I see it is, all these companies want to build "agentic" features a
 
 So, similar to how functional core was Gary's answer to testability in a world full of side effects, my assertion is that state machines are the answer to determinism in the era of AI agents. I have seen time and again that if we draw a larger box around that core and try as hard as possible to shove all the things that are important into it, and into a state machine, that the layers above (both imperative and agentic) become minimized, reducing risk, and making it much easier to verify correctness in the core of the system.
 
-## A pragmatic reference architecture
+## A Pragmatic Reference Architecture
 
 I've been spiking on a project with [Jon Girard](https://www.linkedin.com/in/jon-girard-8239988b/) and [Michael Timko](https://www.linkedin.com/in/miketimko/) and applying these ideas — the heritage from van Gurp & Bosch, the configuration-driven approach from Fantasm, the machine-as-source-of-truth thinking from my SurveyMonkey POC — and it is proving highly effective at validating **deterministic core, agentic shell**. 
 
@@ -277,7 +277,7 @@ export const sessionMachine = setup({
 
 The guard (`isValidId`) is a pure function. The actions are deterministic assignments. The transitions are explicit. You can unit test this without any LLM, any network, any voice connection. Deterministic core.
 
-## The Bridge: tools that connect agent to machine
+## Bridge: Tools That Connect Agent to Machine
 
 The LLM doesn't decide if the user is verified. The machine does. A Mastra [tool](https://mastra.ai/docs/agents/using-tools) is the thin bridge between them:
 
@@ -312,7 +312,7 @@ export const verifyIdentityTool = createTool({
 
 The tool translates what the agent heard into a machine event, and reports the machine's verdict back. The agent can be "creative" with language (still working on this part, so YMMV here); the machine is authoritative on state.
 
-## The Orchestration: machine state drives the agent
+## Orchestration: Machine State Drives the Agent
 
 This is where things get fun; dynamic tool swapping. The agent's capabilities — both its instructions and its available tools — expand and contract based on the deterministic core's state:
 
@@ -366,7 +366,7 @@ agent.voice.on("tool-call-result", (data) => {
 
 The machine transition (`greeting` → `verified`) is deterministic and testable. The _consequence_ of that transition — swapping out the agent's entire instruction set and available tools — is where the agentic shell gets reconfigured, and is also deterministic and testable.
 
-## Scaling this up: a real voice workflow
+## Scaling: A Real Voice Workflow
 
 The code above is simple on purpose, but early tests and spikes have me confident that the pattern works. Imagine a production voice agent where callers dial in and speak to an AI assistant to complete a multi-step workflow over the phone:
 
