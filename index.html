@@ -37,7 +37,7 @@
 <p>About 5 years ago I was working at <a href="https://www.surveymonkey.com/">SurveyMonkey</a> as part of the Analyze team. The application was composed of a few pieces that fit together in a workflow, roughly: </p>
 <p><code>Design -&gt; Preview -&gt; Collect -&gt; Analyze -&gt; Present</code></p>
 <p>At the time, my team was tasked with coming up with a vision for how we could improve the Analyze Experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated <a href="https://htmx.org/essays/locality-of-behaviour/">Locality of Behaviour</a> due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. </p>
-<p>Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of “the framework” open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using <a href="https://xstate.js.org/">XState</a> v4.26.1 during one of our hackathons, and I recall thinking:</p>
+<p>Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of “the framework” open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using <a href="https://xstate.js.org/">XState</a> <code>v4.26.1</code> during one of our hackathons, and I recall thinking:</p>
 <blockquote>
 <p>this entire workflow, end to end, feels like it should be a state machine, what would it look like if we had survey creators use a GUI to produce a state machine definition that we could serialize in our db as the source of truth, and then when survey takers go to take the survey, we reinflate that definition and have them run it live in their browser</p>
 </blockquote>
@@ -102,7 +102,7 @@ SurveyTakingConversationMachine</span>
 <blockquote>
 <p>FSMAction components are instantiated, configured and saved to a file using serialization. The saved files are referred to from the XML file as .ser files. When the framework is configured the .ser files are deserialized and plugged into the FSM framework.</p>
 </blockquote>
-<p>The round-trip from database to runtime and back that they were building with <code>XML</code> and <code>.ser</code> files is the same round-trip XState v5 gives you with <code>JSON</code> and <code>getPersistedSnapshot()</code> — same architectural instinct, 25 years apart.</p>
+<p>The round-trip from database to runtime and back that they were building with <code>XML</code> and <code>.ser</code> files is the same round-trip XState <code>v5</code> gives you with <code>JSON</code> and <code>getPersistedSnapshot()</code> — same architectural instinct, 25 years apart.</p>
 <h2 id="deterministic-core-agentic-shell">Deterministic Core, Agentic Shell</h2>
 <p>I keep coming back to this idea of core/shell as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.</p>
 <p>Which brings me back to where I started: Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. </p>
