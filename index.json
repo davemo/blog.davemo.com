@@ -15,7 +15,7 @@
       "id": "https://blog.davemo.com/posts/2026-02-14-deterministic-core-agentic-shell.html",
       "url": "https://blog.davemo.com/posts/2026-02-14-deterministic-core-agentic-shell.html",
       "title": "Deterministic Core, Agentic Shell",
-      "summary": "How do you make AI agents deterministic? Put a state machine at the core. A practical guide to the 'deterministic core, agentic shell' pattern with XState and Mastra.",
+      "summary": "How do you make AI agents deterministic? Put a state machine at the core. A pragmatic architecture pattern for AI agents using Mastra and XState.",
       "date_published": "2026-02-14T00:00:00.000Z",
       "authors": [
         {
