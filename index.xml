@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 16 Feb 2026 18:03:17 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Deterministic Core, Agentic Shell]]></title><description><![CDATA[<aside class="tldr">State machines are the answer for those seeking determinism in the era of AI agents.</aside>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[David Mosher's Blog]]></title><description><![CDATA[thoughts on software, music, design, and meaning]]></description><link>https://blog.davemo.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 16 Feb 2026 18:10:35 GMT</lastBuildDate><atom:link href="https://blog.davemo.com/index.xml" rel="self" type="application/rss+xml"/><author><![CDATA[David Mosher]]></author><item><title><![CDATA[Deterministic Core, Agentic Shell]]></title><description><![CDATA[<aside class="tldr">State machines are the answer for those seeking determinism in the era of AI agents.</aside>
 
 <p>The release of Gary Bernhardt’s screencast <a href="https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell">Functional Core, Imperative Shell</a> mentioned at the end of his talk <a href="https://www.destroyallsoftware.com/talks/boundaries">Boundaries</a> was a transformational moment for me. Up until that point in my career, I hadn’t really thought too much about “architecture” as it relates to software, well at least not in the way I had heard software architects speak about it, which was, to my eager-but-naive ears, filled with a bunch of buzzwords and acronyms that I did not understand.</p>
 <p>I have returned to both the screencast and talk many times because the concepts are <em>packed</em> with wisdom that continues to shape my thinking; it is evergreen content, you should watch both.</p>
 <p>Gary’s insight was that separating the pure from the effectful lets you test what matters and push complexity to the edges. I think we’re at a similar inflection point now — but the “shell” has become something far more unpredictable than imperative I/O. The shell is now an LLM.</p>
-<h2 id="where-i-learned-state-machines">Where I learned state machines</h2>
+<h2 id="where-i-learned-state-machines">Where I Learned State Machines</h2>
 <p>From ~2008-2011 I worked at my first startup, <a href="https://www.vendasta.com">Vendasta Technologies</a>. They’re still around, and doing well, and dare I say had some of the best startup marketing of the 2000’s. Seriously just watch this 40 second spot riffing on how we named the company and tell me you didn’t laugh out loud …</p>
 <iframe id="vendasta-name" width="100%" height="350" src="https://www.youtube.com/embed/ntT7v47RIds" frameborder="0" allowfullscreen></iframe>
 
@@ -22,7 +22,7 @@
 <p><img src="/img/deterministic-core-agentic-shell/mashedin-circa-2011.png" alt="MashedIn Circa 2011"></p>
 <aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
-<h2 id="foundations-of-state-machines">Foundations of state machines</h2>
+<h2 id="foundations-of-state-machines">Foundations of State Machines</h2>
 <p>Finite state machines trace back to the 1950s and 60s — <a href="https://en.wikipedia.org/wiki/Mealy_machine">Mealy (1955)</a> and <a href="https://en.wikipedia.org/wiki/Moore_machine">Moore (1956)</a> formalized the two canonical FSM models, and they became foundational in compiler design, protocol specification, and hardware engineering. Shawn and the team at Vendasta took those ideas and made them practical for web-scale async workflows.</p>
 <p>Fantasm’s FSM implementation was inspired by a later paper, published in 1999 by Jilles van Gurp and Jan Bosch: <a href="http://www.jillesvangurp.com/static/fsm-sea99.pdf">On the Implementation of Finite State Machines</a>, and a talk by Brett Slatkin at Google I/O 2010 titled <a href="https://www.youtube.com/watch?v=zSDC_TU7rtc">Building high-throughput data pipelines with Google AppEngine</a>.</p>
 <iframe id="slatkin-talk" width="100%" height="350" src="https://www.youtube.com/embed/zSDC_TU7rtc" frameborder="0" allowfullscreen></iframe>
@@ -33,7 +33,7 @@
 <p>The point I really wanted to make was, since my time at Vendasta, I have <em>repeatedly</em> returned to the concepts of finite state machines, and often found myself migrating business logic that was in the form of a poorly-specified-hidden-half-baked state machine into an actual state machine with transitions, guards, and easily unit-tested logic. </p>
 <p><strong>If there’s a golden hammer I think is actually worth swinging at every codebase, it’s definitely state machines.</strong></p>
 <p>(And if this wasn’t enough to summon <a href="https://x.com/DavidKPiano">David K. Piano</a>, I don’t know what is). 😛</p>
-<h2 id="the-pattern-keeps-showing-up">The pattern keeps showing up</h2>
+<h2 id="the-pattern-repeats">The Pattern Repeats</h2>
 <p>Five years ago I was working at <a href="https://www.surveymonkey.com/">SurveyMonkey</a> as part of the Analyze team. The survey product was composed of a few pieces that fit together in a workflow: </p>
 <p><code>Design -&gt; Preview -&gt; Collect -&gt; Analyze -&gt; Present</code></p>
 <p>At the time, my team was tasked with coming up with a vision for how we could improve the Analyze experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated <a href="https://htmx.org/essays/locality-of-behaviour/">Locality of Behaviour</a> due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. </p>
@@ -109,7 +109,7 @@ SurveyTakingConversationMachine</span>
 <p>Because I lack originality, and I really like Gary, I’m calling it <strong>deterministic core, agentic shell</strong>.</p>
 <p>The trick as I see it is, all these companies want to build “agentic” features and rely heavily on the LLM, which frequently (and rightfully) violate every software engineer’s sensibilities around determinism. Evals, LLM-as-judge, vibes-based-testing, and all of the “rigor” around how to “test” prompts and use of agents is all well and good, but for my money nothing beats the fast feedback loop and confidence of a sufficiently isolated unit test with pure functions.</p>
 <p>So, similar to how functional core was Gary’s answer to testability in a world full of side effects, my assertion is that state machines are the answer to determinism in the era of AI agents. I have seen time and again that if we draw a larger box around that core and try as hard as possible to shove all the things that are important into it, and into a state machine, that the layers above (both imperative and agentic) become minimized, reducing risk, and making it much easier to verify correctness in the core of the system.</p>
-<h2 id="a-pragmatic-reference-architecture">A pragmatic reference architecture</h2>
+<h2 id="a-pragmatic-reference-architecture">A Pragmatic Reference Architecture</h2>
 <p>I’ve been spiking on a project with <a href="https://www.linkedin.com/in/jon-girard-8239988b/">Jon Girard</a> and <a href="https://www.linkedin.com/in/miketimko/">Michael Timko</a> and applying these ideas — the heritage from van Gurp &amp; Bosch, the configuration-driven approach from Fantasm, the machine-as-source-of-truth thinking from my SurveyMonkey POC — and it is proving highly effective at validating <strong>deterministic core, agentic shell</strong>. </p>
 <p>Here’s the broad strokes of what we’ve been working with:</p>
 <pre><code>+--------------------------------------------------+
@@ -205,7 +205,7 @@ SurveyTakingConversationMachine</span>
 });
 </code></pre>
 <p>The guard (<code>isValidId</code>) is a pure function. The actions are deterministic assignments. The transitions are explicit. You can unit test this without any LLM, any network, any voice connection. Deterministic core.</p>
-<h2 id="the-bridge-tools-that-connect-agent-to-machine">The Bridge: tools that connect agent to machine</h2>
+<h2 id="bridge-tools-that-connect-agent-to-machine">Bridge: Tools That Connect Agent to Machine</h2>
 <p>The LLM doesn’t decide if the user is verified. The machine does. A Mastra <a href="https://mastra.ai/docs/agents/using-tools">tool</a> is the thin bridge between them:</p>
 <pre><code class="hljs language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> verifyIdentityTool = <span class="hljs-title function_">createTool</span>({
   <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;verify-identity&quot;</span>,
@@ -235,7 +235,7 @@ SurveyTakingConversationMachine</span>
 });
 </code></pre>
 <p>The tool translates what the agent heard into a machine event, and reports the machine’s verdict back. The agent can be “creative” with language (still working on this part, so YMMV here); the machine is authoritative on state.</p>
-<h2 id="the-orchestration-machine-state-drives-the-agent">The Orchestration: machine state drives the agent</h2>
+<h2 id="orchestration-machine-state-drives-the-agent">Orchestration: Machine State Drives the Agent</h2>
 <p>This is where things get fun; dynamic tool swapping. The agent’s capabilities — both its instructions and its available tools — expand and contract based on the deterministic core’s state:</p>
 <pre><code class="hljs language-typescript"><span class="hljs-comment">// Before verification: agent can ONLY verify</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> preVerificationTools = [
@@ -281,7 +281,7 @@ agent.<span class="hljs-property">voice</span>.<span class="hljs-title function_
 });
 </code></pre>
 <p>The machine transition (<code>greeting</code> → <code>verified</code>) is deterministic and testable. The <em>consequence</em> of that transition — swapping out the agent’s entire instruction set and available tools — is where the agentic shell gets reconfigured, and is also deterministic and testable.</p>
-<h2 id="scaling-this-up-a-real-voice-workflow">Scaling this up: a real voice workflow</h2>
+<h2 id="scaling-a-real-voice-workflow">Scaling: A Real Voice Workflow</h2>
 <p>The code above is simple on purpose, but early tests and spikes have me confident that the pattern works. Imagine a production voice agent where callers dial in and speak to an AI assistant to complete a multi-step workflow over the phone:</p>
 <p><a href="https://telnyx.com">Telnyx</a> handles telephony and streams audio over a WebSocket. <a href="https://mastra.ai">Mastra</a> connects to the <a href="https://developers.openai.com/api/docs/guides/voice-agents/">OpenAI Realtime API</a> for speech-to-speech — the caller speaks naturally and hears natural speech back. The round trip for a single turn looks like this:</p>
 <pre><code><span class="hljs-number">1.</span> Caller speaks
