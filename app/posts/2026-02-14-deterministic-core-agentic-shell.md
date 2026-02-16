@@ -29,13 +29,15 @@ One of the highlights of working at Vendasta was the chance to get exposure to a
 
 An early project the team built called [MashedIn](https://web.archive.org/web/20110808134612/http://www.mashedin.com/) — which mashed your accounts from Twitter, LinkedIn, and Facebook to surface common connections — was where I began to connect the dots on these concepts.
 
-MashedIn needed async workflows — fan-out across multiple social media APIs, reconciliation, deduplication — and the team built an async state-machine workflow engine in Python called **Fantasm** to power them. I recall eagerly watching demos and listening to Shawn speak about how it all fit together. It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company, and Shawn, Kevin, and Jason were instrumental in making it happen on the beta version of AppEngine (what would eventually become GCP).
+MashedIn needed async workflows — fan-out across multiple social media APIs, reconciliation, deduplication — and the team built an async state-machine workflow engine in Python called **Fantasm** to power them. I recall eagerly watching demos and listening to Shawn speak about how it all fit together.
+
+It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company, and Shawn, Kevin, and Jason were instrumental in making it happen on the beta version of AppEngine (what would eventually become a part of GCP).
 
 ![MashedIn Circa 2011](/img/deterministic-core-agentic-shell/mashedin-circa-2011.png)
 
 <aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
-It got so popular at the time that it was featured on the App Engine blog, you can still [read about it on the Google Cloud Platform blog](https://cloudplatform.googleblog.com/2011/03/implementing-workflows-on-app-engine.html) and see [how it has evolved on GitHub.](https://github.com/vendasta/fantasm/tree/master)
+It got so popular at the time that it was [featured on the App Engine blog](https://cloudplatform.googleblog.com/2011/03/implementing-workflows-on-app-engine.html). You can see [how it has evolved on GitHub.](https://github.com/vendasta/fantasm/tree/master)
 
 I want to _underscore_ this was back in **2011**!
 
@@ -47,7 +49,9 @@ Fantasm's FSM implementation was inspired by a later paper, published in 1999 by
 
 <iframe id="vendasta-name" width="100%" height="350" src="https://www.youtube.com/embed/zSDC_TU7rtc" frameborder="0" allowfullscreen></iframe>
 
-I re-read the [paper](http://www.jillesvangurp.com/static/fsm-sea99.pdf) this morning, and what struck me was how much it anticipates what came later. Their assessment section walks through how easy it is to add a new state — you just add a line of XML and retarget some transitions. Their future work section even calls out conditional transitions ("transitions that only occur if the trigger event occurs and the condition holds true") and Statechart support ("normal FSMs + nesting + orthogonality + broadcasting events") — which is literally what [XState](https://xstate.js.org/) implements today with guards, nested states, parallel states, and the `sendTo/raise` event system. 
+I re-read the [paper](http://www.jillesvangurp.com/static/fsm-sea99.pdf) this morning, and what struck me was how much it anticipates what came later. Their assessment section walks through how easy it is to add a new state — you just add a line of XML and retarget some transitions. 
+
+Their future work section even calls out conditional transitions ("transitions that only occur if the trigger event occurs and the condition holds true") and Statechart support ("normal FSMs + nesting + orthogonality + broadcasting events") — which is literally what [XState](https://xstate.js.org/) implements today with guards, nested states, parallel states, and the `sendTo/raise` event system. 
 
 They also call out the need for "tracing and debugging tools" to keep track of what's happening in the context — which is pretty much where XState's [Stately Inspector](https://stately.ai/docs/inspector) and [Stately Studio](https://stately.ai/docs/studio) have landed, giving you live statechart visualizations and sequence diagrams, but I digress.
 
@@ -118,7 +122,9 @@ const surveyTakingMachine = Machine({
 })
 ```
 
-The builder ("config") side dynamically generated these machine configs from user input. You'd add questions in a UI, define answer options, and input branching logic as a text expression like `Q1 = C2 => SKIP TO P3` (if Question 1, Choice 2 is selected, skip to Page 3). Obviously this was a POC — a production version would need a more robust expression language — but for the purposes of proving the concept it was sufficient. Every change regenerated the machine config in real-time — you could see the JSON update as you built. The config was then serialized to storage.
+The builder ("config") side dynamically generated these machine configs from user input. You'd add questions in a UI, define answer options, and input branching logic as a text expression like `Q1 = C2 => SKIP TO P3` (if Question 1, Choice 2 is selected, skip to Page 3).
+
+Obviously this was a POC — a production version would need a more robust expression language — but for the purposes of proving the concept it was sufficient. Every change regenerated the machine config in real-time — you could see the JSON update as you built. The config was then serialized to storage.
 
 ![The survey builder](/img/deterministic-core-agentic-shell/xstate-survey-builder.png)
 
@@ -126,7 +132,7 @@ The survey taker doesn't know there's a state machine. They just see questions, 
 
 ![The survey taker + debug](/img/deterministic-core-agentic-shell/xstate-survey-taker.png)
 
-Looking back, my design notes from the time hint at where I thought it could go:
+My design notes from the time are interesting to revisit in the age of AI:
 
 ```
 SurveyTakingOneAtATimeMachine
@@ -150,7 +156,7 @@ The round-trip from database to runtime and back that they were building with `X
 
 ## Deterministic Core, Agentic Shell
 
-Anyways, I keep coming back to this idea as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.
+I keep coming back to this idea of core/shell as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.
 
 Which brings me back to where I started: Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. 
 
@@ -162,7 +168,9 @@ So, similar to how functional core was Gary's answer to testability in a world f
 
 ## What this looks like in practice
 
-I've been spiking on a project with [Jon Girard](https://www.linkedin.com/in/jon-girard-8239988b/) and [Michael Timko](https://www.linkedin.com/in/miketimko/) and applying these ideas — the heritage from van Gurp & Bosch, the configuration-driven approach from Fantasm, the machine-as-source-of-truth thinking from my SurveyMonkey POC — and it is proving highly effective at validating **deterministic core, agentic shell**. Here's the broad strokes of what we've been working with:
+I've been spiking on a project with [Jon Girard](https://www.linkedin.com/in/jon-girard-8239988b/) and [Michael Timko](https://www.linkedin.com/in/miketimko/) and applying these ideas — the heritage from van Gurp & Bosch, the configuration-driven approach from Fantasm, the machine-as-source-of-truth thinking from my SurveyMonkey POC — and it is proving highly effective at validating **deterministic core, agentic shell**. 
+
+Here's the broad strokes of what we've been working with:
 
 ```
 +--------------------------------------------------+
@@ -356,9 +364,7 @@ agent.voice.on("tool-call-result", (data) => {
 });
 ```
 
-The machine transition (`greeting` → `verified`) is deterministic and testable. The _consequence_ of that transition — swapping out the agent's entire instruction set and available tools — is where the agentic shell gets reconfigured, and is also deterministic and testable. 
-
-The machine is the skeleton; the agent is the muscle; and the muscle can only move the way the skeleton allows.
+The machine transition (`greeting` → `verified`) is deterministic and testable. The _consequence_ of that transition — swapping out the agent's entire instruction set and available tools — is where the agentic shell gets reconfigured, and is also deterministic and testable.
 
 ## Scaling this up: a real voice workflow
 
