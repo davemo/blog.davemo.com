@@ -152,7 +152,7 @@ In 1999, van Gurp & Bosch were solving the same problem with XML and Java serial
 
 > FSMAction components are instantiated, configured and saved to a file using serialization. The saved files are referred to from the XML file as .ser files. When the framework is configured the .ser files are deserialized and plugged into the FSM framework.
 
-The round-trip from database to runtime and back that they were building with `XML` and `.ser` files is the same round-trip XState `v5` gives you with `JSON` and `getPersistedSnapshot()` — same architectural instinct, 25 years apart.
+The round-trip from database to runtime and back that they were building with `XML` and `.ser` files is the same round-trip XState `v5` gives you with `JSON` and `getPersistedSnapshot()`.
 
 ## Deterministic Core, Agentic Shell
 
