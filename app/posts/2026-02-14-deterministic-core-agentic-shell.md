@@ -65,7 +65,7 @@ About 5 years ago I was working at [SurveyMonkey](https://www.surveymonkey.com/)
 
 At the time, my team was tasked with coming up with a vision for how we could improve the Analyze Experience for users; it had been built with a custom JavaScript framework that was difficult to follow, frequently violated [Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/) due to sprawl, had very fuzzy architectural boundaries, and made heavy use of event-driven architecture that was opaque. 
 
-Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of "the framework" open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using [xState](https://xstate.js.org/) v4.26.1 during one of our hackathons, and I recall thinking:
+Events fired randomly, state changed, and debugging was an exercise in frustration, requiring a detailed specification of "the framework" open and a lot of trial and error to trace code execution when debugging. I ended up building a proof-of-concept using [XState](https://xstate.js.org/) v4.26.1 during one of our hackathons, and I recall thinking:
 
 > this entire workflow, end to end, feels like it should be a state machine, what would it look like if we had survey creators use a GUI to produce a state machine definition that we could serialize in our db as the source of truth, and then when survey takers go to take the survey, we reinflate that definition and have them run it live in their browser
 
@@ -77,7 +77,7 @@ Simple enough to explain, but it maps perfectly to a state machine: each questio
 
 <aside>This is pretty much the same kind of conditional transition that van Gurp & Bosch flagged as "hard to implement in an OO way" in the future work section of their whitepaper. They suggested using the <a href='https://refactoring.guru/design-patterns/command'>Command pattern</a> from the Gang of Four to create condition objects — XState has <a href='https://stately.ai/docs/guards'>guards</a> as a first-class concept. Same problem, solved 20 years later with a cleaner primitive.</aside>
 
-Because I like code, here's the core of the POC (syntax is `xState v4`, so it's old and out of date compared to `v5`, but illustrative enough to get the gist):
+Because I like code, here's the core of the POC (syntax is XState `v4`, so it's old and out of date compared to `v5`, but illustrative enough to get the gist):
 
 ```javascript
 // xstate v4 syntax from ~5 years ago
