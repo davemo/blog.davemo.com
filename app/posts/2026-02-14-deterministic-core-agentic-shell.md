@@ -22,14 +22,16 @@ From ~2008-2011 I worked at my first startup, [Vendasta Technologies](https://ww
 The beauty of startups is twofold in my mind: you get to work with great people and you are forced to wear many hats. A few of those great people are folks who I deeply respect and admire, who have all gone onto greater things:
 
 - [Kevin Pierce](https://www.linkedin.com/in/kevpie/) was the person who got me into software development as a career in the first place and graciously spent time mentoring me at coffee-shops in Saskatoon, SK, answering all of my questions and helping me connect the dots when all I really knew was web frontend tech.
-- [Shawn Rusaw](https://www.linkedin.com/in/shawnrusaw/) introduced me to the idea of expressing workflows and logic via finite state machines (FSMs) through work on an early Vendasta project called [MashedIn](https://web.archive.org/web/20110808134612/http://www.mashedin.com/) that mashed together your accounts from Twitter, LinkedIn, and Facebook and surfaced common connections.
-- [Jason Collins](https://www.linkedin.com/in/jasonacollins/) was the CTO who led all of our teams and made all of the crazy ideas come to life knowing exactly how to put all the pieces together.
+- [Shawn Rusaw](https://www.linkedin.com/in/shawnrusaw/) introduced me to the idea of expressing workflows and logic via finite state machines (FSMs) and did deep research into whitepapers on FSM architecture that shaped how our team built systems.
+- [Jason Collins](https://www.linkedin.com/in/jasonacollins/) was the CTO who led all of our teams and made all of the experimental ideas come to life knowing exactly how to put all the pieces together.
 
-One of the highlights of working at Vendasta was the chance to get exposure to all of these great ideas and see how powerful and simple they were; a lot of Shawn's research into FSMs dug into whitepapers from the past and I recall eagerly watching demos and listening to him speak about how the team had created an async state-machine workflow engine in Python called **Fantasm** that was powering all the async workflows that made **MashedIn** click.
+One of the highlights of working at Vendasta was the chance to get exposure to a ton of ideas; state machines resonated with me in particular because of how elegantly they enabled complex workflows to be built on top of simple concepts.
+
+An early project the team built called [MashedIn](https://web.archive.org/web/20110808134612/http://www.mashedin.com/) — which mashed your accounts from Twitter, LinkedIn, and Facebook to surface common connections — was where I began to connect the dots on these concepts.
+
+MashedIn needed async workflows — fan-out across multiple social media APIs, reconciliation, deduplication — and the team built an async state-machine workflow engine in Python called **Fantasm** to power them. I recall eagerly watching demos and listening to Shawn speak about how it all fit together. It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company, and Shawn, Kevin, and Jason were instrumental in making it happen on the beta version of AppEngine (what would eventually become GCP).
 
 ![MashedIn Circa 2011](/img/deterministic-core-agentic-shell/mashedin-circa-2011.png)
-
-It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company and Shawn, Kevin, and Jason were instrumental in seeing it come to life and power our little experimental social network mashup app on the beta version of what would become GCP.
 
 <aside>I have fond memories of debugging early versions of AppEngine, trying to figure out whether it made more sense to use Google's thin <a href='https://thescoop.org/archives/2010/02/23/a-gentle-introduction-to-google-app-engine'>webapp</a> framework or fight with Django; fun times.</aside>
 
@@ -53,7 +55,7 @@ The point I really wanted to make was, since my time at Vendasta, I have _repeat
 
 **If there's a golden hammer I think is actually worth swinging at every codebase, it's definitely state machines.**
 
-(And if this wasn't enough to summon [David K. Piano](https://x.com/DavidKPiano), I don't know what is). 😛
+(And if this wasn't enough to summon [David K. Piano](https://x.com/DavidKPiano) I don't know what is). 😛
 
 ## The pattern keeps showing up
 
@@ -132,19 +134,25 @@ SurveyTakingClassicMachine
 SurveyTakingConversationMachine
 ```
 
-A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, just a voice agent running a state machine. My POC was five years too early for the tooling we now have with realtime agentic voice models!
+A conversational survey (`SurveyTakingConversationMachine`) is, in hindsight, just a voice agent running a state machine. I just didn't have the voice agent yet. My POC was five years too early for the tooling we now have with realtime agentic voice models!
 
-The POC didn't seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. One reason may be that `xState v4` had not yet formalized use of the Actor model — that came with `xState v5`, released in late 2023. The Actor model fits beautifully on top of a state machine: if the machine definition is a JSON blob serialized in your database, inflated at runtime, then the Actor is the user working their way through the states, guards, and actions defined by the machine. 
+The POC didn't seem to get much traction internally, which had me scratching my head — the approach seemed like such a natural fit to me. Maybe the idea was too ahead of its time, maybe XState wasn’t mature enough for the team, or maybe I just wasn’t good at pitching. 😅
 
-With `v5`, XState made this explicit — every running machine _is_ an actor, and you get `getPersistedSnapshot()` to serialize the full actor state and restore it later with `createActor(machine, { snapshot: restored })`. Will you look at that, the round-trip from database to runtime and back that the van Gurp & Bosch paper was gesturing at with their XML serialization and FSM instantiation patterns, just with JSON instead of `.ser` files!
+A more likely reason is that my POC hadn't fully solved the serialization/runtime challenges; I had conceptualized how it would work as a machine definition as a JSON blob serialized in your database and inflated at runtime, but I didn't show how that could happen aside from a basic demo using `localStorage`.
 
-Maybe the idea was too ahead of its time, maybe xState wasn't mature enough, or maybe I just wasn't good at pitching. 😅
+XState `v4` had not yet formalized use of the Actor model, which sits beautifully on top of a state machine; in `v5`, XState made this explicit — every running machine _is_ an actor, and you get `getPersistedSnapshot()` to serialize the full actor state and restore it later with `createActor(machine, { snapshot: restored })`. 
+
+In 1999, van Gurp & Bosch were solving the same problem with XML and Java serialization:
+
+> FSMAction components are instantiated, configured and saved to a file using serialization. The saved files are referred to from the XML file as .ser files. When the framework is configured the .ser files are deserialized and plugged into the FSM framework.
+
+The round-trip from database to runtime and back that they were building with `XML` and `.ser` files is the same round-trip XState v5 gives you with `JSON` and `getPersistedSnapshot()` — same architectural instinct, 25 years apart.
 
 ## Deterministic Core, Agentic Shell
 
-Anyways, fast forward to now, and I keep coming back to this idea as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.
+Anyways, I keep coming back to this idea as I repeatedly see the pattern of legacy applications that could be vastly simplified by using a state machine in the core.
 
-Which brings me back to where I started with this brain dump: Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. 
+Which brings me back to where I started: Gary defined the functional core and imperative shell as a pattern that informed the type of code and approach to testing that I have seen work extremely well in practice. I think we are now entering a time where we can apply a similar architectural lens to apps that leverage LLMs. 
 
 Because I lack originality, and I really like Gary, I'm calling it **deterministic core, agentic shell**.
 
@@ -381,7 +389,7 @@ The code above is simple on purpose, but early tests and spikes have me confiden
    → Mastra → Hono API → WebSocket → Telnyx → phone
 ```
 
-The agentic shell (Mastra + OpenAI) handles everything about the _conversation_ — hearing the caller, interpreting speech, generating natural responses, handling "ums" and false starts and off-topic questions. (TBD how well it does at adhering to this, early signs are good though). Also, one happy finding was that the OpenAI realtime voice model supports interruptions and bi-directional voice communication. Very cool.
+The agentic shell (Mastra + OpenAI) handles everything about the _conversation_ — hearing the caller, interpreting speech, generating natural responses, handling "ums" and false starts and off-topic questions. Early signs are good, and one happy finding: the OpenAI realtime voice model supports interruptions and bi-directional voice communication out of the box.
 
 The deterministic core (XState) handles everything about the _workflow_ — what state we're in, what's valid, what happens next. The tools are the membrane between them.
 
@@ -453,15 +461,17 @@ The system prompt also tells the agent _how_ to talk; the machine tells it _when
 
 ## Boundaries
 
-Applying the core/shell lens has helped me think about where the line should live that demarcates the boundary between agent and state machine, and we are now in a world where it is trivial to produce working concepts that can validate where that line should be in short order.
+Applying the core/shell lens has helped me think about where to draw the boundary between agent and state machine, and we are now in a world where it is trivial to produce working concepts that can validate where that line should be.
 
-One way you might think about this — and where I started initially — is something like "let's start with one Mastra tool, `getMachine`, and the only thing it was able to do was get the next state from the machine." This is a decent place to start, but kind of fell over in short order because there's some amount of non-determinism you need in order for an agentic voice solution to work well — the agent needs to interpret messy human speech, handle interruptions, deal with off-topic questions, and generally be flexible about _how_ it gets the information the machine needs.
+One way you might think about this is something like "let's start with one Mastra tool, `getMachine`, and the only thing it was able to do was get the next state from the machine." This is a decent place to start, but kind of fell over in short order because there's some amount of non-determinism you need in order for an agentic voice solution to work well — the agent needs to interpret messy human speech, handle interruptions, deal with off-topic questions, and generally be flexible about _how_ it gets the information the machine needs.
 
 What I've found works better is more guard-rails in the system prompt for the tools and workflow, but the principle of having the agent calling the machine to figure out what's possible and constrain the states and tools that can be called next has proven extremely valuable. 
 
 The primary motivation should immediately be clear: **get to determinism as fast as possible.**
 
-The voice agent interprets the caller's input (non-deterministic), figures out what they're trying to do (non-deterministic), and then immediately hands off to the machine (deterministic). The machine decides what's valid, what the next step is, and what tools become available. The agent gets back a structured result and turns it into natural speech (non-deterministic again). The non-deterministic parts are _thin_ — the deterministic core is _thick_ and does the actual work. (Are we back to thin client thick client again?) 😉
+The voice agent interprets the caller's input (non-deterministic), figures out what they're trying to do (non-deterministic), and then immediately hands off to the machine (deterministic). The machine decides what's valid, what the next step is, and what tools become available. The agent gets back a structured result and turns it into natural speech (non-deterministic again).
+
+The non-deterministic parts are _thin_ — the deterministic core is _thick_ and does the actual work.
 
 ## The through-line
 
