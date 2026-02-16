@@ -9,7 +9,7 @@ social_img: "/img/deterministic-core-agentic-shell/social-card.png"
 
 The release of Gary Bernhardt's screencast [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell) mentioned at the end of his talk [Boundaries](https://www.destroyallsoftware.com/talks/boundaries) was a transformational moment for me. Up until that point in my career, I hadn't really thought too much about "architecture" as it relates to software, well at least not in the way I had heard software architects speak about it, which was, to my eager-but-naive ears, filled with a bunch of buzzwords and acronyms that I did not understand.
 
-I have returned to both the screencast and talk multiple times in my career because the concepts are _packed_ with meaning that, upon subsequent rewatching, continues to shape my thinking at each stage of my software journey; it is evergreen content, you should watch both.
+I have returned to both the screencast and talk many times because the concepts are _packed_ with meaning that, upon subsequent rewatching, continues to shape my thinking; it is evergreen content, you should watch both.
 
 Gary's insight was that separating the pure from the effectful lets you test what matters and push complexity to the edges. I think we're at a similar inflection point now — but the "shell" has become something far more unpredictable than imperative I/O. The shell is now an LLM.
 
@@ -33,7 +33,7 @@ MashedIn needed async workflows — fan-out across multiple social media APIs, r
 
 It was the first thing we [open-sourced](https://code.google.com/archive/p/fantasm/) as a company, and Shawn, Kevin, and Jason were instrumental in making it happen on the beta version of AppEngine (what would eventually become a part of GCP).
 
-It got so popular at the time that it was [featured on the App Engine blog](https://cloudplatform.googleblog.com/2011/03/implementing-workflows-on-app-engine.html). You can see [how it has evolved on GitHub.](https://github.com/vendasta/fantasm/tree/master)
+It got so popular at the time that it was [featured on the AppEngine blog](https://cloudplatform.googleblog.com/2011/03/implementing-workflows-on-app-engine.html). You can see [how it has evolved on GitHub.](https://github.com/vendasta/fantasm/tree/master)
 
 I want to _underscore_ this was back in **2011**!
 
@@ -45,9 +45,9 @@ I want to _underscore_ this was back in **2011**!
 
 Finite state machines trace back to the 1950s and 60s — [Mealy (1955)](https://en.wikipedia.org/wiki/Mealy_machine) and [Moore (1956)](https://en.wikipedia.org/wiki/Moore_machine) formalized the two canonical FSM models, and they became foundational in compiler design, protocol specification, and hardware engineering. Shawn and the team at Vendasta took those ideas and made them practical for web-scale async workflows.
 
-Fantasm's FSM implementation was inspired by a later paper, published in 1999 by Jilles van Gurp and Jan Bosch: [On the Implementation of Finite State Machines](http://www.jillesvangurp.com/static/fsm-sea99.pdf), and a talk by Brett Slatkin at Google IO 2010 titled [Building high-throughput data pipelines with Google App Engine](https://www.youtube.com/watch?v=zSDC_TU7rtc).
+Fantasm's FSM implementation was inspired by a later paper, published in 1999 by Jilles van Gurp and Jan Bosch: [On the Implementation of Finite State Machines](http://www.jillesvangurp.com/static/fsm-sea99.pdf), and a talk by Brett Slatkin at Google I/O 2010 titled [Building high-throughput data pipelines with Google AppEngine](https://www.youtube.com/watch?v=zSDC_TU7rtc).
 
-<iframe id="vendasta-name" width="100%" height="350" src="https://www.youtube.com/embed/zSDC_TU7rtc" frameborder="0" allowfullscreen></iframe>
+<iframe id="slatkin-talk" width="100%" height="350" src="https://www.youtube.com/embed/zSDC_TU7rtc" frameborder="0" allowfullscreen></iframe>
 
 I re-read the [paper](http://www.jillesvangurp.com/static/fsm-sea99.pdf) this morning, and what struck me was how much it anticipates what came later. Their assessment section walks through how easy it is to add a new state — you just add a line of XML and retarget some transitions. 
 
@@ -378,7 +378,7 @@ The code above is simple on purpose, but early tests and spikes have me confiden
 
 2. OpenAI Realtime processes speech
    → Mastra forwards audio to OpenAI
-   → Speech-to-text + LLM reasoning (~90ms latency)
+   → Speech-to-text + LLM reasoning
 
 3. LLM calls a tool
    → take_action({ action: "SUBMIT_ID", params: { id: "123456" } })
